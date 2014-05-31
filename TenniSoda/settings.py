@@ -73,7 +73,7 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD':'root',
         'HOST': 'localhost',
-        'PORT': ''3306','
+        'PORT': '3306',
     }
 }
 
@@ -100,6 +100,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS=(
     ('assets', os.path.join(os.getcwd(),'static/')),        
 )
+
+MEDIA_ROOT = os.path.join(PROJECT_DIR,'static/')
 
 LOGGING = {
     'version':1,
