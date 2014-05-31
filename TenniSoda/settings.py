@@ -47,6 +47,9 @@ INSTALLED_APPS = (
     'account',
     'userprofile',
     'notification',
+    'game',
+    'court',
+    'city',
 )
 
 MIDDLEWARE_CLASSES = (
