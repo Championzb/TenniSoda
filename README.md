@@ -7,7 +7,7 @@ We use south for migiration
 
 account used for the user login
 
-userprofile used for the user profile manage
+account.userprofile used for the user profile manage
 
 notification used for the notification system
 
