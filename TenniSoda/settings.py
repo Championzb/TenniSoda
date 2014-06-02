@@ -45,7 +45,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'south',
     'account',
-    'userprofile',
     'notification',
     'game',
     'court',
@@ -146,4 +145,4 @@ LOGGING = {
     }
 }
 
-AUTH_PROFILE_MODULE = 'userprofile.UserProfile'
+AUTH_PROFILE_MODULE = 'accounts.UserProfile'
