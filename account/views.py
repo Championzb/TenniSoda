@@ -63,4 +63,8 @@ def invalid_login(request):
 
 def logout(request):
     auth.logout(request)
-    return render_to_response('login.html')
+
+    args = {}
+    args.update(csrf(request))
+
+    return render_to_response('login.html', args)

@@ -133,3 +133,9 @@ Traceback (most recent call last):
   File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 118, in get_callable
     (lookup_view, mod_name))
 ViewDoesNotExist: Could not import account.views.logout. View does not exist in module account.views.
+2014-06-02 22:35:31,086 [WARNING] django.request: Forbidden (CSRF token missing or incorrect.): /account/auth/
+2014-06-02 22:35:45,179 [WARNING] django.request: Forbidden (CSRF token missing or incorrect.): /account/auth/
+2014-06-02 22:35:52,113 [WARNING] django.request: Forbidden (CSRF token missing or incorrect.): /account/auth/
+2014-06-02 22:37:02,143 [WARNING] django.request: Forbidden (CSRF token missing or incorrect.): /account/auth/
+2014-06-02 22:38:08,249 [WARNING] django.request: Not Found: /account/loging
+2014-06-02 22:40:08,448 [WARNING] django.request: Forbidden (CSRF token missing or incorrect.): /account/auth/
