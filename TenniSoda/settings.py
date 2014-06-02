@@ -145,4 +145,6 @@ LOGGING = {
     }
 }
 
-AUTH_PROFILE_MODULE = 'accounts.UserProfile'
+AUTH_USER_MODEL = 'account.Account'
+
+AUTH_PROFILE_MODULE = 'account.UserProfile'
