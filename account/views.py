@@ -3,6 +3,8 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib import auth
 from django.core.context_processors import csrf
 from django.contrib.auth.decorators import login_required
+from forms import UserProfileForm
+
 
 from admin import UserCreationForm
 
@@ -68,3 +70,22 @@ def logout(request):
     #args.update(csrf(request))
 
     return render_to_response('login.html', args)
+
+@login_required
+def change_profile(request):
+	if request.method == 'POST':
+		form = UserProfileForm(request.POST, instance = request.user.profile,)
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect('/account/welcome_user')
+	else:
+		user = request.user
+		profile = user.profile
+		form = UserProfileForm(instance=profile,initial={'phone':profile.phone})	
+
+	args = {}
+	args.update(csrf(request))
+	
+	args['form'] = form
+	
+	return render_to_response('profile.html',args)

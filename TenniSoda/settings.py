@@ -50,6 +50,7 @@ INSTALLED_APPS = (
     'game',
     'court',
     'city',
+	'localflavor',
 )
 
 MIDDLEWARE_CLASSES = (

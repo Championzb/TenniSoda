@@ -139,8 +139,86 @@ ViewDoesNotExist: Could not import account.views.logout. View does not exist in 
 2014-06-02 22:37:02,143 [WARNING] django.request: Forbidden (CSRF token missing or incorrect.): /account/auth/
 2014-06-02 22:38:08,249 [WARNING] django.request: Not Found: /account/loging
 2014-06-02 22:40:08,448 [WARNING] django.request: Forbidden (CSRF token missing or incorrect.): /account/auth/
+<<<<<<< HEAD
 2014-06-03 19:33:25,121 [WARNING] django.request: Forbidden (CSRF token missing or incorrect.): /account/auth/
 2014-06-03 19:34:14,854 [WARNING] django.request: Not Found: /articles/all
 2014-06-03 19:37:03,437 [WARNING] django.request: Not Found: /accounts/login/
 2014-06-03 19:37:22,293 [WARNING] django.request: Not Found: /accounts/login/
 2014-06-03 19:37:55,999 [WARNING] django.request: Not Found: /articles/all
+=======
+2014-06-03 17:10:31,842 [WARNING] django.request: Not Found: /
+2014-06-03 17:11:58,664 [WARNING] django.request: Not Found: /accout
+2014-06-03 17:12:09,058 [WARNING] django.request: Not Found: /account
+2014-06-03 17:12:19,877 [WARNING] django.request: Not Found: /account/
+2014-06-03 17:27:31,578 [WARNING] django.request: Not Found: /account/
+2014-06-03 17:27:40,114 [ERROR] django.request: Internal Server Error: /account/register/
+Traceback (most recent call last):
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/haochenwu/Documents/TenniSoda/account/views.py", line 34, in register_user
+    return render_to_response('register.html', args)
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/shortcuts/__init__.py", line 29, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 164, in render_to_string
+    return t.render(Context(dictionary))
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 101, in render
+    compiled_parent = self.get_parent(context)
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 98, in get_parent
+    return get_template(parent)
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 138, in get_template
+    template, origin = find_template(template_name)
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 131, in find_template
+    raise TemplateDoesNotExist(name)
+TemplateDoesNotExist: base.html
+2014-06-03 21:41:37,672 [WARNING] django.request: Not Found: /account/profile/
+2014-06-03 22:10:21,670 [ERROR] django.request: Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 337, in resolve
+    for pattern in self.url_patterns:
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 365, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 360, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/Users/haochenwu/Documents/TenniSoda/TenniSoda/urls.py", line 4, in <module>
+    admin.autodiscover()
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/__init__.py", line 29, in autodiscover
+    import_module('%s.admin' % app)
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/Users/haochenwu/Documents/TenniSoda/account/admin.py", line 83, in <module>
+    admin.site.register(Profile)
+NameError: name 'Profile' is not defined
+2014-06-03 22:10:24,180 [ERROR] django.request: Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 337, in resolve
+    for pattern in self.url_patterns:
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 365, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 360, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/Users/haochenwu/Documents/TenniSoda/TenniSoda/urls.py", line 4, in <module>
+    admin.autodiscover()
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/__init__.py", line 29, in autodiscover
+    import_module('%s.admin' % app)
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/Users/haochenwu/Documents/TenniSoda/account/admin.py", line 83, in <module>
+    admin.site.register(Profile)
+NameError: name 'Profile' is not defined
+>>>>>>> adc855ff71d051fa68cd4d6e8b71a27a8cc0e713
