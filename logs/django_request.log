@@ -172,3 +172,45 @@ Traceback (most recent call last):
     raise TemplateDoesNotExist(name)
 TemplateDoesNotExist: base.html
 2014-06-03 21:41:37,672 [WARNING] django.request: Not Found: /account/profile/
+2014-06-03 22:10:21,670 [ERROR] django.request: Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 337, in resolve
+    for pattern in self.url_patterns:
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 365, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 360, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/Users/haochenwu/Documents/TenniSoda/TenniSoda/urls.py", line 4, in <module>
+    admin.autodiscover()
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/__init__.py", line 29, in autodiscover
+    import_module('%s.admin' % app)
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/Users/haochenwu/Documents/TenniSoda/account/admin.py", line 83, in <module>
+    admin.site.register(Profile)
+NameError: name 'Profile' is not defined
+2014-06-03 22:10:24,180 [ERROR] django.request: Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 337, in resolve
+    for pattern in self.url_patterns:
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 365, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 360, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/Users/haochenwu/Documents/TenniSoda/TenniSoda/urls.py", line 4, in <module>
+    admin.autodiscover()
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/__init__.py", line 29, in autodiscover
+    import_module('%s.admin' % app)
+  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/Users/haochenwu/Documents/TenniSoda/account/admin.py", line 83, in <module>
+    admin.site.register(Profile)
+NameError: name 'Profile' is not defined
