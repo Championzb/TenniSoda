@@ -139,3 +139,7 @@ ViewDoesNotExist: Could not import account.views.logout. View does not exist in 
 2014-06-02 22:37:02,143 [WARNING] django.request: Forbidden (CSRF token missing or incorrect.): /account/auth/
 2014-06-02 22:38:08,249 [WARNING] django.request: Not Found: /account/loging
 2014-06-02 22:40:08,448 [WARNING] django.request: Forbidden (CSRF token missing or incorrect.): /account/auth/
+2014-06-03 17:10:31,842 [WARNING] django.request: Not Found: /
+2014-06-03 17:11:58,664 [WARNING] django.request: Not Found: /accout
+2014-06-03 17:12:09,058 [WARNING] django.request: Not Found: /account
+2014-06-03 17:12:19,877 [WARNING] django.request: Not Found: /account/
