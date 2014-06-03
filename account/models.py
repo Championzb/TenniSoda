@@ -19,11 +19,7 @@ class AccountManager(BaseUserManager):
             raise ValueError('You must provide an email address')
 
         user = self.model(
-<<<<<<< HEAD
             email=self.normalize_email(email),
-=======
-            email=AccountManager.normalize_email(email),
->>>>>>> adc855ff71d051fa68cd4d6e8b71a27a8cc0e713
         )
 
 

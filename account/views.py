@@ -67,7 +67,7 @@ def logout(request):
     auth.logout(request)
 
     args = {}
-    #args.update(csrf(request))
+    args.update(csrf(request))
 
     return render_to_response('login.html', args)
 
