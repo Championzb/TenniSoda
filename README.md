@@ -16,3 +16,5 @@ game used for the game system
 court
 
 city
+
+localflavor
