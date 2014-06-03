@@ -171,3 +171,4 @@ Traceback (most recent call last):
   File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 131, in find_template
     raise TemplateDoesNotExist(name)
 TemplateDoesNotExist: base.html
+2014-06-03 21:41:37,672 [WARNING] django.request: Not Found: /account/profile/
