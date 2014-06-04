@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
 )
+from court.models import Court
 
 
 # Create your models here.
@@ -84,6 +85,7 @@ class Account(AbstractBaseUser):
 
 class Profile(models.Model):
     user = models.OneToOneField(Account,primary_key=True)
+    court = models.ForeignKey(Court)
     first_name = models.CharField(max_length = 40)
     last_name = models.CharField(max_length = 20)
     birth_date = models.DateField(blank=True, null=True)
@@ -95,6 +97,9 @@ class Profile(models.Model):
     city = models.CharField(max_length=3)
     league_rank = models.IntegerField()
     local_rank = models.IntegerField()
+
+    def __unicode__(self):
+        return self.first_name + self.last_name
 
 	
 Account.profile = property(lambda u: Profile.objects.get_or_create(user=u)[0])
