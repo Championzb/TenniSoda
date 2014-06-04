@@ -85,18 +85,18 @@ class Account(AbstractBaseUser):
 
 class Profile(models.Model):
     user = models.OneToOneField(Account,primary_key=True)
-    court = models.ForeignKey(Court)
-    first_name = models.CharField(max_length = 40)
-    last_name = models.CharField(max_length = 20)
-    birth_date = models.DateField(blank=True, null=True)
-    level = models.CharField(max_length=15)
-    real_level = models.CharField(max_length=15)
-    ladder_points = models.IntegerField()
-    phone = models.CharField(max_length=11)
-    gender = models.CharField(max_length=2)
-    city = models.CharField(max_length=3)
-    league_rank = models.IntegerField()
-    local_rank = models.IntegerField()
+    court = models.ForeignKey(Court, null=True,blank=True)
+    first_name = models.CharField(max_length = 40, null=True,blank=True)
+    last_name = models.CharField(max_length = 20, null=True,blank=True)
+    birth_date = models.DateField(null=True,blank=True)
+    level = models.CharField(max_length=15, null=True,blank=True)
+    real_level = models.CharField(max_length=15, null=True,blank=True)
+    ladder_points = models.IntegerField(null=True)
+    phone = models.CharField(max_length=11, null=True,blank=True)
+    gender = models.CharField(max_length=2, null=True,blank=True)
+    city = models.CharField(max_length=3, null=True,blank=True)
+    league_rank = models.IntegerField(null=True,blank=True)
+    local_rank = models.IntegerField( null=True,blank=True)
 
     def __unicode__(self):
         return self.first_name + self.last_name

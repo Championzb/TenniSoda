@@ -57,6 +57,8 @@ def auth_view(request):
 @login_required
 def welcome_user(request):
     username = request.user.email.split('@')[0]
+    if request.user.profile.last_name!='' and request.user.profile.last_name is not None:
+        username = request.user.profile.last_name+request.user.profile.first_name
     return render_to_response('welcome_user.html',
         {'username':username,})
 

@@ -19,10 +19,31 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal(u'account', ['Account'])
 
+        # Adding model 'Profile'
+        db.create_table(u'account_profile', (
+            ('user', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['account.Account'], unique=True, primary_key=True)),
+            ('court', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['court.Court'], null=True, blank=True)),
+            ('first_name', self.gf('django.db.models.fields.CharField')(max_length=40, null=True, blank=True)),
+            ('last_name', self.gf('django.db.models.fields.CharField')(max_length=20, null=True, blank=True)),
+            ('birth_date', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
+            ('level', self.gf('django.db.models.fields.CharField')(max_length=15, null=True, blank=True)),
+            ('real_level', self.gf('django.db.models.fields.CharField')(max_length=15, null=True, blank=True)),
+            ('ladder_points', self.gf('django.db.models.fields.IntegerField')(null=True)),
+            ('phone', self.gf('django.db.models.fields.CharField')(max_length=11, null=True, blank=True)),
+            ('gender', self.gf('django.db.models.fields.CharField')(max_length=2, null=True, blank=True)),
+            ('city', self.gf('django.db.models.fields.CharField')(max_length=3, null=True, blank=True)),
+            ('league_rank', self.gf('django.db.models.fields.IntegerField')(null=True, blank=True)),
+            ('local_rank', self.gf('django.db.models.fields.IntegerField')(null=True, blank=True)),
+        ))
+        db.send_create_signal(u'account', ['Profile'])
+
 
     def backwards(self, orm):
         # Deleting model 'Account'
         db.delete_table(u'account_account')
+
+        # Deleting model 'Profile'
+        db.delete_table(u'account_profile')
 
 
     models = {
@@ -34,6 +55,30 @@ class Migration(SchemaMigration):
             'is_admin': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'last_login': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
             'password': ('django.db.models.fields.CharField', [], {'max_length': '128'})
+        },
+        u'account.profile': {
+            'Meta': {'object_name': 'Profile'},
+            'birth_date': ('django.db.models.fields.DateField', [], {'null': 'True', 'blank': 'True'}),
+            'city': ('django.db.models.fields.CharField', [], {'max_length': '3', 'null': 'True', 'blank': 'True'}),
+            'court': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['court.Court']", 'null': 'True', 'blank': 'True'}),
+            'first_name': ('django.db.models.fields.CharField', [], {'max_length': '40', 'null': 'True', 'blank': 'True'}),
+            'gender': ('django.db.models.fields.CharField', [], {'max_length': '2', 'null': 'True', 'blank': 'True'}),
+            'ladder_points': ('django.db.models.fields.IntegerField', [], {'null': 'True'}),
+            'last_name': ('django.db.models.fields.CharField', [], {'max_length': '20', 'null': 'True', 'blank': 'True'}),
+            'league_rank': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
+            'level': ('django.db.models.fields.CharField', [], {'max_length': '15', 'null': 'True', 'blank': 'True'}),
+            'local_rank': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
+            'phone': ('django.db.models.fields.CharField', [], {'max_length': '11', 'null': 'True', 'blank': 'True'}),
+            'real_level': ('django.db.models.fields.CharField', [], {'max_length': '15', 'null': 'True', 'blank': 'True'}),
+            'user': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['account.Account']", 'unique': 'True', 'primary_key': 'True'})
+        },
+        u'court.court': {
+            'Meta': {'object_name': 'Court'},
+            'address': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
+            'city': ('django.db.models.fields.CharField', [], {'max_length': '10'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'is_free': ('django.db.models.fields.BooleanField', [], {}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '50'})
         }
     }
 
