@@ -83,11 +83,18 @@ class Account(AbstractBaseUser):
         return self.is_admin
 
 class Profile(models.Model):
-	user = models.OneToOneField(Account,primary_key=True)
-	username = models.CharField(max_length = 100)
-	level = models.CharField(max_length=15)
-	phone = models.CharField(max_length=11)
-	gender = models.CharField(max_length=2)
-	city = models.CharField(max_length=3)
+    user = models.OneToOneField(Account,primary_key=True)
+    first_name = models.CharField(max_length = 40)
+    last_name = models.CharField(max_length = 20)
+    birth_date = models.DateField(blank=True, null=True)
+    level = models.CharField(max_length=15)
+    real_level = models.CharField(max_length=15)
+    ladder_points = models.IntegerField()
+    phone = models.CharField(max_length=11)
+    gender = models.CharField(max_length=2)
+    city = models.CharField(max_length=3)
+    league_rank = models.IntegerField()
+    local_rank = models.IntegerField()
+
 	
 Account.profile = property(lambda u: Profile.objects.get_or_create(user=u)[0])

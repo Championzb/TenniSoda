@@ -10,7 +10,7 @@ from admin import UserCreationForm
 
 import logging
 
-logr = logging.getLogger(__name__)
+#logr = logging.getLogger(__name__)
 
 # Create your views here.
 def register_user(request):
