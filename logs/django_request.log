@@ -1,0 +1,1518 @@
+2014-06-04 19:28:06,211 [ERROR] django.request: Internal Server Error: /account/login/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 223, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 230, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/functional.py", line 32, in wrapper
+    result = func(*args)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/damon/Project/TenniSoda/account/views.py", line 6, in <module>
+    from forms import UserProfileForm
+  File "/home/damon/Project/TenniSoda/account/forms.py", line 15
+    court = forms.ChoiceField(widget=forms.Select(),choices=Court.objects.all())
+                                                                               ^
+IndentationError: unindent does not match any outer indentation level
+2014-06-04 19:29:50,650 [ERROR] django.request: Internal Server Error: /account/profile/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/account/views.py", line 83, in change_profile
+    profile = user.profile
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/functional.py", line 214, in inner
+    return func(self._wrapped, *args)
+  File "/home/damon/Project/TenniSoda/account/models.py", line 105, in <lambda>
+    Account.profile = property(lambda u: Profile.objects.get_or_create(user=u)[0])
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/manager.py", line 154, in get_or_create
+    return self.get_queryset().get_or_create(**kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/query.py", line 388, in get_or_create
+    six.reraise(*exc_info)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/query.py", line 380, in get_or_create
+    obj.save(force_insert=True, using=self.db)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/base.py", line 545, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/base.py", line 573, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/base.py", line 654, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/base.py", line 687, in _do_insert
+    using=using, raw=raw)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/manager.py", line 232, in _insert
+    return insert_query(self.model, objs, fields, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/query.py", line 1511, in insert_query
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/sql/compiler.py", line 903, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/backends/util.py", line 69, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/backends/mysql/base.py", line 129, in execute
+    six.reraise(utils.IntegrityError, utils.IntegrityError(*tuple(e.args)), sys.exc_info()[2])
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/MySQL_python-1.2.5-py2.7-linux-x86_64.egg/MySQLdb/cursors.py", line 205, in execute
+    self.errorhandler(self, exc, value)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/MySQL_python-1.2.5-py2.7-linux-x86_64.egg/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+IntegrityError: (1048, "Column 'court_id' cannot be null")
+2014-06-04 19:38:02,690 [ERROR] django.request: Internal Server Error: /account/welcome_user/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 223, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 230, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/functional.py", line 32, in wrapper
+    result = func(*args)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/damon/Project/TenniSoda/account/views.py", line 6, in <module>
+    from forms import UserProfileForm
+  File "/home/damon/Project/TenniSoda/account/forms.py", line 10, in <module>
+    class UserProfileForm(forms.ModelForm):
+  File "/home/damon/Project/TenniSoda/account/forms.py", line 11, in UserProfileForm
+    level = forms.ChoiceField(widget=forms.Select(),choices=LEVEL, blank=False)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/forms/fields.py", line 760, in __init__
+    initial=initial, help_text=help_text, *args, **kwargs)
+TypeError: __init__() got an unexpected keyword argument 'blank'
+2014-06-04 20:54:30,813 [WARNING] django.request: Not Found: /register
+2014-06-04 21:05:26,666 [ERROR] django.request: Internal Server Error: /account/welcome_user/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/account/views.py", line 60, in welcome_user
+    if request.user.profile.last_name is not None & request.user.profile.last_name!='':
+TypeError: unsupported operand type(s) for &: 'NoneType' and 'unicode'
+2014-06-04 21:06:39,864 [ERROR] django.request: Internal Server Error: /account/welcome_user/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 223, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 230, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/functional.py", line 32, in wrapper
+    result = func(*args)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/damon/Project/TenniSoda/account/views.py", line 60
+    if request.user.profile.last_name is not None && request.user.profile.last_name!='':
+                                                   ^
+SyntaxError: invalid syntax
+2014-06-04 21:17:04,558 [ERROR] django.request: Internal Server Error: /account/login/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 223, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 230, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/functional.py", line 32, in wrapper
+    result = func(*args)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/damon/Project/TenniSoda/account/views.py", line 60
+    if request.user.profile.last_name!='' or request.:
+                                                     ^
+SyntaxError: invalid syntax
+2014-06-04 21:17:21,574 [ERROR] django.request: Internal Server Error: /account/welcome_user/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/account/views.py", line 61, in welcome_user
+    username = request.user.profile.last_name+request.user.profile.first_name
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'NoneType'
+2014-06-04 21:18:13,738 [ERROR] django.request: Internal Server Error: /account/welcome_user/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/account/views.py", line 61, in welcome_user
+    username = request.user.profile.last_name+request.user.profile.first_name
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'NoneType'
+2014-06-04 23:56:56,411 [ERROR] django.request: Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/sites.py", line 215, in wrapper
+    return self.admin_view(view, cacheable)(*args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/views/decorators/cache.py", line 52, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/sites.py", line 194, in inner
+    current_app=self.name):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 503, in reverse
+    app_list = resolver.app_dict[ns]
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 329, in app_dict
+    self._populate()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 290, in _populate
+    for name in pattern.reverse_dict:
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 315, in reverse_dict
+    self._populate()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 303, in _populate
+    lookups.appendlist(pattern.callback, (bits, p_pattern, pattern.default_args))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 230, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/functional.py", line 32, in wrapper
+    result = func(*args)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/damon/Project/TenniSoda/account/views.py", line 6, in <module>
+    from forms import UserProfileForm
+  File "/home/damon/Project/TenniSoda/account/forms.py", line 12, in <module>
+    class UserProfileForm(forms.ModelForm):
+  File "/home/damon/Project/TenniSoda/account/forms.py", line 15, in UserProfileForm
+    city = forms.ChoiceField(queryset=City.objects.all(),required=False)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/forms/fields.py", line 760, in __init__
+    initial=initial, help_text=help_text, *args, **kwargs)
+TypeError: __init__() got an unexpected keyword argument 'queryset'
+2014-06-04 23:56:58,978 [ERROR] django.request: Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/sites.py", line 215, in wrapper
+    return self.admin_view(view, cacheable)(*args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/views/decorators/cache.py", line 52, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/sites.py", line 194, in inner
+    current_app=self.name):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 503, in reverse
+    app_list = resolver.app_dict[ns]
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 329, in app_dict
+    self._populate()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 290, in _populate
+    for name in pattern.reverse_dict:
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 315, in reverse_dict
+    self._populate()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 303, in _populate
+    lookups.appendlist(pattern.callback, (bits, p_pattern, pattern.default_args))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 230, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/functional.py", line 32, in wrapper
+    result = func(*args)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/damon/Project/TenniSoda/account/views.py", line 6, in <module>
+    from forms import UserProfileForm
+  File "/home/damon/Project/TenniSoda/account/forms.py", line 12, in <module>
+    class UserProfileForm(forms.ModelForm):
+  File "/home/damon/Project/TenniSoda/account/forms.py", line 15, in UserProfileForm
+    city = forms.ChoiceField(queryset=City.objects.all(),required=False)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/forms/fields.py", line 760, in __init__
+    initial=initial, help_text=help_text, *args, **kwargs)
+TypeError: __init__() got an unexpected keyword argument 'queryset'
+2014-06-05 03:05:37,503 [ERROR] django.request: Internal Server Error: /admin/game/game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 139, in get_response
+    response = response.render()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 82, in rendered_content
+    content = template.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 1196, in render
+    _dict = func(*resolved_args, **resolved_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 288, in result_list
+    'results': list(results(cl))}
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 266, in results
+    yield ResultList(None, items_for_result(cl, res, None))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 258, in __init__
+    super(ResultList, self).__init__(*items)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 185, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/util.py", line 258, in lookup_field
+    value = attr()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/base.py", line 430, in __str__
+    return force_text(self).encode('utf-8')
+AttributeError: 'long' object has no attribute 'encode'
+2014-06-05 03:05:46,180 [ERROR] django.request: Internal Server Error: /admin/game/game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 139, in get_response
+    response = response.render()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 82, in rendered_content
+    content = template.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 1196, in render
+    _dict = func(*resolved_args, **resolved_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 288, in result_list
+    'results': list(results(cl))}
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 266, in results
+    yield ResultList(None, items_for_result(cl, res, None))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 258, in __init__
+    super(ResultList, self).__init__(*items)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 185, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/util.py", line 258, in lookup_field
+    value = attr()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/base.py", line 430, in __str__
+    return force_text(self).encode('utf-8')
+AttributeError: 'long' object has no attribute 'encode'
+2014-06-05 03:07:28,536 [ERROR] django.request: Internal Server Error: /admin/game/game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 139, in get_response
+    response = response.render()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 82, in rendered_content
+    content = template.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 1196, in render
+    _dict = func(*resolved_args, **resolved_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 288, in result_list
+    'results': list(results(cl))}
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 266, in results
+    yield ResultList(None, items_for_result(cl, res, None))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 258, in __init__
+    super(ResultList, self).__init__(*items)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 185, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/util.py", line 258, in lookup_field
+    value = attr()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/base.py", line 430, in __str__
+    return force_text(self).encode('utf-8')
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/encoding.py", line 100, in force_text
+    s = s.__unicode__()
+  File "/home/damon/Project/TenniSoda/game/models.py", line 35, in __unicode__
+    return self.game_id
+AttributeError: 'Game' object has no attribute 'game_id'
+2014-06-05 03:14:10,783 [ERROR] django.request: Internal Server Error: /admin/game/score/add/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/options.py", line 432, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/views/decorators/cache.py", line 52, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/sites.py", line 198, in inner
+    return view(request, *args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/decorators.py", line 29, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/decorators.py", line 25, in bound_func
+    return func(self, *args2, **kwargs2)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/transaction.py", line 371, in inner
+    return func(*args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/options.py", line 1133, in add_view
+    self.log_addition(request, new_object)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/options.py", line 599, in log_addition
+    object_repr=force_text(object),
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/encoding.py", line 100, in force_text
+    s = s.__unicode__()
+  File "/home/damon/Project/TenniSoda/game/models.py", line 52, in __unicode__
+    return u"%s " % self.id
+AttributeError: 'Score' object has no attribute 'id'
+2014-06-05 03:15:56,100 [ERROR] django.request: Internal Server Error: /admin/game/score/add/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/options.py", line 432, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/views/decorators/cache.py", line 52, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/sites.py", line 198, in inner
+    return view(request, *args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/decorators.py", line 29, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/decorators.py", line 25, in bound_func
+    return func(self, *args2, **kwargs2)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/transaction.py", line 371, in inner
+    return func(*args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/options.py", line 1133, in add_view
+    self.log_addition(request, new_object)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/options.py", line 600, in log_addition
+    action_flag=ADDITION
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/models.py", line 19, in log_action
+    e = self.model(None, None, user_id, content_type_id, smart_text(object_id), object_repr[:200], action_flag, change_message)
+TypeError: 'Game' object has no attribute '__getitem__'
+2014-06-05 03:16:10,672 [ERROR] django.request: Internal Server Error: /admin/game/score/add/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/options.py", line 432, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/views/decorators/cache.py", line 52, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/sites.py", line 198, in inner
+    return view(request, *args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/decorators.py", line 29, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/decorators.py", line 25, in bound_func
+    return func(self, *args2, **kwargs2)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/transaction.py", line 371, in inner
+    return func(*args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/options.py", line 1133, in add_view
+    self.log_addition(request, new_object)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/options.py", line 600, in log_addition
+    action_flag=ADDITION
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/models.py", line 19, in log_action
+    e = self.model(None, None, user_id, content_type_id, smart_text(object_id), object_repr[:200], action_flag, change_message)
+TypeError: 'Game' object has no attribute '__getitem__'
+2014-06-05 03:22:03,946 [ERROR] django.request: Internal Server Error: /admin/game/game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 139, in get_response
+    response = response.render()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 82, in rendered_content
+    content = template.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 1196, in render
+    _dict = func(*resolved_args, **resolved_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 288, in result_list
+    'results': list(results(cl))}
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 266, in results
+    yield ResultList(None, items_for_result(cl, res, None))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 258, in __init__
+    super(ResultList, self).__init__(*items)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 185, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/util.py", line 258, in lookup_field
+    value = attr()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/base.py", line 430, in __str__
+    return force_text(self).encode('utf-8')
+AttributeError: 'League' object has no attribute 'encode'
+2014-06-05 03:25:32,972 [ERROR] django.request: Internal Server Error: /admin/game/game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 139, in get_response
+    response = response.render()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 82, in rendered_content
+    content = template.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 1196, in render
+    _dict = func(*resolved_args, **resolved_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 288, in result_list
+    'results': list(results(cl))}
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 266, in results
+    yield ResultList(None, items_for_result(cl, res, None))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 258, in __init__
+    super(ResultList, self).__init__(*items)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 185, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/util.py", line 258, in lookup_field
+    value = attr()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/base.py", line 430, in __str__
+    return force_text(self).encode('utf-8')
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/encoding.py", line 100, in force_text
+    s = s.__unicode__()
+  File "/home/damon/Project/TenniSoda/game/models.py", line 35, in __unicode__
+    return u"%s %s %s" % self.league, self.player1.profile, self.player2.profile
+TypeError: not enough arguments for format string
+2014-06-05 03:26:01,364 [ERROR] django.request: Internal Server Error: /admin/game/game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 139, in get_response
+    response = response.render()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 82, in rendered_content
+    content = template.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 1196, in render
+    _dict = func(*resolved_args, **resolved_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 288, in result_list
+    'results': list(results(cl))}
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 266, in results
+    yield ResultList(None, items_for_result(cl, res, None))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 258, in __init__
+    super(ResultList, self).__init__(*items)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 185, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/util.py", line 258, in lookup_field
+    value = attr()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/base.py", line 430, in __str__
+    return force_text(self).encode('utf-8')
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/encoding.py", line 100, in force_text
+    s = s.__unicode__()
+  File "/home/damon/Project/TenniSoda/game/models.py", line 35, in __unicode__
+    return u"%s %s %s" % self.league %self.player1.profile %self.player2.profile
+TypeError: not enough arguments for format string
+2014-06-05 03:26:22,775 [ERROR] django.request: Internal Server Error: /admin/game/game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 139, in get_response
+    response = response.render()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 82, in rendered_content
+    content = template.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 1196, in render
+    _dict = func(*resolved_args, **resolved_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 288, in result_list
+    'results': list(results(cl))}
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 266, in results
+    yield ResultList(None, items_for_result(cl, res, None))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 258, in __init__
+    super(ResultList, self).__init__(*items)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 185, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/util.py", line 258, in lookup_field
+    value = attr()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/base.py", line 430, in __str__
+    return force_text(self).encode('utf-8')
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/encoding.py", line 100, in force_text
+    s = s.__unicode__()
+  File "/home/damon/Project/TenniSoda/game/models.py", line 35, in __unicode__
+    return u"%s "  %self.player2.profile
+  File "/home/damon/Project/TenniSoda/account/models.py", line 102, in __unicode__
+    return self.first_name + self.last_name
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'NoneType'
+2014-06-05 03:29:23,976 [ERROR] django.request: Internal Server Error: /admin/game/game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 139, in get_response
+    response = response.render()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 82, in rendered_content
+    content = template.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 1196, in render
+    _dict = func(*resolved_args, **resolved_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 288, in result_list
+    'results': list(results(cl))}
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 266, in results
+    yield ResultList(None, items_for_result(cl, res, None))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 258, in __init__
+    super(ResultList, self).__init__(*items)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 185, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/util.py", line 258, in lookup_field
+    value = attr()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/base.py", line 430, in __str__
+    return force_text(self).encode('utf-8')
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/encoding.py", line 100, in force_text
+    s = s.__unicode__()
+  File "/home/damon/Project/TenniSoda/game/models.py", line 35, in __unicode__
+    return u"%s "% self.player2
+  File "/home/damon/Project/TenniSoda/account/models.py", line 102, in __unicode__
+    return self.first_name + self.last_name
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'NoneType'
+2014-06-05 03:31:06,036 [ERROR] django.request: Internal Server Error: /admin/account/profile/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 139, in get_response
+    response = response.render()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 82, in rendered_content
+    content = template.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 1196, in render
+    _dict = func(*resolved_args, **resolved_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 288, in result_list
+    'results': list(results(cl))}
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 266, in results
+    yield ResultList(None, items_for_result(cl, res, None))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 258, in __init__
+    super(ResultList, self).__init__(*items)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 185, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/util.py", line 258, in lookup_field
+    value = attr()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/base.py", line 430, in __str__
+    return force_text(self).encode('utf-8')
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/encoding.py", line 100, in force_text
+    s = s.__unicode__()
+  File "/home/damon/Project/TenniSoda/account/models.py", line 102, in __unicode__
+    return self.first_name + self.last_name
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'NoneType'
+2014-06-05 03:31:58,802 [ERROR] django.request: Internal Server Error: /admin/account/profile/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 139, in get_response
+    response = response.render()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 82, in rendered_content
+    content = template.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 1196, in render
+    _dict = func(*resolved_args, **resolved_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 288, in result_list
+    'results': list(results(cl))}
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 266, in results
+    yield ResultList(None, items_for_result(cl, res, None))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 258, in __init__
+    super(ResultList, self).__init__(*items)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 185, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/util.py", line 258, in lookup_field
+    value = attr()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/base.py", line 430, in __str__
+    return force_text(self).encode('utf-8')
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/encoding.py", line 100, in force_text
+    s = s.__unicode__()
+  File "/home/damon/Project/TenniSoda/account/models.py", line 102, in __unicode__
+    return u" %s %s" % self.first_name , self.last_name
+TypeError: not enough arguments for format string
+2014-06-05 03:39:07,737 [ERROR] django.request: Internal Server Error: /admin/game/game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 139, in get_response
+    response = response.render()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 82, in rendered_content
+    content = template.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 1196, in render
+    _dict = func(*resolved_args, **resolved_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 288, in result_list
+    'results': list(results(cl))}
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 266, in results
+    yield ResultList(None, items_for_result(cl, res, None))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 258, in __init__
+    super(ResultList, self).__init__(*items)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 185, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/util.py", line 258, in lookup_field
+    value = attr()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/base.py", line 430, in __str__
+    return force_text(self).encode('utf-8')
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/encoding.py", line 100, in force_text
+    s = s.__unicode__()
+  File "/home/damon/Project/TenniSoda/game/models.py", line 35, in __unicode__
+    return u"%s "% self.league + self.player1 + self.player2
+TypeError: coercing to Unicode: need string or buffer, Profile found
+2014-06-05 03:39:10,071 [ERROR] django.request: Internal Server Error: /admin/game/game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 139, in get_response
+    response = response.render()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 82, in rendered_content
+    content = template.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 1196, in render
+    _dict = func(*resolved_args, **resolved_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 288, in result_list
+    'results': list(results(cl))}
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 266, in results
+    yield ResultList(None, items_for_result(cl, res, None))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 258, in __init__
+    super(ResultList, self).__init__(*items)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 185, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/util.py", line 258, in lookup_field
+    value = attr()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/base.py", line 430, in __str__
+    return force_text(self).encode('utf-8')
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/encoding.py", line 100, in force_text
+    s = s.__unicode__()
+  File "/home/damon/Project/TenniSoda/game/models.py", line 35, in __unicode__
+    return u"%s "% self.league + self.player1 + self.player2
+TypeError: coercing to Unicode: need string or buffer, Profile found
+2014-06-05 03:39:58,352 [ERROR] django.request: Internal Server Error: /admin/game/game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 139, in get_response
+    response = response.render()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 82, in rendered_content
+    content = template.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 1196, in render
+    _dict = func(*resolved_args, **resolved_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 288, in result_list
+    'results': list(results(cl))}
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 266, in results
+    yield ResultList(None, items_for_result(cl, res, None))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 258, in __init__
+    super(ResultList, self).__init__(*items)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 185, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/util.py", line 258, in lookup_field
+    value = attr()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/base.py", line 430, in __str__
+    return force_text(self).encode('utf-8')
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/encoding.py", line 100, in force_text
+    s = s.__unicode__()
+  File "/home/damon/Project/TenniSoda/game/models.py", line 35, in __unicode__
+    name = self.league + self.player1 + self.player2
+TypeError: unsupported operand type(s) for +: 'League' and 'Profile'
+2014-06-05 03:41:38,374 [ERROR] django.request: Internal Server Error: /admin/game/game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 139, in get_response
+    response = response.render()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 82, in rendered_content
+    content = template.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 1196, in render
+    _dict = func(*resolved_args, **resolved_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 288, in result_list
+    'results': list(results(cl))}
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 266, in results
+    yield ResultList(None, items_for_result(cl, res, None))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 258, in __init__
+    super(ResultList, self).__init__(*items)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 185, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/util.py", line 258, in lookup_field
+    value = attr()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/base.py", line 430, in __str__
+    return force_text(self).encode('utf-8')
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/encoding.py", line 100, in force_text
+    s = s.__unicode__()
+  File "/home/damon/Project/TenniSoda/game/models.py", line 35, in __unicode__
+    name = u"%s %" % self.league + u"%s %" % self.player1 + u"%s %" % self.player2
+ValueError: incomplete format
+2014-06-05 03:42:30,002 [ERROR] django.request: Internal Server Error: /admin/game/game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 139, in get_response
+    response = response.render()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 82, in rendered_content
+    content = template.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 1196, in render
+    _dict = func(*resolved_args, **resolved_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 288, in result_list
+    'results': list(results(cl))}
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 266, in results
+    yield ResultList(None, items_for_result(cl, res, None))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 258, in __init__
+    super(ResultList, self).__init__(*items)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 185, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/util.py", line 258, in lookup_field
+    value = attr()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/base.py", line 430, in __str__
+    return force_text(self).encode('utf-8')
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/encoding.py", line 100, in force_text
+    s = s.__unicode__()
+  File "/home/damon/Project/TenniSoda/game/models.py", line 35, in __unicode__
+    name = u"%s %" % self.league
+ValueError: incomplete format
+2014-06-05 03:42:51,360 [ERROR] django.request: Internal Server Error: /admin/game/game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 139, in get_response
+    response = response.render()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 82, in rendered_content
+    content = template.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 1196, in render
+    _dict = func(*resolved_args, **resolved_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 288, in result_list
+    'results': list(results(cl))}
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 266, in results
+    yield ResultList(None, items_for_result(cl, res, None))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 258, in __init__
+    super(ResultList, self).__init__(*items)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 185, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/util.py", line 258, in lookup_field
+    value = attr()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/base.py", line 430, in __str__
+    return force_text(self).encode('utf-8')
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/encoding.py", line 100, in force_text
+    s = s.__unicode__()
+  File "/home/damon/Project/TenniSoda/game/models.py", line 35, in __unicode__
+    return u"%s %" % self.league
+ValueError: incomplete format
+2014-06-05 03:44:41,412 [ERROR] django.request: Internal Server Error: /admin/review/courtreview/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 139, in get_response
+    response = response.render()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 82, in rendered_content
+    content = template.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 1196, in render
+    _dict = func(*resolved_args, **resolved_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 288, in result_list
+    'results': list(results(cl))}
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 266, in results
+    yield ResultList(None, items_for_result(cl, res, None))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 258, in __init__
+    super(ResultList, self).__init__(*items)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 185, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/util.py", line 258, in lookup_field
+    value = attr()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/base.py", line 430, in __str__
+    return force_text(self).encode('utf-8')
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/encoding.py", line 100, in force_text
+    s = s.__unicode__()
+  File "/home/damon/Project/TenniSoda/review/models.py", line 12, in __unicode__
+    return u"%s " % self.court + self.user
+TypeError: coercing to Unicode: need string or buffer, Profile found
+2014-06-05 03:45:32,037 [ERROR] django.request: Internal Server Error: /admin/review/courtreview/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 139, in get_response
+    response = response.render()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 82, in rendered_content
+    content = template.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 1196, in render
+    _dict = func(*resolved_args, **resolved_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 288, in result_list
+    'results': list(results(cl))}
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 266, in results
+    yield ResultList(None, items_for_result(cl, res, None))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 258, in __init__
+    super(ResultList, self).__init__(*items)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 185, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/util.py", line 258, in lookup_field
+    value = attr()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/base.py", line 430, in __str__
+    return force_text(self).encode('utf-8')
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/encoding.py", line 100, in force_text
+    s = s.__unicode__()
+  File "/home/damon/Project/TenniSoda/review/models.py", line 12, in __unicode__
+    name = u"%s "% self.court + u"%s " % self.user
+TypeError: coercing to Unicode: need string or buffer, Profile found
+2014-06-05 03:45:34,495 [ERROR] django.request: Internal Server Error: /admin/review/courtreview/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 139, in get_response
+    response = response.render()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 105, in render
+    self.content = self.rendered_content
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/response.py", line 82, in rendered_content
+    content = template.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 1196, in render
+    _dict = func(*resolved_args, **resolved_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 288, in result_list
+    'results': list(results(cl))}
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 266, in results
+    yield ResultList(None, items_for_result(cl, res, None))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 258, in __init__
+    super(ResultList, self).__init__(*items)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/templatetags/admin_list.py", line 185, in items_for_result
+    f, attr, value = lookup_field(field_name, result, cl.model_admin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/admin/util.py", line 258, in lookup_field
+    value = attr()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/base.py", line 430, in __str__
+    return force_text(self).encode('utf-8')
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/encoding.py", line 100, in force_text
+    s = s.__unicode__()
+  File "/home/damon/Project/TenniSoda/review/models.py", line 12, in __unicode__
+    name = u"%s "% self.court + u"%s " % self.user
+TypeError: coercing to Unicode: need string or buffer, Profile found
