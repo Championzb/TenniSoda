@@ -44,10 +44,10 @@ class Score(models.Model):
     score22 = models.IntegerField()
     score31 = models.IntegerField()
     score32 = models.IntegerField()
-    score41 = models.IntegerField()
-    score42 = models.IntegerField()
-    score51 = models.IntegerField()
-    score52 = models.IntegerField()
+    score41 = models.IntegerField(blank = True, null = True)
+    score42 = models.IntegerField(blank = True, null = True)
+    score51 = models.IntegerField(blank = True, null = True)
+    score52 = models.IntegerField(blank = True, null = True)
     is_confirmed = models.BooleanField(default=False)
 
     def __unicode__(self):
