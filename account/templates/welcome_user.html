@@ -7,15 +7,17 @@
   <p>Click <a href="/account/profile/">here</a> to edit your profile information</p>
 
 {% endblock %}
-{% block my_league_match %}
-	<h3>my league match</h3>
-	{% if my_league_matches %}
-		{% for my_league_match in my_league_matches %}
-			<p>Match Name:{{ my_league_match.name }}</p>
-			<p>Match Start Date:{{ my_league_match.start_date }}</p>
-			<p>Match End Date:{{ my_league_match.end_date }}</p>
-			<p>Match city:{{ my_league_match.city }}</p>
-			<p>Click<a href="/game/quit/{{my_league_match.id}}">here</a> to quit this game</p>
+{% block league_match_attended %}
+	<h3>Attended league match</h3>
+	{% if league_matches_attended %}
+		{% for league_match_attended in league_matches_attended %}
+			<p>League Name:{{ league_match_attended.name }}</p>
+            <p>League Max: {{ league_match_attended.max_player_number}}</p>
+            <p>Current registered player: {{ league_match_attended.current_player_number}}</p>
+			<p>Match Start Date:{{ league_match_attended.start_date }}</p>
+			<p>Match End Date:{{ league_match_attended.end_date }}</p>
+			<p>Match city:{{ league_match_attended.city }}</p>
+			<p>Click<a href="/game/join_league_cancel/{{league_match_attended.id}}">here</a> to cancel the league</p>
 		{% endfor %}
 	{% else %}
 		<p>You have not joined a league game.</p>
@@ -23,12 +25,21 @@
 {% endblock %}
 {% block league_match %}
 	<h3>league matches not joining</h3>
-	{% for league_match in league_matches %}
-		<p>Match Name:{{ league_match.name }}</p>
-		<p>Match Start Date:{{ league_match.start_date }}</p>
-		<p>Match End Date:{{ league_match.end_date }}</p>
-		<p>Match city:{{ league_match.city }}</p>
-		
-		<p>Click<a href="/game/join/{{league_match.id}}">here</a> to join this game.</p>
-	{% endfor %}
+    {% if league_matches_remained %}
+        {% for league_match in league_matches_remained %}
+            <p>League Name:{{ league_match.name }}</p>
+            <p>League Max: {{ league_match.max_player_number}}</p>
+            <p>Current registered player: {{ league_match.current_player_number}}</p>
+            <p>League Start Date:{{ league_match.start_date }}</p>
+            <p>League End Date:{{ league_match.end_date }}</p>
+            <p>League city:{{ league_match.city }}</p>
+            {% if league_match.current_player_number < league_match.max_player_number %}
+                <p>Click<a href="/game/join_league/{{league_match.id}}">here</a> to join this game.</p>
+            {% else %}
+                <p> Sorry, the league is full! </p>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+		<p>No more League.</p>
+	{% endif %}
 {% endblock %}

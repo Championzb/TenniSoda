@@ -9,7 +9,7 @@ class League(models.Model):
     city = models.ForeignKey(City)
     start_date = models.DateField()
     end_date = models.DateField()
-    current_player_number = models.IntegerField()
+    current_player_number = models.IntegerField(default = 0)
     max_player_number = models.IntegerField()
     players = models.ManyToManyField(Profile, blank = True, null = True)
     level_low = models.FloatField()
