@@ -50,6 +50,7 @@ INSTALLED_APPS = (
     'game',
     'court',
     'city',
+    'review',
 	'localflavor',
 )
 

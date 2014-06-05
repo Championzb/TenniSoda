@@ -92,14 +92,17 @@ class Profile(models.Model):
     birth_date = models.DateField(null=True,blank=True)
     level = models.CharField(max_length=15, null=True,blank=True)
     real_level = models.CharField(max_length=15, null=True,blank=True)
-    ladder_points = models.IntegerField(null=True)
+    ladder_points = models.IntegerField(null=True, blank=True)
     phone = models.CharField(max_length=11, null=True,blank=True)
     gender = models.CharField(max_length=2, null=True,blank=True)
     league_rank = models.IntegerField(null=True,blank=True)
     local_rank = models.IntegerField( null=True,blank=True)
 
     def __unicode__(self):
-        return self.first_name + self.last_name
+        username = self.user.email.split('@')[0]
+        if self.last_name != '' and self.last_name is not None:
+            username = self.last_name + " " +self.first_name
+        return u" %s" % username
 
 	
 Account.profile = property(lambda u: Profile.objects.get_or_create(user=u)[0])
