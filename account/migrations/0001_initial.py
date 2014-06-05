@@ -23,6 +23,7 @@ class Migration(SchemaMigration):
         db.create_table(u'account_profile', (
             ('user', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['account.Account'], unique=True, primary_key=True)),
             ('court', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['court.Court'], null=True, blank=True)),
+            ('city', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['city.City'], null=True, blank=True)),
             ('first_name', self.gf('django.db.models.fields.CharField')(max_length=40, null=True, blank=True)),
             ('last_name', self.gf('django.db.models.fields.CharField')(max_length=20, null=True, blank=True)),
             ('birth_date', self.gf('django.db.models.fields.DateField')(null=True, blank=True)),
@@ -31,7 +32,6 @@ class Migration(SchemaMigration):
             ('ladder_points', self.gf('django.db.models.fields.IntegerField')(null=True)),
             ('phone', self.gf('django.db.models.fields.CharField')(max_length=11, null=True, blank=True)),
             ('gender', self.gf('django.db.models.fields.CharField')(max_length=2, null=True, blank=True)),
-            ('city', self.gf('django.db.models.fields.CharField')(max_length=3, null=True, blank=True)),
             ('league_rank', self.gf('django.db.models.fields.IntegerField')(null=True, blank=True)),
             ('local_rank', self.gf('django.db.models.fields.IntegerField')(null=True, blank=True)),
         ))
@@ -59,7 +59,7 @@ class Migration(SchemaMigration):
         u'account.profile': {
             'Meta': {'object_name': 'Profile'},
             'birth_date': ('django.db.models.fields.DateField', [], {'null': 'True', 'blank': 'True'}),
-            'city': ('django.db.models.fields.CharField', [], {'max_length': '3', 'null': 'True', 'blank': 'True'}),
+            'city': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['city.City']", 'null': 'True', 'blank': 'True'}),
             'court': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['court.Court']", 'null': 'True', 'blank': 'True'}),
             'first_name': ('django.db.models.fields.CharField', [], {'max_length': '40', 'null': 'True', 'blank': 'True'}),
             'gender': ('django.db.models.fields.CharField', [], {'max_length': '2', 'null': 'True', 'blank': 'True'}),
@@ -71,6 +71,11 @@ class Migration(SchemaMigration):
             'phone': ('django.db.models.fields.CharField', [], {'max_length': '11', 'null': 'True', 'blank': 'True'}),
             'real_level': ('django.db.models.fields.CharField', [], {'max_length': '15', 'null': 'True', 'blank': 'True'}),
             'user': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['account.Account']", 'unique': 'True', 'primary_key': 'True'})
+        },
+        u'city.city': {
+            'Meta': {'object_name': 'City'},
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '20'})
         },
         u'court.court': {
             'Meta': {'object_name': 'Court'},

@@ -3,7 +3,7 @@ from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser
 )
 from court.models import Court
-
+from city.models import City
 
 # Create your models here.
 
@@ -86,6 +86,7 @@ class Account(AbstractBaseUser):
 class Profile(models.Model):
     user = models.OneToOneField(Account,primary_key=True)
     court = models.ForeignKey(Court, null=True,blank=True)
+    city = models.ForeignKey(City, null=True, blank=True)
     first_name = models.CharField(max_length = 40, null=True,blank=True)
     last_name = models.CharField(max_length = 20, null=True,blank=True)
     birth_date = models.DateField(null=True,blank=True)
@@ -94,7 +95,6 @@ class Profile(models.Model):
     ladder_points = models.IntegerField(null=True)
     phone = models.CharField(max_length=11, null=True,blank=True)
     gender = models.CharField(max_length=2, null=True,blank=True)
-    city = models.CharField(max_length=3, null=True,blank=True)
     league_rank = models.IntegerField(null=True,blank=True)
     local_rank = models.IntegerField( null=True,blank=True)
 

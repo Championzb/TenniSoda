@@ -1,6 +1,7 @@
 from django import forms
 from models import Profile
 from court.models import Court
+from city.models import City
 from django.forms import extras
 from localflavor.cn.forms import CNCellNumberField, CNProvinceSelect 
 
@@ -11,7 +12,7 @@ CITY=(('1','Suzhou'),('2','Beijing'),('3','Shanghai'))
 class UserProfileForm(forms.ModelForm):
 	level = forms.ChoiceField(widget=forms.Select(),choices=LEVEL,required=False)
 	gender = forms.ChoiceField(widget=forms.Select(),choices=GENDER,required=False)
-	city = forms.ChoiceField(widget=forms.Select(),choices=CITY,required=False)
+	city = forms.ModelChoiceField(queryset=City.objects.all(),required=False)
 	phone = CNCellNumberField(required=False)
 	birth_date = forms.DateField(widget=extras.SelectDateWidget(years=range(1954,2006)),required=False)
 	court = forms.ModelChoiceField(queryset=Court.objects.all(),required=False)
@@ -19,7 +20,7 @@ class UserProfileForm(forms.ModelForm):
 
 	class Meta:
 		model = Profile
-		fields = ('first_name','last_name','birth_date','court','level','gender','city')
+		fields = ('last_name','first_name','gender','city','birth_date','court','level')
 
 	def save(self,commit=True):
 		form = super(UserProfileForm,self).save(commit=False)
