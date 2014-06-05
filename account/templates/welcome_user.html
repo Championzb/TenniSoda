@@ -7,3 +7,28 @@
   <p>Click <a href="/account/profile/">here</a> to edit your profile information</p>
 
 {% endblock %}
+{% block my_league_match %}
+	<h3>my league match</h3>
+	{% if my_league_matches %}
+		{% for my_league_match in my_league_matches %}
+			<p>Match Name:{{ my_league_match.name }}</p>
+			<p>Match Start Date:{{ my_league_match.start_date }}</p>
+			<p>Match End Date:{{ my_league_match.end_date }}</p>
+			<p>Match city:{{ my_league_match.city }}</p>
+			<p>Click<a href="/game/quit/{{my_league_match.id}}">here</a> to quit this game</p>
+		{% endfor %}
+	{% else %}
+		<p>You have not joined a league game.</p>
+	{% endif %}
+{% endblock %}
+{% block league_match %}
+	<h3>league matches not joining</h3>
+	{% for league_match in league_matches %}
+		<p>Match Name:{{ league_match.name }}</p>
+		<p>Match Start Date:{{ league_match.start_date }}</p>
+		<p>Match End Date:{{ league_match.end_date }}</p>
+		<p>Match city:{{ league_match.city }}</p>
+		
+		<p>Click<a href="/game/join/{{league_match.id}}">here</a> to join this game.</p>
+	{% endfor %}
+{% endblock %}

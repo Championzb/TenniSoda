@@ -4,6 +4,8 @@ from django.contrib import auth
 from django.core.context_processors import csrf
 from django.contrib.auth.decorators import login_required
 from forms import UserProfileForm
+from game.models import League
+from models import Profile
 
 
 from admin import UserCreationForm
@@ -56,11 +58,11 @@ def auth_view(request):
 
 @login_required
 def welcome_user(request):
-    username = request.user.email.split('@')[0]
-    if request.user.profile.last_name!='' and request.user.profile.last_name is not None:
-        username = request.user.profile.last_name+request.user.profile.first_name
-    return render_to_response('welcome_user.html',
-        {'username':username,})
+	username = request.user.email.split('@')[0]
+	if request.user.profile.last_name!='' and request.user.profile.last_name is not None:
+		username = request.user.profile.last_name+request.user.profile.first_name
+	my_league_match = League.objects.filter(players=request.user.profile)
+	return render_to_response('welcome_user.html',{'username':username,'my_league_matches':my_league_match,'league_matches': League.objects.exclude(players=request.user),})
 
 def invalid_login(request):
     return render_to_response('invalid_login.html')
