@@ -55,4 +55,3 @@ class Score(models.Model):
 
 Game.score = property(lambda g: Score.objects.get_or_create(game=g)[0])
 
-print 'nihao'
