@@ -1722,10 +1722,15 @@ Traceback (most recent call last):
   File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/MySQL_python-1.2.5-py2.7-linux-x86_64.egg/MySQLdb/connections.py", line 36, in defaulterrorhandler
     raise errorclass, errorvalue
 OperationalError: (1054, "Unknown column 'game_league_players.profile_id' in 'on clause'")
-2014-06-05 19:43:45,636 [ERROR] django.request: Internal Server Error: /game/quit/1/
+2014-06-05 19:45:26,991 [ERROR] django.request: Internal Server Error: /game/quit/1/
 Traceback (most recent call last):
-  File "/Users/haochenwu/Documents/TimmyDjango/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
     response = wrapped_callback(request, *callback_args, **callback_kwargs)
-  File "/Users/haochenwu/Documents/TenniSoda/game/views.py", line 18, in quit
-    League_Match.current_player_number -=1
-NameError: global name 'League_Match' is not defined
+TypeError: quit() got an unexpected keyword argument 'LeagueMatchAttended_id'
+2014-06-05 20:08:58,987 [ERROR] django.request: Internal Server Error: /game/join_league_cancel/1/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Project/TenniSoda/game/views.py", line 19, in join_league_cancel
+    league_match_attended -= 1
+TypeError: unsupported operand type(s) for -=: 'League' and 'int'

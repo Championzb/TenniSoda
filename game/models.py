@@ -54,3 +54,13 @@ class Score(models.Model):
         return u"%s " % self.game
 
 Game.score = property(lambda g: Score.objects.get_or_create(game=g)[0])
+
+class GroupStage(models.Model):
+    league = models.ForeignKey(League)
+    group_number = models.IntegerField()
+    member_number = models.IntegerField()
+    player = models.ForeignKey(Profile)
+    points = models.IntegerField(blank = True, null = True)
+
+    def __unicode__(self):
+        return u"%s %s %s" % (self.league, self.group_number, self.member_number)
