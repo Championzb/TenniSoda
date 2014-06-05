@@ -1517,3 +1517,4 @@ Traceback (most recent call last):
     name = u"%s "% self.court + u"%s " % self.user
 TypeError: coercing to Unicode: need string or buffer, Profile found
 2014-06-05 15:55:44,271 [WARNING] django.request: Not Found: /favicon.ico
+2014-06-05 16:56:04,422 [WARNING] django.request: Not Found: /favicon.ico
