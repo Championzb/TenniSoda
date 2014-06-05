@@ -2299,3 +2299,573 @@
 2014-06-05 03:46:17,821 [DEBUG] django.db.backends: (0.000) SELECT `account_account`.`id`, `account_account`.`password`, `account_account`.`last_login`, `account_account`.`email`, `account_account`.`is_active`, `account_account`.`is_admin` FROM `account_account` WHERE `account_account`.`id` = 1 ; args=(1,)
 2014-06-05 03:46:17,916 [DEBUG] django.db.backends: (0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'o0sq4p6b5xho6t5xi9ovsu8lxv2gbf9e'  AND `django_session`.`expire_date` > '2014-06-05 03:46:17' ); args=('o0sq4p6b5xho6t5xi9ovsu8lxv2gbf9e', u'2014-06-05 03:46:17')
 2014-06-05 03:46:17,919 [DEBUG] django.db.backends: (0.002) SELECT `account_account`.`id`, `account_account`.`password`, `account_account`.`last_login`, `account_account`.`email`, `account_account`.`is_active`, `account_account`.`is_admin` FROM `account_account` WHERE `account_account`.`id` = 1 ; args=(1,)
+2014-06-05 14:34:29,110 [DEBUG] django.db.backends: (0.052) SELECT `south_migrationhistory`.`id`, `south_migrationhistory`.`app_name`, `south_migrationhistory`.`migration`, `south_migrationhistory`.`applied` FROM `south_migrationhistory` WHERE `south_migrationhistory`.`applied` IS NOT NULL ORDER BY `south_migrationhistory`.`applied` ASC; args=()
+2014-06-05 14:34:29,146 [DEBUG] django.db.backends: (0.018) SHOW variables WHERE Variable_Name='default_storage_engine';; args=None
+2014-06-05 14:34:29,231 [DEBUG] django.db.backends: (0.084) CREATE TABLE ROLLBACK_TEST (X INT); args=None
+2014-06-05 14:34:29,233 [DEBUG] django.db.backends: (0.002) INSERT INTO ROLLBACK_TEST (X) VALUES (8); args=None
+2014-06-05 14:34:29,236 [DEBUG] django.db.backends: (0.002) SELECT COUNT(X) FROM ROLLBACK_TEST; args=None
+2014-06-05 14:34:29,246 [DEBUG] django.db.backends: (0.009) DROP TABLE ROLLBACK_TEST; args=None
+2014-06-05 14:34:29,247 [DEBUG] south: execute "SET FOREIGN_KEY_CHECKS=0;" with params "[]"
+2014-06-05 14:34:29,247 [DEBUG] django.db.backends: (0.000) SET FOREIGN_KEY_CHECKS=0;; args=[]
+2014-06-05 14:34:29,258 [DEBUG] django.db.backends: (0.011) CREATE TABLE DDL_TRANSACTION_TEST (X INT); args=None
+2014-06-05 14:34:29,259 [DEBUG] django.db.backends: (0.001) CREATE TABLE DDL_TRANSACTION_TEST (X INT); args=None
+2014-06-05 14:34:29,262 [DEBUG] django.db.backends: (0.002) DROP TABLE DDL_TRANSACTION_TEST; args=None
+2014-06-05 14:34:29,279 [DEBUG] south: execute "SET FOREIGN_KEY_CHECKS=0;" with params "[]"
+2014-06-05 14:34:29,279 [DEBUG] django.db.backends: (0.000) SET FOREIGN_KEY_CHECKS=0;; args=[]
+2014-06-05 14:34:29,281 [DEBUG] south: execute "CREATE TABLE `game_league` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `name` varchar(200) NOT NULL, `city_id` integer NOT NULL, `start_date` date NOT NULL, `end_date` date NOT NULL, `max_player_number` integer NOT NULL, `level_low` double precision NOT NULL, `level_high` double precision NOT NULL)" with params "[]"
+2014-06-05 14:34:29,296 [DEBUG] django.db.backends: (0.014) CREATE TABLE `game_league` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `name` varchar(200) NOT NULL, `city_id` integer NOT NULL, `start_date` date NOT NULL, `end_date` date NOT NULL, `max_player_number` integer NOT NULL, `level_low` double precision NOT NULL, `level_high` double precision NOT NULL); args=[]
+2014-06-05 14:34:29,298 [DEBUG] south: execute "CREATE TABLE `game_league_players` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `league_id` integer NOT NULL, `account_id` integer NOT NULL)" with params "[]"
+2014-06-05 14:34:29,308 [DEBUG] django.db.backends: (0.010) CREATE TABLE `game_league_players` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `league_id` integer NOT NULL, `account_id` integer NOT NULL); args=[]
+2014-06-05 14:34:29,308 [DEBUG] south: execute "ALTER TABLE `game_league_players` ADD CONSTRAINT `game_league_players_league_id_34939fa4aa567b49_uniq` UNIQUE (`league_id`, `account_id`)" with params "[]"
+2014-06-05 14:34:29,352 [DEBUG] django.db.backends: (0.044) ALTER TABLE `game_league_players` ADD CONSTRAINT `game_league_players_league_id_34939fa4aa567b49_uniq` UNIQUE (`league_id`, `account_id`); args=[]
+2014-06-05 14:34:29,357 [DEBUG] south: execute "CREATE TABLE `game_game` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `league_id` integer NULL, `court_id` integer NULL, `player1_id` integer NOT NULL, `player2_id` integer NOT NULL, `winner_id` integer NOT NULL, `date` date NOT NULL, `player1_rated` integer NOT NULL, `player2_rated` integer NOT NULL, `player1_reviewed` longtext NULL, `player2_reviewed` longtext NULL, `court_review1_id` integer NULL, `court_review2_id` integer NULL)" with params "[]"
+2014-06-05 14:34:29,367 [DEBUG] django.db.backends: (0.010) CREATE TABLE `game_game` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `league_id` integer NULL, `court_id` integer NULL, `player1_id` integer NOT NULL, `player2_id` integer NOT NULL, `winner_id` integer NOT NULL, `date` date NOT NULL, `player1_rated` integer NOT NULL, `player2_rated` integer NOT NULL, `player1_reviewed` longtext NULL, `player2_reviewed` longtext NULL, `court_review1_id` integer NULL, `court_review2_id` integer NULL); args=[]
+2014-06-05 14:34:29,370 [DEBUG] south: execute "CREATE TABLE `game_score` (`game_id` integer NOT NULL PRIMARY KEY, `score11` integer NOT NULL, `score12` integer NOT NULL, `score21` integer NOT NULL, `score22` integer NOT NULL, `score31` integer NOT NULL, `score32` integer NOT NULL, `score41` integer NOT NULL, `score42` integer NOT NULL, `score51` integer NOT NULL, `score52` integer NOT NULL, `is_confirmed` bool NOT NULL)" with params "[]"
+2014-06-05 14:34:29,382 [DEBUG] django.db.backends: (0.011) CREATE TABLE `game_score` (`game_id` integer NOT NULL PRIMARY KEY, `score11` integer NOT NULL, `score12` integer NOT NULL, `score21` integer NOT NULL, `score22` integer NOT NULL, `score31` integer NOT NULL, `score32` integer NOT NULL, `score41` integer NOT NULL, `score42` integer NOT NULL, `score51` integer NOT NULL, `score52` integer NOT NULL, `is_confirmed` bool NOT NULL); args=[]
+2014-06-05 14:34:29,382 [DEBUG] south: execute "ALTER TABLE `game_league` ADD CONSTRAINT `city_id_refs_id_8676caee` FOREIGN KEY (`city_id`) REFERENCES `city_city` (`id`);" with params "[]"
+2014-06-05 14:34:29,418 [DEBUG] django.db.backends: (0.035) ALTER TABLE `game_league` ADD CONSTRAINT `city_id_refs_id_8676caee` FOREIGN KEY (`city_id`) REFERENCES `city_city` (`id`);; args=[]
+2014-06-05 14:34:29,418 [DEBUG] south: execute "CREATE INDEX `game_league_b376980e` ON `game_league` (`city_id`);" with params "[]"
+2014-06-05 14:34:29,432 [DEBUG] django.db.backends: (0.014) CREATE INDEX `game_league_b376980e` ON `game_league` (`city_id`);; args=[]
+2014-06-05 14:34:29,432 [DEBUG] south: execute "ALTER TABLE `game_league_players` ADD CONSTRAINT `league_id_refs_id_c5cbf8df` FOREIGN KEY (`league_id`) REFERENCES `game_league` (`id`);" with params "[]"
+2014-06-05 14:34:29,439 [DEBUG] django.db.backends: (0.007) ALTER TABLE `game_league_players` ADD CONSTRAINT `league_id_refs_id_c5cbf8df` FOREIGN KEY (`league_id`) REFERENCES `game_league` (`id`);; args=[]
+2014-06-05 14:34:29,440 [DEBUG] south: execute "CREATE INDEX `game_league_players_9c858b09` ON `game_league_players` (`league_id`);" with params "[]"
+2014-06-05 14:34:29,453 [DEBUG] django.db.backends: (0.014) CREATE INDEX `game_league_players_9c858b09` ON `game_league_players` (`league_id`);; args=[]
+2014-06-05 14:34:29,454 [DEBUG] south: execute "ALTER TABLE `game_league_players` ADD CONSTRAINT `account_id_refs_id_a1a474e5` FOREIGN KEY (`account_id`) REFERENCES `account_account` (`id`);" with params "[]"
+2014-06-05 14:34:29,466 [DEBUG] django.db.backends: (0.012) ALTER TABLE `game_league_players` ADD CONSTRAINT `account_id_refs_id_a1a474e5` FOREIGN KEY (`account_id`) REFERENCES `account_account` (`id`);; args=[]
+2014-06-05 14:34:29,467 [DEBUG] south: execute "CREATE INDEX `game_league_players_93025c2f` ON `game_league_players` (`account_id`);" with params "[]"
+2014-06-05 14:34:29,480 [DEBUG] django.db.backends: (0.013) CREATE INDEX `game_league_players_93025c2f` ON `game_league_players` (`account_id`);; args=[]
+2014-06-05 14:34:29,481 [DEBUG] south: execute "ALTER TABLE `game_game` ADD CONSTRAINT `league_id_refs_id_5236bb2f` FOREIGN KEY (`league_id`) REFERENCES `game_league` (`id`);" with params "[]"
+2014-06-05 14:34:29,492 [DEBUG] django.db.backends: (0.011) ALTER TABLE `game_game` ADD CONSTRAINT `league_id_refs_id_5236bb2f` FOREIGN KEY (`league_id`) REFERENCES `game_league` (`id`);; args=[]
+2014-06-05 14:34:29,492 [DEBUG] south: execute "CREATE INDEX `game_game_9c858b09` ON `game_game` (`league_id`);" with params "[]"
+2014-06-05 14:34:29,507 [DEBUG] django.db.backends: (0.015) CREATE INDEX `game_game_9c858b09` ON `game_game` (`league_id`);; args=[]
+2014-06-05 14:34:29,508 [DEBUG] south: execute "ALTER TABLE `game_game` ADD CONSTRAINT `court_id_refs_id_b72ac730` FOREIGN KEY (`court_id`) REFERENCES `court_court` (`id`);" with params "[]"
+2014-06-05 14:34:29,523 [DEBUG] django.db.backends: (0.015) ALTER TABLE `game_game` ADD CONSTRAINT `court_id_refs_id_b72ac730` FOREIGN KEY (`court_id`) REFERENCES `court_court` (`id`);; args=[]
+2014-06-05 14:34:29,523 [DEBUG] south: execute "CREATE INDEX `game_game_945f5f3e` ON `game_game` (`court_id`);" with params "[]"
+2014-06-05 14:34:29,535 [DEBUG] django.db.backends: (0.012) CREATE INDEX `game_game_945f5f3e` ON `game_game` (`court_id`);; args=[]
+2014-06-05 14:34:29,536 [DEBUG] south: execute "ALTER TABLE `game_game` ADD CONSTRAINT `player1_id_refs_id_e023d683` FOREIGN KEY (`player1_id`) REFERENCES `account_account` (`id`);" with params "[]"
+2014-06-05 14:34:29,548 [DEBUG] django.db.backends: (0.013) ALTER TABLE `game_game` ADD CONSTRAINT `player1_id_refs_id_e023d683` FOREIGN KEY (`player1_id`) REFERENCES `account_account` (`id`);; args=[]
+2014-06-05 14:34:29,549 [DEBUG] south: execute "CREATE INDEX `game_game_1574e572` ON `game_game` (`player1_id`);" with params "[]"
+2014-06-05 14:34:29,561 [DEBUG] django.db.backends: (0.012) CREATE INDEX `game_game_1574e572` ON `game_game` (`player1_id`);; args=[]
+2014-06-05 14:34:29,562 [DEBUG] south: execute "ALTER TABLE `game_game` ADD CONSTRAINT `player2_id_refs_id_e023d683` FOREIGN KEY (`player2_id`) REFERENCES `account_account` (`id`);" with params "[]"
+2014-06-05 14:34:29,577 [DEBUG] django.db.backends: (0.015) ALTER TABLE `game_game` ADD CONSTRAINT `player2_id_refs_id_e023d683` FOREIGN KEY (`player2_id`) REFERENCES `account_account` (`id`);; args=[]
+2014-06-05 14:34:29,577 [DEBUG] south: execute "CREATE INDEX `game_game_795cb0c9` ON `game_game` (`player2_id`);" with params "[]"
+2014-06-05 14:34:29,654 [DEBUG] django.db.backends: (0.077) CREATE INDEX `game_game_795cb0c9` ON `game_game` (`player2_id`);; args=[]
+2014-06-05 14:34:29,654 [DEBUG] south: execute "ALTER TABLE `game_game` ADD CONSTRAINT `winner_id_refs_id_e023d683` FOREIGN KEY (`winner_id`) REFERENCES `account_account` (`id`);" with params "[]"
+2014-06-05 14:34:29,669 [DEBUG] django.db.backends: (0.014) ALTER TABLE `game_game` ADD CONSTRAINT `winner_id_refs_id_e023d683` FOREIGN KEY (`winner_id`) REFERENCES `account_account` (`id`);; args=[]
+2014-06-05 14:34:29,669 [DEBUG] south: execute "CREATE INDEX `game_game_bfcfac82` ON `game_game` (`winner_id`);" with params "[]"
+2014-06-05 14:34:29,681 [DEBUG] django.db.backends: (0.012) CREATE INDEX `game_game_bfcfac82` ON `game_game` (`winner_id`);; args=[]
+2014-06-05 14:34:29,682 [DEBUG] south: execute "ALTER TABLE `game_game` ADD CONSTRAINT `court_review1_id_refs_id_0d2b74ea` FOREIGN KEY (`court_review1_id`) REFERENCES `review_courtreview` (`id`);" with params "[]"
+2014-06-05 14:34:29,696 [DEBUG] django.db.backends: (0.014) ALTER TABLE `game_game` ADD CONSTRAINT `court_review1_id_refs_id_0d2b74ea` FOREIGN KEY (`court_review1_id`) REFERENCES `review_courtreview` (`id`);; args=[]
+2014-06-05 14:34:29,697 [DEBUG] south: execute "CREATE INDEX `game_game_ba7d3d87` ON `game_game` (`court_review1_id`);" with params "[]"
+2014-06-05 14:34:29,710 [DEBUG] django.db.backends: (0.012) CREATE INDEX `game_game_ba7d3d87` ON `game_game` (`court_review1_id`);; args=[]
+2014-06-05 14:34:29,710 [DEBUG] south: execute "ALTER TABLE `game_game` ADD CONSTRAINT `court_review2_id_refs_id_0d2b74ea` FOREIGN KEY (`court_review2_id`) REFERENCES `review_courtreview` (`id`);" with params "[]"
+2014-06-05 14:34:29,723 [DEBUG] django.db.backends: (0.013) ALTER TABLE `game_game` ADD CONSTRAINT `court_review2_id_refs_id_0d2b74ea` FOREIGN KEY (`court_review2_id`) REFERENCES `review_courtreview` (`id`);; args=[]
+2014-06-05 14:34:29,723 [DEBUG] south: execute "CREATE INDEX `game_game_5378ba41` ON `game_game` (`court_review2_id`);" with params "[]"
+2014-06-05 14:34:29,735 [DEBUG] django.db.backends: (0.012) CREATE INDEX `game_game_5378ba41` ON `game_game` (`court_review2_id`);; args=[]
+2014-06-05 14:34:29,736 [DEBUG] south: execute "ALTER TABLE `game_score` ADD CONSTRAINT `game_id_refs_id_3eb3fd7e` FOREIGN KEY (`game_id`) REFERENCES `game_game` (`id`);" with params "[]"
+2014-06-05 14:34:29,743 [DEBUG] django.db.backends: (0.007) ALTER TABLE `game_score` ADD CONSTRAINT `game_id_refs_id_3eb3fd7e` FOREIGN KEY (`game_id`) REFERENCES `game_game` (`id`);; args=[]
+2014-06-05 14:34:29,746 [DEBUG] django.db.backends: (0.001) SELECT `south_migrationhistory`.`id`, `south_migrationhistory`.`app_name`, `south_migrationhistory`.`migration`, `south_migrationhistory`.`applied` FROM `south_migrationhistory` WHERE (`south_migrationhistory`.`app_name` = 'game'  AND `south_migrationhistory`.`migration` = '0001_initial' ); args=('game', '0001_initial')
+2014-06-05 14:34:29,748 [DEBUG] django.db.backends: (0.001) INSERT INTO `south_migrationhistory` (`app_name`, `migration`, `applied`) VALUES ('game', '0001_initial', '2014-06-05 14:34:29'); args=['game', '0001_initial', u'2014-06-05 14:34:29']
+2014-06-05 14:34:29,775 [DEBUG] south: execute "SET FOREIGN_KEY_CHECKS=0;" with params "[]"
+2014-06-05 14:34:29,776 [DEBUG] django.db.backends: (0.000) SET FOREIGN_KEY_CHECKS=0;; args=[]
+2014-06-05 14:34:29,778 [DEBUG] south: execute "CREATE TABLE `game_league` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `name` varchar(200) NOT NULL, `city_id` integer NOT NULL, `start_date` date NOT NULL, `end_date` date NOT NULL, `max_player_number` integer NOT NULL, `level_low` double precision NOT NULL, `level_high` double precision NOT NULL)" with params "[]"
+2014-06-05 14:34:29,778 [DEBUG] django.db.backends: (0.000) CREATE TABLE `game_league` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `name` varchar(200) NOT NULL, `city_id` integer NOT NULL, `start_date` date NOT NULL, `end_date` date NOT NULL, `max_player_number` integer NOT NULL, `level_low` double precision NOT NULL, `level_high` double precision NOT NULL); args=[]
+2014-06-05 14:34:29,780 [DEBUG] django.db.backends: (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'league'  AND `django_content_type`.`app_label` = 'game' ); args=('league', u'game')
+2014-06-05 14:34:29,781 [DEBUG] django.db.backends: (0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('league', 'game', 'league'); args=[u'league', u'game', 'league']
+2014-06-05 14:34:29,783 [DEBUG] django.db.backends: (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'game'  AND `django_content_type`.`app_label` = 'game' ); args=('game', u'game')
+2014-06-05 14:34:29,784 [DEBUG] django.db.backends: (0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('game', 'game', 'game'); args=[u'game', u'game', 'game']
+2014-06-05 14:34:29,786 [DEBUG] django.db.backends: (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'score'  AND `django_content_type`.`app_label` = 'game' ); args=('score', u'game')
+2014-06-05 14:34:29,787 [DEBUG] django.db.backends: (0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('score', 'game', 'score'); args=[u'score', u'game', 'score']
+2014-06-05 14:34:29,817 [DEBUG] django.db.backends: (0.011) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON ( `auth_permission`.`content_type_id` = `django_content_type`.`id` ) WHERE `auth_permission`.`content_type_id` IN (10, 11, 12) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(10, 11, 12)
+2014-06-05 14:34:29,820 [DEBUG] django.db.backends: (0.001) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add league', 10, 'add_league'), ('Can change league', 10, 'change_league'), ('Can delete league', 10, 'delete_league'), ('Can add game', 11, 'add_game'), ('Can change game', 11, 'change_game'), ('Can delete game', 11, 'delete_game'), ('Can add score', 12, 'add_score'), ('Can change score', 12, 'change_score'), ('Can delete score', 12, 'delete_score'); args=(u'Can add league', 10, u'add_league', u'Can change league', 10, u'change_league', u'Can delete league', 10, u'delete_league', u'Can add game', 11, u'add_game', u'Can change game', 11, u'change_game', u'Can delete game', 11, u'delete_game', u'Can add score', 12, u'add_score', u'Can change score', 12, u'change_score', u'Can delete score', 12, u'delete_score')
+2014-06-05 14:34:29,823 [DEBUG] django.db.backends: (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'game'  ORDER BY `django_content_type`.`name` ASC; args=(u'game',)
+2014-06-05 14:41:50,712 [DEBUG] django.db.backends: (0.000) SELECT `south_migrationhistory`.`id`, `south_migrationhistory`.`app_name`, `south_migrationhistory`.`migration`, `south_migrationhistory`.`applied` FROM `south_migrationhistory` WHERE `south_migrationhistory`.`applied` IS NOT NULL ORDER BY `south_migrationhistory`.`applied` ASC; args=()
+2014-06-05 14:41:50,742 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=0; args=None
+2014-06-05 14:41:50,743 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=1; args=None
+2014-06-05 14:42:34,812 [DEBUG] django.db.backends: (0.001) SELECT `south_migrationhistory`.`id`, `south_migrationhistory`.`app_name`, `south_migrationhistory`.`migration`, `south_migrationhistory`.`applied` FROM `south_migrationhistory` WHERE `south_migrationhistory`.`applied` IS NOT NULL ORDER BY `south_migrationhistory`.`applied` ASC; args=()
+2014-06-05 14:42:34,822 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=0; args=None
+2014-06-05 14:42:34,823 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=1; args=None
+2014-06-05 14:49:52,941 [DEBUG] django.db.backends: (0.022) SELECT `south_migrationhistory`.`id`, `south_migrationhistory`.`app_name`, `south_migrationhistory`.`migration`, `south_migrationhistory`.`applied` FROM `south_migrationhistory` WHERE `south_migrationhistory`.`applied` IS NOT NULL ORDER BY `south_migrationhistory`.`applied` ASC; args=()
+2014-06-05 14:49:52,971 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=0; args=None
+2014-06-05 14:49:52,972 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=1; args=None
+2014-06-05 14:49:59,411 [DEBUG] django.db.backends: (0.000) SELECT `south_migrationhistory`.`id`, `south_migrationhistory`.`app_name`, `south_migrationhistory`.`migration`, `south_migrationhistory`.`applied` FROM `south_migrationhistory` WHERE `south_migrationhistory`.`applied` IS NOT NULL ORDER BY `south_migrationhistory`.`applied` ASC; args=()
+2014-06-05 14:49:59,419 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=0; args=None
+2014-06-05 14:49:59,420 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=1; args=None
+2014-06-05 14:50:36,226 [DEBUG] django.db.backends: (0.003) SHOW variables WHERE Variable_Name='default_storage_engine';; args=None
+2014-06-05 14:50:36,230 [DEBUG] django.db.backends: (0.000) SHOW TABLES; args=None
+2014-06-05 14:50:36,232 [DEBUG] django.db.backends: (0.001) CREATE TABLE `django_admin_log` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `action_time` datetime NOT NULL,
+    `user_id` integer NOT NULL,
+    `content_type_id` integer,
+    `object_id` longtext,
+    `object_repr` varchar(200) NOT NULL,
+    `action_flag` smallint UNSIGNED NOT NULL,
+    `change_message` longtext NOT NULL
+)
+;; args=None
+2014-06-05 14:51:50,039 [DEBUG] django.db.backends: (0.001) SHOW variables WHERE Variable_Name='default_storage_engine';; args=None
+2014-06-05 14:51:50,043 [DEBUG] django.db.backends: (0.000) SHOW TABLES; args=None
+2014-06-05 14:51:50,044 [DEBUG] django.db.backends: (0.000) CREATE TABLE `django_admin_log` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `action_time` datetime NOT NULL,
+    `user_id` integer NOT NULL,
+    `content_type_id` integer,
+    `object_id` longtext,
+    `object_repr` varchar(200) NOT NULL,
+    `action_flag` smallint UNSIGNED NOT NULL,
+    `change_message` longtext NOT NULL
+)
+;; args=None
+2014-06-05 14:58:31,846 [DEBUG] django.db.backends: (0.000) SELECT `south_migrationhistory`.`id`, `south_migrationhistory`.`app_name`, `south_migrationhistory`.`migration`, `south_migrationhistory`.`applied` FROM `south_migrationhistory` WHERE `south_migrationhistory`.`applied` IS NOT NULL ORDER BY `south_migrationhistory`.`applied` ASC; args=()
+2014-06-05 14:58:31,865 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=0; args=None
+2014-06-05 14:58:31,866 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=1; args=None
+2014-06-05 14:59:21,004 [DEBUG] django.db.backends: (0.000) SELECT `south_migrationhistory`.`id`, `south_migrationhistory`.`app_name`, `south_migrationhistory`.`migration`, `south_migrationhistory`.`applied` FROM `south_migrationhistory` WHERE `south_migrationhistory`.`applied` IS NOT NULL ORDER BY `south_migrationhistory`.`applied` ASC; args=()
+2014-06-05 14:59:21,022 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=0; args=None
+2014-06-05 14:59:21,023 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=1; args=None
+2014-06-05 14:59:27,360 [DEBUG] django.db.backends: (0.000) SELECT `south_migrationhistory`.`id`, `south_migrationhistory`.`app_name`, `south_migrationhistory`.`migration`, `south_migrationhistory`.`applied` FROM `south_migrationhistory` WHERE `south_migrationhistory`.`applied` IS NOT NULL ORDER BY `south_migrationhistory`.`applied` ASC; args=()
+2014-06-05 14:59:27,371 [DEBUG] django.db.backends: (0.001) SHOW variables WHERE Variable_Name='default_storage_engine';; args=None
+2014-06-05 14:59:27,399 [DEBUG] django.db.backends: (0.028) CREATE TABLE ROLLBACK_TEST (X INT); args=None
+2014-06-05 14:59:27,430 [DEBUG] django.db.backends: (0.030) INSERT INTO ROLLBACK_TEST (X) VALUES (8); args=None
+2014-06-05 14:59:27,433 [DEBUG] django.db.backends: (0.002) SELECT COUNT(X) FROM ROLLBACK_TEST; args=None
+2014-06-05 14:59:27,437 [DEBUG] django.db.backends: (0.004) DROP TABLE ROLLBACK_TEST; args=None
+2014-06-05 14:59:27,437 [DEBUG] south: execute "SET FOREIGN_KEY_CHECKS=0;" with params "[]"
+2014-06-05 14:59:27,438 [DEBUG] django.db.backends: (0.000) SET FOREIGN_KEY_CHECKS=0;; args=[]
+2014-06-05 14:59:27,447 [DEBUG] django.db.backends: (0.009) CREATE TABLE DDL_TRANSACTION_TEST (X INT); args=None
+2014-06-05 14:59:27,448 [DEBUG] django.db.backends: (0.001) CREATE TABLE DDL_TRANSACTION_TEST (X INT); args=None
+2014-06-05 14:59:27,450 [DEBUG] django.db.backends: (0.002) DROP TABLE DDL_TRANSACTION_TEST; args=None
+2014-06-05 14:59:27,453 [DEBUG] south: execute "SET FOREIGN_KEY_CHECKS=0;" with params "[]"
+2014-06-05 14:59:27,453 [DEBUG] django.db.backends: (0.000) SET FOREIGN_KEY_CHECKS=0;; args=[]
+2014-06-05 14:59:27,455 [DEBUG] south: execute "CREATE TABLE `review_courtreview` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `court_id` integer NOT NULL, `user_id` integer NOT NULL, `review` longtext NOT NULL, `rate` integer NOT NULL)" with params "[]"
+2014-06-05 14:59:27,481 [DEBUG] django.db.backends: (0.026) CREATE TABLE `review_courtreview` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `court_id` integer NOT NULL, `user_id` integer NOT NULL, `review` longtext NOT NULL, `rate` integer NOT NULL); args=[]
+2014-06-05 14:59:27,481 [DEBUG] south: execute "ALTER TABLE `review_courtreview` ADD CONSTRAINT `court_id_refs_id_3036ef22` FOREIGN KEY (`court_id`) REFERENCES `court_court` (`id`);" with params "[]"
+2014-06-05 14:59:27,518 [DEBUG] django.db.backends: (0.037) ALTER TABLE `review_courtreview` ADD CONSTRAINT `court_id_refs_id_3036ef22` FOREIGN KEY (`court_id`) REFERENCES `court_court` (`id`);; args=[]
+2014-06-05 14:59:27,519 [DEBUG] south: execute "CREATE INDEX `review_courtreview_945f5f3e` ON `review_courtreview` (`court_id`);" with params "[]"
+2014-06-05 14:59:27,528 [DEBUG] django.db.backends: (0.009) CREATE INDEX `review_courtreview_945f5f3e` ON `review_courtreview` (`court_id`);; args=[]
+2014-06-05 14:59:27,528 [DEBUG] south: execute "ALTER TABLE `review_courtreview` ADD CONSTRAINT `user_id_refs_user_id_1a161a8a` FOREIGN KEY (`user_id`) REFERENCES `account_profile` (`user_id`);" with params "[]"
+2014-06-05 14:59:27,560 [DEBUG] django.db.backends: (0.031) ALTER TABLE `review_courtreview` ADD CONSTRAINT `user_id_refs_user_id_1a161a8a` FOREIGN KEY (`user_id`) REFERENCES `account_profile` (`user_id`);; args=[]
+2014-06-05 14:59:27,560 [DEBUG] south: execute "CREATE INDEX `review_courtreview_6340c63c` ON `review_courtreview` (`user_id`);" with params "[]"
+2014-06-05 14:59:27,571 [DEBUG] django.db.backends: (0.011) CREATE INDEX `review_courtreview_6340c63c` ON `review_courtreview` (`user_id`);; args=[]
+2014-06-05 14:59:27,573 [DEBUG] django.db.backends: (0.001) SELECT `south_migrationhistory`.`id`, `south_migrationhistory`.`app_name`, `south_migrationhistory`.`migration`, `south_migrationhistory`.`applied` FROM `south_migrationhistory` WHERE (`south_migrationhistory`.`app_name` = 'review'  AND `south_migrationhistory`.`migration` = '0001_initial' ); args=('review', '0001_initial')
+2014-06-05 14:59:27,575 [DEBUG] django.db.backends: (0.001) INSERT INTO `south_migrationhistory` (`app_name`, `migration`, `applied`) VALUES ('review', '0001_initial', '2014-06-05 14:59:27'); args=['review', '0001_initial', u'2014-06-05 14:59:27']
+2014-06-05 14:59:27,577 [DEBUG] django.db.backends: (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'courtreview'  AND `django_content_type`.`app_label` = 'review' ); args=('courtreview', u'review')
+2014-06-05 14:59:27,578 [DEBUG] django.db.backends: (0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('court review', 'review', 'courtreview'); args=[u'court review', u'review', 'courtreview']
+2014-06-05 14:59:27,582 [DEBUG] django.db.backends: (0.002) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON ( `auth_permission`.`content_type_id` = `django_content_type`.`id` ) WHERE `auth_permission`.`content_type_id` IN (13) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(13,)
+2014-06-05 14:59:27,583 [DEBUG] django.db.backends: (0.000) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add court review', 13, 'add_courtreview'), ('Can change court review', 13, 'change_courtreview'), ('Can delete court review', 13, 'delete_courtreview'); args=(u'Can add court review', 13, u'add_courtreview', u'Can change court review', 13, u'change_courtreview', u'Can delete court review', 13, u'delete_courtreview')
+2014-06-05 14:59:27,584 [DEBUG] django.db.backends: (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'review'  ORDER BY `django_content_type`.`name` ASC; args=(u'review',)
+2014-06-05 14:59:27,599 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=0; args=None
+2014-06-05 14:59:27,600 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=1; args=None
+2014-06-05 14:59:35,646 [DEBUG] django.db.backends: (0.000) SELECT `south_migrationhistory`.`id`, `south_migrationhistory`.`app_name`, `south_migrationhistory`.`migration`, `south_migrationhistory`.`applied` FROM `south_migrationhistory` WHERE `south_migrationhistory`.`applied` IS NOT NULL ORDER BY `south_migrationhistory`.`applied` ASC; args=()
+2014-06-05 14:59:35,654 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=0; args=None
+2014-06-05 14:59:35,655 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=1; args=None
+2014-06-05 14:59:40,601 [DEBUG] django.db.backends: (0.000) SELECT `south_migrationhistory`.`id`, `south_migrationhistory`.`app_name`, `south_migrationhistory`.`migration`, `south_migrationhistory`.`applied` FROM `south_migrationhistory` WHERE `south_migrationhistory`.`applied` IS NOT NULL ORDER BY `south_migrationhistory`.`applied` ASC; args=()
+2014-06-05 14:59:40,605 [DEBUG] django.db.backends: (0.001) SHOW variables WHERE Variable_Name='default_storage_engine';; args=None
+2014-06-05 14:59:40,613 [DEBUG] django.db.backends: (0.008) CREATE TABLE ROLLBACK_TEST (X INT); args=None
+2014-06-05 14:59:40,615 [DEBUG] django.db.backends: (0.001) INSERT INTO ROLLBACK_TEST (X) VALUES (8); args=None
+2014-06-05 14:59:40,616 [DEBUG] django.db.backends: (0.000) SELECT COUNT(X) FROM ROLLBACK_TEST; args=None
+2014-06-05 14:59:40,618 [DEBUG] django.db.backends: (0.002) DROP TABLE ROLLBACK_TEST; args=None
+2014-06-05 14:59:40,618 [DEBUG] south: execute "SET FOREIGN_KEY_CHECKS=0;" with params "[]"
+2014-06-05 14:59:40,619 [DEBUG] django.db.backends: (0.000) SET FOREIGN_KEY_CHECKS=0;; args=[]
+2014-06-05 14:59:40,626 [DEBUG] django.db.backends: (0.007) CREATE TABLE DDL_TRANSACTION_TEST (X INT); args=None
+2014-06-05 14:59:40,627 [DEBUG] django.db.backends: (0.001) CREATE TABLE DDL_TRANSACTION_TEST (X INT); args=None
+2014-06-05 14:59:40,629 [DEBUG] django.db.backends: (0.001) DROP TABLE DDL_TRANSACTION_TEST; args=None
+2014-06-05 14:59:40,630 [DEBUG] south: execute "SET FOREIGN_KEY_CHECKS=0;" with params "[]"
+2014-06-05 14:59:40,630 [DEBUG] django.db.backends: (0.000) SET FOREIGN_KEY_CHECKS=0;; args=[]
+2014-06-05 14:59:40,631 [DEBUG] south: execute "CREATE TABLE `city_city` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `name` varchar(20) NOT NULL)" with params "[]"
+2014-06-05 14:59:40,639 [DEBUG] django.db.backends: (0.007) CREATE TABLE `city_city` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `name` varchar(20) NOT NULL); args=[]
+2014-06-05 14:59:40,640 [DEBUG] django.db.backends: (0.000) SELECT `south_migrationhistory`.`id`, `south_migrationhistory`.`app_name`, `south_migrationhistory`.`migration`, `south_migrationhistory`.`applied` FROM `south_migrationhistory` WHERE (`south_migrationhistory`.`app_name` = 'city'  AND `south_migrationhistory`.`migration` = '0001_initial' ); args=('city', '0001_initial')
+2014-06-05 14:59:40,642 [DEBUG] django.db.backends: (0.000) INSERT INTO `south_migrationhistory` (`app_name`, `migration`, `applied`) VALUES ('city', '0001_initial', '2014-06-05 14:59:40'); args=['city', '0001_initial', u'2014-06-05 14:59:40']
+2014-06-05 14:59:40,645 [DEBUG] django.db.backends: (0.001) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'city'  AND `django_content_type`.`app_label` = 'city' ); args=('city', u'city')
+2014-06-05 14:59:40,646 [DEBUG] django.db.backends: (0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('city', 'city', 'city'); args=[u'city', u'city', 'city']
+2014-06-05 14:59:40,649 [DEBUG] django.db.backends: (0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON ( `auth_permission`.`content_type_id` = `django_content_type`.`id` ) WHERE `auth_permission`.`content_type_id` IN (14) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(14,)
+2014-06-05 14:59:40,650 [DEBUG] django.db.backends: (0.000) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add city', 14, 'add_city'), ('Can change city', 14, 'change_city'), ('Can delete city', 14, 'delete_city'); args=(u'Can add city', 14, u'add_city', u'Can change city', 14, u'change_city', u'Can delete city', 14, u'delete_city')
+2014-06-05 14:59:40,652 [DEBUG] django.db.backends: (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'city'  ORDER BY `django_content_type`.`name` ASC; args=(u'city',)
+2014-06-05 14:59:40,662 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=0; args=None
+2014-06-05 14:59:40,663 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=1; args=None
+2014-06-05 15:00:25,490 [DEBUG] django.db.backends: (0.000) SELECT `south_migrationhistory`.`id`, `south_migrationhistory`.`app_name`, `south_migrationhistory`.`migration`, `south_migrationhistory`.`applied` FROM `south_migrationhistory` WHERE `south_migrationhistory`.`applied` IS NOT NULL ORDER BY `south_migrationhistory`.`applied` ASC; args=()
+2014-06-05 15:00:25,498 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=0; args=None
+2014-06-05 15:00:25,499 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=1; args=None
+2014-06-05 15:06:52,599 [DEBUG] django.db.backends: (0.003) SHOW variables WHERE Variable_Name='default_storage_engine';; args=None
+2014-06-05 15:06:52,608 [DEBUG] django.db.backends: (0.006) SHOW TABLES; args=None
+2014-06-05 15:06:52,629 [DEBUG] django.db.backends: (0.019) CREATE TABLE `django_admin_log` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `action_time` datetime NOT NULL,
+    `user_id` integer NOT NULL,
+    `content_type_id` integer,
+    `object_id` longtext,
+    `object_repr` varchar(200) NOT NULL,
+    `action_flag` smallint UNSIGNED NOT NULL,
+    `change_message` longtext NOT NULL
+)
+;; args=None
+2014-06-05 15:09:48,393 [DEBUG] django.db.backends: (0.026) SELECT `south_migrationhistory`.`id`, `south_migrationhistory`.`app_name`, `south_migrationhistory`.`migration`, `south_migrationhistory`.`applied` FROM `south_migrationhistory` WHERE `south_migrationhistory`.`applied` IS NOT NULL ORDER BY `south_migrationhistory`.`applied` ASC; args=()
+2014-06-05 15:09:48,414 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=0; args=None
+2014-06-05 15:09:48,415 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=1; args=None
+2014-06-05 15:10:11,118 [DEBUG] django.db.backends: (0.000) SELECT `south_migrationhistory`.`id`, `south_migrationhistory`.`app_name`, `south_migrationhistory`.`migration`, `south_migrationhistory`.`applied` FROM `south_migrationhistory` WHERE `south_migrationhistory`.`applied` IS NOT NULL ORDER BY `south_migrationhistory`.`applied` ASC; args=()
+2014-06-05 15:10:11,126 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=0; args=None
+2014-06-05 15:10:11,127 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=1; args=None
+2014-06-05 15:14:55,188 [DEBUG] django.db.backends: (0.000) SHOW variables WHERE Variable_Name='default_storage_engine';; args=None
+2014-06-05 15:14:55,191 [DEBUG] django.db.backends: (0.000) SHOW TABLES; args=None
+2014-06-05 15:14:55,192 [DEBUG] django.db.backends: (0.000) CREATE TABLE `django_admin_log` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `action_time` datetime NOT NULL,
+    `user_id` integer NOT NULL,
+    `content_type_id` integer,
+    `object_id` longtext,
+    `object_repr` varchar(200) NOT NULL,
+    `action_flag` smallint UNSIGNED NOT NULL,
+    `change_message` longtext NOT NULL
+)
+;; args=None
+2014-06-05 15:24:25,060 [DEBUG] django.db.backends: (0.001) SHOW variables WHERE Variable_Name='default_storage_engine';; args=None
+2014-06-05 15:24:25,064 [DEBUG] django.db.backends: (0.000) SHOW TABLES; args=None
+2014-06-05 15:26:16,836 [DEBUG] django.db.backends: (0.001) SHOW variables WHERE Variable_Name='default_storage_engine';; args=None
+2014-06-05 15:26:16,840 [DEBUG] django.db.backends: (0.000) SHOW TABLES; args=None
+2014-06-05 15:26:53,488 [DEBUG] django.db.backends: (36.647) CREATE TABLE `django_admin_log` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `action_time` datetime NOT NULL,
+    `user_id` integer NOT NULL,
+    `content_type_id` integer,
+    `object_id` longtext,
+    `object_repr` varchar(200) NOT NULL,
+    `action_flag` smallint UNSIGNED NOT NULL,
+    `change_message` longtext NOT NULL
+)
+;; args=None
+2014-06-05 15:27:09,899 [DEBUG] django.db.backends: (0.001) SHOW variables WHERE Variable_Name='default_storage_engine';; args=None
+2014-06-05 15:27:09,903 [DEBUG] django.db.backends: (0.000) SHOW TABLES; args=None
+2014-06-05 15:31:48,359 [DEBUG] django.db.backends: (278.455) CREATE TABLE `django_admin_log` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `action_time` datetime NOT NULL,
+    `user_id` integer NOT NULL,
+    `content_type_id` integer,
+    `object_id` longtext,
+    `object_repr` varchar(200) NOT NULL,
+    `action_flag` smallint UNSIGNED NOT NULL,
+    `change_message` longtext NOT NULL
+)
+;; args=None
+2014-06-05 15:36:25,095 [DEBUG] django.db.backends: (0.015) SHOW variables WHERE Variable_Name='default_storage_engine';; args=None
+2014-06-05 15:36:25,101 [DEBUG] django.db.backends: (0.001) SHOW TABLES; args=None
+2014-06-05 15:36:25,122 [DEBUG] django.db.backends: (0.020) CREATE TABLE `django_admin_log` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `action_time` datetime NOT NULL,
+    `user_id` integer NOT NULL,
+    `content_type_id` integer,
+    `object_id` longtext,
+    `object_repr` varchar(200) NOT NULL,
+    `action_flag` smallint UNSIGNED NOT NULL,
+    `change_message` longtext NOT NULL
+)
+;; args=None
+2014-06-05 15:42:56,046 [DEBUG] django.db.backends: (0.001) SHOW variables WHERE Variable_Name='default_storage_engine';; args=None
+2014-06-05 15:42:56,051 [DEBUG] django.db.backends: (0.000) SHOW TABLES; args=None
+2014-06-05 15:42:56,064 [DEBUG] django.db.backends: (0.012) CREATE TABLE `django_admin_log` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `action_time` datetime NOT NULL,
+    `user_id` integer NOT NULL,
+    `content_type_id` integer,
+    `object_id` longtext,
+    `object_repr` varchar(200) NOT NULL,
+    `action_flag` smallint UNSIGNED NOT NULL,
+    `change_message` longtext NOT NULL
+)
+;; args=None
+2014-06-05 15:42:56,073 [DEBUG] django.db.backends: (0.008) CREATE TABLE `auth_permission` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `name` varchar(50) NOT NULL,
+    `content_type_id` integer NOT NULL,
+    `codename` varchar(100) NOT NULL,
+    UNIQUE (`content_type_id`, `codename`)
+)
+;; args=None
+2014-06-05 15:42:56,082 [DEBUG] django.db.backends: (0.008) CREATE TABLE `auth_group_permissions` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `group_id` integer NOT NULL,
+    `permission_id` integer NOT NULL,
+    UNIQUE (`group_id`, `permission_id`)
+)
+;; args=None
+2014-06-05 15:42:56,099 [DEBUG] django.db.backends: (0.016) ALTER TABLE `auth_group_permissions` ADD CONSTRAINT `permission_id_refs_id_6ba0f519` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`);; args=None
+2014-06-05 15:42:56,108 [DEBUG] django.db.backends: (0.008) CREATE TABLE `auth_group` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `name` varchar(80) NOT NULL UNIQUE
+)
+;; args=None
+2014-06-05 15:42:56,125 [DEBUG] django.db.backends: (0.017) ALTER TABLE `auth_group_permissions` ADD CONSTRAINT `group_id_refs_id_f4b32aac` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`);; args=None
+2014-06-05 15:42:56,136 [DEBUG] django.db.backends: (0.010) CREATE TABLE `django_content_type` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `name` varchar(100) NOT NULL,
+    `app_label` varchar(100) NOT NULL,
+    `model` varchar(100) NOT NULL,
+    UNIQUE (`app_label`, `model`)
+)
+;; args=None
+2014-06-05 15:42:56,152 [DEBUG] django.db.backends: (0.016) ALTER TABLE `django_admin_log` ADD CONSTRAINT `content_type_id_refs_id_93d2d1f8` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`);; args=None
+2014-06-05 15:42:56,167 [DEBUG] django.db.backends: (0.015) ALTER TABLE `auth_permission` ADD CONSTRAINT `content_type_id_refs_id_d043b34a` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`);; args=None
+2014-06-05 15:42:56,177 [DEBUG] django.db.backends: (0.010) CREATE TABLE `django_session` (
+    `session_key` varchar(40) NOT NULL PRIMARY KEY,
+    `session_data` longtext NOT NULL,
+    `expire_date` datetime NOT NULL
+)
+;; args=None
+2014-06-05 15:42:56,188 [DEBUG] django.db.backends: (0.010) CREATE TABLE `south_migrationhistory` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `app_name` varchar(255) NOT NULL,
+    `migration` varchar(255) NOT NULL,
+    `applied` datetime NOT NULL
+)
+;; args=None
+2014-06-05 15:42:56,194 [DEBUG] django.db.backends: (0.001) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'logentry'  AND `django_content_type`.`app_label` = 'admin' ); args=('logentry', u'admin')
+2014-06-05 15:42:56,200 [DEBUG] django.db.backends: (0.001) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('log entry', 'admin', 'logentry'); args=[u'log entry', u'admin', 'logentry']
+2014-06-05 15:42:56,205 [DEBUG] django.db.backends: (0.002) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON ( `auth_permission`.`content_type_id` = `django_content_type`.`id` ) WHERE `auth_permission`.`content_type_id` IN (1) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(1,)
+2014-06-05 15:42:56,207 [DEBUG] django.db.backends: (0.000) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add log entry', 1, 'add_logentry'), ('Can change log entry', 1, 'change_logentry'), ('Can delete log entry', 1, 'delete_logentry'); args=(u'Can add log entry', 1, u'add_logentry', u'Can change log entry', 1, u'change_logentry', u'Can delete log entry', 1, u'delete_logentry')
+2014-06-05 15:42:56,209 [DEBUG] django.db.backends: (0.001) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'admin'  ORDER BY `django_content_type`.`name` ASC; args=(u'admin',)
+2014-06-05 15:42:56,210 [DEBUG] django.db.backends: (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'permission'  AND `django_content_type`.`app_label` = 'auth' ); args=('permission', u'auth')
+2014-06-05 15:42:56,211 [DEBUG] django.db.backends: (0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('permission', 'auth', 'permission'); args=[u'permission', u'auth', 'permission']
+2014-06-05 15:42:56,213 [DEBUG] django.db.backends: (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'group'  AND `django_content_type`.`app_label` = 'auth' ); args=('group', u'auth')
+2014-06-05 15:42:56,214 [DEBUG] django.db.backends: (0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('group', 'auth', 'group'); args=[u'group', u'auth', 'group']
+2014-06-05 15:42:56,218 [DEBUG] django.db.backends: (0.001) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON ( `auth_permission`.`content_type_id` = `django_content_type`.`id` ) WHERE `auth_permission`.`content_type_id` IN (2, 3) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(2, 3)
+2014-06-05 15:42:56,221 [DEBUG] django.db.backends: (0.000) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add permission', 2, 'add_permission'), ('Can change permission', 2, 'change_permission'), ('Can delete permission', 2, 'delete_permission'), ('Can add group', 3, 'add_group'), ('Can change group', 3, 'change_group'), ('Can delete group', 3, 'delete_group'); args=(u'Can add permission', 2, u'add_permission', u'Can change permission', 2, u'change_permission', u'Can delete permission', 2, u'delete_permission', u'Can add group', 3, u'add_group', u'Can change group', 3, u'change_group', u'Can delete group', 3, u'delete_group')
+2014-06-05 15:42:56,223 [DEBUG] django.db.backends: (0.001) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'auth'  ORDER BY `django_content_type`.`name` ASC; args=(u'auth',)
+2014-06-05 15:42:56,226 [DEBUG] django.db.backends: (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'contenttype'  AND `django_content_type`.`app_label` = 'contenttypes' ); args=('contenttype', u'contenttypes')
+2014-06-05 15:42:56,227 [DEBUG] django.db.backends: (0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('content type', 'contenttypes', 'contenttype'); args=[u'content type', u'contenttypes', 'contenttype']
+2014-06-05 15:42:56,230 [DEBUG] django.db.backends: (0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON ( `auth_permission`.`content_type_id` = `django_content_type`.`id` ) WHERE `auth_permission`.`content_type_id` IN (4) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(4,)
+2014-06-05 15:42:56,231 [DEBUG] django.db.backends: (0.000) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add content type', 4, 'add_contenttype'), ('Can change content type', 4, 'change_contenttype'), ('Can delete content type', 4, 'delete_contenttype'); args=(u'Can add content type', 4, u'add_contenttype', u'Can change content type', 4, u'change_contenttype', u'Can delete content type', 4, u'delete_contenttype')
+2014-06-05 15:42:56,233 [DEBUG] django.db.backends: (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'contenttypes'  ORDER BY `django_content_type`.`name` ASC; args=(u'contenttypes',)
+2014-06-05 15:42:56,235 [DEBUG] django.db.backends: (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'session'  AND `django_content_type`.`app_label` = 'sessions' ); args=('session', u'sessions')
+2014-06-05 15:42:56,235 [DEBUG] django.db.backends: (0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('session', 'sessions', 'session'); args=[u'session', u'sessions', 'session']
+2014-06-05 15:42:56,238 [DEBUG] django.db.backends: (0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON ( `auth_permission`.`content_type_id` = `django_content_type`.`id` ) WHERE `auth_permission`.`content_type_id` IN (5) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(5,)
+2014-06-05 15:42:56,239 [DEBUG] django.db.backends: (0.000) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add session', 5, 'add_session'), ('Can change session', 5, 'change_session'), ('Can delete session', 5, 'delete_session'); args=(u'Can add session', 5, u'add_session', u'Can change session', 5, u'change_session', u'Can delete session', 5, u'delete_session')
+2014-06-05 15:42:56,241 [DEBUG] django.db.backends: (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'sessions'  ORDER BY `django_content_type`.`name` ASC; args=(u'sessions',)
+2014-06-05 15:42:56,243 [DEBUG] django.db.backends: (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'migrationhistory'  AND `django_content_type`.`app_label` = 'south' ); args=('migrationhistory', u'south')
+2014-06-05 15:42:56,244 [DEBUG] django.db.backends: (0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('migration history', 'south', 'migrationhistory'); args=[u'migration history', u'south', 'migrationhistory']
+2014-06-05 15:42:56,246 [DEBUG] django.db.backends: (0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON ( `auth_permission`.`content_type_id` = `django_content_type`.`id` ) WHERE `auth_permission`.`content_type_id` IN (6) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(6,)
+2014-06-05 15:42:56,247 [DEBUG] django.db.backends: (0.000) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add migration history', 6, 'add_migrationhistory'), ('Can change migration history', 6, 'change_migrationhistory'), ('Can delete migration history', 6, 'delete_migrationhistory'); args=(u'Can add migration history', 6, u'add_migrationhistory', u'Can change migration history', 6, u'change_migrationhistory', u'Can delete migration history', 6, u'delete_migrationhistory')
+2014-06-05 15:42:56,250 [DEBUG] django.db.backends: (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'south'  ORDER BY `django_content_type`.`name` ASC; args=(u'south',)
+2014-06-05 15:42:56,266 [DEBUG] django.db.backends: (0.013) CREATE INDEX `django_admin_log_6340c63c` ON `django_admin_log` (`user_id`);; args=None
+2014-06-05 15:42:56,277 [DEBUG] django.db.backends: (0.011) CREATE INDEX `django_admin_log_37ef4eb4` ON `django_admin_log` (`content_type_id`);; args=None
+2014-06-05 15:42:56,288 [DEBUG] django.db.backends: (0.011) CREATE INDEX `auth_permission_37ef4eb4` ON `auth_permission` (`content_type_id`);; args=None
+2014-06-05 15:42:56,302 [DEBUG] django.db.backends: (0.013) CREATE INDEX `auth_group_permissions_5f412f9a` ON `auth_group_permissions` (`group_id`);; args=None
+2014-06-05 15:42:56,315 [DEBUG] django.db.backends: (0.012) CREATE INDEX `auth_group_permissions_83d7f98b` ON `auth_group_permissions` (`permission_id`);; args=None
+2014-06-05 15:42:56,326 [DEBUG] django.db.backends: (0.011) CREATE INDEX `django_session_b7b81f0c` ON `django_session` (`expire_date`);; args=None
+2014-06-05 15:42:56,351 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=0; args=None
+2014-06-05 15:42:56,353 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=1; args=None
+2014-06-05 15:53:44,239 [DEBUG] django.db.backends: (0.000) SELECT `south_migrationhistory`.`id`, `south_migrationhistory`.`app_name`, `south_migrationhistory`.`migration`, `south_migrationhistory`.`applied` FROM `south_migrationhistory` WHERE `south_migrationhistory`.`applied` IS NOT NULL ORDER BY `south_migrationhistory`.`applied` ASC; args=()
+2014-06-05 15:53:44,247 [DEBUG] django.db.backends: (0.001) SHOW variables WHERE Variable_Name='default_storage_engine';; args=None
+2014-06-05 15:53:44,258 [DEBUG] django.db.backends: (0.011) CREATE TABLE ROLLBACK_TEST (X INT); args=None
+2014-06-05 15:53:44,259 [DEBUG] django.db.backends: (0.001) INSERT INTO ROLLBACK_TEST (X) VALUES (8); args=None
+2014-06-05 15:53:44,261 [DEBUG] django.db.backends: (0.001) SELECT COUNT(X) FROM ROLLBACK_TEST; args=None
+2014-06-05 15:53:44,263 [DEBUG] django.db.backends: (0.002) DROP TABLE ROLLBACK_TEST; args=None
+2014-06-05 15:53:44,264 [DEBUG] south: execute "SET FOREIGN_KEY_CHECKS=0;" with params "[]"
+2014-06-05 15:53:44,265 [DEBUG] django.db.backends: (0.000) SET FOREIGN_KEY_CHECKS=0;; args=[]
+2014-06-05 15:53:44,274 [DEBUG] django.db.backends: (0.009) CREATE TABLE DDL_TRANSACTION_TEST (X INT); args=None
+2014-06-05 15:53:44,275 [DEBUG] django.db.backends: (0.001) CREATE TABLE DDL_TRANSACTION_TEST (X INT); args=None
+2014-06-05 15:53:44,278 [DEBUG] django.db.backends: (0.002) DROP TABLE DDL_TRANSACTION_TEST; args=None
+2014-06-05 15:53:44,285 [DEBUG] south: execute "SET FOREIGN_KEY_CHECKS=0;" with params "[]"
+2014-06-05 15:53:44,286 [DEBUG] django.db.backends: (0.000) SET FOREIGN_KEY_CHECKS=0;; args=[]
+2014-06-05 15:53:44,288 [DEBUG] south: execute "CREATE TABLE `account_account` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `password` varchar(128) NOT NULL, `last_login` datetime NOT NULL, `email` varchar(255) NOT NULL UNIQUE, `is_active` bool NOT NULL, `is_admin` bool NOT NULL)" with params "[]"
+2014-06-05 15:53:44,298 [DEBUG] django.db.backends: (0.009) CREATE TABLE `account_account` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `password` varchar(128) NOT NULL, `last_login` datetime NOT NULL, `email` varchar(255) NOT NULL UNIQUE, `is_active` bool NOT NULL, `is_admin` bool NOT NULL); args=[]
+2014-06-05 15:53:44,302 [DEBUG] south: execute "CREATE TABLE `account_profile` (`user_id` integer NOT NULL PRIMARY KEY, `court_id` integer NULL, `city_id` integer NULL, `first_name` varchar(40) NULL, `last_name` varchar(20) NULL, `birth_date` date NULL, `level` varchar(15) NULL, `real_level` varchar(15) NULL, `ladder_points` integer NULL, `phone` varchar(11) NULL, `gender` varchar(2) NULL, `league_rank` integer NULL, `local_rank` integer NULL)" with params "[]"
+2014-06-05 15:53:44,310 [DEBUG] django.db.backends: (0.009) CREATE TABLE `account_profile` (`user_id` integer NOT NULL PRIMARY KEY, `court_id` integer NULL, `city_id` integer NULL, `first_name` varchar(40) NULL, `last_name` varchar(20) NULL, `birth_date` date NULL, `level` varchar(15) NULL, `real_level` varchar(15) NULL, `ladder_points` integer NULL, `phone` varchar(11) NULL, `gender` varchar(2) NULL, `league_rank` integer NULL, `local_rank` integer NULL); args=[]
+2014-06-05 15:53:44,311 [DEBUG] south: execute "ALTER TABLE `account_profile` ADD CONSTRAINT `user_id_refs_id_8dd2c0bf` FOREIGN KEY (`user_id`) REFERENCES `account_account` (`id`);" with params "[]"
+2014-06-05 15:53:44,318 [DEBUG] django.db.backends: (0.007) ALTER TABLE `account_profile` ADD CONSTRAINT `user_id_refs_id_8dd2c0bf` FOREIGN KEY (`user_id`) REFERENCES `account_account` (`id`);; args=[]
+2014-06-05 15:53:44,318 [DEBUG] south: execute "ALTER TABLE `account_profile` ADD CONSTRAINT `court_id_refs_id_449d80a6` FOREIGN KEY (`court_id`) REFERENCES `court_court` (`id`);" with params "[]"
+2014-06-05 15:53:44,331 [DEBUG] django.db.backends: (0.013) ALTER TABLE `account_profile` ADD CONSTRAINT `court_id_refs_id_449d80a6` FOREIGN KEY (`court_id`) REFERENCES `court_court` (`id`);; args=[]
+2014-06-05 15:53:44,332 [DEBUG] south: execute "CREATE INDEX `account_profile_945f5f3e` ON `account_profile` (`court_id`);" with params "[]"
+2014-06-05 15:53:44,344 [DEBUG] django.db.backends: (0.012) CREATE INDEX `account_profile_945f5f3e` ON `account_profile` (`court_id`);; args=[]
+2014-06-05 15:53:44,344 [DEBUG] south: execute "ALTER TABLE `account_profile` ADD CONSTRAINT `city_id_refs_id_3117f1ec` FOREIGN KEY (`city_id`) REFERENCES `city_city` (`id`);" with params "[]"
+2014-06-05 15:53:44,356 [DEBUG] django.db.backends: (0.011) ALTER TABLE `account_profile` ADD CONSTRAINT `city_id_refs_id_3117f1ec` FOREIGN KEY (`city_id`) REFERENCES `city_city` (`id`);; args=[]
+2014-06-05 15:53:44,357 [DEBUG] south: execute "CREATE INDEX `account_profile_b376980e` ON `account_profile` (`city_id`);" with params "[]"
+2014-06-05 15:53:44,368 [DEBUG] django.db.backends: (0.011) CREATE INDEX `account_profile_b376980e` ON `account_profile` (`city_id`);; args=[]
+2014-06-05 15:53:44,370 [DEBUG] django.db.backends: (0.000) SELECT `south_migrationhistory`.`id`, `south_migrationhistory`.`app_name`, `south_migrationhistory`.`migration`, `south_migrationhistory`.`applied` FROM `south_migrationhistory` WHERE (`south_migrationhistory`.`app_name` = 'account'  AND `south_migrationhistory`.`migration` = '0001_initial' ); args=('account', '0001_initial')
+2014-06-05 15:53:44,371 [DEBUG] django.db.backends: (0.000) INSERT INTO `south_migrationhistory` (`app_name`, `migration`, `applied`) VALUES ('account', '0001_initial', '2014-06-05 15:53:44'); args=['account', '0001_initial', u'2014-06-05 15:53:44']
+2014-06-05 15:53:44,374 [DEBUG] django.db.backends: (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'account'  AND `django_content_type`.`app_label` = 'account' ); args=('account', u'account')
+2014-06-05 15:53:44,375 [DEBUG] django.db.backends: (0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('account', 'account', 'account'); args=[u'account', u'account', 'account']
+2014-06-05 15:53:44,376 [DEBUG] django.db.backends: (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'profile'  AND `django_content_type`.`app_label` = 'account' ); args=('profile', u'account')
+2014-06-05 15:53:44,377 [DEBUG] django.db.backends: (0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('profile', 'account', 'profile'); args=[u'profile', u'account', 'profile']
+2014-06-05 15:53:44,379 [DEBUG] django.db.backends: (0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON ( `auth_permission`.`content_type_id` = `django_content_type`.`id` ) WHERE `auth_permission`.`content_type_id` IN (8, 7) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(8, 7)
+2014-06-05 15:53:44,381 [DEBUG] django.db.backends: (0.000) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add account', 7, 'add_account'), ('Can change account', 7, 'change_account'), ('Can delete account', 7, 'delete_account'), ('Can add profile', 8, 'add_profile'), ('Can change profile', 8, 'change_profile'), ('Can delete profile', 8, 'delete_profile'); args=(u'Can add account', 7, u'add_account', u'Can change account', 7, u'change_account', u'Can delete account', 7, u'delete_account', u'Can add profile', 8, u'add_profile', u'Can change profile', 8, u'change_profile', u'Can delete profile', 8, u'delete_profile')
+2014-06-05 15:53:44,382 [DEBUG] django.db.backends: (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'account'  ORDER BY `django_content_type`.`name` ASC; args=(u'account',)
+2014-06-05 15:53:44,390 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=0; args=None
+2014-06-05 15:53:44,391 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=1; args=None
+2014-06-05 15:53:48,950 [DEBUG] django.db.backends: (0.000) SELECT `south_migrationhistory`.`id`, `south_migrationhistory`.`app_name`, `south_migrationhistory`.`migration`, `south_migrationhistory`.`applied` FROM `south_migrationhistory` WHERE `south_migrationhistory`.`applied` IS NOT NULL ORDER BY `south_migrationhistory`.`applied` ASC; args=()
+2014-06-05 15:53:48,966 [DEBUG] django.db.backends: (0.001) SHOW variables WHERE Variable_Name='default_storage_engine';; args=None
+2014-06-05 15:53:48,976 [DEBUG] django.db.backends: (0.010) CREATE TABLE ROLLBACK_TEST (X INT); args=None
+2014-06-05 15:53:48,978 [DEBUG] django.db.backends: (0.001) INSERT INTO ROLLBACK_TEST (X) VALUES (8); args=None
+2014-06-05 15:53:48,979 [DEBUG] django.db.backends: (0.000) SELECT COUNT(X) FROM ROLLBACK_TEST; args=None
+2014-06-05 15:53:48,981 [DEBUG] django.db.backends: (0.002) DROP TABLE ROLLBACK_TEST; args=None
+2014-06-05 15:53:48,981 [DEBUG] south: execute "SET FOREIGN_KEY_CHECKS=0;" with params "[]"
+2014-06-05 15:53:48,982 [DEBUG] django.db.backends: (0.000) SET FOREIGN_KEY_CHECKS=0;; args=[]
+2014-06-05 15:53:48,990 [DEBUG] django.db.backends: (0.008) CREATE TABLE DDL_TRANSACTION_TEST (X INT); args=None
+2014-06-05 15:53:48,991 [DEBUG] django.db.backends: (0.001) CREATE TABLE DDL_TRANSACTION_TEST (X INT); args=None
+2014-06-05 15:53:48,993 [DEBUG] django.db.backends: (0.002) DROP TABLE DDL_TRANSACTION_TEST; args=None
+2014-06-05 15:53:49,006 [DEBUG] south: execute "SET FOREIGN_KEY_CHECKS=0;" with params "[]"
+2014-06-05 15:53:49,006 [DEBUG] django.db.backends: (0.000) SET FOREIGN_KEY_CHECKS=0;; args=[]
+2014-06-05 15:53:49,008 [DEBUG] south: execute "CREATE TABLE `game_league` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `name` varchar(200) NOT NULL, `city_id` integer NOT NULL, `start_date` date NOT NULL, `end_date` date NOT NULL, `max_player_number` integer NOT NULL, `level_low` double precision NOT NULL, `level_high` double precision NOT NULL)" with params "[]"
+2014-06-05 15:53:49,017 [DEBUG] django.db.backends: (0.009) CREATE TABLE `game_league` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `name` varchar(200) NOT NULL, `city_id` integer NOT NULL, `start_date` date NOT NULL, `end_date` date NOT NULL, `max_player_number` integer NOT NULL, `level_low` double precision NOT NULL, `level_high` double precision NOT NULL); args=[]
+2014-06-05 15:53:49,019 [DEBUG] south: execute "CREATE TABLE `game_league_players` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `league_id` integer NOT NULL, `profile_id` integer NOT NULL)" with params "[]"
+2014-06-05 15:53:49,028 [DEBUG] django.db.backends: (0.008) CREATE TABLE `game_league_players` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `league_id` integer NOT NULL, `profile_id` integer NOT NULL); args=[]
+2014-06-05 15:53:49,029 [DEBUG] south: execute "ALTER TABLE `game_league_players` ADD CONSTRAINT `game_league_players_league_id_6983b3897d14f7c3_uniq` UNIQUE (`league_id`, `profile_id`)" with params "[]"
+2014-06-05 15:53:49,040 [DEBUG] django.db.backends: (0.011) ALTER TABLE `game_league_players` ADD CONSTRAINT `game_league_players_league_id_6983b3897d14f7c3_uniq` UNIQUE (`league_id`, `profile_id`); args=[]
+2014-06-05 15:53:49,044 [DEBUG] south: execute "CREATE TABLE `game_game` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `league_id` integer NULL, `court_id` integer NULL, `player1_id` integer NOT NULL, `player2_id` integer NOT NULL, `winner_id` integer NOT NULL, `date` date NOT NULL, `player1_rated` integer NOT NULL, `player2_rated` integer NOT NULL, `player1_reviewed` longtext NULL, `player2_reviewed` longtext NULL, `court_review1_id` integer NULL, `court_review2_id` integer NULL)" with params "[]"
+2014-06-05 15:53:49,053 [DEBUG] django.db.backends: (0.009) CREATE TABLE `game_game` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `league_id` integer NULL, `court_id` integer NULL, `player1_id` integer NOT NULL, `player2_id` integer NOT NULL, `winner_id` integer NOT NULL, `date` date NOT NULL, `player1_rated` integer NOT NULL, `player2_rated` integer NOT NULL, `player1_reviewed` longtext NULL, `player2_reviewed` longtext NULL, `court_review1_id` integer NULL, `court_review2_id` integer NULL); args=[]
+2014-06-05 15:53:49,056 [DEBUG] south: execute "CREATE TABLE `game_score` (`game_id` integer NOT NULL PRIMARY KEY, `score11` integer NOT NULL, `score12` integer NOT NULL, `score21` integer NOT NULL, `score22` integer NOT NULL, `score31` integer NOT NULL, `score32` integer NOT NULL, `score41` integer NOT NULL, `score42` integer NOT NULL, `score51` integer NOT NULL, `score52` integer NOT NULL, `is_confirmed` bool NOT NULL)" with params "[]"
+2014-06-05 15:53:49,065 [DEBUG] django.db.backends: (0.008) CREATE TABLE `game_score` (`game_id` integer NOT NULL PRIMARY KEY, `score11` integer NOT NULL, `score12` integer NOT NULL, `score21` integer NOT NULL, `score22` integer NOT NULL, `score31` integer NOT NULL, `score32` integer NOT NULL, `score41` integer NOT NULL, `score42` integer NOT NULL, `score51` integer NOT NULL, `score52` integer NOT NULL, `is_confirmed` bool NOT NULL); args=[]
+2014-06-05 15:53:49,065 [DEBUG] south: execute "ALTER TABLE `game_league` ADD CONSTRAINT `city_id_refs_id_8676caee` FOREIGN KEY (`city_id`) REFERENCES `city_city` (`id`);" with params "[]"
+2014-06-05 15:53:49,078 [DEBUG] django.db.backends: (0.012) ALTER TABLE `game_league` ADD CONSTRAINT `city_id_refs_id_8676caee` FOREIGN KEY (`city_id`) REFERENCES `city_city` (`id`);; args=[]
+2014-06-05 15:53:49,078 [DEBUG] south: execute "CREATE INDEX `game_league_b376980e` ON `game_league` (`city_id`);" with params "[]"
+2014-06-05 15:53:49,090 [DEBUG] django.db.backends: (0.012) CREATE INDEX `game_league_b376980e` ON `game_league` (`city_id`);; args=[]
+2014-06-05 15:53:49,090 [DEBUG] south: execute "ALTER TABLE `game_league_players` ADD CONSTRAINT `league_id_refs_id_c5cbf8df` FOREIGN KEY (`league_id`) REFERENCES `game_league` (`id`);" with params "[]"
+2014-06-05 15:53:49,097 [DEBUG] django.db.backends: (0.007) ALTER TABLE `game_league_players` ADD CONSTRAINT `league_id_refs_id_c5cbf8df` FOREIGN KEY (`league_id`) REFERENCES `game_league` (`id`);; args=[]
+2014-06-05 15:53:49,098 [DEBUG] south: execute "CREATE INDEX `game_league_players_9c858b09` ON `game_league_players` (`league_id`);" with params "[]"
+2014-06-05 15:53:49,108 [DEBUG] django.db.backends: (0.010) CREATE INDEX `game_league_players_9c858b09` ON `game_league_players` (`league_id`);; args=[]
+2014-06-05 15:53:49,108 [DEBUG] south: execute "ALTER TABLE `game_league_players` ADD CONSTRAINT `profile_id_refs_user_id_2373aec1` FOREIGN KEY (`profile_id`) REFERENCES `account_profile` (`user_id`);" with params "[]"
+2014-06-05 15:53:49,120 [DEBUG] django.db.backends: (0.012) ALTER TABLE `game_league_players` ADD CONSTRAINT `profile_id_refs_user_id_2373aec1` FOREIGN KEY (`profile_id`) REFERENCES `account_profile` (`user_id`);; args=[]
+2014-06-05 15:53:49,120 [DEBUG] south: execute "CREATE INDEX `game_league_players_5948a8a3` ON `game_league_players` (`profile_id`);" with params "[]"
+2014-06-05 15:53:49,131 [DEBUG] django.db.backends: (0.011) CREATE INDEX `game_league_players_5948a8a3` ON `game_league_players` (`profile_id`);; args=[]
+2014-06-05 15:53:49,132 [DEBUG] south: execute "ALTER TABLE `game_game` ADD CONSTRAINT `league_id_refs_id_5236bb2f` FOREIGN KEY (`league_id`) REFERENCES `game_league` (`id`);" with params "[]"
+2014-06-05 15:53:49,144 [DEBUG] django.db.backends: (0.012) ALTER TABLE `game_game` ADD CONSTRAINT `league_id_refs_id_5236bb2f` FOREIGN KEY (`league_id`) REFERENCES `game_league` (`id`);; args=[]
+2014-06-05 15:53:49,144 [DEBUG] south: execute "CREATE INDEX `game_game_9c858b09` ON `game_game` (`league_id`);" with params "[]"
+2014-06-05 15:53:49,155 [DEBUG] django.db.backends: (0.011) CREATE INDEX `game_game_9c858b09` ON `game_game` (`league_id`);; args=[]
+2014-06-05 15:53:49,155 [DEBUG] south: execute "ALTER TABLE `game_game` ADD CONSTRAINT `court_id_refs_id_b72ac730` FOREIGN KEY (`court_id`) REFERENCES `court_court` (`id`);" with params "[]"
+2014-06-05 15:53:49,169 [DEBUG] django.db.backends: (0.014) ALTER TABLE `game_game` ADD CONSTRAINT `court_id_refs_id_b72ac730` FOREIGN KEY (`court_id`) REFERENCES `court_court` (`id`);; args=[]
+2014-06-05 15:53:49,170 [DEBUG] south: execute "CREATE INDEX `game_game_945f5f3e` ON `game_game` (`court_id`);" with params "[]"
+2014-06-05 15:53:49,182 [DEBUG] django.db.backends: (0.012) CREATE INDEX `game_game_945f5f3e` ON `game_game` (`court_id`);; args=[]
+2014-06-05 15:53:49,182 [DEBUG] south: execute "ALTER TABLE `game_game` ADD CONSTRAINT `player1_id_refs_user_id_34503e71` FOREIGN KEY (`player1_id`) REFERENCES `account_profile` (`user_id`);" with params "[]"
+2014-06-05 15:53:49,193 [DEBUG] django.db.backends: (0.010) ALTER TABLE `game_game` ADD CONSTRAINT `player1_id_refs_user_id_34503e71` FOREIGN KEY (`player1_id`) REFERENCES `account_profile` (`user_id`);; args=[]
+2014-06-05 15:53:49,193 [DEBUG] south: execute "CREATE INDEX `game_game_1574e572` ON `game_game` (`player1_id`);" with params "[]"
+2014-06-05 15:53:49,205 [DEBUG] django.db.backends: (0.011) CREATE INDEX `game_game_1574e572` ON `game_game` (`player1_id`);; args=[]
+2014-06-05 15:53:49,205 [DEBUG] south: execute "ALTER TABLE `game_game` ADD CONSTRAINT `player2_id_refs_user_id_34503e71` FOREIGN KEY (`player2_id`) REFERENCES `account_profile` (`user_id`);" with params "[]"
+2014-06-05 15:53:49,217 [DEBUG] django.db.backends: (0.012) ALTER TABLE `game_game` ADD CONSTRAINT `player2_id_refs_user_id_34503e71` FOREIGN KEY (`player2_id`) REFERENCES `account_profile` (`user_id`);; args=[]
+2014-06-05 15:53:49,217 [DEBUG] south: execute "CREATE INDEX `game_game_795cb0c9` ON `game_game` (`player2_id`);" with params "[]"
+2014-06-05 15:53:49,229 [DEBUG] django.db.backends: (0.011) CREATE INDEX `game_game_795cb0c9` ON `game_game` (`player2_id`);; args=[]
+2014-06-05 15:53:49,229 [DEBUG] south: execute "ALTER TABLE `game_game` ADD CONSTRAINT `winner_id_refs_user_id_34503e71` FOREIGN KEY (`winner_id`) REFERENCES `account_profile` (`user_id`);" with params "[]"
+2014-06-05 15:53:49,240 [DEBUG] django.db.backends: (0.011) ALTER TABLE `game_game` ADD CONSTRAINT `winner_id_refs_user_id_34503e71` FOREIGN KEY (`winner_id`) REFERENCES `account_profile` (`user_id`);; args=[]
+2014-06-05 15:53:49,240 [DEBUG] south: execute "CREATE INDEX `game_game_bfcfac82` ON `game_game` (`winner_id`);" with params "[]"
+2014-06-05 15:53:49,252 [DEBUG] django.db.backends: (0.012) CREATE INDEX `game_game_bfcfac82` ON `game_game` (`winner_id`);; args=[]
+2014-06-05 15:53:49,253 [DEBUG] south: execute "ALTER TABLE `game_game` ADD CONSTRAINT `court_review1_id_refs_id_0d2b74ea` FOREIGN KEY (`court_review1_id`) REFERENCES `review_courtreview` (`id`);" with params "[]"
+2014-06-05 15:53:49,264 [DEBUG] django.db.backends: (0.011) ALTER TABLE `game_game` ADD CONSTRAINT `court_review1_id_refs_id_0d2b74ea` FOREIGN KEY (`court_review1_id`) REFERENCES `review_courtreview` (`id`);; args=[]
+2014-06-05 15:53:49,265 [DEBUG] south: execute "CREATE INDEX `game_game_ba7d3d87` ON `game_game` (`court_review1_id`);" with params "[]"
+2014-06-05 15:53:49,277 [DEBUG] django.db.backends: (0.013) CREATE INDEX `game_game_ba7d3d87` ON `game_game` (`court_review1_id`);; args=[]
+2014-06-05 15:53:49,278 [DEBUG] south: execute "ALTER TABLE `game_game` ADD CONSTRAINT `court_review2_id_refs_id_0d2b74ea` FOREIGN KEY (`court_review2_id`) REFERENCES `review_courtreview` (`id`);" with params "[]"
+2014-06-05 15:53:49,289 [DEBUG] django.db.backends: (0.011) ALTER TABLE `game_game` ADD CONSTRAINT `court_review2_id_refs_id_0d2b74ea` FOREIGN KEY (`court_review2_id`) REFERENCES `review_courtreview` (`id`);; args=[]
+2014-06-05 15:53:49,289 [DEBUG] south: execute "CREATE INDEX `game_game_5378ba41` ON `game_game` (`court_review2_id`);" with params "[]"
+2014-06-05 15:53:49,302 [DEBUG] django.db.backends: (0.012) CREATE INDEX `game_game_5378ba41` ON `game_game` (`court_review2_id`);; args=[]
+2014-06-05 15:53:49,302 [DEBUG] south: execute "ALTER TABLE `game_score` ADD CONSTRAINT `game_id_refs_id_3eb3fd7e` FOREIGN KEY (`game_id`) REFERENCES `game_game` (`id`);" with params "[]"
+2014-06-05 15:53:49,310 [DEBUG] django.db.backends: (0.007) ALTER TABLE `game_score` ADD CONSTRAINT `game_id_refs_id_3eb3fd7e` FOREIGN KEY (`game_id`) REFERENCES `game_game` (`id`);; args=[]
+2014-06-05 15:53:49,311 [DEBUG] django.db.backends: (0.000) SELECT `south_migrationhistory`.`id`, `south_migrationhistory`.`app_name`, `south_migrationhistory`.`migration`, `south_migrationhistory`.`applied` FROM `south_migrationhistory` WHERE (`south_migrationhistory`.`app_name` = 'game'  AND `south_migrationhistory`.`migration` = '0001_initial' ); args=('game', '0001_initial')
+2014-06-05 15:53:49,312 [DEBUG] django.db.backends: (0.000) INSERT INTO `south_migrationhistory` (`app_name`, `migration`, `applied`) VALUES ('game', '0001_initial', '2014-06-05 15:53:49'); args=['game', '0001_initial', u'2014-06-05 15:53:49']
+2014-06-05 15:53:49,314 [DEBUG] django.db.backends: (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'league'  AND `django_content_type`.`app_label` = 'game' ); args=('league', u'game')
+2014-06-05 15:53:49,315 [DEBUG] django.db.backends: (0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('league', 'game', 'league'); args=[u'league', u'game', 'league']
+2014-06-05 15:53:49,316 [DEBUG] django.db.backends: (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'game'  AND `django_content_type`.`app_label` = 'game' ); args=('game', u'game')
+2014-06-05 15:53:49,317 [DEBUG] django.db.backends: (0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('game', 'game', 'game'); args=[u'game', u'game', 'game']
+2014-06-05 15:53:49,319 [DEBUG] django.db.backends: (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'score'  AND `django_content_type`.`app_label` = 'game' ); args=('score', u'game')
+2014-06-05 15:53:49,320 [DEBUG] django.db.backends: (0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('score', 'game', 'score'); args=[u'score', u'game', 'score']
+2014-06-05 15:53:49,322 [DEBUG] django.db.backends: (0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON ( `auth_permission`.`content_type_id` = `django_content_type`.`id` ) WHERE `auth_permission`.`content_type_id` IN (9, 10, 11) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(9, 10, 11)
+2014-06-05 15:53:49,324 [DEBUG] django.db.backends: (0.000) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add league', 9, 'add_league'), ('Can change league', 9, 'change_league'), ('Can delete league', 9, 'delete_league'), ('Can add game', 10, 'add_game'), ('Can change game', 10, 'change_game'), ('Can delete game', 10, 'delete_game'), ('Can add score', 11, 'add_score'), ('Can change score', 11, 'change_score'), ('Can delete score', 11, 'delete_score'); args=(u'Can add league', 9, u'add_league', u'Can change league', 9, u'change_league', u'Can delete league', 9, u'delete_league', u'Can add game', 10, u'add_game', u'Can change game', 10, u'change_game', u'Can delete game', 10, u'delete_game', u'Can add score', 11, u'add_score', u'Can change score', 11, u'change_score', u'Can delete score', 11, u'delete_score')
+2014-06-05 15:53:49,326 [DEBUG] django.db.backends: (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'game'  ORDER BY `django_content_type`.`name` ASC; args=(u'game',)
+2014-06-05 15:53:49,336 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=0; args=None
+2014-06-05 15:53:49,337 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=1; args=None
+2014-06-05 15:53:52,502 [DEBUG] django.db.backends: (0.000) SELECT `south_migrationhistory`.`id`, `south_migrationhistory`.`app_name`, `south_migrationhistory`.`migration`, `south_migrationhistory`.`applied` FROM `south_migrationhistory` WHERE `south_migrationhistory`.`applied` IS NOT NULL ORDER BY `south_migrationhistory`.`applied` ASC; args=()
+2014-06-05 15:53:52,506 [DEBUG] django.db.backends: (0.000) SHOW variables WHERE Variable_Name='default_storage_engine';; args=None
+2014-06-05 15:53:52,515 [DEBUG] django.db.backends: (0.009) CREATE TABLE ROLLBACK_TEST (X INT); args=None
+2014-06-05 15:53:52,516 [DEBUG] django.db.backends: (0.001) INSERT INTO ROLLBACK_TEST (X) VALUES (8); args=None
+2014-06-05 15:53:52,517 [DEBUG] django.db.backends: (0.000) SELECT COUNT(X) FROM ROLLBACK_TEST; args=None
+2014-06-05 15:53:52,519 [DEBUG] django.db.backends: (0.002) DROP TABLE ROLLBACK_TEST; args=None
+2014-06-05 15:53:52,520 [DEBUG] south: execute "SET FOREIGN_KEY_CHECKS=0;" with params "[]"
+2014-06-05 15:53:52,520 [DEBUG] django.db.backends: (0.000) SET FOREIGN_KEY_CHECKS=0;; args=[]
+2014-06-05 15:53:52,530 [DEBUG] django.db.backends: (0.009) CREATE TABLE DDL_TRANSACTION_TEST (X INT); args=None
+2014-06-05 15:53:52,530 [DEBUG] django.db.backends: (0.001) CREATE TABLE DDL_TRANSACTION_TEST (X INT); args=None
+2014-06-05 15:53:52,533 [DEBUG] django.db.backends: (0.002) DROP TABLE DDL_TRANSACTION_TEST; args=None
+2014-06-05 15:53:52,536 [DEBUG] south: execute "SET FOREIGN_KEY_CHECKS=0;" with params "[]"
+2014-06-05 15:53:52,536 [DEBUG] django.db.backends: (0.000) SET FOREIGN_KEY_CHECKS=0;; args=[]
+2014-06-05 15:53:52,537 [DEBUG] south: execute "CREATE TABLE `court_court` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `name` varchar(50) NOT NULL, `city_id` integer NOT NULL, `address` varchar(200) NOT NULL, `is_free` bool NOT NULL)" with params "[]"
+2014-06-05 15:53:52,548 [DEBUG] django.db.backends: (0.010) CREATE TABLE `court_court` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `name` varchar(50) NOT NULL, `city_id` integer NOT NULL, `address` varchar(200) NOT NULL, `is_free` bool NOT NULL); args=[]
+2014-06-05 15:53:52,549 [DEBUG] south: execute "ALTER TABLE `court_court` ADD CONSTRAINT `city_id_refs_id_8aee1284` FOREIGN KEY (`city_id`) REFERENCES `city_city` (`id`);" with params "[]"
+2014-06-05 15:53:52,561 [DEBUG] django.db.backends: (0.012) ALTER TABLE `court_court` ADD CONSTRAINT `city_id_refs_id_8aee1284` FOREIGN KEY (`city_id`) REFERENCES `city_city` (`id`);; args=[]
+2014-06-05 15:53:52,561 [DEBUG] south: execute "CREATE INDEX `court_court_b376980e` ON `court_court` (`city_id`);" with params "[]"
+2014-06-05 15:53:52,572 [DEBUG] django.db.backends: (0.010) CREATE INDEX `court_court_b376980e` ON `court_court` (`city_id`);; args=[]
+2014-06-05 15:53:52,573 [DEBUG] django.db.backends: (0.000) SELECT `south_migrationhistory`.`id`, `south_migrationhistory`.`app_name`, `south_migrationhistory`.`migration`, `south_migrationhistory`.`applied` FROM `south_migrationhistory` WHERE (`south_migrationhistory`.`app_name` = 'court'  AND `south_migrationhistory`.`migration` = '0001_initial' ); args=('court', '0001_initial')
+2014-06-05 15:53:52,574 [DEBUG] django.db.backends: (0.000) INSERT INTO `south_migrationhistory` (`app_name`, `migration`, `applied`) VALUES ('court', '0001_initial', '2014-06-05 15:53:52'); args=['court', '0001_initial', u'2014-06-05 15:53:52']
+2014-06-05 15:53:52,577 [DEBUG] django.db.backends: (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'court'  AND `django_content_type`.`app_label` = 'court' ); args=('court', u'court')
+2014-06-05 15:53:52,578 [DEBUG] django.db.backends: (0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('court', 'court', 'court'); args=[u'court', u'court', 'court']
+2014-06-05 15:53:52,581 [DEBUG] django.db.backends: (0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON ( `auth_permission`.`content_type_id` = `django_content_type`.`id` ) WHERE `auth_permission`.`content_type_id` IN (12) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(12,)
+2014-06-05 15:53:52,582 [DEBUG] django.db.backends: (0.000) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add court', 12, 'add_court'), ('Can change court', 12, 'change_court'), ('Can delete court', 12, 'delete_court'); args=(u'Can add court', 12, u'add_court', u'Can change court', 12, u'change_court', u'Can delete court', 12, u'delete_court')
+2014-06-05 15:53:52,584 [DEBUG] django.db.backends: (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'court'  ORDER BY `django_content_type`.`name` ASC; args=(u'court',)
+2014-06-05 15:53:52,591 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=0; args=None
+2014-06-05 15:53:52,592 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=1; args=None
+2014-06-05 15:53:57,140 [DEBUG] django.db.backends: (0.000) SELECT `south_migrationhistory`.`id`, `south_migrationhistory`.`app_name`, `south_migrationhistory`.`migration`, `south_migrationhistory`.`applied` FROM `south_migrationhistory` WHERE `south_migrationhistory`.`applied` IS NOT NULL ORDER BY `south_migrationhistory`.`applied` ASC; args=()
+2014-06-05 15:53:57,149 [DEBUG] django.db.backends: (0.001) SHOW variables WHERE Variable_Name='default_storage_engine';; args=None
+2014-06-05 15:53:57,159 [DEBUG] django.db.backends: (0.010) CREATE TABLE ROLLBACK_TEST (X INT); args=None
+2014-06-05 15:53:57,161 [DEBUG] django.db.backends: (0.001) INSERT INTO ROLLBACK_TEST (X) VALUES (8); args=None
+2014-06-05 15:53:57,162 [DEBUG] django.db.backends: (0.000) SELECT COUNT(X) FROM ROLLBACK_TEST; args=None
+2014-06-05 15:53:57,164 [DEBUG] django.db.backends: (0.002) DROP TABLE ROLLBACK_TEST; args=None
+2014-06-05 15:53:57,165 [DEBUG] south: execute "SET FOREIGN_KEY_CHECKS=0;" with params "[]"
+2014-06-05 15:53:57,166 [DEBUG] django.db.backends: (0.000) SET FOREIGN_KEY_CHECKS=0;; args=[]
+2014-06-05 15:53:57,174 [DEBUG] django.db.backends: (0.009) CREATE TABLE DDL_TRANSACTION_TEST (X INT); args=None
+2014-06-05 15:53:57,176 [DEBUG] django.db.backends: (0.001) CREATE TABLE DDL_TRANSACTION_TEST (X INT); args=None
+2014-06-05 15:53:57,178 [DEBUG] django.db.backends: (0.002) DROP TABLE DDL_TRANSACTION_TEST; args=None
+2014-06-05 15:53:57,181 [DEBUG] south: execute "SET FOREIGN_KEY_CHECKS=0;" with params "[]"
+2014-06-05 15:53:57,181 [DEBUG] django.db.backends: (0.000) SET FOREIGN_KEY_CHECKS=0;; args=[]
+2014-06-05 15:53:57,183 [DEBUG] south: execute "CREATE TABLE `review_courtreview` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `court_id` integer NOT NULL, `user_id` integer NOT NULL, `review` longtext NOT NULL, `rate` integer NOT NULL)" with params "[]"
+2014-06-05 15:53:57,191 [DEBUG] django.db.backends: (0.008) CREATE TABLE `review_courtreview` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `court_id` integer NOT NULL, `user_id` integer NOT NULL, `review` longtext NOT NULL, `rate` integer NOT NULL); args=[]
+2014-06-05 15:53:57,192 [DEBUG] south: execute "ALTER TABLE `review_courtreview` ADD CONSTRAINT `court_id_refs_id_3036ef22` FOREIGN KEY (`court_id`) REFERENCES `court_court` (`id`);" with params "[]"
+2014-06-05 15:53:57,204 [DEBUG] django.db.backends: (0.011) ALTER TABLE `review_courtreview` ADD CONSTRAINT `court_id_refs_id_3036ef22` FOREIGN KEY (`court_id`) REFERENCES `court_court` (`id`);; args=[]
+2014-06-05 15:53:57,204 [DEBUG] south: execute "CREATE INDEX `review_courtreview_945f5f3e` ON `review_courtreview` (`court_id`);" with params "[]"
+2014-06-05 15:53:57,215 [DEBUG] django.db.backends: (0.011) CREATE INDEX `review_courtreview_945f5f3e` ON `review_courtreview` (`court_id`);; args=[]
+2014-06-05 15:53:57,215 [DEBUG] south: execute "ALTER TABLE `review_courtreview` ADD CONSTRAINT `user_id_refs_user_id_1a161a8a` FOREIGN KEY (`user_id`) REFERENCES `account_profile` (`user_id`);" with params "[]"
+2014-06-05 15:53:57,227 [DEBUG] django.db.backends: (0.011) ALTER TABLE `review_courtreview` ADD CONSTRAINT `user_id_refs_user_id_1a161a8a` FOREIGN KEY (`user_id`) REFERENCES `account_profile` (`user_id`);; args=[]
+2014-06-05 15:53:57,227 [DEBUG] south: execute "CREATE INDEX `review_courtreview_6340c63c` ON `review_courtreview` (`user_id`);" with params "[]"
+2014-06-05 15:53:57,239 [DEBUG] django.db.backends: (0.012) CREATE INDEX `review_courtreview_6340c63c` ON `review_courtreview` (`user_id`);; args=[]
+2014-06-05 15:53:57,241 [DEBUG] django.db.backends: (0.000) SELECT `south_migrationhistory`.`id`, `south_migrationhistory`.`app_name`, `south_migrationhistory`.`migration`, `south_migrationhistory`.`applied` FROM `south_migrationhistory` WHERE (`south_migrationhistory`.`app_name` = 'review'  AND `south_migrationhistory`.`migration` = '0001_initial' ); args=('review', '0001_initial')
+2014-06-05 15:53:57,242 [DEBUG] django.db.backends: (0.000) INSERT INTO `south_migrationhistory` (`app_name`, `migration`, `applied`) VALUES ('review', '0001_initial', '2014-06-05 15:53:57'); args=['review', '0001_initial', u'2014-06-05 15:53:57']
+2014-06-05 15:53:57,244 [DEBUG] django.db.backends: (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'courtreview'  AND `django_content_type`.`app_label` = 'review' ); args=('courtreview', u'review')
+2014-06-05 15:53:57,245 [DEBUG] django.db.backends: (0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('court review', 'review', 'courtreview'); args=[u'court review', u'review', 'courtreview']
+2014-06-05 15:53:57,247 [DEBUG] django.db.backends: (0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON ( `auth_permission`.`content_type_id` = `django_content_type`.`id` ) WHERE `auth_permission`.`content_type_id` IN (13) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(13,)
+2014-06-05 15:53:57,248 [DEBUG] django.db.backends: (0.000) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add court review', 13, 'add_courtreview'), ('Can change court review', 13, 'change_courtreview'), ('Can delete court review', 13, 'delete_courtreview'); args=(u'Can add court review', 13, u'add_courtreview', u'Can change court review', 13, u'change_courtreview', u'Can delete court review', 13, u'delete_courtreview')
+2014-06-05 15:53:57,250 [DEBUG] django.db.backends: (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'review'  ORDER BY `django_content_type`.`name` ASC; args=(u'review',)
+2014-06-05 15:53:57,258 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=0; args=None
+2014-06-05 15:53:57,259 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=1; args=None
+2014-06-05 15:54:00,553 [DEBUG] django.db.backends: (0.000) SELECT `south_migrationhistory`.`id`, `south_migrationhistory`.`app_name`, `south_migrationhistory`.`migration`, `south_migrationhistory`.`applied` FROM `south_migrationhistory` WHERE `south_migrationhistory`.`applied` IS NOT NULL ORDER BY `south_migrationhistory`.`applied` ASC; args=()
+2014-06-05 15:54:00,556 [DEBUG] django.db.backends: (0.000) SHOW variables WHERE Variable_Name='default_storage_engine';; args=None
+2014-06-05 15:54:00,564 [DEBUG] django.db.backends: (0.008) CREATE TABLE ROLLBACK_TEST (X INT); args=None
+2014-06-05 15:54:00,565 [DEBUG] django.db.backends: (0.000) INSERT INTO ROLLBACK_TEST (X) VALUES (8); args=None
+2014-06-05 15:54:00,566 [DEBUG] django.db.backends: (0.000) SELECT COUNT(X) FROM ROLLBACK_TEST; args=None
+2014-06-05 15:54:00,568 [DEBUG] django.db.backends: (0.002) DROP TABLE ROLLBACK_TEST; args=None
+2014-06-05 15:54:00,569 [DEBUG] south: execute "SET FOREIGN_KEY_CHECKS=0;" with params "[]"
+2014-06-05 15:54:00,569 [DEBUG] django.db.backends: (0.000) SET FOREIGN_KEY_CHECKS=0;; args=[]
+2014-06-05 15:54:00,577 [DEBUG] django.db.backends: (0.008) CREATE TABLE DDL_TRANSACTION_TEST (X INT); args=None
+2014-06-05 15:54:00,577 [DEBUG] django.db.backends: (0.000) CREATE TABLE DDL_TRANSACTION_TEST (X INT); args=None
+2014-06-05 15:54:00,579 [DEBUG] django.db.backends: (0.002) DROP TABLE DDL_TRANSACTION_TEST; args=None
+2014-06-05 15:54:00,581 [DEBUG] south: execute "SET FOREIGN_KEY_CHECKS=0;" with params "[]"
+2014-06-05 15:54:00,581 [DEBUG] django.db.backends: (0.000) SET FOREIGN_KEY_CHECKS=0;; args=[]
+2014-06-05 15:54:00,581 [DEBUG] south: execute "CREATE TABLE `city_city` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `name` varchar(20) NOT NULL)" with params "[]"
+2014-06-05 15:54:00,589 [DEBUG] django.db.backends: (0.008) CREATE TABLE `city_city` (`id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY, `name` varchar(20) NOT NULL); args=[]
+2014-06-05 15:54:00,591 [DEBUG] django.db.backends: (0.000) SELECT `south_migrationhistory`.`id`, `south_migrationhistory`.`app_name`, `south_migrationhistory`.`migration`, `south_migrationhistory`.`applied` FROM `south_migrationhistory` WHERE (`south_migrationhistory`.`app_name` = 'city'  AND `south_migrationhistory`.`migration` = '0001_initial' ); args=('city', '0001_initial')
+2014-06-05 15:54:00,593 [DEBUG] django.db.backends: (0.000) INSERT INTO `south_migrationhistory` (`app_name`, `migration`, `applied`) VALUES ('city', '0001_initial', '2014-06-05 15:54:00'); args=['city', '0001_initial', u'2014-06-05 15:54:00']
+2014-06-05 15:54:00,595 [DEBUG] django.db.backends: (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'city'  AND `django_content_type`.`app_label` = 'city' ); args=('city', u'city')
+2014-06-05 15:54:00,596 [DEBUG] django.db.backends: (0.000) INSERT INTO `django_content_type` (`name`, `app_label`, `model`) VALUES ('city', 'city', 'city'); args=[u'city', u'city', 'city']
+2014-06-05 15:54:00,600 [DEBUG] django.db.backends: (0.001) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON ( `auth_permission`.`content_type_id` = `django_content_type`.`id` ) WHERE `auth_permission`.`content_type_id` IN (14) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(14,)
+2014-06-05 15:54:00,601 [DEBUG] django.db.backends: (0.000) INSERT INTO `auth_permission` (`name`, `content_type_id`, `codename`) VALUES ('Can add city', 14, 'add_city'), ('Can change city', 14, 'change_city'), ('Can delete city', 14, 'delete_city'); args=(u'Can add city', 14, u'add_city', u'Can change city', 14, u'change_city', u'Can delete city', 14, u'delete_city')
+2014-06-05 15:54:00,603 [DEBUG] django.db.backends: (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'city'  ORDER BY `django_content_type`.`name` ASC; args=(u'city',)
+2014-06-05 15:54:00,613 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=0; args=None
+2014-06-05 15:54:00,614 [DEBUG] django.db.backends: (0.000) SET foreign_key_checks=1; args=None
+2014-06-05 15:55:08,891 [DEBUG] django.db.backends: (0.000) SELECT `account_account`.`id`, `account_account`.`password`, `account_account`.`last_login`, `account_account`.`email`, `account_account`.`is_active`, `account_account`.`is_admin` FROM `account_account` WHERE `account_account`.`email` = 'admin@admin.com' ; args=('admin@admin.com',)
+2014-06-05 15:55:12,665 [DEBUG] django.db.backends: (0.000) INSERT INTO `account_account` (`password`, `last_login`, `email`, `is_active`, `is_admin`) VALUES ('pbkdf2_sha256$12000$aUSCbTZ0jj5Q$PjLMJryPAYTPIw9CCRfLOBI8zMIzXft/8XmDOCwgiWI=', '2014-06-05 15:55:12', 'admin@admin.com', 0, 0); args=[u'pbkdf2_sha256$12000$aUSCbTZ0jj5Q$PjLMJryPAYTPIw9CCRfLOBI8zMIzXft/8XmDOCwgiWI=', u'2014-06-05 15:55:12', u'admin@admin.com', False, False]
+2014-06-05 15:55:12,669 [DEBUG] django.db.backends: (0.001) UPDATE `account_account` SET `password` = 'pbkdf2_sha256$12000$aUSCbTZ0jj5Q$PjLMJryPAYTPIw9CCRfLOBI8zMIzXft/8XmDOCwgiWI=', `last_login` = '2014-06-05 15:55:12', `email` = 'admin@admin.com', `is_active` = 0, `is_admin` = 1 WHERE `account_account`.`id` = 1 ; args=(u'pbkdf2_sha256$12000$aUSCbTZ0jj5Q$PjLMJryPAYTPIw9CCRfLOBI8zMIzXft/8XmDOCwgiWI=', u'2014-06-05 15:55:12', u'admin@admin.com', False, True, 1)
+2014-06-05 15:55:43,942 [DEBUG] django.db.backends: (0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'pjyfhzrsabqn7otlrclc9yf6cg92d6r9'  AND `django_session`.`expire_date` > '2014-06-05 15:55:43' ); args=('pjyfhzrsabqn7otlrclc9yf6cg92d6r9', u'2014-06-05 15:55:43')
+2014-06-05 15:55:43,944 [DEBUG] django.db.backends: (0.000) SELECT (1) AS `a` FROM `django_session` WHERE `django_session`.`session_key` = 'yjcmwnmb46n4lhw5nfzla4s0487xnkok'  LIMIT 1; args=(u'yjcmwnmb46n4lhw5nfzla4s0487xnkok',)
+2014-06-05 15:55:43,945 [DEBUG] django.db.backends: (0.000) INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES ('yjcmwnmb46n4lhw5nfzla4s0487xnkok', 'YTU5YWEwNGI4NDEzNjJjNTJiOTVmNzZjYTZmOWVhZTZiZTUyM2RkNjp7fQ==', '2014-06-19 15:55:43'); args=(u'yjcmwnmb46n4lhw5nfzla4s0487xnkok', u'YTU5YWEwNGI4NDEzNjJjNTJiOTVmNzZjYTZmOWVhZTZiZTUyM2RkNjp7fQ==', u'2014-06-19 15:55:43')
+2014-06-05 15:55:43,994 [DEBUG] django.db.backends: (0.000) UPDATE `django_session` SET `session_data` = 'YTU5YWEwNGI4NDEzNjJjNTJiOTVmNzZjYTZmOWVhZTZiZTUyM2RkNjp7fQ==', `expire_date` = '2014-06-19 15:55:43' WHERE `django_session`.`session_key` = 'yjcmwnmb46n4lhw5nfzla4s0487xnkok' ; args=(u'YTU5YWEwNGI4NDEzNjJjNTJiOTVmNzZjYTZmOWVhZTZiZTUyM2RkNjp7fQ==', u'2014-06-19 15:55:43', u'yjcmwnmb46n4lhw5nfzla4s0487xnkok')
+2014-06-05 15:56:09,839 [DEBUG] django.db.backends: (0.001) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'yjcmwnmb46n4lhw5nfzla4s0487xnkok'  AND `django_session`.`expire_date` > '2014-06-05 15:56:09' ); args=('yjcmwnmb46n4lhw5nfzla4s0487xnkok', u'2014-06-05 15:56:09')
+2014-06-05 15:56:09,842 [DEBUG] django.db.backends: (0.000) SELECT `account_account`.`id`, `account_account`.`password`, `account_account`.`last_login`, `account_account`.`email`, `account_account`.`is_active`, `account_account`.`is_admin` FROM `account_account` WHERE `account_account`.`email` = 'admin@admin.com' ; args=(u'admin@admin.com',)
+2014-06-05 15:56:09,935 [DEBUG] django.db.backends: (0.000) SELECT (1) AS `a` FROM `django_session` WHERE `django_session`.`session_key` = 'l6kwpwcavd2m5lydjg12aamjip5pv14k'  LIMIT 1; args=(u'l6kwpwcavd2m5lydjg12aamjip5pv14k',)
+2014-06-05 15:56:09,937 [DEBUG] django.db.backends: (0.000) INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES ('l6kwpwcavd2m5lydjg12aamjip5pv14k', 'YTU5YWEwNGI4NDEzNjJjNTJiOTVmNzZjYTZmOWVhZTZiZTUyM2RkNjp7fQ==', '2014-06-19 15:56:09'); args=(u'l6kwpwcavd2m5lydjg12aamjip5pv14k', u'YTU5YWEwNGI4NDEzNjJjNTJiOTVmNzZjYTZmOWVhZTZiZTUyM2RkNjp7fQ==', u'2014-06-19 15:56:09')
+2014-06-05 15:56:09,941 [DEBUG] django.db.backends: (0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE `django_session`.`session_key` = 'yjcmwnmb46n4lhw5nfzla4s0487xnkok' ; args=('yjcmwnmb46n4lhw5nfzla4s0487xnkok',)
+2014-06-05 15:56:09,943 [DEBUG] django.db.backends: (0.000) DELETE FROM `django_session` WHERE `session_key` IN ('yjcmwnmb46n4lhw5nfzla4s0487xnkok'); args=(u'yjcmwnmb46n4lhw5nfzla4s0487xnkok',)
+2014-06-05 15:56:09,947 [DEBUG] django.db.backends: (0.000) UPDATE `account_account` SET `last_login` = '2014-06-05 15:56:09' WHERE `account_account`.`id` = 1 ; args=(u'2014-06-05 15:56:09', 1)
+2014-06-05 15:56:09,950 [DEBUG] django.db.backends: (0.000) UPDATE `django_session` SET `session_data` = 'NDE4ZWYzNzFhYTkyMGNlZjU4NWM0ODY3MDhmOTIzMjRmZDQ4MTc1Mzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MX0=', `expire_date` = '2014-06-19 15:56:09' WHERE `django_session`.`session_key` = 'l6kwpwcavd2m5lydjg12aamjip5pv14k' ; args=(u'NDE4ZWYzNzFhYTkyMGNlZjU4NWM0ODY3MDhmOTIzMjRmZDQ4MTc1Mzp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9pZCI6MX0=', u'2014-06-19 15:56:09', u'l6kwpwcavd2m5lydjg12aamjip5pv14k')
+2014-06-05 15:56:09,960 [DEBUG] django.db.backends: (0.000) SELECT `django_session`.`session_key`, `django_session`.`session_data`, `django_session`.`expire_date` FROM `django_session` WHERE (`django_session`.`session_key` = 'l6kwpwcavd2m5lydjg12aamjip5pv14k'  AND `django_session`.`expire_date` > '2014-06-05 15:56:09' ); args=('l6kwpwcavd2m5lydjg12aamjip5pv14k', u'2014-06-05 15:56:09')
+2014-06-05 15:56:09,961 [DEBUG] django.db.backends: (0.000) SELECT `account_account`.`id`, `account_account`.`password`, `account_account`.`last_login`, `account_account`.`email`, `account_account`.`is_active`, `account_account`.`is_admin` FROM `account_account` WHERE `account_account`.`id` = 1 ; args=(1,)
+2014-06-05 15:56:09,987 [DEBUG] django.db.backends: (0.001) SELECT `django_admin_log`.`id`, `django_admin_log`.`action_time`, `django_admin_log`.`user_id`, `django_admin_log`.`content_type_id`, `django_admin_log`.`object_id`, `django_admin_log`.`object_repr`, `django_admin_log`.`action_flag`, `django_admin_log`.`change_message`, `account_account`.`id`, `account_account`.`password`, `account_account`.`last_login`, `account_account`.`email`, `account_account`.`is_active`, `account_account`.`is_admin`, `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_admin_log` INNER JOIN `account_account` ON ( `django_admin_log`.`user_id` = `account_account`.`id` ) LEFT OUTER JOIN `django_content_type` ON ( `django_admin_log`.`content_type_id` = `django_content_type`.`id` ) WHERE `django_admin_log`.`user_id` = 1  ORDER BY `django_admin_log`.`action_time` DESC LIMIT 10; args=(1,)

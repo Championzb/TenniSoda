@@ -1516,3 +1516,4 @@ Traceback (most recent call last):
   File "/home/damon/Project/TenniSoda/review/models.py", line 12, in __unicode__
     name = u"%s "% self.court + u"%s " % self.user
 TypeError: coercing to Unicode: need string or buffer, Profile found
+2014-06-05 15:55:44,271 [WARNING] django.request: Not Found: /favicon.ico

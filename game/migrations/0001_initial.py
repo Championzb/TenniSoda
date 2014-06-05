@@ -26,18 +26,18 @@ class Migration(SchemaMigration):
         db.create_table(m2m_table_name, (
             ('id', models.AutoField(verbose_name='ID', primary_key=True, auto_created=True)),
             ('league', models.ForeignKey(orm[u'game.league'], null=False)),
-            ('account', models.ForeignKey(orm[u'account.account'], null=False))
+            ('profile', models.ForeignKey(orm[u'account.profile'], null=False))
         ))
-        db.create_unique(m2m_table_name, ['league_id', 'account_id'])
+        db.create_unique(m2m_table_name, ['league_id', 'profile_id'])
 
         # Adding model 'Game'
         db.create_table(u'game_game', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('league', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['game.League'], null=True, blank=True)),
             ('court', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['court.Court'], null=True, blank=True)),
-            ('player1', self.gf('django.db.models.fields.related.ForeignKey')(related_name='player1', to=orm['account.Account'])),
-            ('player2', self.gf('django.db.models.fields.related.ForeignKey')(related_name='player2', to=orm['account.Account'])),
-            ('winner', self.gf('django.db.models.fields.related.ForeignKey')(related_name='winnner', to=orm['account.Account'])),
+            ('player1', self.gf('django.db.models.fields.related.ForeignKey')(related_name='player1', to=orm['account.Profile'])),
+            ('player2', self.gf('django.db.models.fields.related.ForeignKey')(related_name='player2', to=orm['account.Profile'])),
+            ('winner', self.gf('django.db.models.fields.related.ForeignKey')(related_name='winnner', to=orm['account.Profile'])),
             ('date', self.gf('django.db.models.fields.DateField')()),
             ('player1_rated', self.gf('django.db.models.fields.IntegerField')()),
             ('player2_rated', self.gf('django.db.models.fields.IntegerField')()),
@@ -90,6 +90,22 @@ class Migration(SchemaMigration):
             'last_login': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
             'password': ('django.db.models.fields.CharField', [], {'max_length': '128'})
         },
+        u'account.profile': {
+            'Meta': {'object_name': 'Profile'},
+            'birth_date': ('django.db.models.fields.DateField', [], {'null': 'True', 'blank': 'True'}),
+            'city': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['city.City']", 'null': 'True', 'blank': 'True'}),
+            'court': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['court.Court']", 'null': 'True', 'blank': 'True'}),
+            'first_name': ('django.db.models.fields.CharField', [], {'max_length': '40', 'null': 'True', 'blank': 'True'}),
+            'gender': ('django.db.models.fields.CharField', [], {'max_length': '2', 'null': 'True', 'blank': 'True'}),
+            'ladder_points': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
+            'last_name': ('django.db.models.fields.CharField', [], {'max_length': '20', 'null': 'True', 'blank': 'True'}),
+            'league_rank': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
+            'level': ('django.db.models.fields.CharField', [], {'max_length': '15', 'null': 'True', 'blank': 'True'}),
+            'local_rank': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
+            'phone': ('django.db.models.fields.CharField', [], {'max_length': '11', 'null': 'True', 'blank': 'True'}),
+            'real_level': ('django.db.models.fields.CharField', [], {'max_length': '15', 'null': 'True', 'blank': 'True'}),
+            'user': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['account.Account']", 'unique': 'True', 'primary_key': 'True'})
+        },
         u'city.city': {
             'Meta': {'object_name': 'City'},
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
@@ -111,13 +127,13 @@ class Migration(SchemaMigration):
             'date': ('django.db.models.fields.DateField', [], {}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'league': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['game.League']", 'null': 'True', 'blank': 'True'}),
-            'player1': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'player1'", 'to': u"orm['account.Account']"}),
+            'player1': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'player1'", 'to': u"orm['account.Profile']"}),
             'player1_rated': ('django.db.models.fields.IntegerField', [], {}),
             'player1_reviewed': ('django.db.models.fields.TextField', [], {'max_length': '1000', 'null': 'True', 'blank': 'True'}),
-            'player2': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'player2'", 'to': u"orm['account.Account']"}),
+            'player2': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'player2'", 'to': u"orm['account.Profile']"}),
             'player2_rated': ('django.db.models.fields.IntegerField', [], {}),
             'player2_reviewed': ('django.db.models.fields.TextField', [], {'max_length': '1000', 'null': 'True', 'blank': 'True'}),
-            'winner': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'winnner'", 'to': u"orm['account.Account']"})
+            'winner': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'winnner'", 'to': u"orm['account.Profile']"})
         },
         u'game.league': {
             'Meta': {'object_name': 'League'},
@@ -128,7 +144,7 @@ class Migration(SchemaMigration):
             'level_low': ('django.db.models.fields.FloatField', [], {}),
             'max_player_number': ('django.db.models.fields.IntegerField', [], {}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
-            'players': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'to': u"orm['account.Account']", 'null': 'True', 'blank': 'True'}),
+            'players': ('django.db.models.fields.related.ManyToManyField', [], {'symmetrical': 'False', 'to': u"orm['account.Profile']", 'null': 'True', 'blank': 'True'}),
             'start_date': ('django.db.models.fields.DateField', [], {})
         },
         u'game.score': {
@@ -152,7 +168,7 @@ class Migration(SchemaMigration):
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'rate': ('django.db.models.fields.IntegerField', [], {}),
             'review': ('django.db.models.fields.TextField', [], {'max_length': '1000'}),
-            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['account.Account']"})
+            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['account.Profile']"})
         }
     }
 
