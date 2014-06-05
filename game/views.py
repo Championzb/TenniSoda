@@ -7,6 +7,7 @@ from django.core.context_processors import csrf
 def join(request, LeagueMatch_id=1):
 	user = request.user.profile
 	League_Match = League.objects.get(id=LeagueMatch_id)
+#	League_Match.current_player_number
 	League_Match.players.add(user)
 	return HttpResponseRedirect('/account/welcome_user')
 
