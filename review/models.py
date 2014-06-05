@@ -8,7 +8,6 @@ class CourtReview(models.Model):
     review = models.TextField(max_length = 1000)
     rate = models.IntegerField()
 
-
     def __unicode__(self):
         name = u"%s " % self.court + u"%s " % self.user
         return name
