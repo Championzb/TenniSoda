@@ -20,9 +20,12 @@ class LeagueAdmin(admin.ModelAdmin):
 	list_display = ['name','city','start_date','end_date']
 	ordering = ['start_date']
 	actions = [game_arrange]
+
+class GroupStageAdmin(admin.ModelAdmin):
+	list_display = ['league','group_number','member_number','player','points']
 		
 
 admin.site.register(League,LeagueAdmin)
 admin.site.register(Game)
 admin.site.register(Score)
-admin.site.register(GroupStage)
+admin.site.register(GroupStage,GroupStageAdmin)
