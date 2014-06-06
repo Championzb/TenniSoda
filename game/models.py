@@ -65,4 +65,5 @@ class GroupStage(models.Model):
     points = models.IntegerField(blank = True, null = True)
 
     def __unicode__(self):
-        return u"%s %s %s" % (self.league, self.group_number, self.member_number)
+        return u"%s %s %s %s" % (self.league, self.group_number, self.member_number, self.player)
+
