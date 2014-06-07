@@ -1734,3 +1734,4 @@ Traceback (most recent call last):
   File "/home/damon/Project/TenniSoda/game/views.py", line 19, in join_league_cancel
     league_match_attended -= 1
 TypeError: unsupported operand type(s) for -=: 'League' and 'int'
+2014-06-07 16:43:20,984 [WARNING] django.request: Not Found: /favicon.ico
