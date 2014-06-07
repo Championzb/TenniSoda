@@ -62,5 +62,8 @@ class GroupStage(models.Model):
     player = models.ForeignKey(Profile)
     points = models.IntegerField(blank = True, null = True)
 
+    class Meta:
+        unique_together = ('league','group_number','member_number',)
+        
     def __unicode__(self):
         return u"%s %s %s %s" % (self.league, self.group_number, self.member_number, self.player)
