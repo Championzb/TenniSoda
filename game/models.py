@@ -50,8 +50,6 @@ class Score(models.Model):
     score52 = models.IntegerField(blank = True, null = True)
     is_confirmed = models.BooleanField(default=False)
 
-    
-
     def __unicode__(self):
         return u"%s " % self.game
 
