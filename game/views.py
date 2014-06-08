@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from models import League, Game, Score
+from forms import ScoreCreationForm
 from django.core.context_processors import csrf
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
@@ -50,3 +51,24 @@ def list_all_games(request):
 		 'games_as_player2':games_as_player2,
 		 'games_played_as_player1':games_played_as_player1,
 		 'games_played_as_player2':games_played_as_player2},)
+
+@login_required
+def upload_score(request, game_id=1):
+	game = Game.objects.get(id = game_id)
+	score = game.score
+
+	if request.method == 'POST':
+		form = ScoreCreationForm(request.POST)
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect('/game/list_all_games')
+	else:
+		form = ScoreCreationForm(instance=score)
+
+	args = {}
+	args.update(csrf(request))
+
+	args['form'] = form
+	args['player1'] = game.player1
+	args['player2'] = game.player2
+	return render_to_response('upload_score.html', args)

@@ -38,10 +38,10 @@ class Game(models.Model):
 
 class Score(models.Model):
     game = models.OneToOneField(Game, primary_key = True)
-    score11 = models.IntegerField()
-    score12 = models.IntegerField()
-    score21 = models.IntegerField()
-    score22 = models.IntegerField()
+    score11 = models.IntegerField(blank = True, null = True)
+    score12 = models.IntegerField(blank = True, null = True)
+    score21 = models.IntegerField(blank = True, null = True)
+    score22 = models.IntegerField(blank = True, null = True)
     score31 = models.IntegerField(blank = True, null = True)
     score32 = models.IntegerField(blank = True, null = True)
     score41 = models.IntegerField(blank = True, null = True)
