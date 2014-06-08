@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <p>Click <a href="/account/logout/">here</a> to logout.</p>
+
+    <h3>Attended league match</h3>
+
+    {% if games_as_player1 or games_as_player2 %}
+        {% for game in games_as_player1 %}
+            <p>League Name:{{ game.league.name }}</p>
+            <p>Opponent Name:{{ game.player2.last_name }}  {{game.player2.first_name }}</p>
+            <p>Game date:{{ game.date }}</p>
+            <p>Game court:{{ game.court }}</p>
+
+        {% endfor %}
+        {% for game in games_as_player2 %}
+            <p>League Name:{{ game.league.name }}</p>
+            <p>Opponent Name:{{ game.player1.last_name}}  {{game.player1.first_name }}</p>
+            <p>Game date:{{ game.date }}</p>
+            <p>Game court:{{ game.court }}</p>
+        {% endfor %}
+	{% else %}
+		<p>You have not joined a league game.</p>
+	{% endif %}
+
+{% endblock %}

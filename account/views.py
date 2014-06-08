@@ -16,45 +16,45 @@ import logging
 
 # Create your views here.
 def register_user(request):
-    """
+	"""
 
-    For user register a account
-    :param request:
-    :return:
-    """
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect('/account/register_success')
-    else:
-        form = UserCreationForm()
+	For user register a account
+	:param request:
+	:return:
+	"""
+	if request.method == 'POST':
+		form = UserCreationForm(request.POST)
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect('/account/register_success')
+	else:
+		form = UserCreationForm()
 
-    args = {}
-    args.update(csrf(request))
+	args = {}
+	args.update(csrf(request))
 
-    args['form'] = form
+	args['form'] = form
 
-    return render_to_response('register.html', args)
+	return render_to_response('register.html', args)
 
 def register_success(ruquest):
-    return render_to_response('register_success.html')
+	return render_to_response('register_success.html')
 
 def login(request):
-    args = {}
-    args.update(csrf(request))
-    return render_to_response('login.html', args)
+	args = {}
+	args.update(csrf(request))
+	return render_to_response('login.html', args)
 
 def auth_view(request):
-    email = request.POST.get('email', '')
-    password = request.POST.get('password', '')
-    user = auth.authenticate(email=email, password=password)
+	email = request.POST.get('email', '')
+	password = request.POST.get('password', '')
+	user = auth.authenticate(email=email, password=password)
 
-    if user is not None:
-        auth.login(request, user)
-        return HttpResponseRedirect('/account/welcome_user')
-    else:
-        return HttpResponseRedirect('/account/invalid_login')
+	if user is not None:
+		auth.login(request, user)
+		return HttpResponseRedirect('/account/welcome_user')
+	else:
+		return HttpResponseRedirect('/account/invalid_login')
 
 @login_required
 def welcome_user(request):
@@ -65,15 +65,15 @@ def welcome_user(request):
 	return render_to_response('welcome_user.html',{'username':username,'league_matches_attended':league_match_attended,'league_matches_remained': League.objects.exclude(players=request.user),})
 
 def invalid_login(request):
-    return render_to_response('invalid_login.html')
+	return render_to_response('invalid_login.html')
 
 def logout(request):
-    auth.logout(request)
+	auth.logout(request)
 
-    args = {}
-    args.update(csrf(request))
+	args = {}
+	args.update(csrf(request))
 
-    return render_to_response('login.html', args)
+	return render_to_response('login.html', args)
 
 @login_required
 def change_profile(request):
