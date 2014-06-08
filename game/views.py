@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
-from models import League, Game
+from models import League, Game, Score
 from django.core.context_processors import csrf
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
@@ -30,7 +30,23 @@ def list_all_games(request):
 	user = request.user.profile
 	games_as_player1 = Game.objects.filter(player1 = user)
 	games_as_player2 = Game.objects.filter(player2 = user)
+	games_played_as_player1 = []
+	games_played_as_player2 = []
+	for game in games_as_player1:
+		if Score.objects.filter(game=game):
+			games_played_as_player1.append(game)
+			games_as_player1 = games_as_player1.exclude(id=game.id)
+			print game.id
+	for game in games_as_player2:
+		if Score.objects.filter(game=game):
+			games_played_as_player2.append(game)
+			games_as_player2 = games_as_player2.exclude(id=game.id)
 	print games_as_player1
 	print games_as_player2
+	print games_played_as_player1
+	print games_played_as_player2
 	return render_to_response('list_all_games.html',
-		{'games_as_player1':games_as_player1,'games_as_player2':games_as_player2,},)
+		{'games_as_player1':games_as_player1,
+		 'games_as_player2':games_as_player2,
+		 'games_played_as_player1':games_played_as_player1,
+		 'games_played_as_player2':games_played_as_player2},)
