@@ -30,6 +30,10 @@
             <p>Opponent Name:{{ game.player2.last_name}}  {{game.player2.first_name }}</p>
             <p>Game date:{{ game.date }}</p>
             <p>Game court:{{ game.court }}</p>
+            {% if not game.player1_confirmed %}
+                <p><a href="/game/upload_score/{{game.id}}">Edit score.</a></p>
+                <p><a href="/game/confirm_score/{{game.id}}">Confirm the score.</a></p>
+            {% endif %}
         {% endfor %}
 
         {% for game in games_played_as_player2 %}
@@ -37,6 +41,10 @@
             <p>Opponent Name:{{ game.player1.last_name}}  {{game.player1.first_name }}</p>
             <p>Game date:{{ game.date }}</p>
             <p>Game court:{{ game.court }}</p>
+            {% if not game.player2_confirmed %}
+                <p><a href="/game/upload_score/{{game.id}}">Edit score.</a></p>
+                <p><a href="/game/confirm_score/{{game.id}}">Confirm the score.</a></p>
+            {% endif %}
         {% endfor %}
 	{% else %}
 		<p>You have not joined any game.</p>

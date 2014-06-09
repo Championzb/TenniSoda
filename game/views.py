@@ -5,6 +5,7 @@ from forms import ScoreCreationForm
 from django.core.context_processors import csrf
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
+from django.contrib import auth
 
 @login_required
 def join_league(request, league_match_id=1):
@@ -34,12 +35,12 @@ def list_all_games(request):
 	games_played_as_player1 = []
 	games_played_as_player2 = []
 	for game in games_as_player1:
-		if Score.objects.filter(game=game):
+		if game.is_played:
 			games_played_as_player1.append(game)
 			games_as_player1 = games_as_player1.exclude(id=game.id)
 			print game.id
 	for game in games_as_player2:
-		if Score.objects.filter(game=game):
+		if game.is_played:
 			games_played_as_player2.append(game)
 			games_as_player2 = games_as_player2.exclude(id=game.id)
 	print games_as_player1
@@ -54,11 +55,20 @@ def list_all_games(request):
 
 @login_required
 def upload_score(request, game_id=1):
+	user = request.user.profile
 	game = Game.objects.get(id = game_id)
+	if game.player1 != user and game.player2 != user:
+		auth.logout(request)
+		return HttpResponseRedirect('/account/login')
+
 	score = game.score
 
 	if request.method == 'POST':
-		form = ScoreCreationForm(request.POST)
+		game.is_played = True
+		game.player1_confirmed = False
+		game.player2_confirmed = False
+		game.save()
+		form = ScoreCreationForm(request.POST,instance=score)
 		if form.is_valid():
 			form.save()
 			return HttpResponseRedirect('/game/list_all_games')
@@ -71,4 +81,22 @@ def upload_score(request, game_id=1):
 	args['form'] = form
 	args['player1'] = game.player1
 	args['player2'] = game.player2
+	args['game_id'] = game.id
 	return render_to_response('upload_score.html', args)
+
+@login_required
+def confirm_score(request,game_id = 1):
+	user = request.user.profile
+	game = Game.objects.get(id = game_id)
+	if game.player1 != user and game.player2 != user:
+		auth.logout(request)
+		return HttpResponseRedirect('/account/login')
+	print 'hellohello'
+	if game.player1 == user:
+		game.player1_confirmed = True
+		game.save()
+		return HttpResponseRedirect('/game/list_all_games')
+	else:
+		game.player2_confirmed = True
+		game.save()
+		return HttpResponseRedirect('/game/list_all_games')

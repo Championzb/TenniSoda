@@ -31,6 +31,9 @@ class Game(models.Model):
     player2_reviewed = models.TextField(max_length = 1000, blank = True, null = True)
     court_review1 = models.ForeignKey(CourtReview, related_name = 'court_review1', blank = True, null = True)
     court_review2 = models.ForeignKey(CourtReview, related_name = 'court_review2', blank = True, null = True)
+    is_played = models.BooleanField(default = False)
+    player1_confirmed = models.BooleanField(default=False)
+    player2_confirmed = models.BooleanField(default=False)
 
     def __unicode__(self):
         name = u"%s " % self.league+u"%s " % self.player1+u"%s " % self.player2
@@ -48,7 +51,7 @@ class Score(models.Model):
     score42 = models.IntegerField(blank = True, null = True)
     score51 = models.IntegerField(blank = True, null = True)
     score52 = models.IntegerField(blank = True, null = True)
-    is_confirmed = models.BooleanField(default=False)
+
 
     def __unicode__(self):
         return u"%s " % self.game

@@ -96,11 +96,11 @@ class GroupStageAdmin(admin.ModelAdmin):
 	action = [group_game_arrange]
 
 class GameAdmin(admin.ModelAdmin):
-	list_display = ['league','court','player1','player2','winner','date']
+	list_display = ['league','court','player1','player2','winner','date','is_played','player1_confirmed','player2_confirmed',]
 	ordering = ['date']
 
 class ScoreAdmin(admin.ModelAdmin):
-	list_display = ['game','score11','score12','score21','score22','score31','score32','score41','score42','score51','score52','is_confirmed']
+	list_display = ['game','score11','score12','score21','score22','score31','score32','score41','score42','score51','score52',]
 		
 
 admin.site.register(League,LeagueAdmin)
