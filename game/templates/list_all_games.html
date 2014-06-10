@@ -1,34 +1,48 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <p>Click <a href="/account/logout/">here</a> to logout.</p>
-
-    <h3>Attended league match</h3>
+    <h1>Attended league match</h1>
 
     {% if games_as_player1 or games_as_player2 or games_played_as_player1 or games_played_as_player2%}
-        <p>Coming games:</p>
+        <h2>Coming games:</h2>
         {% for game in games_as_player1 %}
-            <p>League Name:{{ game.league.name }}</p>
+            {% if game.league %}
+                <p>League Name:{{ game.league.name }}</p>
+            {% else %}
+                <p>Free League Game</p>
+            {% endif %}
             <p>Opponent Name:<a href="/account/view_profile/{{game.player2.user_id}}">{{ game.player2.last_name }}  {{game.player2.first_name }}</a></p>
             <p>Game date:{{ game.date }}</p>
             <p>Game court:{{ game.court }}</p>
             <p>Click <a href="/game/upload_score/{{game.id}}">here</a> upload score.</p>
-            <p>Click <a hredf="/game/rate_review/{{game.id}}">here</a> to rate and review</p>
+            {% if not game.league %}
+                <p>Click <a href="/game/quit_game/{{game.id}}">here</a> quit game.</p>
+            {% endif %}
 
         {% endfor %}
         {% for game in games_as_player2 %}
-            <p>League Name:{{ game.league.name }}</p>
+            {% if game.league %}
+                <p>League Name:{{ game.league.name }}</p>
+            {% else %}
+                <p>Free League Game</p>
+            {% endif %}
             <p>Opponent Name:<a href="/account/view_profile/{{game.player1.user_id}}">{{ game.player1.last_name}}  {{game.player1.first_name }}</a></p>
             <p>Game date:{{ game.date }}</p>
             <p>Game court:{{ game.court }}</p>
             <p>Click <a href="/game/upload_score/{{game.id}}">here</a> upload score.</p>
-            <p>Click <a hredf="/game/rate_review/{{game.id}}">here</a> to rate and review</p>
+            {% if not game.league %}
+                <p>Click <a href="/game/quit_game/{{game.id}}">here</a> quit game.</p>
+            {% endif %}
 
         {% endfor %}
 
-        <p>Played games:</p>
+        <h2>Played games:</h2>
         {% for game in games_played_as_player1 %}
-            <p>League Name:{{ game.league.name }}</p>
+            {% if game.league %}
+                <p>League Name:{{ game.league.name }}</p>
+            {% else %}
+                <p>Free League Game</p>
+            {% endif %}
             <p>Opponent Name:<a href="/account/view_profile/{{game.player2.user_id}}">{{ game.player2.last_name}}  {{game.player2.first_name }}</a></p>
             {% if game.player1_confirmed and game.player2_confirmed %}
                 <p>Winner: {{ game.winner }}</p>
@@ -46,7 +60,11 @@
         {% endfor %}
 
         {% for game in games_played_as_player2 %}
-            <p>League Name:{{ game.league.name }}</p>
+            {% if game.league %}
+                <p>League Name:{{ game.league.name }}</p>
+            {% else %}
+                <p>Free League Game</p>
+            {% endif %}
             <p>Opponent Name:<a href="/account/view_profile/{{game.player1.user_id}}">{{ game.player1.last_name}}  {{game.player1.first_name }}</a></p>
             {% if game.player1_confirmed and game.player2_confirmed %}
                 <p>Winner: {{ game.winner }}</p>

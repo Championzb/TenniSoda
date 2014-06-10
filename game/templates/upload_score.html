@@ -1,19 +1,20 @@
+{% extends "base.html" %}
 
-        {% block content %}
+{% block content %}
 
-<h2>Upload score</h2>
+    <h2>Upload score</h2>
 
-{% for field in form %}
-    {{field.error}}
-{% endfor %}
-    <p>player1:{{player1}}</p>
-    <p>player2:{{player2}}</p>
-    <p>{{game_id}}</p>
-<form action="/game/upload_score/{{game_id}}/" method="post">{% csrf_token %}
-    {{form}}
-    <input type="submit" value="Upload"/>
-</form>
-    <a href="/game/list_all_games">Cancel</a>
-
+    {% for field in form %}
+        {{field.error}}
+    {% endfor %}
+        <p>player1:{{player1}}</p>
+        <p>player2:{{player2}}</p>
+        <p>{{game_id}}</p>
+    <form action="/game/upload_score/{{game_id}}/" method="post">{% csrf_token %}
+        {{score_form}}
+        {{game_form}}
+        <input type="submit" value="Upload"/>
+    </form>
+        <a href="/game/list_all_games">Cancel</a>
 
 {% endblock %}

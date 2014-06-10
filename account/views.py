@@ -1,6 +1,6 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, render
 from django.http import HttpResponseRedirect, HttpResponse
-from django.contrib import auth
+from django.contrib import auth, messages
 from django.core.context_processors import csrf
 from django.contrib.auth.decorators import login_required
 from forms import UserProfileForm
@@ -26,7 +26,8 @@ def register_user(request):
 		form = UserCreationForm(request.POST)
 		if form.is_valid():
 			form.save()
-			return HttpResponseRedirect('/account/register_success')
+			messages.success(request,'You have registered successfully.')
+			return render(request, 'login.html', )
 	else:
 		form = UserCreationForm()
 
@@ -36,9 +37,6 @@ def register_user(request):
 	args['form'] = form
 
 	return render_to_response('register.html', args)
-
-def register_success(ruquest):
-	return render_to_response('register_success.html')
 
 def login(request):
 	args = {}
@@ -72,23 +70,26 @@ def logout(request):
 
 	args = {}
 	args.update(csrf(request))
-
-	return render_to_response('login.html', args)
+	messages.success(request,'You have logged out successfully!')
+	return render(request,'login.html', args)
 
 @login_required
 def change_profile(request):
+	args = {}
+	args.update(csrf(request))
 	if request.method == 'POST':
 		form = UserProfileForm(request.POST, instance = request.user.profile,)
 		if form.is_valid():
 			form.save()
-			return HttpResponseRedirect('/account/welcome_user')
+			messages.success(request,'You have updated the profile')
+			args['form'] = form
+			return render(request,'profile.html',args)
 	else:
 		user = request.user
 		profile = user.profile
 		form = UserProfileForm(instance=profile,initial={'phone':profile.phone})	
 
-	args = {}
-	args.update(csrf(request))
+
 	
 	args['form'] = form
 	
@@ -96,14 +97,14 @@ def change_profile(request):
 
 @login_required
 def view_profile(request, user_id=1):
-    user = request.user.profile
-    opponent_profile = Profile.objects.get(user_id=user_id)
-    if Game.objects.filter(player1=user,player2=opponent_profile).count() == 0 and Game.objects.filter(player2=user,player1=opponent_profile).count() == 0:
-        return HttpResponseRedirect('/game/list_all_games')
-    args = {}
-    args['email']= Account.objects.get(id = user_id).email
-    args['first_name'] = opponent_profile.first_name
-    args['last name'] = opponent_profile.last_name
-    args['phone'] = opponent_profile.phone
-    args['level'] = opponent_profile.level
-    return render_to_response('view_profile.html',args)
+	user = request.user.profile
+	opponent_profile = Profile.objects.get(user_id=user_id)
+	if Game.objects.filter(player1=user,player2=opponent_profile).count() == 0 and Game.objects.filter(player2=user,player1=opponent_profile).count() == 0:
+		return HttpResponseRedirect('/game/list_all_games')
+	args = {}
+	args['email']= Account.objects.get(id = user_id).email
+	args['first_name'] = opponent_profile.first_name
+	args['last name'] = opponent_profile.last_name
+	args['phone'] = opponent_profile.phone
+	args['level'] = opponent_profile.level
+	return render_to_response('view_profile.html',args)

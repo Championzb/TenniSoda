@@ -6,6 +6,7 @@ urlpatterns = patterns('game.views',
     url(r'^upload_score/(?P<game_id>\d+)/$', 'upload_score'),
     url(r'^confirm_score/(?P<game_id>\d+)/$', 'confirm_score'),
     url(r'^find_game/$','find_game'),
+    url(r'^quit_game/(?P<game_id>\d+)/$','quit_game')
 #	url(r'^Find/$', 'LeagueMatch.views.find'),
 #	url(r'^CreateMatch/$', 'LeagueMatch.views.create_match'),
 

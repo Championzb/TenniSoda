@@ -1,7 +1,15 @@
 from django import forms
 from models import Score, Game
+from django.forms import extras
 
 SET_SCORE = ('60','61','62','63','64','75','57','76','67','06','16','26','36','46',)
+class GameEditForm(forms.ModelForm):
+    date = forms.DateField(widget=extras.SelectDateWidget(years=range(2014,2015)))
+
+    class Meta:
+        model = Game
+        fields = ('court', 'date')
+
 class ScoreCreationForm(forms.ModelForm):
 
     class Meta:

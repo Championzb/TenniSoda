@@ -1,11 +1,11 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, render
 from django.http import HttpResponseRedirect
 from models import League, Game, Score, FreeLeagueGame
-from forms import ScoreCreationForm
+from forms import ScoreCreationForm, GameEditForm
 from django.core.context_processors import csrf
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from django.contrib import auth
+from django.contrib import auth, messages
 from datetime import datetime
 
 @login_required
@@ -74,17 +74,22 @@ def upload_score(request, game_id=1):
 		game.player1_confirmed = False
 		game.player2_confirmed = False
 		game.save()
-		form = ScoreCreationForm(request.POST,instance=score)
-		if form.is_valid():
-			form.save()
+		score_form = ScoreCreationForm(request.POST,instance=score)
+		game_form = GameEditForm(request.POST, instance=game)
+		if score_form.is_valid() and game_form.is_valid():
+			score_form.save()
+			game_form.save()
+			confirm_score(request,game_id=game.id)
 			return HttpResponseRedirect('/game/list_all_games')
 	else:
-		form = ScoreCreationForm(instance=score)
+		score_form = ScoreCreationForm(instance=score)
+		game_form = GameEditForm(instance=game)
 
 	args = {}
 	args.update(csrf(request))
 
-	args['form'] = form
+	args['score_form'] = score_form
+	args['game_form'] = game_form
 	args['player1'] = game.player1
 	args['player2'] = game.player2
 	args['game_id'] = game.id
@@ -124,8 +129,23 @@ def find_game(request):
 	free_game = FreeLeagueGame.objects.get_or_create(player = user)[0]
 	free_game.request_time = datetime.now()
 	free_game.save()
+	messages.success(request,'join success hahahahahha')
+	username = user.last_name+user.first_name
+	league_match_attended = League.objects.filter(players=request.user.profile)
+	return render(request, 'welcome_user.html',
+		{'username':username,'league_matches_attended':league_match_attended,'league_matches_remained': League.objects.exclude(players=request.user),})
 
-	return render_to_response('free_game_notify.html')
+
+@login_required
+def quit_game(request,game_id = 1):
+	user = request.user.profile
+	game = Game.objects.get(id = game_id)
+	if game.player1 != user and game.player2 != user:
+		auth.logout(request)
+		return HttpResponseRedirect('/account/login')
+	game.delete()
+	return HttpResponseRedirect('/game/list_all_games')
+
 
 
 def get_winner(game):
