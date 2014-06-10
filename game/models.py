@@ -2,6 +2,7 @@ from django.db import models
 from account.models import Profile
 from city.models import City
 from court.models import Court
+from datetime import datetime
 
 # Create your models here.
 class League(models.Model):
@@ -64,3 +65,10 @@ class GroupStage(models.Model):
 
     def __unicode__(self):
         return u"%s %s %s %s" % (self.league, self.group_number, self.member_number, self.player)
+
+class FreeLeagueGame(models.Model):
+    player = models.ForeignKey(Profile,primary_key = True)
+    request_time = models.DateTimeField(default = datetime.now())
+
+    def __unicode__(self):
+        return u'%s' % self.player

@@ -1,15 +1,21 @@
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
-from models import League, Game, Score
+from models import League, Game, Score, FreeLeagueGame
 from forms import ScoreCreationForm
 from django.core.context_processors import csrf
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib import auth
+from datetime import datetime
 
 @login_required
 def join_league(request, league_match_id=1):
 	user = request.user.profile
+	if user.first_name is None or user.first_name == ''\
+		or user.last_name is None or user.last_name == ''\
+		or user.phone is None or user.phone == ''\
+		or user.level is None or user.level == '':
+		return render_to_response('profile_notify.html')
 	league_match = League.objects.get(id=league_match_id)
 	if League.objects.filter(id=league_match_id,players=user).count()==0:
 		league_match.players.add(user)
@@ -106,6 +112,21 @@ def confirm_score(request,game_id = 1):
 			game.winner = get_winner(game)
 		game.save()
 		return HttpResponseRedirect('/game/list_all_games')
+
+@login_required
+def find_game(request):
+	user = request.user.profile
+	if user.first_name is None or user.first_name == ''\
+		or user.last_name is None or user.last_name == ''\
+		or user.phone is None or user.phone == ''\
+		or user.level is None or user.level == '':
+		return render_to_response('profile_notify.html')
+	free_game = FreeLeagueGame.objects.get_or_create(player = user)[0]
+	free_game.request_time = datetime.now()
+	free_game.save()
+
+	return render_to_response('free_game_notify.html')
+
 
 def get_winner(game):
 	score = Score.objects.get(game = game)
