@@ -9,5 +9,6 @@ urlpatterns = patterns('account.views',
     url(r'^welcome_user/$', 'welcome_user'),
     url(r'^invalid_login/$', 'invalid_login'),
     url(r'^profile/$', 'change_profile'),
+    url(r'^view_profile/(?P<user_id>\d+)/$','view_profile'),
 
 )

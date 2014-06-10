@@ -84,6 +84,8 @@ def upload_score(request, game_id=1):
 	args['game_id'] = game.id
 	return render_to_response('upload_score.html', args)
 
+
+
 @login_required
 def confirm_score(request,game_id = 1):
 	user = request.user.profile
@@ -94,9 +96,48 @@ def confirm_score(request,game_id = 1):
 	print 'hellohello'
 	if game.player1 == user:
 		game.player1_confirmed = True
+		if game.player2_confirmed:
+			game.winner = get_winner(game)
 		game.save()
 		return HttpResponseRedirect('/game/list_all_games')
 	else:
 		game.player2_confirmed = True
+		if game.player1_confirmed:
+			game.winner = get_winner(game)
 		game.save()
 		return HttpResponseRedirect('/game/list_all_games')
+
+def get_winner(game):
+	score = Score.objects.get(game = game)
+	player1_set_point = 0
+	player2_set_point = 0
+	if score.score11>score.score12:
+		player1_set_point += 1
+	elif score.score11<score.score12:
+		player2_set_point += 1
+
+	if score.score21>score.score22:
+		player1_set_point += 1
+	elif score.score11<score.score12:
+		player2_set_point += 1
+
+	if score.score31>score.score32:
+		player1_set_point += 1
+	elif score.score11<score.score12:
+		player2_set_point += 1
+
+	if score.score41>score.score42:
+		player1_set_point += 1
+	elif score.score11<score.score12:
+		player2_set_point += 1
+
+	if score.score51>score.score52:
+		player1_set_point += 1
+	elif score.score11<score.score12:
+		player2_set_point += 1
+
+	if player1_set_point>player2_set_point:
+		return game.player1
+	else:
+		return game.player2
+

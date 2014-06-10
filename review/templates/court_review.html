@@ -1,0 +1,17 @@
+{% block content %}
+
+<h2>Court Review</h2>
+
+{% for field in form %}
+    {{field.error}}
+{% endfor %}
+<p>Court:{{court}}</p>
+
+<form action="/review/court_review/{{game_id}}/" method="post">{% csrf_token %}
+    {{form}}
+    <input type="submit" value="Save"/>
+</form>
+
+
+
+{% endblock %}

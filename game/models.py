@@ -2,7 +2,7 @@ from django.db import models
 from account.models import Profile
 from city.models import City
 from court.models import Court
-from review.models import CourtReview
+
 # Create your models here.
 class League(models.Model):
     name = models.CharField(max_length = 200)
@@ -25,12 +25,6 @@ class Game(models.Model):
     player2 = models.ForeignKey(Profile, related_name = 'player2')
     winner = models.ForeignKey(Profile, related_name = 'winnner', blank = True, null = True)
     date = models.DateField(blank = True, null = True)
-    player1_rated = models.IntegerField(blank = True, null = True)
-    player2_rated = models.IntegerField(blank = True, null = True)
-    player1_reviewed = models.TextField(max_length = 1000, blank = True, null = True)
-    player2_reviewed = models.TextField(max_length = 1000, blank = True, null = True)
-    court_review1 = models.ForeignKey(CourtReview, related_name = 'court_review1', blank = True, null = True)
-    court_review2 = models.ForeignKey(CourtReview, related_name = 'court_review2', blank = True, null = True)
     is_played = models.BooleanField(default = False)
     player1_confirmed = models.BooleanField(default=False)
     player2_confirmed = models.BooleanField(default=False)
