@@ -35,6 +35,7 @@ TEMPLATE_DIRS = (
         os.path.join(PROJECT_DIR,'account/templates/'),
         os.path.join(PROJECT_DIR,'game/templates/'),
         os.path.join(PROJECT_DIR,'review/templates/'),
+        os.path.join(PROJECT_DIR,'notification/templates/'),
 )
 
 

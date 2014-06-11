@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from forms import UserProfileForm
 from game.models import League, Game
 from models import Profile, Account
+from notification.models import Notification
 
 
 from admin import UserCreationForm
@@ -60,7 +61,15 @@ def welcome_user(request):
 	if request.user.profile.last_name!='' and request.user.profile.last_name is not None:
 		username = request.user.profile.last_name+request.user.profile.first_name
 	league_match_attended = League.objects.filter(players=request.user.profile)
-	return render_to_response('welcome_user.html',{'username':username,'league_matches_attended':league_match_attended,'league_matches_remained': League.objects.exclude(players=request.user),})
+
+	notifications = Notification.objects.filter(user = request.user, viewed = False)
+
+	args = {}
+	args['username'] = username
+	args['league_matches_attended'] = league_match_attended
+	args['league_matches_remained'] = League.objects.exclude(players=request.user)
+	args['notifications'] = notifications
+	return render_to_response('welcome_user.html',args)
 
 def invalid_login(request):
 	return render_to_response('invalid_login.html')

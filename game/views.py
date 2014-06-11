@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib import auth, messages
 from datetime import datetime
+from notification.models import Notification
 
 @login_required
 def join_league(request, league_match_id=1):
@@ -80,6 +81,17 @@ def upload_score(request, game_id=1):
 			score_form.save()
 			game_form.save()
 			confirm_score(request,game_id=game.id)
+			if game.player1 == user:
+				Notification.objects.create(user = game.player2.user,
+											title = 'A game needs to be confirmed',
+											message = 'Your game vs %s %s needs your confirmation, go to game page to confirm.' % (game.player1.last_name, game.player1.first_name),
+											time = datetime.now())
+			else:
+				Notification.objects.create(user = game.player1.user,
+											title = 'A game needs to be confirmed',
+											message = 'Your game vs %s %s needs your confirmation, go to game page to confirm.' % (game.player2.last_name, game.player2.first_name),
+											time = datetime.now())
+
 			return HttpResponseRedirect('/game/list_all_games')
 	else:
 		score_form = ScoreCreationForm(instance=score)
@@ -109,12 +121,29 @@ def confirm_score(request,game_id = 1):
 		game.player1_confirmed = True
 		if game.player2_confirmed:
 			game.winner = get_winner(game)
+			Notification.objects.create(user = game.player1.user,
+										title = 'A game is completed',
+										message = 'Your game against %s %s is completed' % (game.player2.last_name, game.player2.first_name),
+										time = datetime.now())
+			Notification.objects.create(user = game.player2.user,
+										title = 'A game is completed',
+										message = 'Your game against %s %s is completed' % (game.player1.last_name, game.player1.first_name),
+										time = datetime.now())
 		game.save()
+
 		return HttpResponseRedirect('/game/list_all_games')
 	else:
 		game.player2_confirmed = True
 		if game.player1_confirmed:
 			game.winner = get_winner(game)
+			Notification.objects.create(user = game.player1.user,
+										title = 'A game is completed',
+										message = 'Your game against %s %s is completed' % (game.player2.last_name, game.player2.first_name),
+										time = datetime.now())
+			Notification.objects.create(user = game.player2.user,
+										title = 'A game is completed',
+										message = 'Your game against %s %s is completed' % (game.player1.last_name, game.player1.first_name),
+										time = datetime.now())
 		game.save()
 		return HttpResponseRedirect('/game/list_all_games')
 
@@ -143,6 +172,17 @@ def quit_game(request,game_id = 1):
 	if game.player1 != user and game.player2 != user:
 		auth.logout(request)
 		return HttpResponseRedirect('/account/login')
+	if game.player1 == user:
+		Notification.objects.create(user = game.player2.user,
+									title = 'One of your opponent has quit a game',
+									message = 'Your opponent %s %s quit the game' % (game.player1.last_name, game.player1.first_name),
+									time = datetime.now(),)
+	else:
+		Notification.objects.create(user = game.player1.user,
+									title = 'One of your opponent has quit a game',
+									message = 'Your opponent %s %s quit the game' % (game.player2.last_name, game.player2.first_name),
+									time = datetime.now(),)
+
 	game.delete()
 	return HttpResponseRedirect('/game/list_all_games')
 
