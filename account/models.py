@@ -4,8 +4,13 @@ from django.contrib.auth.models import (
 )
 from court.models import Court
 from city.models import City
+from TenniSoda import settings
+from time import time
 
 # Create your models here.
+
+def get_upload_file_name(instance, filename):
+    return settings.UPLOAD_FILE_PATTERN % (str(time()).replace('.','_'), filename)
 
 class AccountManager(BaseUserManager):
     def create_user(self, email, password=None):
@@ -97,6 +102,7 @@ class Profile(models.Model):
     gender = models.CharField(max_length=2, null=True,blank=True)
     league_rank = models.IntegerField(null=True,blank=True)
     local_rank = models.IntegerField( null=True,blank=True)
+    picture = models.ImageField(upload_to = get_upload_file_name, null=True, blank=True)
 
     def __unicode__(self):
         username = self.user.email.split('@')[0]
@@ -106,3 +112,4 @@ class Profile(models.Model):
 
 	
 Account.profile = property(lambda u: Profile.objects.get_or_create(user=u)[0])
+

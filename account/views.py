@@ -64,8 +64,11 @@ def welcome_user(request):
 
 	notifications = Notification.objects.filter(user = request.user, viewed = False)
 
+	profile = request.user.profile
+
 	args = {}
 	args['username'] = username
+	args['profile'] = profile
 	args['league_matches_attended'] = league_match_attended
 	args['league_matches_remained'] = League.objects.exclude(players=request.user)
 	args['notifications'] = notifications
@@ -87,7 +90,7 @@ def change_profile(request):
 	args = {}
 	args.update(csrf(request))
 	if request.method == 'POST':
-		form = UserProfileForm(request.POST, instance = request.user.profile,)
+		form = UserProfileForm(request.POST, request.FILES, instance = request.user.profile,)
 		if form.is_valid():
 			form.save()
 			messages.success(request,'You have updated the profile')

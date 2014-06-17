@@ -110,7 +110,11 @@ STATICFILES_DIRS=(
     ('assets', os.path.join(os.getcwd(),'static/')),        
 )
 
-MEDIA_ROOT = os.path.join(PROJECT_DIR,'static/')
+MEDIA_ROOT = os.path.join(PROJECT_DIR, 'static/')
+
+MEDIA_URL = ''
+
+UPLOAD_FILE_PATTERN = "uploaded_files/%s_%s"
 
 LOGGING = {
     'version':1,

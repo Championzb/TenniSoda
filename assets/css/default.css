@@ -58,7 +58,7 @@ li {
 	padding-left: 1em;
 }
 
-.deleted {
+.warning {
 	background-color: #880000;
 	border-color: #550000;
 	padding-left: 1em;

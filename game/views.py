@@ -116,7 +116,6 @@ def confirm_score(request,game_id = 1):
 	if game.player1 != user and game.player2 != user:
 		auth.logout(request)
 		return HttpResponseRedirect('/account/login')
-	print 'hellohello'
 	if game.player1 == user:
 		game.player1_confirmed = True
 		if game.player2_confirmed:
@@ -158,7 +157,7 @@ def find_game(request):
 	free_game = FreeLeagueGame.objects.get_or_create(player = user)[0]
 	free_game.request_time = datetime.now()
 	free_game.save()
-	messages.success(request,'join success hahahahahha')
+	messages.success(request,'join success')
 	username = user.last_name+user.first_name
 	league_match_attended = League.objects.filter(players=request.user.profile)
 	return render(request, 'welcome_user.html',
