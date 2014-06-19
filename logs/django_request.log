@@ -4737,3 +4737,17 @@ Traceback (most recent call last):
 ImproperlyConfigured: Empty static prefix not permitted
 2014-06-19 15:56:31,949 [WARNING] django.request: Not Found: /favicon.ico
 2014-06-19 16:13:53,056 [WARNING] django.request: Not Found: /favicon.ico
+2014-06-19 18:15:30,383 [WARNING] django.request: Not Found: /css/font-awesome.min.css
+2014-06-19 18:15:30,441 [WARNING] django.request: Not Found: /css/bootstrap.min.css
+2014-06-19 18:15:30,445 [WARNING] django.request: Not Found: /css/mvpready-landing.css
+2014-06-19 18:15:30,450 [WARNING] django.request: Not Found: /css/mvpready-flat.css
+2014-06-19 18:15:30,484 [WARNING] django.request: Not Found: /css/animate.css
+2014-06-19 18:15:30,492 [WARNING] django.request: Not Found: /img/logo.png
+2014-06-19 18:15:30,500 [WARNING] django.request: Not Found: /img/masthead/mobile.png
+2014-06-19 18:15:30,534 [WARNING] django.request: Not Found: /js/libs/jquery-1.10.2.min.js
+2014-06-19 18:15:30,541 [WARNING] django.request: Not Found: /js/libs/bootstrap.min.js
+2014-06-19 18:15:30,546 [WARNING] django.request: Not Found: /js/plugins/timeago/jquery.timeago.js
+2014-06-19 18:15:30,586 [WARNING] django.request: Not Found: /js/plugins/tweetable/tweetable.jquery.min.js
+2014-06-19 18:15:30,595 [WARNING] django.request: Not Found: /js/plugins/carouFredSel/jquery.carouFredSel-6.2.1-packed.js
+2014-06-19 18:15:30,606 [WARNING] django.request: Not Found: /js/mvpready-core.js
+2014-06-19 18:15:30,613 [WARNING] django.request: Not Found: /js/mvpready-landing.js
