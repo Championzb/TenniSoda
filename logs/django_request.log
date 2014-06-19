@@ -4735,3 +4735,5 @@ Traceback (most recent call last):
   File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/conf/urls/static.py", line 22, in static
     raise ImproperlyConfigured("Empty static prefix not permitted")
 ImproperlyConfigured: Empty static prefix not permitted
+2014-06-19 15:56:31,949 [WARNING] django.request: Not Found: /favicon.ico
+2014-06-19 16:13:53,056 [WARNING] django.request: Not Found: /favicon.ico

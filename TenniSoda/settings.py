@@ -56,6 +56,7 @@ INSTALLED_APPS = (
     'city',
     'review',
 	'localflavor',
+    'django_cleanup',
 )
 
 MIDDLEWARE_CLASSES = (
