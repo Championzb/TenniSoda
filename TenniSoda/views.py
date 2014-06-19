@@ -1,13 +1,14 @@
 from django.shortcuts import render_to_response
+from django.http import HttpResponseRedirect
 from account.admin import UserCreationForm
 from django.core.context_processors import csrf
 
 def home(request):
-    if request == 'POST':
+    if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return render_to_response('account-login.html')
+            return HttpResponseRedirect('account/login')
     else:
         form = UserCreationForm()
 

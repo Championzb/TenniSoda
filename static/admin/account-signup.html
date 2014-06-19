@@ -1,40 +1,20 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
-<head>
-  <title>Signup &middot; MVP Ready Admin</title>
+{% extends "admin-base.html" %}
+{% load static %}
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="">
+{% block title %}
+    <title>Sign Up &middot; TenniSoda</title>
+{% endblock %}
+{% block content %}
 
-  <!-- Google Font: Open Sans -->
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300,700">
-
-  <!-- Font Awesome CSS -->
-  <link rel="stylesheet" href="./css/font-awesome.min.css">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="./css/bootstrap.min.css">
-
-  <!-- App CSS -->
-  <link rel="stylesheet" href="./css/mvpready-admin.css">
-  <link rel="stylesheet" href="./css/mvpready-flat.css">
-  <!-- <link href="./css/custom.css" rel="stylesheet">-->
-
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="favicon.ico">
-
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-  <![endif]-->
-</head>
+<script>
+    function check(){
+        flag = document.getElementById("check_terms").checked;
+        if (!flag){
+            alert("You must agree the Terms and Service!");
+            return flag;
+        }
+    }
+</script>
 
 <body class="account-bg">
 
@@ -48,15 +28,15 @@
           <i class="fa fa-cog"></i>
         </button>
 
-        <a href="../landing" class="navbar-brand navbar-brand-img">
-          <img src="./img/logo.png" alt="MVP Ready">
+        <a href="{% static "assets/landing" %}" class="navbar-brand navbar-brand-img">
+          <img src="{% static "assets/admin/img/logo.png" %}" alt="TenniSoda">
         </a>
       </div> <!-- /.navbar-header -->
 
       <nav class="collapse navbar-collapse" role="navigation">   
         <ul class="nav navbar-nav navbar-right">     
           <li>
-            <a href="../landing"><i class="fa fa-angle-double-left"></i> &nbsp;Back to Home</a>
+            <a href="/"><i class="fa fa-angle-double-left"></i> &nbsp;Back to Home</a>
           </li>   
         </ul>
       </nav>
@@ -73,26 +53,20 @@
 
       <h5>Sign up in 30 seconds. No credit card required.</h5>
 
-      <form class="form account-form" method="POST" action="./index.html">
+      <form class="form account-form" method="POST" action="/account/register/" onsubmit="return check()">{% csrf_token %}
 
-        <div class="form-group">
-          <label for="signup-email" class="placeholder-hidden">Email Address</label>
-          <input type="text" class="form-control" id="signup-email" placeholder="Your Email" tabindex="1">
-        </div> <!-- /.form-group -->
-
-        <div class="form-group">
-          <label for="login-password" class="placeholder-hidden">Password</label>
-          <input type="password" class="form-control" id="login-password" placeholder="Password" tabindex="4">
-        </div> <!-- /.form-group -->
-
-	<div class="form-group">
-          <label for="login-password" class="placeholder-hidden">Confirm Password</label>
-          <input type="password" class="form-control" id="login-password" placeholder="Confirm Password" tabindex="4">
-        </div> <!-- /.form-group -->
+        {% for field in form %}
+          <div class = "form-group">
+            {{ field }}
+              {% for err in field.errors %}
+                <span style="color: red">{{ err }}</span>
+            {% endfor %}
+          </div><!-- /.form-group -->
+        {% endfor %}
 
         <div class="form-group">
           <label class="checkbox-inline">
-          <input type="checkbox" class="" value="" tabindex="5"> I agree to the <a href="javascript:;" target="_blank">Terms of Service</a> &amp; <a href="javascript:;" target="_blank">Privacy Policy</a>
+          <input type="checkbox" id="check_terms" class="" value="" tabindex="5"> I agree to the <a href="javascript:;" target="_blank">Terms of Service</a> &amp; <a href="javascript:;" target="_blank">Privacy Policy</a>
           </label>
         </div> <!-- /.form-group -->
 
@@ -109,29 +83,12 @@
     <div class="account-footer">
       <p>
       Already have an account? &nbsp;
-      <a href="./account-login.html" class="">Login to your Account!</a>
+      <a href="/account/login" class="">Login to your Account!</a>
       </p>
     </div> <!-- /.account-footer -->
 
   </div> <!-- /.account-wrapper -->
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Core JS -->
-<script src="./js/libs/jquery-1.10.2.min.js"></script>
-<script src="./js/libs/bootstrap.min.js"></script>
-
-<!--[if lt IE 9]>
-<script src="./js/libs/excanvas.compiled.js"></script>
-<![endif]-->
-<!-- App JS -->
-<script src="./js/mvpready-core.js"></script>
-<script src="./js/mvpready-admin.js"></script>
-
-<!-- Plugin JS -->
-<script src="./js/mvpready-account.js"></script>
-
-
-
 </body>
-</html>
+
+{% endblock %}

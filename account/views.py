@@ -28,7 +28,7 @@ def register_user(request):
 		if form.is_valid():
 			form.save()
 			messages.success(request,'You have registered successfully.')
-			return render(request, 'login.html', )
+			return HttpResponseRedirect('/account/login')
 	else:
 		form = UserCreationForm()
 
@@ -37,17 +37,20 @@ def register_user(request):
 
 	args['form'] = form
 
-	return render_to_response('register.html', args)
+	return render_to_response('account-signup.html', args)
 
 def login(request):
 	args = {}
 	args.update(csrf(request))
-	return render_to_response('login.html', args)
+	return render_to_response('account-login.html', args)
 
 def auth_view(request):
 	email = request.POST.get('email', '')
 	password = request.POST.get('password', '')
 	user = auth.authenticate(email=email, password=password)
+
+	print "--------------"
+	print email
 
 	if user is not None:
 		auth.login(request, user)

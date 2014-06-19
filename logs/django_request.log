@@ -4751,3 +4751,381 @@ ImproperlyConfigured: Empty static prefix not permitted
 2014-06-19 18:15:30,595 [WARNING] django.request: Not Found: /js/plugins/carouFredSel/jquery.carouFredSel-6.2.1-packed.js
 2014-06-19 18:15:30,606 [WARNING] django.request: Not Found: /js/mvpready-core.js
 2014-06-19 18:15:30,613 [WARNING] django.request: Not Found: /js/mvpready-landing.js
+2014-06-19 18:26:09,675 [WARNING] django.request: Not Found: /css/bootstrap.min.css
+2014-06-19 18:26:09,679 [WARNING] django.request: Not Found: /css/mvpready-landing.css
+2014-06-19 18:26:09,686 [WARNING] django.request: Not Found: /css/mvpready-flat.css
+2014-06-19 18:26:09,694 [WARNING] django.request: Not Found: /css/animate.css
+2014-06-19 18:26:09,749 [WARNING] django.request: Not Found: /img/logo.png
+2014-06-19 18:26:09,768 [WARNING] django.request: Not Found: /img/masthead/mobile.png
+2014-06-19 18:26:09,778 [WARNING] django.request: Not Found: /js/libs/jquery-1.10.2.min.js
+2014-06-19 18:26:09,787 [WARNING] django.request: Not Found: /js/libs/bootstrap.min.js
+2014-06-19 18:26:09,792 [WARNING] django.request: Not Found: /js/plugins/timeago/jquery.timeago.js
+2014-06-19 18:26:09,796 [WARNING] django.request: Not Found: /js/plugins/tweetable/tweetable.jquery.min.js
+2014-06-19 18:26:09,802 [WARNING] django.request: Not Found: /js/plugins/carouFredSel/jquery.carouFredSel-6.2.1-packed.js
+2014-06-19 18:26:09,813 [WARNING] django.request: Not Found: /js/mvpready-core.js
+2014-06-19 18:26:09,818 [WARNING] django.request: Not Found: /js/mvpready-landing.js
+2014-06-19 18:29:14,885 [WARNING] django.request: Not Found: /js/libs/jquery-1.10.2.min.js
+2014-06-19 18:29:14,893 [WARNING] django.request: Not Found: /js/libs/bootstrap.min.js
+2014-06-19 18:29:14,945 [WARNING] django.request: Not Found: /js/plugins/timeago/jquery.timeago.js
+2014-06-19 18:29:14,991 [WARNING] django.request: Not Found: /js/plugins/tweetable/tweetable.jquery.min.js
+2014-06-19 18:29:15,012 [WARNING] django.request: Not Found: /js/plugins/carouFredSel/jquery.carouFredSel-6.2.1-packed.js
+2014-06-19 18:29:15,090 [WARNING] django.request: Not Found: /js/mvpready-core.js
+2014-06-19 18:29:15,111 [WARNING] django.request: Not Found: /js/mvpready-landing.js
+2014-06-19 18:29:15,128 [WARNING] django.request: Not Found: /img/logo.png
+2014-06-19 18:29:15,190 [WARNING] django.request: Not Found: /img/masthead/mobile.png
+2014-06-19 18:32:23,885 [WARNING] django.request: Not Found: /img/masthead/mobile.png
+2014-06-19 18:32:23,891 [WARNING] django.request: Not Found: /js/libs/jquery-1.10.2.min.js
+2014-06-19 18:32:23,896 [WARNING] django.request: Not Found: /js/libs/bootstrap.min.js
+2014-06-19 18:32:23,902 [WARNING] django.request: Not Found: /js/plugins/timeago/jquery.timeago.js
+2014-06-19 18:32:23,926 [WARNING] django.request: Not Found: /js/plugins/tweetable/tweetable.jquery.min.js
+2014-06-19 18:32:23,940 [WARNING] django.request: Not Found: /js/plugins/carouFredSel/jquery.carouFredSel-6.2.1-packed.js
+2014-06-19 18:32:23,948 [WARNING] django.request: Not Found: /js/mvpready-core.js
+2014-06-19 18:32:24,253 [WARNING] django.request: Not Found: /js/mvpready-landing.js
+2014-06-19 19:06:07,657 [WARNING] django.request: Not Found: /css/mvpready-admin.css
+2014-06-19 19:06:07,676 [WARNING] django.request: Not Found: /js/libs/bootstrap.min.js
+2014-06-19 19:06:07,682 [WARNING] django.request: Not Found: /js/mvpready-core.js
+2014-06-19 19:06:07,693 [WARNING] django.request: Not Found: /js/mvpready-admin.js
+2014-06-19 19:06:07,709 [WARNING] django.request: Not Found: /js/mvpready-account.js
+2014-06-19 19:06:07,721 [WARNING] django.request: Not Found: /css/font-awesome.min.css
+2014-06-19 19:06:07,748 [WARNING] django.request: Not Found: /css/bootstrap.min.css
+2014-06-19 19:06:07,761 [WARNING] django.request: Not Found: /css/mvpready-flat.css
+2014-06-19 19:06:07,772 [WARNING] django.request: Not Found: /js/libs/jquery-1.10.2.min.js
+2014-06-19 19:06:07,782 [WARNING] django.request: Not Found: /img/logo.png
+2014-06-19 19:06:16,025 [WARNING] django.request: Not Found: /landing
+2014-06-19 19:06:18,316 [WARNING] django.request: Not Found: /css/font-awesome.min.css
+2014-06-19 19:06:18,322 [WARNING] django.request: Not Found: /css/bootstrap.min.css
+2014-06-19 19:06:18,402 [WARNING] django.request: Not Found: /js/mvpready-account.js
+2014-06-19 19:44:10,810 [WARNING] django.request: Not Found: /css/font-awesome.min.css
+2014-06-19 19:44:10,816 [WARNING] django.request: Not Found: /css/bootstrap.min.css
+2014-06-19 19:44:10,826 [WARNING] django.request: Not Found: /css/mvpready-admin.css
+2014-06-19 19:44:10,838 [WARNING] django.request: Not Found: /css/mvpready-flat.css
+2014-06-19 19:44:10,846 [WARNING] django.request: Not Found: /img/logo.png
+2014-06-19 19:44:10,856 [WARNING] django.request: Not Found: /js/libs/jquery-1.10.2.min.js
+2014-06-19 19:44:10,865 [WARNING] django.request: Not Found: /js/libs/bootstrap.min.js
+2014-06-19 19:44:10,903 [WARNING] django.request: Not Found: /js/mvpready-core.js
+2014-06-19 19:44:10,917 [WARNING] django.request: Not Found: /js/mvpready-admin.js
+2014-06-19 19:44:10,934 [WARNING] django.request: Not Found: /js/mvpready-account.js
+2014-06-19 19:44:44,848 [WARNING] django.request: Not Found: /account-signup.html
+2014-06-19 19:47:11,828 [WARNING] django.request: Not Found: /account/login/css/font-awesome.min.css
+2014-06-19 19:47:11,836 [WARNING] django.request: Not Found: /account/login/css/bootstrap.min.css
+2014-06-19 19:47:11,841 [WARNING] django.request: Not Found: /account/login/css/mvpready-admin.css
+2014-06-19 19:47:11,852 [WARNING] django.request: Not Found: /account/login/css/mvpready-flat.css
+2014-06-19 19:47:11,861 [WARNING] django.request: Not Found: /account/login/img/logo.png
+2014-06-19 19:47:11,894 [WARNING] django.request: Not Found: /account/login/js/libs/jquery-1.10.2.min.js
+2014-06-19 19:47:11,927 [WARNING] django.request: Not Found: /account/login/js/libs/bootstrap.min.js
+2014-06-19 19:47:11,939 [WARNING] django.request: Not Found: /account/login/js/mvpready-core.js
+2014-06-19 19:47:11,948 [WARNING] django.request: Not Found: /account/login/js/mvpready-admin.js
+2014-06-19 19:47:11,959 [WARNING] django.request: Not Found: /account/login/js/mvpready-account.js
+2014-06-19 19:47:12,376 [WARNING] django.request: Not Found: /account/login/favicon.ico
+2014-06-19 19:58:48,625 [WARNING] django.request: Not Found: /account/register/css/font-awesome.min.css
+2014-06-19 19:58:48,641 [WARNING] django.request: Not Found: /account/register/css/bootstrap.min.css
+2014-06-19 19:58:48,650 [WARNING] django.request: Not Found: /account/register/css/mvpready-admin.css
+2014-06-19 19:58:48,651 [WARNING] django.request: Not Found: /account/register/css/mvpready-flat.css
+2014-06-19 19:58:48,679 [WARNING] django.request: Not Found: /account/register/img/logo.png
+2014-06-19 19:58:48,684 [WARNING] django.request: Not Found: /account/register/js/libs/jquery-1.10.2.min.js
+2014-06-19 19:58:48,692 [WARNING] django.request: Not Found: /account/register/js/libs/bootstrap.min.js
+2014-06-19 19:58:48,712 [WARNING] django.request: Not Found: /account/register/js/mvpready-core.js
+2014-06-19 19:58:48,718 [WARNING] django.request: Not Found: /account/register/js/mvpready-admin.js
+2014-06-19 19:58:48,726 [WARNING] django.request: Not Found: /account/register/js/mvpready-account.js
+2014-06-19 19:58:48,924 [WARNING] django.request: Not Found: /account/register/favicon.ico
+2014-06-19 20:00:20,014 [WARNING] django.request: Not Found: /account/register/css/font-awesome.min.css
+2014-06-19 20:00:20,021 [WARNING] django.request: Not Found: /account/register/css/bootstrap.min.css
+2014-06-19 20:00:20,030 [WARNING] django.request: Not Found: /account/register/css/mvpready-admin.css
+2014-06-19 20:00:20,036 [WARNING] django.request: Not Found: /account/register/css/mvpready-flat.css
+2014-06-19 20:00:20,052 [WARNING] django.request: Not Found: /account/register/img/logo.png
+2014-06-19 20:00:20,058 [WARNING] django.request: Not Found: /account/register/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:00:20,068 [WARNING] django.request: Not Found: /account/register/js/libs/bootstrap.min.js
+2014-06-19 20:00:20,076 [WARNING] django.request: Not Found: /account/register/js/mvpready-core.js
+2014-06-19 20:00:20,085 [WARNING] django.request: Not Found: /account/register/js/mvpready-admin.js
+2014-06-19 20:00:20,110 [WARNING] django.request: Not Found: /account/register/js/mvpready-account.js
+2014-06-19 20:05:21,513 [ERROR] django.request: Internal Server Error: /account/register/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Project/TenniSoda/account/views.py", line 40, in register_user
+    return render_to_response('account-signup.html', args)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/shortcuts/__init__.py", line 29, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 162, in render_to_string
+    t = get_template(template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 138, in get_template
+    template, origin = find_template(template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 127, in find_template
+    source, display_name = loader(name, dirs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 43, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 49, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 149, in get_template_from_string
+    return Template(source, origin, name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 125, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 153, in compile_string
+    return parser.parse()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 214, in do_extends
+    parent_name = parser.compile_filter(bits[1])
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 360, in compile_filter
+    return FilterExpression(token, self)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 577, in __init__
+    "from '%s'" % (token[upto:], token))
+TemplateSyntaxError: Could not parse the remainder: '-base.html' from 'admin-base.html'
+2014-06-19 20:08:22,846 [WARNING] django.request: Not Found: /account/register/css/font-awesome.min.css
+2014-06-19 20:08:22,855 [WARNING] django.request: Not Found: /account/register/css/bootstrap.min.css
+2014-06-19 20:08:22,863 [WARNING] django.request: Not Found: /account/register/css/mvpready-admin.css
+2014-06-19 20:08:22,870 [WARNING] django.request: Not Found: /account/register/css/mvpready-flat.css
+2014-06-19 20:08:25,966 [WARNING] django.request: Not Found: /account/register/css/font-awesome.min.css
+2014-06-19 20:08:25,995 [WARNING] django.request: Not Found: /account/register/css/bootstrap.min.css
+2014-06-19 20:08:26,002 [WARNING] django.request: Not Found: /account/register/css/mvpready-admin.css
+2014-06-19 20:08:26,010 [WARNING] django.request: Not Found: /account/register/css/mvpready-flat.css
+2014-06-19 20:09:22,857 [WARNING] django.request: Not Found: /account/register/css/font-awesome.min.css
+2014-06-19 20:09:22,865 [WARNING] django.request: Not Found: /account/register/css/bootstrap.min.css
+2014-06-19 20:09:22,926 [WARNING] django.request: Not Found: /account/register/css/mvpready-admin.css
+2014-06-19 20:09:22,940 [WARNING] django.request: Not Found: /account/register/css/mvpready-flat.css
+2014-06-19 20:09:22,946 [WARNING] django.request: Not Found: /account/register/img/logo.png
+2014-06-19 20:09:22,958 [WARNING] django.request: Not Found: /account/register/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:09:22,970 [WARNING] django.request: Not Found: /account/register/js/libs/bootstrap.min.js
+2014-06-19 20:09:22,983 [WARNING] django.request: Not Found: /account/register/js/mvpready-core.js
+2014-06-19 20:09:22,996 [WARNING] django.request: Not Found: /account/register/js/mvpready-admin.js
+2014-06-19 20:09:23,043 [WARNING] django.request: Not Found: /account/register/js/mvpready-account.js
+2014-06-19 20:11:44,134 [WARNING] django.request: Not Found: /account/register/css/font-awesome.min.css
+2014-06-19 20:11:44,146 [WARNING] django.request: Not Found: /account/register/css/bootstrap.min.css
+2014-06-19 20:11:44,159 [WARNING] django.request: Not Found: /account/register/css/mvpready-admin.css
+2014-06-19 20:11:44,196 [WARNING] django.request: Not Found: /account/register/css/mvpready-flat.css
+2014-06-19 20:11:44,205 [WARNING] django.request: Not Found: /account/register/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:11:44,222 [WARNING] django.request: Not Found: /account/register/js/libs/bootstrap.min.js
+2014-06-19 20:11:44,224 [WARNING] django.request: Not Found: /account/register/js/mvpready-core.js
+2014-06-19 20:11:44,231 [WARNING] django.request: Not Found: /account/register/js/mvpready-admin.js
+2014-06-19 20:11:44,245 [WARNING] django.request: Not Found: /account/register/js/mvpready-account.js
+2014-06-19 20:11:49,351 [WARNING] django.request: Not Found: /account/register/account-login.html
+2014-06-19 20:13:08,254 [ERROR] django.request: Internal Server Error: /account/register/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Project/TenniSoda/account/views.py", line 40, in register_user
+    return render_to_response('account-signup.html', args)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/shortcuts/__init__.py", line 29, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 164, in render_to_string
+    return t.render(Context(dictionary))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 101, in render
+    compiled_parent = self.get_parent(context)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 98, in get_parent
+    return get_template(parent)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 138, in get_template
+    template, origin = find_template(template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 127, in find_template
+    source, display_name = loader(name, dirs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 43, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 49, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 149, in get_template_from_string
+    return Template(source, origin, name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 125, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 153, in compile_string
+    return parser.parse()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 276, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 332, in invalid_block_tag
+    raise self.error(token, "Invalid block tag: '%s'" % command)
+TemplateSyntaxError: Invalid block tag: 'static'
+2014-06-19 20:13:41,441 [WARNING] django.request: Not Found: /account/register/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:13:41,495 [WARNING] django.request: Not Found: /account/register/js/libs/bootstrap.min.js
+2014-06-19 20:13:41,503 [WARNING] django.request: Not Found: /account/register/js/mvpready-core.js
+2014-06-19 20:13:41,506 [WARNING] django.request: Not Found: /account/register/js/mvpready-admin.js
+2014-06-19 20:13:41,506 [WARNING] django.request: Not Found: /account/register/js/mvpready-account.js
+2014-06-19 20:14:33,184 [WARNING] django.request: Not Found: /account/register/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:14:33,190 [WARNING] django.request: Not Found: /account/register/js/libs/bootstrap.min.js
+2014-06-19 20:14:33,194 [WARNING] django.request: Not Found: /account/register/js/mvpready-core.js
+2014-06-19 20:14:33,201 [WARNING] django.request: Not Found: /account/register/js/mvpready-admin.js
+2014-06-19 20:14:33,210 [WARNING] django.request: Not Found: /account/register/js/mvpready-account.js
+2014-06-19 20:14:36,974 [WARNING] django.request: Not Found: /account/register/account/login
+2014-06-19 20:14:48,599 [WARNING] django.request: Not Found: /account/register/account/login
+2014-06-19 20:16:23,858 [WARNING] django.request: Not Found: /account/register/account/login
+2014-06-19 20:16:27,130 [WARNING] django.request: Not Found: /account/register/account/login
+2014-06-19 20:17:27,510 [WARNING] django.request: Not Found: /account/register/account/login
+2014-06-19 20:17:37,479 [WARNING] django.request: Not Found: /account/register/account/login
+2014-06-19 20:18:14,868 [WARNING] django.request: Not Found: /account/register/account/login
+2014-06-19 20:18:43,720 [WARNING] django.request: Not Found: /account/register/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:18:43,729 [WARNING] django.request: Not Found: /account/register/js/libs/bootstrap.min.js
+2014-06-19 20:18:43,734 [WARNING] django.request: Not Found: /account/register/js/mvpready-core.js
+2014-06-19 20:18:43,742 [WARNING] django.request: Not Found: /account/register/js/mvpready-admin.js
+2014-06-19 20:18:43,748 [WARNING] django.request: Not Found: /account/register/js/mvpready-account.js
+2014-06-19 20:18:45,873 [WARNING] django.request: Not Found: /account/register/account-login.html
+2014-06-19 20:19:11,553 [WARNING] django.request: Not Found: /account/register/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:19:11,558 [WARNING] django.request: Not Found: /account/register/js/libs/bootstrap.min.js
+2014-06-19 20:19:11,562 [WARNING] django.request: Not Found: /account/register/js/mvpready-core.js
+2014-06-19 20:19:11,568 [WARNING] django.request: Not Found: /account/register/js/mvpready-admin.js
+2014-06-19 20:19:11,581 [WARNING] django.request: Not Found: /account/register/js/mvpready-account.js
+2014-06-19 20:22:10,093 [WARNING] django.request: Not Found: /account/register/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:22:10,097 [WARNING] django.request: Not Found: /account/register/js/libs/bootstrap.min.js
+2014-06-19 20:22:10,106 [WARNING] django.request: Not Found: /account/register/js/mvpready-core.js
+2014-06-19 20:22:10,130 [WARNING] django.request: Not Found: /account/register/js/mvpready-admin.js
+2014-06-19 20:22:10,140 [WARNING] django.request: Not Found: /account/register/js/mvpready-account.js
+2014-06-19 20:22:11,939 [WARNING] django.request: Not Found: /account/login/css/font-awesome.min.css
+2014-06-19 20:22:11,952 [WARNING] django.request: Not Found: /account/login/css/bootstrap.min.css
+2014-06-19 20:22:11,989 [WARNING] django.request: Not Found: /account/login/css/mvpready-admin.css
+2014-06-19 20:22:11,999 [WARNING] django.request: Not Found: /account/login/img/logo.png
+2014-06-19 20:22:12,007 [WARNING] django.request: Not Found: /account/login/css/mvpready-flat.css
+2014-06-19 20:22:12,017 [WARNING] django.request: Not Found: /account/login/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:22:12,028 [WARNING] django.request: Not Found: /account/login/js/libs/bootstrap.min.js
+2014-06-19 20:22:12,041 [WARNING] django.request: Not Found: /account/login/js/mvpready-core.js
+2014-06-19 20:22:12,056 [WARNING] django.request: Not Found: /account/login/js/mvpready-admin.js
+2014-06-19 20:22:12,061 [WARNING] django.request: Not Found: /account/login/js/mvpready-account.js
+2014-06-19 20:22:16,973 [WARNING] django.request: Not Found: /account/login/css/font-awesome.min.css
+2014-06-19 20:22:16,979 [WARNING] django.request: Not Found: /account/login/css/bootstrap.min.css
+2014-06-19 20:22:16,988 [WARNING] django.request: Not Found: /account/login/css/mvpready-admin.css
+2014-06-19 20:22:16,996 [WARNING] django.request: Not Found: /account/login/css/mvpready-flat.css
+2014-06-19 20:22:17,052 [WARNING] django.request: Not Found: /account/login/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:22:17,057 [WARNING] django.request: Not Found: /account/login/img/logo.png
+2014-06-19 20:22:17,069 [WARNING] django.request: Not Found: /account/login/js/libs/bootstrap.min.js
+2014-06-19 20:22:17,077 [WARNING] django.request: Not Found: /account/login/js/mvpready-core.js
+2014-06-19 20:22:17,085 [WARNING] django.request: Not Found: /account/login/js/mvpready-admin.js
+2014-06-19 20:22:17,091 [WARNING] django.request: Not Found: /account/login/js/mvpready-account.js
+2014-06-19 20:23:03,773 [WARNING] django.request: Not Found: /account/register/index.html
+2014-06-19 20:23:37,915 [WARNING] django.request: Not Found: /account/register/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:23:37,939 [WARNING] django.request: Not Found: /account/register/js/libs/bootstrap.min.js
+2014-06-19 20:23:37,966 [WARNING] django.request: Not Found: /account/register/js/mvpready-core.js
+2014-06-19 20:23:37,973 [WARNING] django.request: Not Found: /account/register/js/mvpready-admin.js
+2014-06-19 20:23:37,980 [WARNING] django.request: Not Found: /account/register/js/mvpready-account.js
+2014-06-19 20:23:40,764 [ERROR] django.request: Internal Server Error: /account/register
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 90, in get_response
+    response = middleware_method(request)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/middleware/common.py", line 81, in process_request
+    "settings.") % (new_url[0], new_url[1]))
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/account/register/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+2014-06-19 20:23:54,836 [ERROR] django.request: Internal Server Error: /account/register
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 90, in get_response
+    response = middleware_method(request)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/middleware/common.py", line 81, in process_request
+    "settings.") % (new_url[0], new_url[1]))
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/account/register/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+2014-06-19 20:23:59,300 [WARNING] django.request: Not Found: /account/register/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:23:59,304 [WARNING] django.request: Not Found: /account/register/js/libs/bootstrap.min.js
+2014-06-19 20:23:59,312 [WARNING] django.request: Not Found: /account/register/js/mvpready-core.js
+2014-06-19 20:23:59,320 [WARNING] django.request: Not Found: /account/register/js/mvpready-admin.js
+2014-06-19 20:23:59,328 [WARNING] django.request: Not Found: /account/register/js/mvpready-account.js
+2014-06-19 20:24:00,957 [WARNING] django.request: Forbidden (CSRF token missing or incorrect.): /account/register/
+2014-06-19 20:24:21,742 [WARNING] django.request: Not Found: /account/register/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:24:21,744 [WARNING] django.request: Not Found: /account/register/js/libs/bootstrap.min.js
+2014-06-19 20:24:21,747 [WARNING] django.request: Not Found: /account/register/js/mvpready-core.js
+2014-06-19 20:24:21,751 [WARNING] django.request: Not Found: /account/register/js/mvpready-admin.js
+2014-06-19 20:24:21,758 [WARNING] django.request: Not Found: /account/register/js/mvpready-account.js
+2014-06-19 20:24:22,932 [WARNING] django.request: Not Found: /account/register/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:24:22,939 [WARNING] django.request: Not Found: /account/register/js/libs/bootstrap.min.js
+2014-06-19 20:24:22,946 [WARNING] django.request: Not Found: /account/register/js/mvpready-core.js
+2014-06-19 20:24:22,956 [WARNING] django.request: Not Found: /account/register/js/mvpready-admin.js
+2014-06-19 20:24:22,982 [WARNING] django.request: Not Found: /account/register/js/mvpready-account.js
+2014-06-19 20:24:25,061 [WARNING] django.request: Not Found: /account/register/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:24:25,070 [WARNING] django.request: Not Found: /account/register/js/libs/bootstrap.min.js
+2014-06-19 20:24:25,082 [WARNING] django.request: Not Found: /account/register/js/mvpready-core.js
+2014-06-19 20:24:25,091 [WARNING] django.request: Not Found: /account/register/js/mvpready-admin.js
+2014-06-19 20:24:25,111 [WARNING] django.request: Not Found: /account/register/js/mvpready-account.js
+2014-06-19 20:26:15,236 [WARNING] django.request: Not Found: /account/register/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:26:15,245 [WARNING] django.request: Not Found: /account/register/js/libs/bootstrap.min.js
+2014-06-19 20:26:15,278 [WARNING] django.request: Not Found: /account/register/js/mvpready-core.js
+2014-06-19 20:26:15,284 [WARNING] django.request: Not Found: /account/register/js/mvpready-admin.js
+2014-06-19 20:26:15,305 [WARNING] django.request: Not Found: /account/register/js/mvpready-account.js
+2014-06-19 20:26:20,387 [WARNING] django.request: Not Found: /account/register/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:26:20,441 [WARNING] django.request: Not Found: /account/register/js/libs/bootstrap.min.js
+2014-06-19 20:26:20,447 [WARNING] django.request: Not Found: /account/register/js/mvpready-core.js
+2014-06-19 20:26:20,457 [WARNING] django.request: Not Found: /account/register/js/mvpready-admin.js
+2014-06-19 20:26:20,466 [WARNING] django.request: Not Found: /account/register/js/mvpready-account.js
+2014-06-19 20:26:22,377 [WARNING] django.request: Not Found: /account/register/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:26:22,383 [WARNING] django.request: Not Found: /account/register/js/libs/bootstrap.min.js
+2014-06-19 20:26:22,392 [WARNING] django.request: Not Found: /account/register/js/mvpready-core.js
+2014-06-19 20:26:22,401 [WARNING] django.request: Not Found: /account/register/js/mvpready-admin.js
+2014-06-19 20:26:22,413 [WARNING] django.request: Not Found: /account/register/js/mvpready-account.js
+2014-06-19 20:26:36,712 [WARNING] django.request: Not Found: /account/register/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:26:36,721 [WARNING] django.request: Not Found: /account/register/js/libs/bootstrap.min.js
+2014-06-19 20:26:36,742 [WARNING] django.request: Not Found: /account/register/js/mvpready-core.js
+2014-06-19 20:26:36,754 [WARNING] django.request: Not Found: /account/register/js/mvpready-admin.js
+2014-06-19 20:26:36,761 [WARNING] django.request: Not Found: /account/register/js/mvpready-account.js
+2014-06-19 20:26:43,024 [WARNING] django.request: Not Found: /account/register/account/login
+2014-06-19 20:27:22,970 [WARNING] django.request: Not Found: /account/register/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:27:22,997 [WARNING] django.request: Not Found: /account/register/js/libs/bootstrap.min.js
+2014-06-19 20:27:23,002 [WARNING] django.request: Not Found: /account/register/js/mvpready-core.js
+2014-06-19 20:27:23,005 [WARNING] django.request: Not Found: /account/register/js/mvpready-admin.js
+2014-06-19 20:27:23,044 [WARNING] django.request: Not Found: /account/register/js/mvpready-account.js
+2014-06-19 20:27:30,245 [WARNING] django.request: Not Found: /account/login/css/font-awesome.min.css
+2014-06-19 20:27:30,253 [WARNING] django.request: Not Found: /account/login/css/bootstrap.min.css
+2014-06-19 20:27:30,281 [WARNING] django.request: Not Found: /account/login/css/mvpready-admin.css
+2014-06-19 20:27:30,301 [WARNING] django.request: Not Found: /account/login/css/mvpready-flat.css
+2014-06-19 20:27:30,309 [WARNING] django.request: Not Found: /account/login/img/logo.png
+2014-06-19 20:27:30,339 [WARNING] django.request: Not Found: /account/login/js/libs/bootstrap.min.js
+2014-06-19 20:27:30,349 [WARNING] django.request: Not Found: /account/login/js/mvpready-core.js
+2014-06-19 20:27:30,364 [WARNING] django.request: Not Found: /account/login/js/mvpready-admin.js
+2014-06-19 20:27:30,374 [WARNING] django.request: Not Found: /account/login/js/mvpready-account.js
+2014-06-19 20:27:30,392 [WARNING] django.request: Not Found: /account/login/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:28:57,363 [WARNING] django.request: Not Found: /account/register/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:28:57,369 [WARNING] django.request: Not Found: /account/register/js/libs/bootstrap.min.js
+2014-06-19 20:28:57,374 [WARNING] django.request: Not Found: /account/register/js/mvpready-core.js
+2014-06-19 20:28:57,382 [WARNING] django.request: Not Found: /account/register/js/mvpready-admin.js
+2014-06-19 20:28:57,397 [WARNING] django.request: Not Found: /account/register/js/mvpready-account.js
+2014-06-19 20:31:01,391 [WARNING] django.request: Not Found: /account/register/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:31:01,401 [WARNING] django.request: Not Found: /account/register/js/libs/bootstrap.min.js
+2014-06-19 20:31:01,409 [WARNING] django.request: Not Found: /account/register/js/mvpready-core.js
+2014-06-19 20:31:01,422 [WARNING] django.request: Not Found: /account/register/js/mvpready-admin.js
+2014-06-19 20:31:01,434 [WARNING] django.request: Not Found: /account/register/js/mvpready-account.js
+2014-06-19 20:37:51,132 [WARNING] django.request: Not Found: /account/register/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:37:51,137 [WARNING] django.request: Not Found: /account/register/js/mvpready-core.js
+2014-06-19 20:37:51,154 [WARNING] django.request: Not Found: /account/register/js/libs/bootstrap.min.js
+2014-06-19 20:37:51,165 [WARNING] django.request: Not Found: /account/register/js/mvpready-admin.js
+2014-06-19 20:37:51,166 [WARNING] django.request: Not Found: /account/register/js/mvpready-account.js
+2014-06-19 20:40:35,845 [WARNING] django.request: Not Found: /account/register/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:40:35,850 [WARNING] django.request: Not Found: /account/register/js/libs/bootstrap.min.js
+2014-06-19 20:40:35,948 [WARNING] django.request: Not Found: /account/register/js/mvpready-admin.js
+2014-06-19 20:40:35,952 [WARNING] django.request: Not Found: /account/register/js/mvpready-core.js
+2014-06-19 20:40:35,959 [WARNING] django.request: Not Found: /account/register/js/mvpready-account.js
+2014-06-19 20:41:06,776 [WARNING] django.request: Not Found: /account/register/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:41:06,797 [WARNING] django.request: Not Found: /account/register/js/libs/bootstrap.min.js
+2014-06-19 20:41:06,804 [WARNING] django.request: Not Found: /account/register/js/mvpready-core.js
+2014-06-19 20:41:06,846 [WARNING] django.request: Not Found: /account/register/js/mvpready-admin.js
+2014-06-19 20:41:06,858 [WARNING] django.request: Not Found: /account/register/js/mvpready-account.js
+2014-06-19 20:42:28,901 [WARNING] django.request: Not Found: /account/register/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:42:28,909 [WARNING] django.request: Not Found: /account/register/js/libs/bootstrap.min.js
+2014-06-19 20:42:28,918 [WARNING] django.request: Not Found: /account/register/js/mvpready-core.js
+2014-06-19 20:42:28,931 [WARNING] django.request: Not Found: /account/register/js/mvpready-admin.js
+2014-06-19 20:42:28,943 [WARNING] django.request: Not Found: /account/register/js/mvpready-account.js
+2014-06-19 20:47:11,357 [WARNING] django.request: Not Found: /account/register/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:47:11,365 [WARNING] django.request: Not Found: /account/register/js/libs/bootstrap.min.js
+2014-06-19 20:47:11,374 [WARNING] django.request: Not Found: /account/register/js/mvpready-core.js
+2014-06-19 20:47:11,378 [WARNING] django.request: Not Found: /account/register/js/mvpready-admin.js
+2014-06-19 20:47:11,396 [WARNING] django.request: Not Found: /account/register/js/mvpready-account.js
+2014-06-19 20:47:14,476 [WARNING] django.request: Not Found: /account/register/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:47:14,484 [WARNING] django.request: Not Found: /account/register/js/libs/bootstrap.min.js
+2014-06-19 20:47:14,493 [WARNING] django.request: Not Found: /account/register/js/mvpready-core.js
+2014-06-19 20:47:14,509 [WARNING] django.request: Not Found: /account/register/js/mvpready-admin.js
+2014-06-19 20:47:14,512 [WARNING] django.request: Not Found: /account/register/js/mvpready-account.js
+2014-06-19 20:47:56,076 [WARNING] django.request: Not Found: /account/login/css/bootstrap.min.css
+2014-06-19 20:47:56,083 [WARNING] django.request: Not Found: /account/login/css/mvpready-admin.css
+2014-06-19 20:47:56,086 [WARNING] django.request: Not Found: /account/login/css/mvpready-flat.css
+2014-06-19 20:47:56,120 [WARNING] django.request: Not Found: /account/login/css/font-awesome.min.css
+2014-06-19 20:47:56,128 [WARNING] django.request: Not Found: /account/login/js/libs/jquery-1.10.2.min.js
+2014-06-19 20:47:56,165 [WARNING] django.request: Not Found: /account/login/js/libs/bootstrap.min.js
+2014-06-19 20:47:56,191 [WARNING] django.request: Not Found: /account/login/js/mvpready-admin.js
+2014-06-19 20:47:56,200 [WARNING] django.request: Not Found: /account/login/js/mvpready-account.js
+2014-06-19 20:47:56,206 [WARNING] django.request: Not Found: /account/login/js/mvpready-core.js
+2014-06-19 20:47:56,219 [WARNING] django.request: Not Found: /account/login/img/logo.png
+2014-06-19 21:10:05,064 [WARNING] django.request: Not Found: /account/login/img/logo.png
+2014-06-19 21:11:41,557 [WARNING] django.request: Not Found: /account/login/img/logo.png
+2014-06-19 21:18:58,821 [ERROR] django.request: Internal Server Error: /account/auth
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 90, in get_response
+    response = middleware_method(request)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/middleware/common.py", line 81, in process_request
+    "settings.") % (new_url[0], new_url[1]))
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/account/auth/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.

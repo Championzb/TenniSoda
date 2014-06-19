@@ -5,7 +5,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <head>
-  <title>Homepage &middot; MVP Ready Admin</title>
+  <title>Homepage &middot; TenniSoda</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,15 +17,15 @@
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300,700">
 
   <!-- Font Awesome CSS -->
-  <link rel="stylesheet" href="./css/font-awesome.min.css">
+  <link rel="stylesheet" href="{% static "assets/landing/css/font-awesome.min.css" %}">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static "assets/landing/css/bootstrap.min.css" %}">
 
   <!-- App CSS -->
-  <link href="./css/mvpready-landing.css" rel="stylesheet">
-  <link href="./css/mvpready-flat.css" rel="stylesheet">
-  <link href="./css/animate.css" rel="stylesheet">
+  <link href="{% static "assets/landing/css/mvpready-landing.css" %}" rel="stylesheet">
+  <link href="{% static "assets/landing/css/mvpready-flat.css" %}" rel="stylesheet">
+  <link href="{% static "assets/landing/css/animate.css" %}" rel="stylesheet">
   <!-- <link href="./css/custom.css" rel="stylesheet">-->
 
 
@@ -35,7 +35,7 @@
   <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
   <![endif]-->
 
-  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="shortcut icon" href="{% static "assets/landing/favicon.ico" %}">
 </head>
 
 <body class=" ">
@@ -48,7 +48,7 @@
 
       <div class="navbar-header">
         <a href="./" class="navbar-brand navbar-brand-img">
-          <img src="./img/logo.png" alt="MVP Ready">
+          <img src="{% static "assets/landing/img/logo.png" %}" alt="MVP Ready">
         </a>
         
         <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
@@ -63,20 +63,19 @@
         <ul class="nav navbar-nav navbar-right mainnav-menu">
 
           <li class="active">
-            <a href="./index.html">Home</a>
+            <a href="{% static "assets/landing/landing-index.html" %}">Home</a>
           </li>    
 
           <li class="">
-            <a href="./page-features.html">Features</a>
+            <a href="{% static "assets/landing/page-features.html" %}">Features</a>
           </li>      
 
           <li class="">
-            <a href="./page-faq.html">FAQ</a>
+            <a href="{% static "assets/landing/page-faq.html" %}">FAQ</a>
           </li>
 
-
           <li class="">
-            <a href="./page-contact.html">Contact</a>
+            <a href="{% static "assets/landing/page-contact.html" %}">Contact</a>
           </li>     
 
           <!-- <li class="dropdown">
@@ -106,7 +105,7 @@
           </li> -->
 
           <li>
-            <a href="../admin/account-login-social.html">Login</a>
+            <a href="{% static "assets/admin/account-login-social.html" %}">Login</a>
           </li>    
 
         </ul>
@@ -141,30 +140,54 @@
 
             <div class="item active">
 
-              <div class="row">
+                <div class="row">
 
-                <div class="col-md-6 masthead-text animated fadeInDownBig">
+                <div class="col-md-6 masthead-text animated fadeInLeftBig">
                   <h1 class="masthead-title">Page 1 title</h1>
 
                   <p class="masthead-">
-                  page 1 slogan
+                  Page 1 slogan
                   </p>
 
                   <br>
 
                   <div class="masthead-actions">
-                    <a href="./page-features.html" class="btn btn-transparent btn-jumbo">
+                    <a href="{% static "assets/landing/page-features.html" %}" class="btn btn-transparent btn-jumbo">
                     Learn More
                     </a>
 
-                    <a href="../admin/account-signup.html" class="btn btn-primary btn-jumbo">
+                    <a href="account/register/" class="btn btn-primary btn-jumbo">
                     Create an Account
                     </a>
                   </div> <!-- /.masthead-actions -->
                 </div> <!-- /.masthead-text -->
 
-                <div class="col-md-6 masthead-img animated fadeInUpBig">
-                  <img src="img/masthead/mobile.png" alt="slide2" class="img-responsive" />     
+                <div class="col-md-6 masthead-img animated fadeInRightBig">
+                  <form class="form masthead-form well" action="/" method="POST">{% csrf_token %}
+
+                    <h3 class="text-center">Register</h3>
+
+                    <p class="text-center">Register hint</p>
+
+                    <br>
+
+                    {% for field in form %}
+                      <div class = "form-group">
+                          {{ field }}
+                          {% for err in field.errors %}
+                            <span style="color: red">{{ err }}</span>
+                          {% endfor %}
+                      </div><!-- /.form-group -->
+                    {% endfor %}
+
+
+
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-secondary btn-jumbo btn-block">Get Started Today!</button>
+                    </div> <!-- /.form-group -->
+
+                  </form>
+
                 </div> <!-- /.masthead-img -->
 
               </div> <!-- /.row -->
@@ -174,63 +197,34 @@
             <div class="item">
 
               <div class="row">
-                
-                <div class="col-md-6 masthead-text animated fadeInLeftBig">
+
+                <div class="col-md-6 masthead-text animated fadeInDownBig">
                   <h1 class="masthead-title">Page 2 title</h1>
 
                   <p class="masthead-">
-                  Page 2 slogan
+                  page 2 slogan
                   </p>
 
                   <br>
 
                   <div class="masthead-actions">
-                    <a href="./page-features.html" class="btn btn-transparent btn-jumbo">
+                    <a href="{% static "assets/landing/page-features.html" %}" class="btn btn-transparent btn-jumbo">
                     Learn More
                     </a>
 
-                    <a href="../admin/account-signup.html" class="btn btn-primary btn-jumbo">
+                    <a href="{% static "assets/admin/account-signup.html" %}" class="btn btn-primary btn-jumbo">
                     Create an Account
                     </a>
                   </div> <!-- /.masthead-actions -->
                 </div> <!-- /.masthead-text -->
 
-                <div class="col-md-6 masthead-img animated fadeInRightBig">
-                  <form class="form masthead-form well">
-
-                    <h3 class="text-center">Register</h3>
-
-                    <p class="text-center">Register hint</p>
-
-                    <br>
-
-                    <div class="form-group">
-                      <!-- <label class="" for="full_name">Full Name</label> -->
-                      <input type="text" id="full_name" placeholder="Your Name" class="form-control">
-                    </div> <!-- /.form-group -->
-
-                    <div class="form-group">
-                      <!-- <label class="" for="email_address">Email Address</label> -->
-                      <input type="email" id="email_address" placeholder="Your Email" class="form-control">
-                    </div> <!-- /.form-group -->
-
-                    <div class="form-group">
-                      <!-- <label class="" for="organization">Organization</label> -->
-                      <input type="text" id="organization" placeholder="Organization Name" class="form-control">
-                    </div> <!-- /.form-group -->
-
-                    <div class="form-group">
-                      <button type="submit" class="btn btn-secondary btn-jumbo btn-block">Get Started Today!</button>
-                    </div> <!-- /.form-group -->
-
-                  </form>     
+                <div class="col-md-6 masthead-img animated fadeInUpBig">
+                  <img src="{% static "assets/landing/img/masthead/mobile.png" %}" alt="slide2" class="img-responsive" />
                 </div> <!-- /.masthead-img -->
 
               </div> <!-- /.row -->
 
             </div> <!-- /.item -->
-
-            
 
             <div class="item">
 
@@ -246,11 +240,11 @@
                   <br>
 
                   <div class="masthead-actions">
-                    <a href="./page-features.html" class="btn btn-transparent btn-jumbo">
+                    <a href="{% static "assets/landing/page-features.html" %}" class="btn btn-transparent btn-jumbo">
                     Learn More
                     </a>
 
-                    <a href="../admin/account-signup.html" class="btn btn-primary btn-jumbo">
+                    <a href="{% static "assets/admin/account-signup.html" %}" class="btn btn-primary btn-jumbo">
                     Create an Account
                     </a>
                   </div> <!-- /.masthead-actions -->
@@ -326,15 +320,9 @@
         
         </div> <!-- /.carousel-container -->
 
-
-        
-
       </div> <!-- /.container -->   
 
     </div> <!-- /.content -->
-
-
-
 
 </div> <!-- /#wrapper -->
 
@@ -432,23 +420,23 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="./js/libs/jquery-1.10.2.min.js"></script>
-<script src="./js/libs/bootstrap.min.js"></script>
+<script src="{% static "assets/landing/js/libs/jquery-1.10.2.min.js" %}"></script>
+<script src="{% static "assets/landing/js/libs/bootstrap.min.js" %}"></script>
 
-<script src="./js/plugins/timeago/jquery.timeago.js"></script>
-<script src="./js/plugins/tweetable/tweetable.jquery.min.js"></script>
+<script src="{% static "assets/landing/js/plugins/timeago/jquery.timeago.js" %}"></script>
+<script src="{% static "assets/landing/js/plugins/tweetable/tweetable.jquery.min.js" %}"></script>
 
 <!--[if lt IE 9]>
-<script src="./js/libs/excanvas.compiled.js"></script>
+<script src="{% static "assets/landing/js/libs/excanvas.compiled.js" %}"></script>
 <![endif]-->
 
 
 <!-- Plugin JS -->
-<script src="./js/plugins/carouFredSel/jquery.carouFredSel-6.2.1-packed.js"></script>
+<script src="{% static "assets/landing/js/plugins/carouFredSel/jquery.carouFredSel-6.2.1-packed.js" %}"></script>
 
   <!-- App JS -->
-<script src="./js/mvpready-core.js"></script>
-<script src="./js/mvpready-landing.js"></script>
+<script src="{%static "assets/landing/js/mvpready-core.js" %}"></script>
+<script src="{%static "assets/landing/js/mvpready-landing.js" %}"></script>
 
 
 </body>
