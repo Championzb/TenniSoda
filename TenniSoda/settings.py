@@ -59,6 +59,7 @@ INSTALLED_APPS = (
     'review',
 	'localflavor',
     'django_cleanup',
+    'bootstrap3_datetime',
 )
 
 MIDDLEWARE_CLASSES = (

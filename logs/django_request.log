@@ -5129,3 +5129,127 @@ Traceback (most recent call last):
   File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/middleware/common.py", line 81, in process_request
     "settings.") % (new_url[0], new_url[1]))
 RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/account/auth/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+2014-06-20 14:00:49,419 [WARNING] django.request: Not Found: /favicon.ico
+2014-06-20 14:16:53,887 [WARNING] django.request: Not Found: /account/welcome_user/img/logo.png
+2014-06-20 14:16:53,893 [WARNING] django.request: Not Found: /account/welcome_user/img/avatars/avatar-1-md.jpg
+2014-06-20 14:16:54,055 [WARNING] django.request: Not Found: /account/welcome_user/img/avatars/avatar-2-md.jpg
+2014-06-20 14:16:54,068 [WARNING] django.request: Not Found: /account/welcome_user/img/avatars/avatar-1-xs.jpg
+2014-06-20 14:16:54,148 [WARNING] django.request: Not Found: /account/welcome_user/favicon.ico
+2014-06-20 14:18:16,476 [WARNING] django.request: Not Found: /account/welcome_user/img/logo.png
+2014-06-20 14:18:16,532 [WARNING] django.request: Not Found: /account/welcome_user/img/avatars/avatar-1-md.jpg
+2014-06-20 14:18:16,539 [WARNING] django.request: Not Found: /account/welcome_user/img/avatars/avatar-2-md.jpg
+2014-06-20 14:18:16,547 [WARNING] django.request: Not Found: /account/welcome_user/img/avatars/avatar-1-xs.jpg
+2014-06-20 14:45:20,013 [WARNING] django.request: Not Found: /account/welcome_user/components-popups.html
+2014-06-20 14:49:58,504 [WARNING] django.request: Not Found: /account/welcome_user/page-pricing.html
+2014-06-20 15:18:42,852 [WARNING] django.request: Not Found: /account/change_profile/img/avatars/avatar-1-lg.jpg
+2014-06-20 15:39:04,877 [WARNING] django.request: Not Found: /account/change_profile/img/avatars/avatar-1-lg.jpg
+2014-06-20 16:14:09,719 [ERROR] django.request: Internal Server Error: /account/change_profile/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 223, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 230, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/functional.py", line 32, in wrapper
+    result = func(*args)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/damon/Project/TenniSoda/account/views.py", line 6, in <module>
+    from forms import UserProfileForm
+  File "/home/damon/Project/TenniSoda/account/forms.py", line 13, in <module>
+    class UserProfileForm(forms.ModelForm):
+  File "/home/damon/Project/TenniSoda/account/forms.py", line 21, in UserProfileForm
+    birth_date = forms.DateField(widget=AdminDateWidget(attrs = {'class': 'form-control'}, years=range(1954,2006)),required=False)
+TypeError: __init__() got an unexpected keyword argument 'years'
+2014-06-20 17:15:23,664 [WARNING] django.request: Not Found: /favicon.ico
+2014-06-20 17:23:31,257 [ERROR] django.request: Internal Server Error: /account/change_profile/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 223, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 230, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/functional.py", line 32, in wrapper
+    result = func(*args)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/damon/Project/TenniSoda/account/views.py", line 6, in <module>
+    from forms import UserProfileForm
+  File "/home/damon/Project/TenniSoda/account/forms.py", line 14, in <module>
+    class UserProfileForm(forms.ModelForm):
+  File "/home/damon/Project/TenniSoda/account/forms.py", line 21, in UserProfileForm
+    birth_date = forms.DateField(widget=forms.TextInput(attrs = {'class': 'form-control','id':'datepicker'}, years=range(1954,2006)),required=False)
+TypeError: __init__() got an unexpected keyword argument 'years'
+2014-06-20 17:24:16,985 [ERROR] django.request: Internal Server Error: /account/login/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 223, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 230, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/functional.py", line 32, in wrapper
+    result = func(*args)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/damon/Project/TenniSoda/account/views.py", line 6, in <module>
+    from forms import UserProfileForm
+  File "/home/damon/Project/TenniSoda/account/forms.py", line 14, in <module>
+    class UserProfileForm(forms.ModelForm):
+  File "/home/damon/Project/TenniSoda/account/forms.py", line 21, in UserProfileForm
+    birth_date = forms.DateField(widget=forms.TextInput(attrs = {'class': 'form-control','id':'datepicker'}, years=range(1954,2006)),required=False)
+TypeError: __init__() got an unexpected keyword argument 'years'
+2014-06-20 17:24:20,557 [ERROR] django.request: Internal Server Error: /account/login/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 223, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 230, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/functional.py", line 32, in wrapper
+    result = func(*args)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/damon/Project/TenniSoda/account/views.py", line 6, in <module>
+    from forms import UserProfileForm
+  File "/home/damon/Project/TenniSoda/account/forms.py", line 14, in <module>
+    class UserProfileForm(forms.ModelForm):
+  File "/home/damon/Project/TenniSoda/account/forms.py", line 21, in UserProfileForm
+    birth_date = forms.DateField(widget=forms.TextInput(attrs = {'class': 'form-control','id':'datepicker'}, years=range(1954,2006)),required=False)
+TypeError: __init__() got an unexpected keyword argument 'years'
+2014-06-20 17:28:10,384 [WARNING] django.request: Not Found: /account/change_profile/http//code.jquery.com/jquery-1.10.2.js
+2014-06-20 17:28:10,390 [WARNING] django.request: Not Found: /account/change_profile/http//code.jquery.com/ui/1.10.4/jquery-ui.js
+2014-06-20 17:28:29,741 [WARNING] django.request: Not Found: /account/change_profile/http/code.jquery.com/jquery-1.10.2.js
+2014-06-20 17:28:47,899 [WARNING] django.request: Not Found: /account/change_profile/http//code.jquery.com/jquery-1.10.2.js
+2014-06-20 17:28:47,907 [WARNING] django.request: Not Found: /account/change_profile/http//code.jquery.com/ui/1.10.4/jquery-ui.js
+2014-06-20 17:39:08,730 [WARNING] django.request: Not Found: /account/change_profile/http//code.jquery.com/jquery-1.10.2.js
+2014-06-20 17:39:08,734 [WARNING] django.request: Not Found: /account/change_profile/http//code.jquery.com/ui/1.10.4/jquery-ui.js
+2014-06-20 17:40:10,241 [WARNING] django.request: Not Found: /account/change_profile/http//code.jquery.com/jquery-1.10.2.js
+2014-06-20 17:40:10,253 [WARNING] django.request: Not Found: /account/change_profile/http//code.jquery.com/ui/1.10.4/jquery-ui.js

@@ -75,7 +75,7 @@ def welcome_user(request):
 	args['league_matches_attended'] = league_match_attended
 	args['league_matches_remained'] = League.objects.exclude(players=request.user)
 	args['notifications'] = notifications
-	return render_to_response('welcome_user.html',args)
+	return render_to_response('index-base.html',args)
 
 def invalid_login(request):
 	return render_to_response('invalid_login.html')
@@ -86,7 +86,7 @@ def logout(request):
 	args = {}
 	args.update(csrf(request))
 	messages.success(request,'You have logged out successfully!')
-	return render(request,'login.html', args)
+	return HttpResponseRedirect('/')
 
 @login_required
 def change_profile(request):
@@ -108,7 +108,7 @@ def change_profile(request):
 	
 	args['form'] = form
 	
-	return render_to_response('profile.html',args)
+	return render_to_response('page-settings.html',args)
 
 @login_required
 def view_profile(request, user_id=1):
