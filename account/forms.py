@@ -6,6 +6,7 @@ from django.forms import extras
 from localflavor.cn.forms import CNCellNumberField, CNProvinceSelect
 from django.contrib.admin.widgets import AdminDateWidget
 from bootstrap3_datetime.widgets import DateTimePicker
+from form_utils.widgets import ImageWidget
 
 LEVEL=(('1','1 (low)'),('1.5','1.5'),('2','2'),('2.5','2.5'),('3','3'),('3.5','3.5'),('4','4 (median)'),('4.5','4.5'),('5','5'),('5.5','5.5'),('6','6'),('6.5','6.5'),('7','7'),('7.5','7.5 (high)'),)
 GENDER=(('1','Male'),('0','Female'))
@@ -20,8 +21,8 @@ class UserProfileForm(forms.ModelForm):
 	phone = CNCellNumberField(widget=forms.TextInput(attrs = {'class': 'form-control'}), required=False)
 	birth_date = forms.DateField(widget=forms.DateInput(attrs = {'class': 'form-control','type':'date'}), required=False)
 	#birth_date = forms.DateField(widget=DateTimePicker(options = {"format": "YYYY-MM-DD", "picktime": True}, attrs = {'id': 'datetimepicker'}), required=False)
-
 	court = forms.ModelChoiceField(queryset=Court.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}), required=False)
+	picture = forms.ImageField(widget=ImageWidget(attrs = {'class': 'form-control'}))
 
 
 	class Meta:
@@ -34,5 +35,9 @@ class UserProfileForm(forms.ModelForm):
 		if commit:
 			form.save()
 		return form
+
+
+
+
 
 	

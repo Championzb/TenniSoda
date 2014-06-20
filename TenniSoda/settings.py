@@ -60,6 +60,7 @@ INSTALLED_APPS = (
 	'localflavor',
     'django_cleanup',
     'bootstrap3_datetime',
+    'form_utils',
 )
 
 MIDDLEWARE_CLASSES = (

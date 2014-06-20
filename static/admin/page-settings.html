@@ -1,5 +1,17 @@
 {% extends "index-base.html" %}
 {% load static %}
+{% block head %}
+<script>
+    function check(){
+        password1 = document.getElementById("new-password-1").value;
+        password2 = document.getElementById("new-password-2").value;
+        if (password1 != password2){
+            alert("Please enter the same password");
+            return false;
+        }
+    }
+</script>
+{% endblock %}
 {% block content %}
   <div class="content">
 
@@ -66,21 +78,27 @@
 
               <br><br>
 
-              <form action="./page-settings.html" class="form-horizontal">
+              <form action="/account/change_profile/" method="POST" class="form-horizontal" enctype= multipart/form-data>{% csrf_token %}
 
                 <div class="form-group">
 
-                  <label class="col-md-3">Avatar</label>
+                  <label class="col-md-3">Profile Picture</label>
 
                   <div class="col-md-7">
                     <div class="fileupload fileupload-new" data-provides="fileupload">
                       <div class="fileupload-new thumbnail" style="width: 180px; height: 180px;">
-                        <img src="{% static "assets/admin/img/avatars/avatar-1-lg.jpg" %}" alt="Profile Avatar" />
+                        <!-- img src="{% static "assets/admin/img/avatars/avatar-1-lg.jpg" %}" alt="Profile Avatar" /-->
+                        {% if profile.picture %}
+                          <img src="{% get_static_prefix %}assets/{{profile.picture.url}}" alt="Profile Image" />
+
+                        {% else %}
+                          <img src="{% static "assets/uploaded_files/default.jpg" %}" alt="Profile Image" />
+                        {% endif %}
                       </div>
 
-                      <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 200px; line-height: 20px;"></div>
+                      <!--div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 200px; line-height: 20px;"></div-->
 
-                      <div>
+                      <!--div>
                         <span class="btn btn-default btn-file">
                           <span class="fileupload-new">Select image</span>
                           <span class="fileupload-exists">Change</span>
@@ -90,6 +108,12 @@
                         <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
                       </div> <!-- /div -->
 
+                      <!--label class="col-md-3">Email Address</label-->
+                      {{ form.picture }}
+                      {% for err in form.picture.errors %}
+                        <span style="color: red">{{ err }}</span>
+                      {% endfor %}
+
                     </div> <!-- /.fileupload -->
 
                   </div> <!-- /.col -->
@@ -98,20 +122,13 @@
 
 
 
-                <div class="form-group">
-
-                  <label class="col-md-3">Username</label>
-
-                  <div class="col-md-7">
-                    <input type="text" name="user-name" value="jumpstartui" class="form-control" disabled />
-                  </div> <!-- /.col -->
-
-                </div> <!-- /.form-group -->
-
+<!--
                 {% for field in form %}
                   <div class = "form-group">
                       <label class="col-md-3">{{ field.label }}</label>
                       <div class="col-md-7">
+                        {% if field %}
+                        {% endif %}
                         {{ field }}
                         {% for choice in field.choices %}
                           {{ choice }}
@@ -120,8 +137,97 @@
                           <span style="color: red">{{ err }}</span>
                         {% endfor %}
                       </div> <!-- /.col -->
+<!--
                   </div><!-- /.form-group -->
-                {% endfor %}
+<!--                {% endfor %}
+-->
+
+                <div class="form-group">
+                  <label class="col-md-3">Email Address</label>
+                  <div class="col-md-7">
+                    <input type="text" name="user-name" value="{{email}}" class="form-control" disabled />
+                  </div> <!-- /.col -->
+                </div> <!-- /.form-group -->
+
+                <div class="form-group">
+                  <label class="col-md-3">{{ form.last_name.label }}</label>
+                  <div class="col-md-7">
+                    {{ form.last_name }}
+                    {% for err in form.last_name.errors %}
+                      <span style="color: red">{{ err }}</span>
+                    {% endfor %}
+                  </div> <!-- /.col -->
+                </div> <!-- /.form-group -->
+
+                <div class="form-group">
+                  <label class="col-md-3">{{ form.first_name.label }}</label>
+                  <div class="col-md-7">
+                    {{ form.first_name }}
+                    {% for err in form.first_name.errors %}
+                      <span style="color: red">{{ err }}</span>
+                    {% endfor %}
+                  </div> <!-- /.col -->
+                </div> <!-- /.form-group -->
+
+                <div class="form-group">
+                  <label class="col-md-3">{{ form.gender.label }}</label>
+                  <div class="col-md-7">
+                    {{ form.gender }}
+                    {% for err in form.gender.errors %}
+                      <span style="color: red">{{ err }}</span>
+                    {% endfor %}
+                  </div> <!-- /.col -->
+                </div> <!-- /.form-group -->
+
+                <div class="form-group">
+                  <label class="col-md-3">{{ form.city.label }}</label>
+                  <div class="col-md-7">
+                    {{ form.city }}
+                    {% for err in form.city.errors %}
+                      <span style="color: red">{{ err }}</span>
+                    {% endfor %}
+                  </div> <!-- /.col -->
+                </div> <!-- /.form-group -->
+
+                <div class="form-group">
+                  <label class="col-md-3">{{ form.birth_date.label }}</label>
+                  <div class="col-md-7">
+                    {{ form.birth_date }}
+                    {% for err in form.birth_date.errors %}
+                      <span style="color: red">{{ err }}</span>
+                    {% endfor %}
+                  </div> <!-- /.col -->
+                </div> <!-- /.form-group -->
+
+                <div class="form-group">
+                  <label class="col-md-3">{{ form.court.label }}</label>
+                  <div class="col-md-7">
+                    {{ form.court }}
+                    {% for err in form.court.errors %}
+                      <span style="color: red">{{ err }}</span>
+                    {% endfor %}
+                  </div> <!-- /.col -->
+                </div> <!-- /.form-group -->
+
+                <div class="form-group">
+                  <label class="col-md-3">{{ form.level.label }}</label>
+                  <div class="col-md-7">
+                    {{ form.level }}
+                    {% for err in form.level.errors %}
+                      <span style="color: red">{{ err }}</span>
+                    {% endfor %}
+                  </div> <!-- /.col -->
+                </div> <!-- /.form-group -->
+
+                <div class="form-group">
+                  <label class="col-md-3">{{ form.phone.label }}</label>
+                  <div class="col-md-7">
+                    {{ form.phone }}
+                    {% for err in form.phone.errors %}
+                      <span style="color: red">{{ err }}</span>
+                    {% endfor %}
+                  </div> <!-- /.col -->
+                </div> <!-- /.form-group -->
 
                 <div class="form-group">
                    <div class="col-md-7 col-md-push-3">
@@ -142,11 +248,11 @@
 
               <h3 class="content-title"><u>Change Password</u></h3>
 
-              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+              <p>Please Change Password!</p>
 
               <br><br>
 
-              <form action="./page-settings.html" class="form-horizontal">
+              <form action="/account/change_password/" method="POST" class="form-horizontal" onsubmit="return check()">{% csrf_token %}
 
                 <div class="form-group">
 
@@ -167,7 +273,7 @@
                   <label class="col-md-3">New Password</label>
 
                   <div class="col-md-7">
-                    <input type="password" name="new-password-1" class="form-control" />
+                    <input type="password" name="new-password-1" class="form-control" id="new-password-1" />
                   </div> <!-- /.col -->
 
                 </div> <!-- /.form-group -->
@@ -178,7 +284,7 @@
                   <label class="col-md-3">New Password Confirm</label>
 
                   <div class="col-md-7">
-                    <input type="password" name="new-password-2" class="form-control" />
+                    <input type="password" name="new-password-2" class="form-control" id="new-password-2" />
                   </div> <!-- /.col -->
 
                 </div> <!-- /.form-group -->

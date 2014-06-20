@@ -27,7 +27,7 @@ def register_user(request):
 		form = UserCreationForm(request.POST)
 		if form.is_valid():
 			form.save()
-			messages.success(request,'You have registered successfully.')
+			#messages.success(request,'You have registered successfully.')
 			return HttpResponseRedirect('/account/login')
 	else:
 		form = UserCreationForm()
@@ -54,9 +54,9 @@ def auth_view(request):
 
 	if user is not None:
 		auth.login(request, user)
-		return HttpResponseRedirect('/account/welcome_user')
+		return HttpResponseRedirect('/account/welcome_user/')
 	else:
-		return HttpResponseRedirect('/account/invalid_login')
+		return HttpResponseRedirect('/account/invalid_login/')
 
 @login_required
 def welcome_user(request):
@@ -85,7 +85,7 @@ def logout(request):
 
 	args = {}
 	args.update(csrf(request))
-	messages.success(request,'You have logged out successfully!')
+	#messages.success(request,'You have logged out successfully!')
 	return HttpResponseRedirect('/')
 
 @login_required
@@ -96,9 +96,11 @@ def change_profile(request):
 		form = UserProfileForm(request.POST, request.FILES, instance = request.user.profile,)
 		if form.is_valid():
 			form.save()
-			messages.success(request,'You have updated the profile')
+			#messages.success(request,'You have updated the profile')
 			args['form'] = form
-			return render(request,'profile.html',args)
+			args['email'] = request.user.email
+			args['profile'] = request.user.profile
+			return render(request,'page-settings.html',args)
 	else:
 		user = request.user
 		profile = user.profile
@@ -107,6 +109,8 @@ def change_profile(request):
 
 	
 	args['form'] = form
+	args['email'] = request.user.email
+	args['profile'] = request.user.profile
 	
 	return render_to_response('page-settings.html',args)
 
@@ -123,3 +127,24 @@ def view_profile(request, user_id=1):
 	args['phone'] = opponent_profile.phone
 	args['level'] = opponent_profile.level
 	return render_to_response('view_profile.html',args)
+
+
+@login_required
+def change_password(request):
+	user = request.user
+
+	if request.method == 'POST':
+		old_password = request.POST.get('old-password', '')
+		new_password1 = request.POST.get('new-password-1', '')
+		if not user.check_password(old_password):
+			messages.warning(request,'Invalid Password!')
+			return HttpResponseRedirect('/account/change_profile/')
+		else:
+			user.set_password(new_password1)
+			user.save()
+			messages.success(request,'Change Password Successfully.')
+			return HttpResponseRedirect('/account/change_profile/')
+
+	return HttpResponseRedirect('/account/change_profile/')
+
+

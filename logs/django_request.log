@@ -5253,3 +5253,59 @@ TypeError: __init__() got an unexpected keyword argument 'years'
 2014-06-20 17:39:08,734 [WARNING] django.request: Not Found: /account/change_profile/http//code.jquery.com/ui/1.10.4/jquery-ui.js
 2014-06-20 17:40:10,241 [WARNING] django.request: Not Found: /account/change_profile/http//code.jquery.com/jquery-1.10.2.js
 2014-06-20 17:40:10,253 [WARNING] django.request: Not Found: /account/change_profile/http//code.jquery.com/ui/1.10.4/jquery-ui.js
+2014-06-20 18:17:37,795 [WARNING] django.request: Not Found: /account/change_profile/page-settings.html
+2014-06-20 18:20:12,296 [WARNING] django.request: Forbidden (CSRF token missing or incorrect.): /account/change_profile/
+2014-06-20 19:09:07,966 [ERROR] django.request: Internal Server Error: /account/change_profile/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 223, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 230, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/functional.py", line 32, in wrapper
+    result = func(*args)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/damon/Project/TenniSoda/account/views.py", line 6, in <module>
+    from forms import UserProfileForm
+  File "/home/damon/Project/TenniSoda/account/forms.py", line 9, in <module>
+    from form_utils.widgets import ImageWidget
+ImportError: No module named form_utils.widgets
+2014-06-20 19:14:47,379 [WARNING] django.request: Not Found: /account/change_profile/page-settings.html
+2014-06-20 19:47:39,620 [ERROR] django.request: Internal Server Error: /account/change_password/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
+    raise ValueError("The view %s.%s didn't return an HttpResponse object." % (callback.__module__, view_name))
+ValueError: The view account.views.change_password didn't return an HttpResponse object.
+2014-06-20 19:48:17,262 [ERROR] django.request: Internal Server Error: /account/change_profile/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 223, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 230, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/functional.py", line 32, in wrapper
+    result = func(*args)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/damon/Project/TenniSoda/account/views.py", line 147
+    return HttpResponseRedirect('/account/change_profile/')
+                                                          ^
+IndentationError: unindent does not match any outer indentation level
+2014-06-20 19:52:21,943 [WARNING] django.request: Forbidden (CSRF token missing or incorrect.): /account/change_password/
+2014-06-20 19:55:20,318 [WARNING] django.request: Not Found: /account/change_profile/page-notifications.html
+2014-06-20 19:55:30,289 [WARNING] django.request: Not Found: /account/change_profile/page-notifications.html
