@@ -38,6 +38,17 @@
   <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
   <![endif]-->
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  {% block message %}
+  {% if messages %}
+    <script>
+        $(function(){
+            {% for message in messages %}
+                alert("{{message}}");
+            {% endfor %}
+        });
+    </script>
+  {% endif %}
+  {% endblock %}
   {% block head %}
   {% endblock %}
 
@@ -434,16 +445,6 @@
     </div> <!-- /.container -->
 
   </div> <!-- /.mainnav -->
-
-    <div align="center">
-    {% if messages %}
-    <ul class="messages">
-        {% for message in messages %}
-        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-    </div>
 
   {% block content %}
         <h2>Please remember to overwrite this block!</h2>
