@@ -12,6 +12,13 @@
     }
 </script>
 {% endblock %}
+{% block profileimg %}
+{% if profile.picture %}
+  <img src="{% get_static_prefix %}assets/{{profile.picture.url}}" class="navbar-profile-avatar" alt="" />
+{% else %}
+  <img src="{% static "assets/uploaded_files/default.jpg" %}" class="navbar-profile-avatar" alt="" />
+{% endif %}
+{% endblock %}
 {% block content %}
   <div class="content">
 
@@ -83,14 +90,12 @@
                 <div class="form-group">
 
                   <label class="col-md-3">Profile Picture</label>
-
                   <div class="col-md-7">
                     <div class="fileupload fileupload-new" data-provides="fileupload">
                       <div class="fileupload-new thumbnail" style="width: 180px; height: 180px;">
                         <!-- img src="{% static "assets/admin/img/avatars/avatar-1-lg.jpg" %}" alt="Profile Avatar" /-->
                         {% if profile.picture %}
                           <img src="{% get_static_prefix %}assets/{{profile.picture.url}}" alt="Profile Image" />
-
                         {% else %}
                           <img src="{% static "assets/uploaded_files/default.jpg" %}" alt="Profile Image" />
                         {% endif %}

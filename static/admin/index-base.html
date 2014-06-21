@@ -206,7 +206,9 @@
 
           <li class="dropdown navbar-profile">
             <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">
-              <img src="{% static "assets/admin/img/avatars/avatar-1-xs.jpg" %}" class="navbar-profile-avatar" alt="">
+              {% block profileimg %}
+                <img src="{% static "assets/uploaded_files/default.jpg" %}" class="navbar-profile-avatar" alt="">
+              {% endblock %}
               <span class="navbar-profile-label">rod@rod.me &nbsp;</span>
               <i class="fa fa-caret-down"></i>
             </a>
@@ -433,7 +435,7 @@
 
   </div> <!-- /.mainnav -->
 
-    <div>
+    <div align="center">
     {% if messages %}
     <ul class="messages">
         {% for message in messages %}

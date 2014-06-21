@@ -112,7 +112,7 @@ def change_profile(request):
 	args['email'] = request.user.email
 	args['profile'] = request.user.profile
 	
-	return render_to_response('page-settings.html',args)
+	return render(request, 'page-settings.html',args)
 
 @login_required
 def view_profile(request, user_id=1):
