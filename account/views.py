@@ -75,7 +75,7 @@ def welcome_user(request):
 	args['league_matches_attended'] = league_match_attended
 	args['league_matches_remained'] = League.objects.exclude(players=request.user)
 	args['notifications'] = notifications
-	return render_to_response('index-base.html',args)
+	return render_to_response('page-profile.html',args)
 
 def invalid_login(request):
 	return render_to_response('invalid_login.html')
