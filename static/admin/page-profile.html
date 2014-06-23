@@ -25,7 +25,11 @@
         <div class="col-md-3 col-sm-5">
 
           <div class="profile-avatar">
-            <img src="{% get_static_prefix %}assets/{{profile.picture.url}}" class="profile-avatar-img thumbnail" alt="Profile Image">
+            {% if profile.picture %}
+                <img src="{% get_static_prefix %}assets/{{profile.picture.url}}" class="profile-avatar-img thumbnail" alt="Profile Image">
+            {% else %}
+                <img src="{% static "assets/>uploaded_files/default.jpg" %}" class="profile-avatar-img thumbnail" alt="Profile Image">
+            {% endif %}
           </div> <!-- /.profile-avatar -->
 
           <div class="list-group">  
@@ -55,7 +59,7 @@
               <i class="fa fa-chevron-right list-group-chevron"></i>
             </a> 
 
-            <a href="javascript:;" class="list-group-item">
+            <a href="/account/change_profile/" class="list-group-item">
               <i class="fa fa-cog text-primary"></i> &nbsp;&nbsp;Settings
 
               <i class="fa fa-chevron-right list-group-chevron"></i>
@@ -70,9 +74,9 @@
 
         <div class="col-md-6 col-sm-7">
 
-          <h3>Nikita Williams</h3>
+          <h3>{{ username }}</h3>
 
-          <h5 class="text-muted">Visual, UI, UX Designer</h5>
+          <h5 class="text-muted">Ladder points: XXXX</h5>
 
           <hr>
 
@@ -85,14 +89,14 @@
           <hr>
           
           <ul class="icons-list">
-            <li><i class="icon-li fa fa-envelope"></i> support@jumpstartthemes.com</li>
+            <li><i class="icon-li fa fa-envelope"></i> {{ profile.user.email }}</li>
             <li><i class="icon-li fa fa-globe"></i> jumstartthemes.com</li>
-            <li><i class="icon-li fa fa-map-marker"></i> Las Vegas, NV</li>
+            <li><i class="icon-li fa fa-map-marker"></i> {{ profile.city }}</li>
           </ul>    
 
           <br>
 
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec.</p>
+          <p>Introduction to of {{ username }}</p>
 
           <hr>
 
@@ -151,139 +155,19 @@
 
             </div> <!-- /.feed-item -->
 
-
-
-            <div class="feed-item feed-item-image">
-
-              <div class="feed-icon">
-                <i class="fa fa-picture-o"></i>
-              </div> <!-- /.feed-icon -->
-
-              <div class="feed-subject">
-                <p><a href="javascript:;">Nikita Williams</a> posted the <strong>4 files</strong>: <a href="javascript:;">Annual Reports</a></p>
-              </div> <!-- /.feed-subject -->
-
-              <div class="feed-content">
-                <div class="thumbnail" style="width: 375px">
-                  <img src="./img/mockup.png" style="width: 100%;" alt="Gallery Image">
-                </div> <!-- /.thumbnail -->
-              </div> <!-- /.feed-content -->
-
-              <div class="feed-actions">
-                <a href="javascript:;" class="pull-left"><i class="fa fa-thumbs-up"></i> 123</a> 
-                <a href="javascript:;" class="pull-left"><i class="fa fa-comment-o"></i> 29</a>
-
-                <a href="javascript:;" class="pull-right"><i class="fa fa-clock-o"></i> 2 days ago</a>
-              </div> <!-- /.feed-actions -->
-
-            </div> <!-- /.feed-item -->
-
-
-
-            <div class="feed-item feed-item-file">
-
-              <div class="feed-icon">
-                <i class="fa fa-cloud-upload"></i>
-              </div> <!-- /.feed-icon -->
-
-              <div class="feed-subject">
-                <p><a href="javascript:;">Nikita Williams</a> posted the <strong>4 files</strong>: <a href="javascript:;">Annual Reports</a></p>
-              </div> <!-- /.feed-subject -->
-
-              <div class="feed-content">
-                <ul class="icons-list">
-                  <li>
-                    <i class="icon-li fa fa-file-text-o"></i>
-                    <a href="javascript:;">Annual Report 2007</a> - annual_report_2007.pdf
-                  </li>
-
-                  <li>
-                    <i class="icon-li fa fa-file-text-o"></i>
-                    <a href="javascript:;">Annual Report 2008</a> - annual_report_2007.pdf
-                  </li>
-
-                  <li>
-                    <i class="icon-li fa fa-file-text-o"></i>
-                    <a href="javascript:;">Annual Report 2009</a> - annual_report_2007.pdf
-                  </li>
-
-                  <li>
-                    <i class="icon-li fa fa-file-text-o"></i>
-                    <a href="javascript:;">Annual Report 2010</a> - annual_report_2007.pdf
-                  </li>
-                </ul>
-              </div> <!-- /.feed-content -->
-
-              <div class="feed-actions">
-                <a href="javascript:;" class="pull-left"><i class="fa fa-thumbs-up"></i> 123</a> 
-                <a href="javascript:;" class="pull-left"><i class="fa fa-comment-o"></i> 29</a>
-
-                <a href="javascript:;" class="pull-right"><i class="fa fa-clock-o"></i> 2 days ago</a>
-              </div> <!-- /.feed-actions -->
-
-            </div> <!-- /.feed-item -->
-
-
-
-            <div class="feed-item feed-item-bookmark">
-
-              <div class="feed-icon">
-                <i class="fa fa-bookmark"></i>
-              </div> <!-- /.feed-icon -->
-
-              <div class="feed-subject">
-                <p><a href="javascript:;">Nikita Williams</a> bookmarked a page on Delicious: <a href="javascript:;">Jumpstart Themes</a></p>
-              </div> <!-- /.feed-subject -->
-
-              <div class="feed-content">
-              </div> <!-- /.feed-content -->
-
-              <div class="feed-actions">
-                <a href="javascript:;" class="pull-left"><i class="fa fa-thumbs-up"></i> 123</a> 
-                <a href="javascript:;" class="pull-left"><i class="fa fa-comment-o"></i> 29</a>
-
-                <a href="javascript:;" class="pull-right"><i class="fa fa-clock-o"></i> 2 days ago</a>
-              </div> <!-- /.feed-actions -->
-
-            </div> <!-- /.feed-item -->
-
-
-
-            <div class="feed-item feed-item-question">
-
-              <div class="feed-icon">
-                <i class="fa fa-question"></i>
-              </div> <!-- /.feed-icon -->
-
-              <div class="feed-subject">
-                <p><a href="javascript:;">Nikita Williams</a> posted the question: <a href="javascript:;">Who can I call to get a new parking pass for the Rowan Building?</a></p>
-              </div> <!-- /.feed-subject -->
-
-              <div class="feed-content">
-                <ul class="icons-list">
-                  <li>
-                    <i class="icon-li fa fa-quote-left"></i>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.
-                  </li>
-                </ul>
-              </div> <!-- /.feed-content -->
-
-              <div class="feed-actions">
-                <a href="javascript:;" class="pull-left"><i class="fa fa-thumbs-up"></i> 123</a> 
-                <a href="javascript:;" class="pull-left"><i class="fa fa-comment-o"></i> 29</a>
-
-                <a href="javascript:;" class="pull-right"><i class="fa fa-clock-o"></i> 2 days ago</a>
-              </div> <!-- /.feed-actions -->
-
-            </div> <!-- /.feed-item -->
-
-            <br class="visible-xs">            
             <br class="visible-xs">
-            
+            <br class="visible-xs">
+
           </div> <!-- /.col -->
 
 
-          <div class="col-md-3">
+          <div class="col-sm-4 col-md-3 layout-sidebar">
+          <div class="portlet">
+            <a href="/game/find_game/" class="btn btn-primary btn-jumbo btn-block ">Ladder Game</a>
+            <br>
+            <a href="javascript:;" class="btn btn-secondary btn-lg btn-block ">View the League</a>
+          </div> <!-- /.portlet -->
+
             <h5 class="content-title"><u>Social Stats</u></h5>
 
             <div class="list-group">  
@@ -308,40 +192,6 @@
             </div> <!-- /.list-group -->
 
             <br>
-
-            <h5 class="content-title"><u>Project Activity</u></h5>
-
-            <div class="well">
-
-
-              <ul class="icons-list text-md">
-
-                <li>
-                  <i class="icon-li fa fa-location-arrow"></i>
-
-                  <strong>Rod</strong> uploaded 6 files. 
-                  <br>
-                  <small>about 4 hours ago</small>
-                </li>
-
-                <li>
-                  <i class="icon-li fa fa-location-arrow"></i>
-
-                  <strong>Rod</strong> followed the research interest: <a href="javascript:;">Open Access Books in Linguistics</a>. 
-                  <br>
-                  <small>about 23 hours ago</small>
-                </li>
-
-                <li>
-                  <i class="icon-li fa fa-location-arrow"></i>
-
-                  <strong>Rod</strong> added 51 papers. 
-                  <br>
-                  <small>2 days ago</small>
-                </li>
-              </ul>
-
-            </div> <!-- /.well -->
 
           </div> <!-- /.col -->
 

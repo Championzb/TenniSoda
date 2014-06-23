@@ -62,7 +62,7 @@ def auth_view(request):
 def welcome_user(request):
 	username = request.user.email.split('@')[0]
 	if request.user.profile.last_name!='' and request.user.profile.last_name is not None:
-		username = request.user.profile.last_name+request.user.profile.first_name
+		username = request.user.profile.last_name+' '+request.user.profile.first_name
 	league_match_attended = League.objects.filter(players=request.user.profile)
 
 	notifications = Notification.objects.filter(user = request.user, viewed = False)

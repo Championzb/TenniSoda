@@ -5334,3 +5334,27 @@ IndentationError: unindent does not match any outer indentation level
 2014-06-22 21:39:36,452 [WARNING] django.request: Not Found: /account/welcome_user/img/mockup.png
 2014-06-22 21:40:16,299 [WARNING] django.request: Not Found: /account/welcome_user/img/mockup.png
 2014-06-22 21:40:33,108 [WARNING] django.request: Not Found: /account/welcome_user/img/mockup.png
+2014-06-22 21:42:11,960 [WARNING] django.request: Not Found: /account/welcome_user/img/mockup.png
+2014-06-23 02:53:32,488 [WARNING] django.request: Not Found: /account/welcome_user/img/mockup.png
+2014-06-23 02:53:36,951 [WARNING] django.request: Not Found: /account/welcome_user/img/mockup.png
+2014-06-23 02:55:23,016 [WARNING] django.request: Not Found: /account/welcome_user/img/mockup.png
+2014-06-23 02:56:51,586 [WARNING] django.request: Not Found: /account/welcome_user/img/mockup.png
+2014-06-23 02:56:56,497 [WARNING] django.request: Not Found: /account/welcome_user/img/mockup.png
+2014-06-23 02:59:34,452 [WARNING] django.request: Not Found: /account/welcome_user/img/mockup.png
+2014-06-23 02:59:57,514 [WARNING] django.request: Not Found: /account/welcome_user/img/mockup.png
+2014-06-23 03:00:44,615 [WARNING] django.request: Not Found: /account/welcome_user/img/mockup.png
+2014-06-23 03:03:00,284 [WARNING] django.request: Not Found: /account/welcome_user/img/mockup.png
+2014-06-23 03:03:28,672 [WARNING] django.request: Not Found: /account/welcome_user/img/mockup.png
+2014-06-23 03:04:12,735 [WARNING] django.request: Not Found: /account/welcome_user/img/mockup.png
+2014-06-23 03:12:54,728 [WARNING] django.request: Not Found: /account/welcome_user/img/mockup.png
+2014-06-23 03:13:11,331 [WARNING] django.request: Not Found: /account/welcome_user/img/mockup.png
+2014-06-23 03:13:23,936 [WARNING] django.request: Not Found: /account/welcome_user/img/mockup.png
+2014-06-23 03:46:07,799 [ERROR] django.request: Internal Server Error: /game/find_game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/game/views.py", line 168, in find_game
+    args['notifications'] = notifications
+NameError: global name 'notifications' is not defined

@@ -160,8 +160,14 @@ def find_game(request):
 	messages.success(request,'join success')
 	username = user.last_name+user.first_name
 	league_match_attended = League.objects.filter(players=request.user.profile)
-	return render(request, 'welcome_user.html',
-		{'username':username,'league_matches_attended':league_match_attended,'league_matches_remained': League.objects.exclude(players=request.user),})
+	args = {}
+	notifications = Notification.objects.filter(user = request.user, viewed = False)
+	args['username'] = username
+	args['profile'] = user
+	args['league_matches_attended'] = league_match_attended
+	args['league_matches_remained'] = League.objects.exclude(players=request.user)
+	args['notifications'] = notifications
+	return render(request, 'page-profile.html', args)
 
 
 @login_required
