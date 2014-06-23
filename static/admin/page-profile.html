@@ -1,5 +1,5 @@
 {% extends "index-base.html" %}
-{% load static %}
+{% load static %}        
 {% block profileimg %}
     {% if profile.picture %}
       <img src="{% get_static_prefix %}assets/{{profile.picture.url}}" class="navbar-profile-avatar" alt="" />
@@ -15,6 +15,7 @@
 </a>
 </li>
 {% endblock %}
+
 {% block content %}
   <div class="content">
 
@@ -38,14 +39,7 @@
               <i class="fa fa-asterisk text-primary"></i> &nbsp;&nbsp;Activity Feed
 
               <i class="fa fa-chevron-right list-group-chevron"></i>
-            </a> 
-
-            <a href="javascript:;" class="list-group-item">
-              <i class="fa fa-book text-primary"></i> &nbsp;&nbsp;Projects
-
-              <i class="fa fa-chevron-right list-group-chevron"></i>
-              <span class="badge">3</span>
-            </a> 
+            </a>
 
             <a href="javascript:;" class="list-group-item">
               <i class="fa fa-envelope text-primary"></i> &nbsp;&nbsp;Messages
@@ -77,16 +71,6 @@
           <h3>{{ username }}</h3>
 
           <h5 class="text-muted">Ladder points: XXXX</h5>
-
-          <hr>
-
-          <p>
-            <a href="javascript:;" class="btn btn-primary">Follow Nikita</a>
-            &nbsp;&nbsp;
-            <a href="javascript:;" class="btn btn-secondary">Send Message</a>
-          </p>
-
-          <hr>
           
           <ul class="icons-list">
             <li><i class="icon-li fa fa-envelope"></i> {{ profile.user.email }}</li>
@@ -100,30 +84,17 @@
 
           <hr>
 
+          <h4 class="content-title"><u>Coming game</u></h4>
+
+          <ul class="icons-list notifications-list">
+            <li>
+              <i class="icon-li fa fa-eye text-secondary"></i>
+              <a href="javascript:;">You</a> watched the project <a href="javascript:;">MVP Ready Development</a>
+            </li>
+          </ul>
 
           <br><br>
-
           <h4 class="content-title"><u>Activity Feed</u></h4>
-
-            <div class="share-widget clearfix">
-
-              <textarea class="form-control share-widget-textarea" rows="3" placeholder="Share what you've been up to..." tabindex="1"></textarea>
-
-              <div class="share-widget-actions">
-                <div class="share-widget-types pull-left">
-                  <a href="javascript:;" class="fa fa-picture-o ui-tooltip" title="Post an Image"><i></i></a>
-                  <a href="javascript:;" class="fa fa-video-camera ui-tooltip" title="Upload a Video"><i></i></a>
-                  <a href="javascript:;" class="fa fa-lightbulb-o ui-tooltip" title="Post an Idea"><i></i></a>
-                  <a href="javascript:;" class="fa fa-question-circle ui-tooltip" title="Ask a Question"><i></i></a>
-                </div>	
-
-              <div class="pull-right">
-                <a class="btn btn-primary btn-sm" tabindex="2">Post</a>
-              </div>
-
-              </div> <!-- /.share-widget-actions -->
-
-            </div> <!-- /.share-widget -->
 
             <br><br>
 
@@ -147,7 +118,7 @@
               </div> <!-- /.feed-content -->
 
               <div class="feed-actions">
-                <a href="javascript:;" class="pull-left"><i class="fa fa-thumbs-up"></i> 123</a> 
+                <a href="javascript:;" class="pull-left"><i class="fa fa-thumbs-up"></i> 123</a>
                 <a href="javascript:;" class="pull-left"><i class="fa fa-comment-o"></i> 29</a>
 
                 <a href="javascript:;" class="pull-right"><i class="fa fa-clock-o"></i> 2 days ago</a>
@@ -175,19 +146,19 @@
               <a href="javascript:;" class="list-group-item">
                   <h3 class="pull-right"><i class="fa fa-eye text-primary"></i></h3>
                   <h4 class="list-group-item-heading">38,847</h4>
-                  <p class="list-group-item-text">Profile Views</p>                  
+                  <p class="list-group-item-text">Win games</p>
                 </a>
 
               <a href="javascript:;" class="list-group-item">
                 <h3 class="pull-right"><i class="fa fa-facebook-square  text-primary"></i></h3>
                 <h4 class="list-group-item-heading">3,482</h4>
-                <p class="list-group-item-text">Facebook Likes</p>
+                <p class="list-group-item-text">All games</p>
               </a>
 
               <a href="javascript:;" class="list-group-item">
                 <h3 class="pull-right"><i class="fa fa-twitter-square  text-primary"></i></h3>
                 <h4 class="list-group-item-heading">5,845</h4>
-                <p class="list-group-item-text">Twitter Followers</p>
+                <p class="list-group-item-text">Rate</p>
               </a>
             </div> <!-- /.list-group -->
 

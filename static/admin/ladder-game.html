@@ -1,0 +1,136 @@
+{% extends "index-base.html" %}
+{% load static %}
+{% block profileimg %}
+    {% if profile.picture %}
+      <img src="{% get_static_prefix %}assets/{{profile.picture.url}}" class="navbar-profile-avatar" alt="" />
+    {% else %}
+      <img src="{% static "assets/uploaded_files/default.jpg" %}" class="navbar-profile-avatar" alt="" />
+    {% endif %}
+{% endblock %}
+{% block ladder %}
+<li class="dropdown active">
+<a href="/game/ladder_game/">
+    <i class="fa fa-user"></i>
+    Ladder
+</a>
+</li>
+{% endblock %}
+{% block content %}
+  <div class="content">
+
+    <div class="container">
+
+      <div class="layout layout-stack-sm layout-main-left">
+    
+        <div class="col-sm-7 col-md-8 layout-main">
+            <div class="portlet">
+
+            <h4 class="portlet-title">
+              <u>Game Details</u>
+            </h4>
+
+            <div class="portlet-body">
+
+              <table class="table table-striped table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Game Time</th>
+                    <th>Opponent</th>
+                    <th class="hidden-xs">Win/Lose</th>
+                    <th class="hidden-xs hidden-sm">Court</th>
+                    <th>Score</th>
+                    <th>Confirm</th>
+                    <th class="hidden-xs hidden-sm">Review</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for game in games %}
+                    {% if not game.league %}
+                      <tr >
+                        <td>{{ game.date }}</td>
+                        {% if game.player1 == user %}
+                          <td>{{ game.player2 }}</td>
+                        {% else %}
+                          <td>{{ game.player1 }}</td>
+                        {% endif %}
+                        {% if not game.winner %}
+                          <td class="hidden-xs">N/A</td>
+                        {% elif game.winner == user %}
+                          <td class="hidden-xs">W</td>
+                        {% else %}
+                          <td class="hidden-xs">L</td>
+                        {% endif %}
+                        <td class="hidden-xs hidden-sm">{{ game.court }}</td>
+                        <td>C</td>
+                        <td></td>
+                        <td  class="hidden-xs hidden-sm"></td>
+                      </tr>
+                    {% endif %}
+                  {% endfor %}
+                </tbody>
+              </table>
+
+            </div> <!-- /.portlet-body -->
+
+          </div> <!-- /.portlet -->
+
+
+        </div> <!-- /.layout-main -->
+
+
+
+        <div class="col-sm-5 col-md-4 layout-sidebar">
+
+          <div class="portlet">
+            <a href="javascript:;" class="btn btn-primary btn-jumbo btn-block ">New Product</a>
+            <br>
+            <a href="javascript:;" class="btn btn-secondary btn-lg btn-block ">New Template</a>
+          </div> <!-- /.portlet -->
+
+
+          <h4>Recent Activity</h4>
+
+          <div class="well">
+            
+            <ul class="icons-list text-md">
+              <li>
+                <i class="icon-li fa fa-comments-o text-success"></i>
+                <strong>New Sale!</strong>
+                <br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </li>
+              <li>
+                <i class="icon-li fa fa-check-square text-secondary"></i>
+                <strong>New Action!</strong>
+                <br>
+                Vestibulum iaculis felis eu eros pellentesque placerat.
+              </li>
+              <li>
+                <i class="icon-li fa fa-truck text-tertiary"></i>
+                <strong>New Product!</strong>
+                <br>
+                Curabitur cursus nisl et mauris imperdiet porttitor.
+              </li>
+              <li>
+                <i class="icon-li fa fa-comments-o text-primary"></i>
+                <strong>New Comment!</strong>
+                <br>
+                Vestibulum iaculis felis eu eros pellentesque placerat.
+              </li>
+              <li>
+                <i class="icon-li fa fa-comments-o text-primary"></i>
+                <strong>New Comment!</strong>
+                <br>
+                Curabitur cursus nisl et mauris imperdiet porttitor.
+              </li>
+            </ul>
+          </div> <!-- /.well -->
+
+        </div> <!-- /.layout-sidebar -->
+
+      </div> <!-- /.layout -->
+
+    </div> <!-- /.container -->
+
+  </div> <!-- .content -->
+{% endblock %}

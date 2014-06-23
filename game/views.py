@@ -144,10 +144,15 @@ def confirm_score(request,game_id = 1):
 										message = 'Your game against %s %s is completed' % (game.player1.last_name, game.player1.first_name),
 										time = datetime.now())
 		game.save()
-		return HttpResponseRedirect('/game/list_all_games')
+		return HttpResponseRedirect('/game/list_all_games/')
 
 @login_required
 def find_game(request):
+	"""
+
+	:param request:
+	:return:
+	"""
 	user = request.user.profile
 	if user.first_name is None or user.first_name == ''\
 		or user.last_name is None or user.last_name == ''\
@@ -160,6 +165,7 @@ def find_game(request):
 	messages.success(request,'join success')
 	username = user.last_name+user.first_name
 	league_match_attended = League.objects.filter(players=request.user.profile)
+
 	args = {}
 	notifications = Notification.objects.filter(user = request.user, viewed = False)
 	args['username'] = username
@@ -170,8 +176,15 @@ def find_game(request):
 	return render(request, 'page-profile.html', args)
 
 
+
 @login_required
 def quit_game(request,game_id = 1):
+	"""
+
+	:param request:
+	:param game_id:
+	:return:
+	"""
 	user = request.user.profile
 	game = Game.objects.get(id = game_id)
 	if game.player1 != user and game.player2 != user:
@@ -190,8 +203,6 @@ def quit_game(request,game_id = 1):
 
 	game.delete()
 	return HttpResponseRedirect('/game/list_all_games')
-
-
 
 def get_winner(game):
 	score = Score.objects.get(game = game)
@@ -227,3 +238,25 @@ def get_winner(game):
 	else:
 		return game.player2
 
+@login_required
+def ladder_game(request):
+	user = request.user.profile
+	'''
+	games_as_player1 = Game.objects.filter(player1 = user)
+	games_as_player2 = Game.objects.filter(player2 = user)
+	games_played_as_player1 = []
+	games_played_as_player2 = []
+	for game in games_as_player1:
+		if game.is_played:
+			games_played_as_player1.append(game)
+			games_as_player1 = games_as_player1.exclude(id=game.id)
+	for game in games_as_player2:
+		if game.is_played:
+			games_played_as_player2.append(game)
+			games_as_player2 = games_as_player2.exclude(id=game.id)
+	'''
+	games = Game.objects.filter((Q(player1 = user) | Q(player2 = user)))
+
+	return render_to_response('ladder-game.html',
+		{'games': games,
+         'user': user},)

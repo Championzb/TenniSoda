@@ -5358,3 +5358,316 @@ Traceback (most recent call last):
   File "/home/damon/Project/TenniSoda/game/views.py", line 168, in find_game
     args['notifications'] = notifications
 NameError: global name 'notifications' is not defined
+2014-06-23 18:33:59,566 [ERROR] django.request: Internal Server Error: /game/find_game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 223, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 230, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/functional.py", line 32, in wrapper
+    result = func(*args)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/damon/Project/TenniSoda/game/views.py", line 171
+    return HttpResponseRedirect('/account/welcome_user/')
+                                                        ^
+IndentationError: unindent does not match any outer indentation level
+2014-06-23 18:34:00,635 [WARNING] django.request: Not Found: /favicon.ico
+2014-06-23 18:56:40,738 [ERROR] django.request: Internal Server Error: /account/welcome_user/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/account/views.py", line 77, in welcome_user
+    args['league_matches_attended'] = league_match_attended
+NameError: global name 'league_match_attended' is not defined
+2014-06-23 18:56:51,494 [ERROR] django.request: Internal Server Error: /account/welcome_user/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/account/views.py", line 77, in welcome_user
+    args['league_matches_attended'] = league_match_attended
+NameError: global name 'league_match_attended' is not defined
+2014-06-23 19:10:45,998 [WARNING] django.request: Not Found: /account/ladder_game/
+2014-06-23 19:35:51,865 [WARNING] django.request: Not Found: /game/ladder_game/js/plugins/dataTables/jquery.dataTables.js
+2014-06-23 19:35:51,872 [WARNING] django.request: Not Found: /game/ladder_game/js/plugins/dataTables/dataTables.bootstrap.js
+2014-06-23 19:35:51,884 [WARNING] django.request: Not Found: /game/ladder_game/js/demos/table_demo.js
+2014-06-23 19:36:07,276 [WARNING] django.request: Not Found: /game/ladder_game/js/demos/table_demo.js
+2014-06-23 19:36:07,281 [WARNING] django.request: Not Found: /game/ladder_game/js/plugins/dataTables/dataTables.bootstrap.js
+2014-06-23 19:36:07,291 [WARNING] django.request: Not Found: /game/ladder_game/js/plugins/dataTables/jquery.dataTables.js
+2014-06-23 19:36:10,017 [WARNING] django.request: Not Found: /game/ladder_game/js/plugins/dataTables/jquery.dataTables.js
+2014-06-23 19:36:10,032 [WARNING] django.request: Not Found: /game/ladder_game/js/plugins/dataTables/dataTables.bootstrap.js
+2014-06-23 19:36:10,039 [WARNING] django.request: Not Found: /game/ladder_game/js/demos/table_demo.js
+2014-06-23 19:45:41,610 [WARNING] django.request: Not Found: /game/ladder_game/css/font-awesome.min.css
+2014-06-23 19:45:41,619 [WARNING] django.request: Not Found: /game/ladder_game/css/bootstrap.min.css
+2014-06-23 19:45:41,794 [WARNING] django.request: Not Found: /game/ladder_game/js/plugins/dataTables/dataTables.bootstrap.css
+2014-06-23 19:45:41,800 [WARNING] django.request: Not Found: /game/ladder_game/css/mvpready-admin.css
+2014-06-23 19:45:41,815 [WARNING] django.request: Not Found: /game/ladder_game/css/mvpready-flat.css
+2014-06-23 19:45:41,819 [WARNING] django.request: Not Found: /game/ladder_game/img/logo.png
+2014-06-23 19:45:41,826 [WARNING] django.request: Not Found: /game/ladder_game/img/avatars/avatar-1-md.jpg
+2014-06-23 19:45:41,842 [WARNING] django.request: Not Found: /game/ladder_game/img/avatars/avatar-2-md.jpg
+2014-06-23 19:45:41,872 [WARNING] django.request: Not Found: /game/ladder_game/js/libs/jquery-1.10.2.min.js
+2014-06-23 19:45:41,893 [WARNING] django.request: Not Found: /game/ladder_game/js/libs/bootstrap.min.js
+2014-06-23 19:45:41,901 [WARNING] django.request: Not Found: /game/ladder_game/js/plugins/dataTables/jquery.dataTables.js
+2014-06-23 19:45:41,909 [WARNING] django.request: Not Found: /game/ladder_game/js/plugins/dataTables/dataTables.bootstrap.js
+2014-06-23 19:45:41,920 [WARNING] django.request: Not Found: /game/ladder_game/js/mvpready-core.js
+2014-06-23 19:45:42,017 [WARNING] django.request: Not Found: /game/ladder_game/js/demos/table_demo.js
+2014-06-23 19:45:42,020 [WARNING] django.request: Not Found: /game/ladder_game/js/mvpready-admin.js
+2014-06-23 19:45:42,029 [WARNING] django.request: Not Found: /game/ladder_game/img/avatars/avatar-1-xs.jpg
+2014-06-23 19:45:43,250 [WARNING] django.request: Not Found: /game/ladder_game/favicon.ico
+2014-06-23 19:52:16,752 [WARNING] django.request: Not Found: /game/ladder_game/js/plugins/dataTables/dataTables.bootstrap.css
+2014-06-23 19:52:16,950 [WARNING] django.request: Not Found: /game/ladder_game/js/demos/table_demo.js
+2014-06-23 19:52:37,779 [WARNING] django.request: Not Found: /game/ladder_game/css/font-awesome.min.css
+2014-06-23 19:52:37,790 [WARNING] django.request: Not Found: /game/ladder_game/css/bootstrap.min.css
+2014-06-23 19:52:37,801 [WARNING] django.request: Not Found: /game/ladder_game/js/plugins/dataTables/dataTables.bootstrap.css
+2014-06-23 19:52:37,861 [WARNING] django.request: Not Found: /game/ladder_game/css/mvpready-admin.css
+2014-06-23 19:52:37,906 [WARNING] django.request: Not Found: /game/ladder_game/img/logo.png
+2014-06-23 19:52:37,916 [WARNING] django.request: Not Found: /game/ladder_game/js/libs/jquery-1.10.2.min.js
+2014-06-23 19:52:37,920 [WARNING] django.request: Not Found: /game/ladder_game/css/mvpready-flat.css
+2014-06-23 19:52:37,949 [WARNING] django.request: Not Found: /game/ladder_game/img/avatars/avatar-1-md.jpg
+2014-06-23 19:52:37,962 [WARNING] django.request: Not Found: /game/ladder_game/js/libs/bootstrap.min.js
+2014-06-23 19:52:38,098 [WARNING] django.request: Not Found: /game/ladder_game/js/plugins/dataTables/jquery.dataTables.js
+2014-06-23 19:52:38,440 [WARNING] django.request: Not Found: /game/ladder_game/js/plugins/dataTables/dataTables.bootstrap.js
+2014-06-23 19:52:38,461 [WARNING] django.request: Not Found: /game/ladder_game/js/mvpready-admin.js
+2014-06-23 19:52:38,469 [WARNING] django.request: Not Found: /game/ladder_game/js/demos/table_demo.js
+2014-06-23 19:52:38,476 [WARNING] django.request: Not Found: /game/ladder_game/js/mvpready-core.js
+2014-06-23 19:52:38,585 [WARNING] django.request: Not Found: /game/ladder_game/img/avatars/avatar-2-md.jpg
+2014-06-23 19:52:38,622 [WARNING] django.request: Not Found: /game/ladder_game/img/avatars/avatar-1-xs.jpg
+2014-06-23 19:53:37,120 [WARNING] django.request: Not Found: /game/ladder_game/js/plugins/dataTables/dataTables.bootstrap.css
+2014-06-23 19:58:04,167 [ERROR] django.request: Internal Server Error: /game/ladder_game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/game/views.py", line 243, in ladder_game
+    return render_to_response('ladder-game.html')
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/shortcuts/__init__.py", line 29, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 162, in render_to_string
+    t = get_template(template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 138, in get_template
+    template, origin = find_template(template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 127, in find_template
+    source, display_name = loader(name, dirs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 43, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 49, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 149, in get_template_from_string
+    return Template(source, origin, name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 125, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 153, in compile_string
+    return parser.parse()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 276, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 332, in invalid_block_tag
+    raise self.error(token, "Invalid block tag: '%s'" % command)
+TemplateSyntaxError: Invalid block tag: 'static'
+2014-06-23 19:58:35,255 [WARNING] django.request: Not Found: /game/ladder_game/img/logo.png
+2014-06-23 19:58:35,263 [WARNING] django.request: Not Found: /game/ladder_game/img/avatars/avatar-1-md.jpg
+2014-06-23 19:58:35,278 [WARNING] django.request: Not Found: /game/ladder_game/img/avatars/avatar-2-md.jpg
+2014-06-23 19:58:35,488 [WARNING] django.request: Not Found: /game/ladder_game/img/avatars/avatar-1-xs.jpg
+2014-06-23 19:58:36,360 [WARNING] django.request: Not Found: /game/ladder_game/js/demos/table_data.json
+2014-06-23 20:00:14,704 [WARNING] django.request: Not Found: /game/ladder_game/js/plugins/dataTables/dataTables.bootstrap.css
+2014-06-23 20:38:02,279 [ERROR] django.request: Internal Server Error: /game/ladder_game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/game/views.py", line 259, in ladder_game
+    ladder_games = games.exclude(league != None)
+NameError: global name 'league' is not defined
+2014-06-23 20:39:57,238 [ERROR] django.request: Internal Server Error: /game/ladder_game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 223, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 230, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/functional.py", line 32, in wrapper
+    result = func(*args)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/damon/Project/TenniSoda/game/views.py", line 261
+    print "XXX"
+              ^
+IndentationError: unindent does not match any outer indentation level
+2014-06-23 20:40:09,210 [ERROR] django.request: Internal Server Error: /game/ladder_game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/game/views.py", line 259, in ladder_game
+    ladder_games = games.exclude(league_id != NULL)
+NameError: global name 'league_id' is not defined
+2014-06-23 20:41:14,623 [ERROR] django.request: Internal Server Error: /game/ladder_game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/game/views.py", line 265, in ladder_game
+    {},)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/shortcuts/__init__.py", line 29, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 162, in render_to_string
+    t = get_template(template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 138, in get_template
+    template, origin = find_template(template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 131, in find_template
+    raise TemplateDoesNotExist(name)
+TemplateDoesNotExist: ladder_game.html
+2014-06-23 20:42:30,531 [ERROR] django.request: Internal Server Error: /game/ladder_game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/game/views.py", line 259, in ladder_game
+    ladder_games = games.exclude(league_id is not None)
+NameError: global name 'league_id' is not defined
+2014-06-23 20:42:46,221 [ERROR] django.request: Internal Server Error: /game/ladder_game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/game/views.py", line 259, in ladder_game
+    ladder_games = games.exclude(league is not None)
+NameError: global name 'league' is not defined
+2014-06-23 20:43:28,504 [ERROR] django.request: Internal Server Error: /game/ladder_game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/game/views.py", line 259, in ladder_game
+    ladder_games = games.exclude(league_id!='')
+NameError: global name 'league' is not defined
+2014-06-23 20:43:32,124 [ERROR] django.request: Internal Server Error: /game/ladder_game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/game/views.py", line 259, in ladder_game
+    ladder_games = games.exclude(league_id!='')
+NameError: global name 'league' is not defined
+2014-06-23 20:43:33,703 [ERROR] django.request: Internal Server Error: /game/ladder_game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/game/views.py", line 259, in ladder_game
+    ladder_games = games.exclude(league_id!='')
+NameError: global name 'league' is not defined
+2014-06-23 20:43:42,465 [ERROR] django.request: Internal Server Error: /game/ladder_game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/game/views.py", line 259, in ladder_game
+    ladder_games = games.exclude(league_id!='')
+NameError: global name 'league_id' is not defined
+2014-06-23 20:44:19,705 [ERROR] django.request: Internal Server Error: /game/ladder_game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/game/views.py", line 259, in ladder_game
+    ladder_games = games.exclude(Q(league_id!=null))
+NameError: global name 'league_id' is not defined
+2014-06-23 20:44:31,864 [ERROR] django.request: Internal Server Error: /game/ladder_game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/game/views.py", line 259, in ladder_game
+    ladder_games = games.exclude(Q(league_id!=None))
+NameError: global name 'league_id' is not defined
+2014-06-23 20:44:50,438 [ERROR] django.request: Internal Server Error: /game/ladder_game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/game/views.py", line 259, in ladder_game
+    ladder_games = games.exclude(Q(league_id is not None))
+NameError: global name 'league_id' is not defined
+2014-06-23 20:45:31,912 [ERROR] django.request: Internal Server Error: /game/ladder_game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/game/views.py", line 259, in ladder_game
+    ladder_games = games.exclude(Q(league_id!=''))
+NameError: global name 'league_id' is not defined
+2014-06-23 20:46:24,101 [ERROR] django.request: Internal Server Error: /game/ladder_game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/game/views.py", line 259, in ladder_game
+    ladder_games = games.filter(~Q(league_id=''))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/query.py", line 590, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/query.py", line 608, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/sql/query.py", line 1198, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/sql/query.py", line 1230, in _add_q
+    current_negated)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/sql/query.py", line 1234, in _add_q
+    current_negated=current_negated)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/sql/query.py", line 1122, in build_filter
+    lookup_type, value)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/fields/related.py", line 1107, in get_lookup_constraint
+    value[index]), AND)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/tree.py", line 104, in add
+    data = self._prepare_data(data)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/sql/where.py", line 79, in _prepare_data
+    value = obj.prepare(lookup_type, value)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/sql/where.py", line 352, in prepare
+    return self.field.get_prep_lookup(lookup_type, value)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/fields/__init__.py", line 369, in get_prep_lookup
+    return self.get_prep_value(value)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/fields/__init__.py", line 613, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+2014-06-23 20:46:50,981 [ERROR] django.request: Internal Server Error: /game/ladder_game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/game/views.py", line 259, in ladder_game
+    ladder_games = games.filter(~Q(league_id is None))
+NameError: global name 'league_id' is not defined
