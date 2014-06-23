@@ -5671,3 +5671,379 @@ Traceback (most recent call last):
   File "/home/damon/Project/TenniSoda/game/views.py", line 259, in ladder_game
     ladder_games = games.filter(~Q(league_id is None))
 NameError: global name 'league_id' is not defined
+2014-06-23 22:09:07,638 [ERROR] django.request: Internal Server Error: /game/ladder_game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/game/views.py", line 262, in ladder_game
+    'user': user},)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/shortcuts/__init__.py", line 29, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 162, in render_to_string
+    t = get_template(template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 138, in get_template
+    template, origin = find_template(template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 127, in find_template
+    source, display_name = loader(name, dirs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 43, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 49, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 149, in get_template_from_string
+    return Template(source, origin, name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 125, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 153, in compile_string
+    return parser.parse()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 215, in do_extends
+    nodelist = parser.parse()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 190, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/defaulttags.py", line 806, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/defaulttags.py", line 942, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/defaulttags.py", line 942, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 276, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 331, in invalid_block_tag
+    (command, get_text_list(["'%s'" % p for p in parse_until])))
+TemplateSyntaxError: Invalid block tag: 'set', expected 'elif', 'else' or 'endif'
+2014-06-23 22:10:20,742 [ERROR] django.request: Internal Server Error: /game/ladder_game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/game/views.py", line 262, in ladder_game
+    'user': user},)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/shortcuts/__init__.py", line 29, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 162, in render_to_string
+    t = get_template(template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 138, in get_template
+    template, origin = find_template(template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 127, in find_template
+    source, display_name = loader(name, dirs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 43, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 49, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 149, in get_template_from_string
+    return Template(source, origin, name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 125, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 153, in compile_string
+    return parser.parse()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 215, in do_extends
+    nodelist = parser.parse()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/defaulttags.py", line 1084, in load
+    (taglib, e))
+TemplateSyntaxError: 'set_var' is not a valid tag library: Template library set_var not found, tried django.templatetags.set_var,django.contrib.admin.templatetags.set_var,django.contrib.staticfiles.templatetags.set_var,form_utils.templatetags.set_var
+2014-06-23 22:12:13,780 [ERROR] django.request: Internal Server Error: /game/ladder_game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/game/views.py", line 262, in ladder_game
+    'user': user},)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/shortcuts/__init__.py", line 29, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 162, in render_to_string
+    t = get_template(template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 138, in get_template
+    template, origin = find_template(template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 127, in find_template
+    source, display_name = loader(name, dirs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 43, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 49, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 149, in get_template_from_string
+    return Template(source, origin, name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 125, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 153, in compile_string
+    return parser.parse()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 215, in do_extends
+    nodelist = parser.parse()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 190, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/defaulttags.py", line 806, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/defaulttags.py", line 942, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/defaulttags.py", line 942, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 276, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 331, in invalid_block_tag
+    (command, get_text_list(["'%s'" % p for p in parse_until])))
+TemplateSyntaxError: Invalid block tag: 'player1_set', expected 'elif', 'else' or 'endif'
+2014-06-23 22:15:06,041 [ERROR] django.request: Internal Server Error: /game/upload_score/146/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/game/views.py", line 66, in upload_score
+    game = Game.objects.get(id = game_id)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/db/models/query.py", line 307, in get
+    self.model._meta.object_name)
+DoesNotExist: Game matching query does not exist.
+2014-06-23 22:17:59,838 [ERROR] django.request: Internal Server Error: /game/ladder_game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/game/views.py", line 262, in ladder_game
+    'user': user},)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/shortcuts/__init__.py", line 29, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 162, in render_to_string
+    t = get_template(template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 138, in get_template
+    template, origin = find_template(template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 127, in find_template
+    source, display_name = loader(name, dirs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 43, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 49, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 149, in get_template_from_string
+    return Template(source, origin, name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 125, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 153, in compile_string
+    return parser.parse()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 215, in do_extends
+    nodelist = parser.parse()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 190, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/defaulttags.py", line 806, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/defaulttags.py", line 942, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/defaulttags.py", line 942, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/defaulttags.py", line 1403, in do_with
+    "assignment" % bits[0])
+TemplateSyntaxError: u'with' expected at least one variable assignment
+2014-06-23 22:18:43,489 [ERROR] django.request: Internal Server Error: /game/ladder_game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/game/views.py", line 262, in ladder_game
+    'user': user},)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/shortcuts/__init__.py", line 29, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 162, in render_to_string
+    t = get_template(template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 138, in get_template
+    template, origin = find_template(template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 127, in find_template
+    source, display_name = loader(name, dirs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 43, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 49, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 149, in get_template_from_string
+    return Template(source, origin, name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 125, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 153, in compile_string
+    return parser.parse()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 215, in do_extends
+    nodelist = parser.parse()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 190, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/defaulttags.py", line 806, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/defaulttags.py", line 942, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/defaulttags.py", line 942, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/defaulttags.py", line 1407, in do_with
+    nodelist = parser.parse(('endwith',))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/defaulttags.py", line 942, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 276, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 331, in invalid_block_tag
+    (command, get_text_list(["'%s'" % p for p in parse_until])))
+TemplateSyntaxError: Invalid block tag: 'player1_set', expected 'elif', 'else' or 'endif'
+2014-06-23 22:20:39,412 [ERROR] django.request: Internal Server Error: /game/ladder_game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/game/views.py", line 262, in ladder_game
+    'user': user},)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/shortcuts/__init__.py", line 29, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 162, in render_to_string
+    t = get_template(template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 138, in get_template
+    template, origin = find_template(template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 127, in find_template
+    source, display_name = loader(name, dirs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 43, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 49, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 149, in get_template_from_string
+    return Template(source, origin, name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 125, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 153, in compile_string
+    return parser.parse()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 215, in do_extends
+    nodelist = parser.parse()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 190, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/defaulttags.py", line 806, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/defaulttags.py", line 942, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/defaulttags.py", line 942, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/defaulttags.py", line 1407, in do_with
+    nodelist = parser.parse(('endwith',))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/defaulttags.py", line 1403, in do_with
+    "assignment" % bits[0])
+TemplateSyntaxError: u'with' expected at least one variable assignment
+2014-06-23 22:20:58,810 [ERROR] django.request: Internal Server Error: /game/ladder_game/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/game/views.py", line 262, in ladder_game
+    'user': user},)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/shortcuts/__init__.py", line 29, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 162, in render_to_string
+    t = get_template(template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 138, in get_template
+    template, origin = find_template(template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 127, in find_template
+    source, display_name = loader(name, dirs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 43, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 49, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader.py", line 149, in get_template_from_string
+    return Template(source, origin, name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 125, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 153, in compile_string
+    return parser.parse()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 215, in do_extends
+    nodelist = parser.parse()
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/loader_tags.py", line 190, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/defaulttags.py", line 806, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/defaulttags.py", line 942, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/defaulttags.py", line 942, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/defaulttags.py", line 1407, in do_with
+    nodelist = parser.parse(('endwith',))
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/defaulttags.py", line 1400, in do_with
+    extra_context = token_kwargs(remaining_bits, parser, support_legacy=True)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 944, in token_kwargs
+    kwargs[key] = parser.compile_filter(value)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 360, in compile_filter
+    return FilterExpression(token, self)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/template/base.py", line 577, in __init__
+    "from '%s'" % (token[upto:], token))
+TemplateSyntaxError: Could not parse the remainder: '+1' from 'player1_set+1'

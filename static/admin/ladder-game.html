@@ -44,32 +44,70 @@
                   </tr>
                 </thead>
                 <tbody>
-                  {% for game in games %}
-                    {% if not game.league %}
-                      <tr >
-                        <td>{{ game.date }}</td>
-                        {% if game.player1 == user %}
-                          <td>{{ game.player2 }}</td>
-                        {% else %}
-                          <td>{{ game.player1 }}</td>
-                        {% endif %}
-                        {% if not game.winner %}
-                          <td class="hidden-xs">N/A</td>
-                        {% elif game.winner == user %}
-                          <td class="hidden-xs">W</td>
-                        {% else %}
-                          <td class="hidden-xs">L</td>
-                        {% endif %}
-                        <td class="hidden-xs hidden-sm">{{ game.court }}</td>
-                        <td>C</td>
-                        <td></td>
-                        <td  class="hidden-xs hidden-sm"></td>
-                      </tr>
+                {% for game in games %}
+                {% if not game.league %}
+                  <tr>
+                    <td>{{ game.date }}</td>
+                    {% if game.player1 == user %}
+                      <td>{{ game.player2 }}</td>
+                    {% else %}
+                      <td>{{ game.player1 }}</td>
                     {% endif %}
-                  {% endfor %}
-                </tbody>
-              </table>
+                    {% if not game.winner %}
+                      <td class="hidden-xs">N/A</td>
+                    {% elif game.winner == user %}
+                      <td class="hidden-xs">W</td>
+                    {% else %}
+                      <td class="hidden-xs">L</td>
+                    {% endif %}
+                    <td class="hidden-xs hidden-sm">{{ game.court }}</td>
+                    {% if game.score %}
+                      <!--
+                      {% with player1_set=0 player2_set=0 %}
+                        {% with player1_set=player1_set+1 %}
 
+                        {% if game.score.score11 > game.score.score12 %}
+                            {% player1_set += 1 %}
+                        {% elif game.score.score11 < game.score.score12 %}
+                            {% player2_set += 1 %}
+                        {% endif %}
+                        {% if game.score.score21 > game.score.score22 %}
+                            {% player1_set += 1 %}
+                        {% elif game.score.score21 < game.score.score22 %}
+                            {% player2_set += 1 %}
+                        {% endif %}
+                        {% if game.score.score31 > game.score.score32 %}
+                            {% player1_set += 1 %}
+                        {% elif game.score.score31 < game.score.score32 %}
+                            {% player2_set += 1 %}
+                        {% endif %}
+                        {% if game.score.score41 > game.score.score42 %}
+                            {% player1_set += 1 %}
+                        {% elif game.score.score41 < game.score.score42 %}
+                            {% player2_set += 1 %}
+                        {% endif %}
+                        {% if game.score.score51 > game.score.score52 %}
+                            {% player1_set += 1 %}
+                        {% elif game.score.score51 < game.score.score52 %}
+                            {% player2_set += 1 %}
+                        {% endif %}
+                      {% if game.player1 == user %}
+                        <td>{{player1_set}}:{{player2_set}}</td>
+                      {% else %}
+                        <td>{{player2_set}}:{{player1_set}}</td>
+                      {% endif %}
+                      <td>22</td>
+                      {% endwith %}
+                      -->
+                    {% endif %}
+                    <td></td>
+                    <td  class="hidden-xs hidden-sm"></td>
+                  </tr>
+                {% endif %}
+                {% endfor %}
+                </tbody>
+
+              </table>
             </div> <!-- /.portlet-body -->
 
           </div> <!-- /.portlet -->
