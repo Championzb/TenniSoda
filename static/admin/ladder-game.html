@@ -1,8 +1,8 @@
 {% extends "index-base.html" %}
 {% load static %}
 {% block profileimg %}
-    {% if profile.picture %}
-      <img src="{% get_static_prefix %}assets/{{profile.picture.url}}" class="navbar-profile-avatar" alt="" />
+    {% if user.picture %}
+      <img src="{% get_static_prefix %}assets/{{user.picture.url}}" class="navbar-profile-avatar" alt="" />
     {% else %}
       <img src="{% static "assets/uploaded_files/default.jpg" %}" class="navbar-profile-avatar" alt="" />
     {% endif %}
@@ -47,12 +47,15 @@
                 {% for game in games %}
                 {% if not game.league %}
                   <tr>
+                    <!--Date-->
                     <td>{{ game.date }}</td>
+                    <!-- Opponent -->
                     {% if game.player1 == user %}
                       <td>{{ game.player2 }}</td>
                     {% else %}
                       <td>{{ game.player1 }}</td>
                     {% endif %}
+                    <!-- Winner -->
                     {% if not game.winner %}
                       <td class="hidden-xs">N/A</td>
                     {% elif game.winner == user %}
@@ -60,48 +63,45 @@
                     {% else %}
                       <td class="hidden-xs">L</td>
                     {% endif %}
+                    <!-- Court -->
                     <td class="hidden-xs hidden-sm">{{ game.court }}</td>
-                    {% if game.score %}
-                      <!--
-                      {% with player1_set=0 player2_set=0 %}
-                        {% with player1_set=player1_set+1 %}
-
-                        {% if game.score.score11 > game.score.score12 %}
-                            {% player1_set += 1 %}
-                        {% elif game.score.score11 < game.score.score12 %}
-                            {% player2_set += 1 %}
+                    <!-- Score -->
+                    {% if game.player1_confirmed or game.player2_confirmed %}
+                      <!--One of the players has uploaded the score-->
+                      {% if game.player1_confirmed and game.player2_confirmed %}
+                      <!-- Both players confirm the socre-->
+                        {% if game.player1 == user %}
+                          <td>{{ game.score.set1 }}:{{ game.score.set2 }}</td>
+                        {% else %}
+                          <td>{{ game.score.set2 }}:{{ game.score.set1 }}</td>
                         {% endif %}
-                        {% if game.score.score21 > game.score.score22 %}
-                            {% player1_set += 1 %}
-                        {% elif game.score.score21 < game.score.score22 %}
-                            {% player2_set += 1 %}
-                        {% endif %}
-                        {% if game.score.score31 > game.score.score32 %}
-                            {% player1_set += 1 %}
-                        {% elif game.score.score31 < game.score.score32 %}
-                            {% player2_set += 1 %}
-                        {% endif %}
-                        {% if game.score.score41 > game.score.score42 %}
-                            {% player1_set += 1 %}
-                        {% elif game.score.score41 < game.score.score42 %}
-                            {% player2_set += 1 %}
-                        {% endif %}
-                        {% if game.score.score51 > game.score.score52 %}
-                            {% player1_set += 1 %}
-                        {% elif game.score.score51 < game.score.score52 %}
-                            {% player2_set += 1 %}
-                        {% endif %}
-                      {% if game.player1 == user %}
-                        <td>{{player1_set}}:{{player2_set}}</td>
                       {% else %}
-                        <td>{{player2_set}}:{{player1_set}}</td>
+                        {% if game.player1 == user %}
+                          <td><a href="/game/upload_score/{{game.id}}">{{ game.score.set1 }}:{{ game.score.set2 }}</a></td>
+                        {% else %}
+                          <td><a href="/game/upload_score/{{game.id}}">{{ game.score.set2 }}:{{ game.score.set1 }}</a></td>
+                        {% endif %}
                       {% endif %}
-                      <td>22</td>
-                      {% endwith %}
-                      -->
+                    {% else %}
+                      <!--No score uploaded-->
+                      <td><a href="/game/upload_score/{{game.id}}">Upload Score</a></td>
                     {% endif %}
-                    <td></td>
-                    <td  class="hidden-xs hidden-sm"></td>
+                    <!-- Confirm -->
+                    {% if game.player1 == user %}
+                      {% if game.player1_confirmed %}
+                        <td>Confirmed</td>
+                      {% else %}
+                        <td><a href="/game/confirm_score/{{game.id}}/">Confirm</a></td>
+                      {% endif %}
+                    {% else %}
+                      {% if game.player2_confirmed %}
+                        <td>Confirmed</td>
+                      {% else %}
+                        <td><a href="/game/confirm_score/{{game.id}}/">Confirm</a></td>
+                      {% endif %}
+                    {% endif %}
+                    <!-- Review -->
+                    <td  class="hidden-xs hidden-sm"><a href="/review/all_review/{{game.id}}/">Review</a></td>
                   </tr>
                 {% endif %}
                 {% endfor %}
@@ -120,46 +120,22 @@
         <div class="col-sm-5 col-md-4 layout-sidebar">
 
           <div class="portlet">
-            <a href="javascript:;" class="btn btn-primary btn-jumbo btn-block ">New Product</a>
+            <a href="/game/find_game/" class="btn btn-primary btn-jumbo btn-block ">Join game</a>
             <br>
             <a href="javascript:;" class="btn btn-secondary btn-lg btn-block ">New Template</a>
           </div> <!-- /.portlet -->
 
 
-          <h4>Recent Activity</h4>
+          <h4>Introduction</h4>
 
           <div class="well">
             
             <ul class="icons-list text-md">
               <li>
                 <i class="icon-li fa fa-comments-o text-success"></i>
-                <strong>New Sale!</strong>
+                <strong>HHEHEHEHHEH</strong>
                 <br>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </li>
-              <li>
-                <i class="icon-li fa fa-check-square text-secondary"></i>
-                <strong>New Action!</strong>
-                <br>
-                Vestibulum iaculis felis eu eros pellentesque placerat.
-              </li>
-              <li>
-                <i class="icon-li fa fa-truck text-tertiary"></i>
-                <strong>New Product!</strong>
-                <br>
-                Curabitur cursus nisl et mauris imperdiet porttitor.
-              </li>
-              <li>
-                <i class="icon-li fa fa-comments-o text-primary"></i>
-                <strong>New Comment!</strong>
-                <br>
-                Vestibulum iaculis felis eu eros pellentesque placerat.
-              </li>
-              <li>
-                <i class="icon-li fa fa-comments-o text-primary"></i>
-                <strong>New Comment!</strong>
-                <br>
-                Curabitur cursus nisl et mauris imperdiet porttitor.
               </li>
             </ul>
           </div> <!-- /.well -->

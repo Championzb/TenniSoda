@@ -1,0 +1,77 @@
+{% extends "index-base.html" %}
+{% load static %}
+{% block profileimg %}
+    {% if profile.picture %}
+      <img src="{% get_static_prefix %}assets/{{profile.picture.url}}" class="navbar-profile-avatar" alt="" />
+    {% else %}
+      <img src="{% static "assets/uploaded_files/default.jpg" %}" class="navbar-profile-avatar" alt="" />
+    {% endif %}
+{% endblock %}
+{% block ladder %}
+<li class="dropdown active">
+<a href="/game/ladder_game/">
+    <i class="fa fa-user"></i>
+    Ladder
+</a>
+</li>
+{% endblock %}
+{% block content %}
+  <div class="content">
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-md-6 col-md-push-3 col-sm-8 col-sm-push-2 ">
+
+          <div class="portlet">
+
+            <h2 class="portlet-title">
+              <u>Review</u>
+            </h2>
+
+            <div class="portlet-body">
+
+              <form action="/review/all_review/{{game_id}}/" method="POST" data-validate="parsley" class="form parsley-form">{% csrf_token %}
+                <h3>Player Review: {{opponent}}</h3>
+
+                <div class="form-group">
+                  <label><font size="4">Rate</font></label>
+                  {{ rate_review_form.rate }}
+                </div> <!-- /.form-group -->
+
+                <div class="form-group">
+                  <label><font size="4">Review</font></label>
+                  {{ rate_review_form.review }}
+                </div> <!-- /.form-group -->
+
+                <h3>Court Review: {{court.name}}</h3>
+
+                <div class="form-group">
+                  <label><font size="4">Rate</font></label>
+                  {{ court_review_form.rate }}
+                </div> <!-- /.form-group -->
+
+                <div class="form-group">
+                  <label><font size="4">Review</font></label>
+                  {{ court_review_form.review }}
+                </div> <!-- /.form-group -->
+
+                <div class="form-group">
+                  <button type="submit" class="btn btn-danger">Submit</button>
+                </div> <!-- /.form-group -->
+
+              </form>
+
+            </div> <!-- /.portlet-body -->
+
+          </div> <!-- /.portlet -->
+
+        </div> <!-- /.col -->
+
+      </div> <!-- /.row -->
+
+    </div> <!-- /.container -->
+
+  </div> <!-- .content -->
+{% endblock %}

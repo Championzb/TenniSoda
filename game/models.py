@@ -46,6 +46,8 @@ class Score(models.Model):
     score42 = models.IntegerField(blank = True, null = True)
     score51 = models.IntegerField(blank = True, null = True)
     score52 = models.IntegerField(blank = True, null = True)
+    set1 = models.IntegerField(blank = True, null = True)
+    set2 = models.IntegerField(blank = True, null = True)
 
 
     def __unicode__(self):

@@ -19,6 +19,14 @@
   <img src="{% static "assets/uploaded_files/default.jpg" %}" class="navbar-profile-avatar" alt="" />
 {% endif %}
 {% endblock %}
+{% block profile %}
+<li class="dropdown active">
+<a href="/account/welcome_user/">
+    <i class="fa fa-user"></i>
+    Profile
+</a>
+</li>
+{% endblock %}
 {% block content %}
   <div class="content">
 

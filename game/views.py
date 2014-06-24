@@ -92,7 +92,7 @@ def upload_score(request, game_id=1):
 											message = 'Your game vs %s %s needs your confirmation, go to game page to confirm.' % (game.player2.last_name, game.player2.first_name),
 											time = datetime.now())
 
-			return HttpResponseRedirect('/game/list_all_games')
+			return HttpResponseRedirect('/game/ladder_game/')
 	else:
 		score_form = ScoreCreationForm(instance=score)
 		game_form = GameEditForm(instance=game)
@@ -100,12 +100,13 @@ def upload_score(request, game_id=1):
 	args = {}
 	args.update(csrf(request))
 
+	args['profile'] = user
 	args['score_form'] = score_form
 	args['game_form'] = game_form
 	args['player1'] = game.player1
 	args['player2'] = game.player2
 	args['game_id'] = game.id
-	return render_to_response('upload_score.html', args)
+	return render_to_response('upload-score.html', args)
 
 
 
@@ -130,7 +131,7 @@ def confirm_score(request,game_id = 1):
 										time = datetime.now())
 		game.save()
 
-		return HttpResponseRedirect('/game/list_all_games')
+		return HttpResponseRedirect('/game/ladder_game/')
 	else:
 		game.player2_confirmed = True
 		if game.player1_confirmed:
@@ -144,7 +145,7 @@ def confirm_score(request,game_id = 1):
 										message = 'Your game against %s %s is completed' % (game.player1.last_name, game.player1.first_name),
 										time = datetime.now())
 		game.save()
-		return HttpResponseRedirect('/game/list_all_games/')
+		return HttpResponseRedirect('/game/ladder_game/')
 
 @login_required
 def find_game(request):
@@ -206,34 +207,8 @@ def quit_game(request,game_id = 1):
 
 def get_winner(game):
 	score = Score.objects.get(game = game)
-	player1_set_point = 0
-	player2_set_point = 0
-	if score.score11>score.score12:
-		player1_set_point += 1
-	elif score.score11<score.score12:
-		player2_set_point += 1
 
-	if score.score21>score.score22:
-		player1_set_point += 1
-	elif score.score11<score.score12:
-		player2_set_point += 1
-
-	if score.score31>score.score32:
-		player1_set_point += 1
-	elif score.score11<score.score12:
-		player2_set_point += 1
-
-	if score.score41>score.score42:
-		player1_set_point += 1
-	elif score.score11<score.score12:
-		player2_set_point += 1
-
-	if score.score51>score.score52:
-		player1_set_point += 1
-	elif score.score11<score.score12:
-		player2_set_point += 1
-
-	if player1_set_point>player2_set_point:
+	if score.set1>score.set2:
 		return game.player1
 	else:
 		return game.player2
@@ -259,4 +234,4 @@ def ladder_game(request):
 
 	return render_to_response('ladder-game.html',
 		{'games': games,
-         'user': user},)
+		 'user': user},)
