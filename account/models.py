@@ -6,6 +6,7 @@ from court.models import Court
 from city.models import City
 from TenniSoda import settings
 from time import time
+from datetime import datetime
 
 # Create your models here.
 
@@ -53,6 +54,7 @@ class Account(AbstractBaseUser):
         unique=True,
         db_index=True,
     )
+    register_time = models.DateTimeField(default=datetime.now())
     is_active = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
 

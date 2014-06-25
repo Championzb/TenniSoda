@@ -103,7 +103,7 @@ class ScoreAdmin(admin.ModelAdmin):
 	list_display = ['game','score11','score12','score21','score22','score31','score32','score41','score42','score51','score52','set1', 'set2',]
 
 class FreeLeagueGameAdmin(admin.ModelAdmin):
-    list_display = ['player','request_time']
+	list_display = ['player','request_time']
 
 admin.site.register(League,LeagueAdmin)
 admin.site.register(Game,GameAdmin)
