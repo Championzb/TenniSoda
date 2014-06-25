@@ -2,8 +2,13 @@ from django.db import models
 from account.models import Profile
 from city.models import City
 from court.models import Court
+from TenniSoda import settings
+from time import time
 from datetime import datetime
 
+#get league picture name
+def get_upload_file_name(instance, filename):
+    return settings.UPLOAD_FILE_PATTERN % (str(time()).replace('.','_'), filename)
 # Create your models here.
 class League(models.Model):
     name = models.CharField(max_length = 200)
@@ -15,6 +20,8 @@ class League(models.Model):
     players = models.ManyToManyField(Profile, blank = True, null = True)
     level_low = models.FloatField()
     level_high = models.FloatField()
+    picture = models.ImageField(upload_to = get_upload_file_name, null=True, blank=True)
+
 
     def __unicode__(self):
         return self.name

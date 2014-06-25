@@ -4,7 +4,8 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from datetime import datetime
-
+from django.core.mail import send_mail
+from django.conf import settings
 from account.models import Account,Profile
 
 
@@ -35,8 +36,15 @@ class UserCreationForm(forms.ModelForm):
         user = super(UserCreationForm, self).save(commit=False)
         user.set_password(self.cleaned_data["password1"])
         user.register_time = datetime.now()
+        #send email parameters setting
+        from_email = settings.EMAIL_HOST_USER
+        to_email = [self.cleaned_data['email'],from_email]
+        subject = 'Register Successfully - TenniSoda'
+        message = 'Congratulation! You have registered successfully!'
         if commit:
             user.save()
+            #send email..
+            send_mail(subject, message, from_email, to_email, fail_silently = True)
         return user
 
 
