@@ -42,9 +42,9 @@ class UserCreationForm(forms.ModelForm):
         subject = 'Register Successfully - TenniSoda'
         message = 'Congratulation! You have registered successfully!'
         if commit:
-            user.save()
             #send email..
-            send_mail(subject, message, from_email, to_email, fail_silently = True)
+            #send_mail(subject, message, from_email, to_email, fail_silently = True)
+            user.save()
         return user
 
 

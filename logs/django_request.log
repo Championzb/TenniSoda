@@ -6525,3 +6525,50 @@ Traceback (most recent call last):
 TemplateSyntaxError: Could not parse the remainder: '(players=profile)' from 'league.objects.filter(players=profile)'
 2014-06-25 20:46:24,168 [WARNING] django.request: Not Found: /game/all_league/page-profile.html
 2014-06-25 20:47:18,034 [WARNING] django.request: Not Found: /game/all_league/page-profile.html
+2014-06-25 21:35:27,715 [WARNING] django.request: Not Found: /game/attended_league/page-settings.html
+2014-06-25 22:13:36,376 [ERROR] django.request: Internal Server Error: /game/all_league/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/ethan/Project/TenniSoda/game/views.py", line 250, in all_league
+    return render_to_response('all-league.html', args)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/shortcuts/__init__.py", line 29, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/template/loader.py", line 162, in render_to_string
+    t = get_template(template_name)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/template/loader.py", line 138, in get_template
+    template, origin = find_template(template_name)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/template/loader.py", line 127, in find_template
+    source, display_name = loader(name, dirs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/template/loader.py", line 43, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/template/loader.py", line 49, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/template/loader.py", line 149, in get_template_from_string
+    return Template(source, origin, name)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 125, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 153, in compile_string
+    return parser.parse()
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/template/loader_tags.py", line 215, in do_extends
+    nodelist = parser.parse()
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 278, in parse
+    compiled_result = compile_func(self, token)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/template/loader_tags.py", line 190, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 254, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 360, in compile_filter
+    return FilterExpression(token, self)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/template/base.py", line 577, in __init__
+    "from '%s'" % (token[upto:], token))
+TemplateSyntaxError: Could not parse the remainder: ' profile.last_name' from 'not profile.last_name'
+2014-06-25 22:31:08,665 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-06-25 22:38:29,421 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-06-25 22:38:42,526 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-06-25 22:39:24,092 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-06-25 22:39:24,500 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png

@@ -11,7 +11,7 @@ from datetime import datetime
 # Create your models here.
 
 def get_upload_file_name(instance, filename):
-    return settings.UPLOAD_FILE_PATTERN % (str(time()).replace('.','_'), filename)
+    return settings.UPLOAD_FILE_PATTERN % ('profile_pic', str(time()).replace('.','_'), filename)
 
 class AccountManager(BaseUserManager):
     def create_user(self, email, password=None):

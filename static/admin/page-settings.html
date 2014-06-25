@@ -101,7 +101,6 @@
                   <div class="col-md-7">
                     <div class="fileupload fileupload-new" data-provides="fileupload">
                       <div class="fileupload-new thumbnail" style="width: 180px; height: 180px;">
-                        <!-- img src="{% static "assets/admin/img/avatars/avatar-1-lg.jpg" %}" alt="Profile Avatar" /-->
                         {% if profile.picture %}
                           <img src="{% get_static_prefix %}assets/{{profile.picture.url}}" alt="Profile Image" />
                         {% else %}
@@ -109,19 +108,6 @@
                         {% endif %}
                       </div>
 
-                      <!--div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 200px; line-height: 20px;"></div-->
-
-                      <!--div>
-                        <span class="btn btn-default btn-file">
-                          <span class="fileupload-new">Select image</span>
-                          <span class="fileupload-exists">Change</span>
-                          <input type="file" />
-                        </span>
-
-                        <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
-                      </div> <!-- /div -->
-
-                      <!--label class="col-md-3">Email Address</label-->
                       {{ form.picture }}
                       {% for err in form.picture.errors %}
                         <span style="color: red">{{ err }}</span>

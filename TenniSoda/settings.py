@@ -125,7 +125,7 @@ MEDIA_ROOT = os.path.join(PROJECT_DIR, 'static/')
 
 MEDIA_URL = ''
 
-UPLOAD_FILE_PATTERN = "uploaded_files/%s_%s"
+UPLOAD_FILE_PATTERN = "uploaded_files/%s/%s_%s"
 
 LOGGING = {
     'version':1,

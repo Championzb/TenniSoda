@@ -1,5 +1,17 @@
 {% extends "index-base.html" %}
 {% load static %}
+{% block head %}
+<script>
+    function checkProfile(){
+        {% if profile.last_name and profile.first_name and profile.phone %}
+            window.location = "/game/join_league/";
+        {% else %}
+            alert("Please provide your name and phone first!");
+            window.location = "/account/change_profile/";
+        {% endif %}
+    }
+</script>
+{% endblock %}
 {% block profileimg %}
     {% if profile.picture %}
       <img src="{% get_static_prefix %}assets/{{profile.picture.url}}" class="navbar-profile-avatar" alt="" />
@@ -31,14 +43,6 @@
                 </a>
               </li>
 
-              <li>
-                <a href="./page-settings.html">
-                <i class="fa fa-cogs"></i>
-                &nbsp;&nbsp;Finished
-                </a>
-              </li>
-
-
             </ul>
           </li>
 {% endblock %}
@@ -56,83 +60,84 @@
           <div class="table-responsive">
           <!-- all league table -->
           <table class="table table-striped table-bordered thumbnail-table">
-                        <thead>
-                            <tr>
-                                <th style="width: 150px">Image</th>
-                                <th>Name</th>
-                                <th>Start Date</th>
-                                <th>End Date</th>
-                                <th>City</th>
-                                <th>Number</th>
-                                <th>Level range</th>
-                                <th class="text-center">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for league in all_league %}
-                            <tr>
-                                <!--league picture-->
-                                <td>
-                                    <div class="thumbnail">
-                                        <div class="thumbnail-view">
-                                            {% if league.picture %}
-                                            <img src="{% get_static_prefix %}assets/{{league.picture.url}}" width="125" alt="League Image" >
-                                            {% else %}
-                                            <img src="{% static "assets/uploaded_files/default.jpg" %}" width="125" alt="League Image" >
-                                            {% endif %}
-                                        </div>
-                                    </div>
-                                </td>
-                                <!--league name-->
-                                <td class="valign-middle">
-                                    <p>{{league.name}}</p>
-                                </td>
-                                <!--league start date-->
-                                <td class="valign-middle">
-                                    <p>{{league.start_date}}</p>
-                                </td>
-                                <!--league end date-->
-                                <td class="valign-middle">
-                                    <p>{{league.end_date}}</p>
-                                </td>
-                                <!--league people number-->
-                                <td class="valign-middle">
-                                    <p>{{league.current_player_number}}/{{league.max_player_number}}</p>
-                                </td>
-                                <!--league level range-->
-                                <td class="valign-middle">
-                                    <p>{{league.level_low}}-{{league.level_high}}</p>
-                                </td>
-                                <!--league start date-->
-                                <td class="valign-middle">
-                                    <p>{{league.start_date}}</p>
-                                </td>
-                                <td class="text-center valign-middle">
-                                    {% if not league.is_finished %}
-                                    <!--league not finished-->
-                                        {% if profile in league.get_players %}
-                                        <!--user not joined this league -->
-                                            <a href="/game/join_league_cancel/{{league.id}}/">
-                                            <button class="btn btn-xs btn-secondary" ><i class="fa fa-times"></i></button>
-                                            </a>
-                                        {% else %}
-                                            <a href="/game/join_league/{{league.id}}/">
-                                            <button class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i></button>
-                                            </a>
-                                        {% endif %}
-                                    {% else %}
-                                    <p>Finished</p>
-                                    {% endif %}
-                                </td>
+            <thead>
+                <tr>
+                    <th style="width: 150px">Image</th>
+                    <th>Name</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>City</th>
+                    <th>Number</th>
+                    <th>Level range</th>
+                    <th class="text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for league in all_league %}
+                <tr>
+                    <!--league picture-->
+                    <td>
+                        <div class="thumbnail">
+                            <div class="thumbnail-view">
+                                {% if league.picture %}
+                                <img src="{% get_static_prefix %}assets/{{league.picture.url}}" width="125" alt="League Image" >
+                                {% else %}
+                                <img src="{% static "assets/uploaded_files/default.jpg" %}" width="125" alt="League Image" >
+                                {% endif %}
+                            </div>
+                        </div>
+                    </td>
+                    <!--league name-->
+                    <td class="valign-middle">
+                        <p>{{league.name}}</p>
+                    </td>
+                    <!--league start date-->
+                    <td class="valign-middle">
+                        <p>{{league.start_date}}</p>
+                    </td>
+                    <!--league end date-->
+                    <td class="valign-middle">
+                        <p>{{league.end_date}}</p>
+                    </td>
+                    <!--league people number-->
+                    <td class="valign-middle">
+                        <p>{{league.current_player_number}}/{{league.max_player_number}}</p>
+                    </td>
+                    <!--league level range-->
+                    <td class="valign-middle">
+                        <p>{{league.level_low}}-{{league.level_high}}</p>
+                    </td>
+                    <!--league start date-->
+                    <td class="valign-middle">
+                        <p>{{league.start_date}}</p>
+                    </td>
+                    <td class="text-center valign-middle">
+                        {% if not league.is_finished %}
+                        <!--league not finished-->
+                            {% if profile in league.get_players %}
+                            <!--user not joined this league -->
+                              <a href="/game/join_league_cancel/{{league.id}}/">
+                                <button class="btn btn-xs btn-secondary" ><i class="fa fa-times"></i></button>
+                              </a>
+                            {% else %}
+                              <!--a href="/game/join_league/{{league.id}}/">
+                                <button class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i></button>
+                              </a-->
+                              <button class="btn btn-xs btn-primary" onclick="checkProfile()"><i class="fa fa-pencil"></i></button>
+                            {% endif %}
+                        {% else %}
+                        <p>Finished</p>
+                        {% endif %}
+                    </td>
 
-                            </tr>
-                            {% endfor %}
+                </tr>
+                {% endfor %}
 
 
-                        </tbody>
-                       </table>
+            </tbody>
+           </table>
 
-                      </div> <!-- /.table-responsive -->
+          </div> <!-- /.table-responsive -->
 
 
         </div> <!-- /.col -->
