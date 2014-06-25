@@ -240,6 +240,11 @@ def ladder_game(request):
 def all_league(request):
 	user = request.user.profile
 	league_all = League.objects.all()
-	league_finished = League.objects.filter(is_finished = True)_
 	league_attended = League.objects.filter(players=request.user.profile)
 	league_attended_finished = league_attended.filter(is_finished = True)
+	league_attended_not_finished = league_attended.filter(is_finished = False)
+
+	args = {}
+	args['all_league'] = league_all
+	args['profile'] = user
+	return render_to_response('all-league.html', args)
