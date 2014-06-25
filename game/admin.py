@@ -86,7 +86,7 @@ def group_game_arrange(group_stage_set, start_date):
 
 		
 class LeagueAdmin(admin.ModelAdmin): 
-	list_display = ['name','city','start_date','end_date','picture']
+	list_display = ['name','city','start_date','end_date','picture','is_finished']
 	ordering = ['start_date']
 	actions = [game_arrange]
 

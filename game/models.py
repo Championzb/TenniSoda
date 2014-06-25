@@ -21,7 +21,7 @@ class League(models.Model):
     level_low = models.FloatField()
     level_high = models.FloatField()
     picture = models.ImageField(upload_to = get_upload_file_name, null=True, blank=True)
-
+    is_finished = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.name
