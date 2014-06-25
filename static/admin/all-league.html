@@ -2,9 +2,9 @@
 {% load static %}
 {% block head %}
 <script>
-    function checkProfile(){
+    function checkProfile(id){
         {% if profile.last_name and profile.first_name and profile.phone %}
-            window.location = "/game/join_league/";
+            window.location = "/game/join_league/"+id;
         {% else %}
             alert("Please provide your name and phone first!");
             window.location = "/account/change_profile/";
@@ -123,7 +123,7 @@
                               <!--a href="/game/join_league/{{league.id}}/">
                                 <button class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i></button>
                               </a-->
-                              <button class="btn btn-xs btn-primary" onclick="checkProfile()"><i class="fa fa-pencil"></i></button>
+                              <button class="btn btn-xs btn-primary" onclick="checkProfile({{league.id}})"><i class="fa fa-pencil"></i></button>
                             {% endif %}
                         {% else %}
                         <p>Finished</p>

@@ -6572,3 +6572,14 @@ TemplateSyntaxError: Could not parse the remainder: ' profile.last_name' from 'n
 2014-06-25 22:38:42,526 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
 2014-06-25 22:39:24,092 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
 2014-06-25 22:39:24,500 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-06-25 22:42:27,321 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-06-25 22:43:07,734 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-06-25 22:43:44,299 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403736218_05_pic.png
+2014-06-25 22:49:44,411 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403736218_05_pic.png
+2014-06-25 22:49:52,521 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403736218_05_pic.png
+2014-06-25 22:49:58,852 [WARNING] django.request: Not Found: /game/join_league/
+2014-06-25 22:52:52,422 [WARNING] django.request: Not Found: /game/join_league/
+2014-06-25 22:52:56,851 [WARNING] django.request: Not Found: /game/join_league/
+2014-06-25 22:56:10,091 [WARNING] django.request: Not Found: /game/join_league/
+2014-06-25 22:58:01,731 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-06-25 22:58:12,237 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
