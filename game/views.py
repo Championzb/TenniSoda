@@ -22,7 +22,7 @@ def join_league(request, league_match_id=1):
 		league_match.players.add(user)
 		league_match.current_player_number += 1
 		league_match.save()
-	return HttpResponseRedirect('/account/welcome_user')
+	return HttpResponseRedirect('/game/all_league/')
 
 @login_required
 def join_league_cancel(request, league_match_attended_id=1):
@@ -32,7 +32,7 @@ def join_league_cancel(request, league_match_attended_id=1):
 		league_match_attended.current_player_number -= 1
 		league_match_attended.save()
 		league_match_attended.players.remove(user)
-	return HttpResponseRedirect('/account/welcome_user')
+	return HttpResponseRedirect('/game/all_league/')
 
 @login_required
 def list_all_games(request):
@@ -239,7 +239,7 @@ def ladder_game(request):
 @login_required
 def all_league(request):
 	user = request.user.profile
-	league_all = League.objects.all()
+	league_all = League.objects.all().order_by('start_date').reverse()
 	league_attended = League.objects.filter(players=request.user.profile)
 	league_attended_finished = league_attended.filter(is_finished = True)
 	league_attended_not_finished = league_attended.filter(is_finished = False)
@@ -248,3 +248,16 @@ def all_league(request):
 	args['all_league'] = league_all
 	args['profile'] = user
 	return render_to_response('all-league.html', args)
+
+@login_required
+def attended_league(request):
+	user = request.user.profile
+	league_attended = League.objects.filter(players=request.user.profile)
+	league_attended_finished = league_attended.filter(is_finished = True).order_by('start_date').reverse()
+	league_attended_not_finished = league_attended.filter(is_finished = False).order_by('start_date').reverse()
+
+	args = {}
+	args['league_attended_finished'] = league_attended_finished
+	args['league_attended_not_finished'] = league_attended_not_finished
+	args['profile'] = user
+	return render_to_response('attended-league.html', args)

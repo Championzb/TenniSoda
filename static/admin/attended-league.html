@@ -47,7 +47,7 @@
 
     <div class="container">
 
-      <h3 class="content-title"><u>All leagues</u></h3>
+      <h3 class="content-title"><u>Attended leagues not finished</u></h3>
 
       <div class="row">
 
@@ -69,7 +69,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for league in all_league %}
+                            {% for league in league_attended_not_finished %}
                             <tr>
                                 <!--league picture-->
                                 <td>
@@ -108,21 +108,89 @@
                                     <p>{{league.start_date}}</p>
                                 </td>
                                 <td class="text-center valign-middle">
-                                    {% if not league.is_finished %}
-                                    <!--league not finished-->
-                                        {% if profile in league.get_players %}
-                                        <!--user not joined this league -->
-                                            <a href="/game/join_league_cancel/{{league.id}}/">
-                                            <button class="btn btn-xs btn-secondary" ><i class="fa fa-times"></i></button>
-                                            </a>
-                                        {% else %}
-                                            <a href="/game/join_league/{{league.id}}/">
-                                            <button class="btn btn-xs btn-primary"><i class="fa fa-pencil"></i></button>
-                                            </a>
-                                        {% endif %}
-                                    {% else %}
-                                    <p>Finished</p>
-                                    {% endif %}
+                                    <a href="/game/join_league_cancel/{{league.id}}/">
+                                    <button class="btn btn-xs btn-secondary" ><i class="fa fa-times"></i></button>
+                                    </a>
+
+                                </td>
+
+                            </tr>
+                            {% endfor %}
+
+
+                        </tbody>
+                       </table>
+
+                      </div> <!-- /.table-responsive -->
+
+
+        </div> <!-- /.col -->
+
+      </div> <!-- /.row -->
+
+      <h3 class="content-title"><u>Attended leagues finished</u></h3>
+
+      <div class="row">
+
+        <div class="col-md-12">
+
+          <div class="table-responsive">
+          <!-- all league table -->
+          <table class="table table-striped table-bordered thumbnail-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 150px">Image</th>
+                                <th>Name</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>City</th>
+                                <th>Number</th>
+                                <th>Level range</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for league in league_attended_finished %}
+                            <tr>
+                                <!--league picture-->
+                                <td>
+                                    <div class="thumbnail">
+                                        <div class="thumbnail-view">
+                                            {% if league.picture %}
+                                            <img src="{% get_static_prefix %}assets/{{league.picture.url}}" width="125" alt="League Image" >
+                                            {% else %}
+                                            <img src="{% static "assets/uploaded_files/default.jpg" %}" width="125" alt="League Image" >
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </td>
+                                <!--league name-->
+                                <td class="valign-middle">
+                                    <p>{{league.name}}</p>
+                                </td>
+                                <!--league start date-->
+                                <td class="valign-middle">
+                                    <p>{{league.start_date}}</p>
+                                </td>
+                                <!--league end date-->
+                                <td class="valign-middle">
+                                    <p>{{league.end_date}}</p>
+                                </td>
+                                <!--league people number-->
+                                <td class="valign-middle">
+                                    <p>{{league.current_player_number}}/{{league.max_player_number}}</p>
+                                </td>
+                                <!--league level range-->
+                                <td class="valign-middle">
+                                    <p>{{league.level_low}}-{{league.level_high}}</p>
+                                </td>
+                                <!--league start date-->
+                                <td class="valign-middle">
+                                    <p>{{league.start_date}}</p>
+                                </td>
+                                <td class="text-center valign-middle">
+                                    <p>finished</p>
+
                                 </td>
 
                             </tr>

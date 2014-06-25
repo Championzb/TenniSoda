@@ -23,6 +23,9 @@ class League(models.Model):
     picture = models.ImageField(upload_to = get_upload_file_name, null=True, blank=True)
     is_finished = models.BooleanField(default=False)
 
+    def get_players(self):
+        return self.players.all()
+
     def __unicode__(self):
         return self.name
 
