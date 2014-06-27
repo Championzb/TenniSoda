@@ -6584,3 +6584,32 @@ TemplateSyntaxError: Could not parse the remainder: ' profile.last_name' from 'n
 2014-06-25 22:58:01,731 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
 2014-06-25 22:58:12,237 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
 2014-06-26 02:00:51,454 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-06-26 20:02:07,790 [ERROR] django.request: Internal Server Error: /notification/all/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/ethan/Project/TenniSoda/notification/views.py", line 28, in all
+    profile = request.user.profile()
+TypeError: 'Profile' object is not callable
+2014-06-26 20:02:08,298 [WARNING] django.request: Not Found: /favicon.ico
+2014-06-26 20:02:31,357 [ERROR] django.request: Internal Server Error: /notification/all/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/ethan/Project/TenniSoda/notification/views.py", line 30, in all
+    notifications_not_viewed = Notificationl.objects.filter(user = request.user, viewed=False).order_by('time').reverse()
+NameError: global name 'Notificationl' is not defined
+2014-06-26 20:02:36,058 [WARNING] django.request: Not Found: /account/welcome_user/extras-icons.html
+2014-06-26 20:02:39,469 [ERROR] django.request: Internal Server Error: /notification/all/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/ethan/Project/TenniSoda/notification/views.py", line 30, in all
+    notifications_not_viewed = Notificationl.objects.filter(user = request.user, viewed=False).order_by('time').reverse()
+NameError: global name 'Notificationl' is not defined
