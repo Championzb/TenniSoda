@@ -15,7 +15,7 @@ def mark_as_viewed(request, notification_id):
     notification.viewed = True
     notification.save()
 
-    return HttpResponseRedirect('/account/welcome_user/')
+    return HttpResponseRedirect('/notification/all/')
 
 @login_required
 def all(request):

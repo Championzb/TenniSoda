@@ -118,19 +118,34 @@
           <br><br>
 
           <h4 class="content-title"><u>Unread</u></h4>
-
+<!--
           <ul class="icons-list notifications-list">
             {% for notification in notifications_not_viewed %}
             <li>
                 <i class="icon-li fa fa-eye text-secondary"></i>
                 <font size="4">{{ notification.title }} </font>
-                {{notification.time}}<br/>
+                <p align="right">{{notification.time}}</p>
                 {{notification.message}}
-                <br/>
             </li>
             {% endfor %}
           </ul>
-
+-->
+          <table class="table table-striped">
+            <tbody>
+              {% for notification in notifications_not_viewed %}
+              <tr>
+                <td valign-middle><i class="icon-li fa fa-eye text-secondary"></i></td>
+                <td valign-middle><font size="3">{{ notification.title }} </font></td>
+                <td align="right">{{notification.time}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><font color="grey">{{notification.message}}</font></td>
+                <td align="right"><a href="/notification/mark_as_viewed/{{notification.id}}">Mark as read</a></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
           <br>
 
           <h4 class="content-title"><u>Sent Yesterday</u></h4>
