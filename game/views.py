@@ -231,22 +231,26 @@ def ladder_game(request):
 			games_as_player2 = games_as_player2.exclude(id=game.id)
 	'''
 	games = Game.objects.filter((Q(player1 = user) | Q(player2 = user)))
+	notifications = Notification.objects.filter(user = request.user, viewed = False).order_by('time').reverse()
 
 	return render_to_response('ladder-game.html',
 		{'games': games,
-		 'user': user},)
+		 'user': user,
+		 'notifications': notifications},)
 
 @login_required
 def all_league(request):
 	user = request.user.profile
 	league_all = League.objects.all().order_by('start_date').reverse()
-	league_attended = League.objects.filter(players=request.user.profile)
-	league_attended_finished = league_attended.filter(is_finished = True)
-	league_attended_not_finished = league_attended.filter(is_finished = False)
+	#league_attended = League.objects.filter(players=request.user.profile)
+	#league_attended_finished = league_attended.filter(is_finished = True)
+	#league_attended_not_finished = league_attended.filter(is_finished = False)
+	notifications = Notification.objects.filter(user = request.user, viewed = False).order_by('time').reverse()
 
 	args = {}
 	args['all_league'] = league_all
 	args['profile'] = user
+	args['notifications'] = notifications
 	return render_to_response('all-league.html', args)
 
 @login_required
@@ -255,9 +259,11 @@ def attended_league(request):
 	league_attended = League.objects.filter(players=request.user.profile)
 	league_attended_finished = league_attended.filter(is_finished = True).order_by('start_date').reverse()
 	league_attended_not_finished = league_attended.filter(is_finished = False).order_by('start_date').reverse()
+	notifications = Notification.objects.filter(user = request.user, viewed = False).order_by('time').reverse()
 
 	args = {}
 	args['league_attended_finished'] = league_attended_finished
 	args['league_attended_not_finished'] = league_attended_not_finished
 	args['profile'] = user
+	args['notifications'] = notifications
 	return render_to_response('attended-league.html', args)

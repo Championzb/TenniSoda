@@ -66,8 +66,7 @@ def welcome_user(request):
 
 	league_match_attended = League.objects.filter(players=request.user.profile)
 
-
-	notifications = Notification.objects.filter(user = request.user, viewed = False)
+	notifications = Notification.objects.filter(user = request.user, viewed = False).order_by('time').reverse()
 
 	profile = request.user.profile
 
@@ -92,8 +91,10 @@ def logout(request):
 
 @login_required
 def change_profile(request):
+	notifications = Notification.objects.filter(user = request.user, viewed = False).order_by('time').reverse()
 	args = {}
 	args.update(csrf(request))
+	args['notifications'] = notifications
 	if request.method == 'POST':
 		form = UserProfileForm(request.POST, request.FILES, instance = request.user.profile,)
 		if form.is_valid():

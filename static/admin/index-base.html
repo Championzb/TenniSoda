@@ -82,7 +82,9 @@
             <a href="/notification/all/" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-bell"></i>
               <span class="navbar-visible-collapsed">&nbsp;Notifications&nbsp;</span>
-              <span class="badge badge-primary">3</span>
+              {% if notifications %}
+                <span class="badge badge-primary">{{ notifications.count }}</span>
+              {% endif %}
             </a>
 
             <ul class="dropdown-menu noticebar-menu noticebar-hoverable" role="menu">
@@ -92,35 +94,24 @@
                 </div>
 
                 <div class="pull-right">
-                  <a href="javascript:;">Mark as Read</a>
+                  <a href="/notification/mark_all/">Mark as Read</a>
                 </div>
               </li>
 
+              {% for notification in notifications %}
               <li>
-                <a href="./page-notifications.html" class="noticebar-item">
+                <a href="/notification/all/" class="noticebar-item">
                   <span class="noticebar-item-image">
                     <i class="fa fa-cloud-upload text-success"></i>
                   </span>
                   <span class="noticebar-item-body">
-                    <strong class="noticebar-item-title">Templates Synced</strong>
-                    <span class="noticebar-item-text">20 Templates have been synced to the Mashon Demo instance.</span>
-                    <span class="noticebar-item-time"><i class="fa fa-clock-o"></i> 12 minutes ago</span>
+                    <strong class="noticebar-item-title">{{ notification.title }}</strong>
+                    <span class="noticebar-item-text">{{ notification.message }}</span>
+                    <span class="noticebar-item-time"><i class="fa fa-clock-o"></i>{{ notification.time }}</span>
                   </span>
                 </a>
               </li>
-
-              <li>
-                <a href="./page-notifications.html" class="noticebar-item">
-                  <span class="noticebar-item-image">
-                    <i class="fa fa-ban text-danger"></i>
-                  </span>
-                  <span class="noticebar-item-body">
-                    <strong class="noticebar-item-title">Sync Error</strong>
-                    <span class="noticebar-item-text">5 Designs have been failed to be synced to the Mashon Demo instance.</span>
-                    <span class="noticebar-item-time"><i class="fa fa-clock-o"></i> 20 minutes ago</span>
-                  </span>
-                </a>
-              </li>
+              {% endfor %}
 
               <li class="noticebar-menu-view-all">
                 <a href="./page-notifications.html">View All Notifications</a>

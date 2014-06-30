@@ -31,12 +31,14 @@ def all(request):
 	:return:
 	"""
 	profile = request.user.profile
-	notifications = Notification.objects.filter(user = request.user).order_by('time').reverse()
+	notifications_all = Notification.objects.filter(user = request.user).order_by('time').reverse()
+	notifications = Notification.objects.filter(user = request.user, viewed = False).order_by('time').reverse()
 	#notifications_viewed = Notification.objects.filter(user = request.user, viewed=True).order_by('time').reverse()
 	#notifications_not_viewed = Notification.objects.filter(user = request.user, viewed=False).order_by('time').reverse()
 
 	args = {}
 	args['profile'] = profile
+	args['notifications_all'] = notifications_all
 	args['notifications'] = notifications
 	#args['notifications_viewed'] = notifications_viewed
 	#args['notifications_not_viewed'] = notifications_not_viewed
@@ -53,3 +55,12 @@ def delete(request, notification_id):
 	notification.delete()
 
 	return HttpResponseRedirect('/notification/all/')
+
+@login_required
+def mark_all(request):
+	notifications = Notification.objects.filter(user = request.user)
+	for notification in notifications:
+		notification.viewed = True
+		notification.save()
+
+	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
