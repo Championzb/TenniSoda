@@ -1,5 +1,17 @@
 {% extends "index-base.html" %}
 {% load static %}
+{% block head %}
+<script>
+    function checkProfile(){
+        {% if profile.last_name and profile.first_name and profile.phone %}
+            window.location = "/game/find_game/";
+        {% else %}
+            alert("Please provide your name and phone first!");
+            window.location = "/account/change_profile/";
+        {% endif %}
+    }
+</script>
+{% endblock %}
 {% block profileimg %}
     {% if user.picture %}
       <img src="{% get_static_prefix %}assets/{{user.picture.url}}" class="navbar-profile-avatar" alt="" />
@@ -106,21 +118,13 @@
                 {% endif %}
                 {% endfor %}
                 </tbody>
-
-              </table>
+             </table>
             </div> <!-- /.portlet-body -->
-
           </div> <!-- /.portlet -->
-
-
         </div> <!-- /.layout-main -->
-
-
-
         <div class="col-sm-5 col-md-4 layout-sidebar">
-
           <div class="portlet">
-            <a href="/game/find_game/" class="btn btn-primary btn-jumbo btn-block ">Join game</a>
+            <a class="btn btn-primary btn-jumbo btn-block" onclick="checkProfile()">Join game</a>
             <br>
             <a href="javascript:;" class="btn btn-secondary btn-lg btn-block ">New Template</a>
           </div> <!-- /.portlet -->

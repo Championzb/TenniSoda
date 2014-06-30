@@ -6613,3 +6613,5 @@ Traceback (most recent call last):
   File "/home/ethan/Project/TenniSoda/notification/views.py", line 30, in all
     notifications_not_viewed = Notificationl.objects.filter(user = request.user, viewed=False).order_by('time').reverse()
 NameError: global name 'Notificationl' is not defined
+2014-06-29 21:42:34,705 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-06-29 21:43:15,733 [WARNING] django.request: Not Found: /accounts/login/

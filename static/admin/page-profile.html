@@ -1,5 +1,17 @@
 {% extends "index-base.html" %}
-{% load static %}        
+{% load static %}
+{% block head %}
+<script>
+    function checkProfile(){
+        {% if profile.last_name and profile.first_name and profile.phone %}
+            window.location = "/game/find_game/";
+        {% else %}
+            alert("Please provide your name and phone first!");
+            window.location = "/account/change_profile/";
+        {% endif %}
+    }
+</script>
+{% endblock %}
 {% block profileimg %}
     {% if profile.picture %}
       <img src="{% get_static_prefix %}assets/{{profile.picture.url}}" class="navbar-profile-avatar" alt="" />
@@ -134,7 +146,8 @@
 
           <div class="col-sm-4 col-md-3 layout-sidebar">
           <div class="portlet">
-            <a href="/game/find_game/" class="btn btn-primary btn-jumbo btn-block ">Ladder Game</a>
+            <!-- button class="btn btn-primary btn-jumbo btn-block" onclick="checkProfile()">Ladder Games</button-->
+            <a class="btn btn-primary btn-jumbo btn-block" onclick="checkProfile()">Ladder Game</a>
             <br>
             <a href="javascript:;" class="btn btn-secondary btn-lg btn-block ">View the League</a>
           </div> <!-- /.portlet -->
