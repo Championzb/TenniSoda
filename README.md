@@ -17,8 +17,6 @@ court
 
 city
 
-localflavor
-
-FUCK
-
-Timmy
+=========
+Here is the package you should pip install:
+south, pil, django-localflavor, django_cleanup, django-bootstrap3-datetimepicker, django-form-utils, django-geoposition

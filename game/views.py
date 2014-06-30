@@ -260,6 +260,7 @@ def attended_league(request):
 	league_attended_finished = league_attended.filter(is_finished = True).order_by('start_date').reverse()
 	league_attended_not_finished = league_attended.filter(is_finished = False).order_by('start_date').reverse()
 	notifications = Notification.objects.filter(user = request.user, viewed = False).order_by('time').reverse()
+	notifications = Notification.objects.filter(user = request.user, viewed = False).order_by('time').reverse()
 
 	args = {}
 	args['league_attended_finished'] = league_attended_finished

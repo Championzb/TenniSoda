@@ -1,5 +1,6 @@
 from django.db import models
 from city.models import City
+from geoposition.fields import GeopositionField
 
 class Court(models.Model):
 	name = models.CharField(max_length=50)

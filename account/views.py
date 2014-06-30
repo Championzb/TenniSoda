@@ -7,6 +7,7 @@ from forms import UserProfileForm
 from game.models import League, Game
 from models import Profile, Account
 from notification.models import Notification
+from django.db.models import Q
 
 
 from admin import UserCreationForm
@@ -64,8 +65,9 @@ def welcome_user(request):
 	if request.user.profile.last_name!='' and request.user.profile.last_name is not None:
 		username = request.user.profile.last_name+' '+request.user.profile.first_name
 
-	league_match_attended = League.objects.filter(players=request.user.profile)
-
+	#league_match_attended = League.objects.filter(players=request.user.profile)
+	games_count = Game.objects.filter((Q(player1 = request.user) | Q(player2 = request.user))).count()
+	games_win_count = Game.objects.filter(winner = request.user).count()
 	notifications = Notification.objects.filter(user = request.user, viewed = False).order_by('time').reverse()
 
 	profile = request.user.profile
@@ -73,8 +75,10 @@ def welcome_user(request):
 	args = {}
 	args['username'] = username
 	args['profile'] = profile
-	args['league_matches_attended'] = league_match_attended
-	args['league_matches_remained'] = League.objects.exclude(players=request.user)
+	args['games_count'] = games_count
+	args['games_win_count'] = games_win_count
+	#args['league_matches_attended'] = league_match_attended
+	#args['league_matches_remained'] = League.objects.exclude(players=request.user)
 	args['notifications'] = notifications
 	return render_to_response('page-profile.html',args)
 

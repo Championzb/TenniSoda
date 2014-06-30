@@ -67,6 +67,7 @@ INSTALLED_APPS = (
     'django_cleanup',
     'bootstrap3_datetime',
     'form_utils',
+    'geoposition',
 )
 
 MIDDLEWARE_CLASSES = (
