@@ -148,6 +148,38 @@
             </tbody>
           </table>
 -->
+          <table class="table table-striped">
+            <tbody>
+              {% for notification in notifications %}
+              {% if notification.viewed %}
+              <tr>
+                <td valign-middle><i class="icon-li fa fa-eye text-secondary"></i></td>
+                <td valign-middle><font size="3" color="grey">{{ notification.title }} </font></td>
+                <td align="right" color="grey">{{notification.time}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><font color="grey">{{notification.message}}</font></td>
+                <td align="right"><a href="/notification/delete/{{notification.id}}">Delete</a></td>
+              </tr>
+              {% else %}
+              <tr>
+                <td valign-middle><i class="icon-li fa fa-eye text-secondary"></i></td>
+                <td valign-middle><font size="3">{{ notification.title }} </font></td>
+                <td align="right">{{notification.time}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td>{{notification.message}}</td>
+                <td align="right">
+                  <a href="/notification/mark_as_viewed/{{notification.id}}">Mark as read</a>
+                  &nbsp&nbsp&nbsp&nbsp<a href="/notification/delete/{{notification.id}}">Delete</a>
+                </td>
+              </tr>
+              {% endif %}
+              {% endfor %}
+            </tbody>
+          </table>
         </div> <!-- /.col -->
 
       </div> <!-- /.row -->

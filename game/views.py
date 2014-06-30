@@ -190,7 +190,7 @@ def quit_game(request,game_id = 1):
 	game = Game.objects.get(id = game_id)
 	if game.player1 != user and game.player2 != user:
 		auth.logout(request)
-		return HttpResponseRedirect('/account/login')
+		return HttpResponseRedirect('/account/login/')
 	if game.player1 == user:
 		Notification.objects.create(user = game.player2.user,
 									title = 'One of your opponent has quit a game',
