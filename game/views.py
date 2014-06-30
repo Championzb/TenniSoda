@@ -203,7 +203,7 @@ def quit_game(request,game_id = 1):
 									time = datetime.now(),)
 
 	game.delete()
-	return HttpResponseRedirect('/game/list_all_games')
+	return HttpResponseRedirect('/game/list_all_games/')
 
 def get_winner(game):
 	score = Score.objects.get(game = game)

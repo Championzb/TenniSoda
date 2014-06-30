@@ -1,0 +1,92 @@
+{% extends "index-base.html" %}
+{% load static %}
+{% block profileimg %}
+    {% if profile.picture %}
+      <img src="{% get_static_prefix %}assets/{{profile.picture.url}}" class="navbar-profile-avatar" alt="" />
+    {% else %}
+      <img src="{% static "assets/uploaded_files/default.jpg" %}" class="navbar-profile-avatar" alt="" />
+    {% endif %}
+{% endblock %}
+{% block court %}
+    <li class="dropdown active">
+    <a href="/court/all/">
+        <i class="fa fa-table"></i>
+        Court
+    </a>
+    </li>
+{% endblock %}
+{% block content %}
+  <div class="content">
+
+    <div class="container">
+
+      <h3 class="content-title"><u>All courts</u></h3>
+
+      <div class="row">
+
+        <div class="col-md-12">
+
+          <div class="table-responsive">
+          <!-- all courts table -->
+          <table class="table table-striped table-bordered thumbnail-table">
+            <thead>
+                <tr>
+                    <th style="width: 100px">Image</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Address</th>
+                    <th>Fee</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for court in courts %}
+                <tr>
+                    <!--court picture-->
+                    <td>
+                      <div class="thumbnail">
+                        <div class="thumbnail-view">
+                          {% if court.picture %}
+                            <img src="{% get_static_prefix %}assets/{{court.picture.url}}" width="125" alt="League Image" >
+                          {% else %}
+                            <img src="{% static "assets/uploaded_files/default-court.jpg" %}" width="125" alt="League Image" >
+                          {% endif %}
+                        </div>
+                      </div>
+                    </td>
+                    <!--court name-->
+                    <td class="valign-middle">
+                        <p><font size="3">{{court.name}}</font></p>
+                    </td>
+                    <!--court city-->
+                    <td class="valign-middle">
+                        <p><font size="3">{{court.city}}</font></p>
+                    </td>
+                    <!--court address-->
+                    <td class="valign-middle">
+                        <p><font size="3">{{court.address}}</font></p>
+                    </td>
+                    <!--court fee-->
+                    <td class="valign-middle">
+                        <p><font size="3">{{court.fee}}</font></p>
+                    </td>
+                </tr>
+                {% endfor %}
+
+
+            </tbody>
+           </table>
+
+          </div> <!-- /.table-responsive -->
+
+
+        </div> <!-- /.col -->
+
+      </div> <!-- /.row -->
+
+    </div> <!-- /.container -->
+
+  </div> <!-- .content -->
+
+
+
+{% endblock %}

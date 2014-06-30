@@ -13,4 +13,6 @@ urlpatterns = patterns('',
     url(r'^game/', include('game.urls')),
     url(r'^review/', include('review.urls')),
     url(r'^notification/', include('notification.urls')),
+    url(r'^court/', include('court.urls')),
+
 )

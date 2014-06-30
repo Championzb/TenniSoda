@@ -1,4 +1,8 @@
 from django.contrib import admin
 from court.models import Court
 
-admin.site.register(Court)
+class CourtAdmin(admin.ModelAdmin):
+	list_display = ['name', 'city', 'address', 'fee', 'position']
+	ordering = ['city']
+
+admin.site.register(Court, CourtAdmin)
