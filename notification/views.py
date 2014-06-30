@@ -26,12 +26,14 @@ def all(request):
     :return:
     """
     profile = request.user.profile
-    notifications_viewed = Notification.objects.filter(user = request.user, viewed=True).order_by('time').reverse()
-    notifications_not_viewed = Notification.objects.filter(user = request.user, viewed=False).order_by('time').reverse()
+    notifications = Notification.objects.filter(user = request.user).order_by('time').reverse()
+    #notifications_viewed = Notification.objects.filter(user = request.user, viewed=True).order_by('time').reverse()
+    #notifications_not_viewed = Notification.objects.filter(user = request.user, viewed=False).order_by('time').reverse()
 
     args = {}
     args['profile'] = profile
-    args['notifications_viewed'] = notifications_viewed
-    args['notifications_not_viewed'] = notifications_not_viewed
+    args['notifications'] = notifications
+    #args['notifications_viewed'] = notifications_viewed
+    #args['notifications_not_viewed'] = notifications_not_viewed
 
     return render_to_response('page-notifications.html', args)
