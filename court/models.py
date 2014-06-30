@@ -13,6 +13,7 @@ class Court(models.Model):
 	fee = models.IntegerField()
 	picture = models.ImageField(upload_to = get_upload_file_name, null=True, blank=True)
 	position = GeopositionField()
+	phone = models.CharField(max_length=11, null=True,blank=True)
 	
 	def __unicode__(self):
 		return self.name

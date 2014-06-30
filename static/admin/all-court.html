@@ -36,6 +36,7 @@
                     <th>City</th>
                     <th>Address</th>
                     <th>Fee</th>
+                    <th>Contact Phone</th>
                 </tr>
             </thead>
             <tbody>
@@ -69,6 +70,11 @@
                     <td class="valign-middle">
                         <p><font size="3">{{court.fee}}</font></p>
                     </td>
+                    <!--court phone-->
+                    <td class="valign-middle">
+                        <p><font size="3">{{court.phone}}</font></p>
+                    </td>
+
                 </tr>
                 {% endfor %}
 
