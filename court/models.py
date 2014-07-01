@@ -14,7 +14,8 @@ class Court(models.Model):
 	picture = models.ImageField(upload_to = get_upload_file_name, null=True, blank=True)
 	position = GeopositionField()
 	phone = models.CharField(max_length=11, null=True,blank=True)
-	
+	#is_free = models.BooleanField()
+
 	def __unicode__(self):
 		return self.name
 	
