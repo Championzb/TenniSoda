@@ -6843,3 +6843,351 @@ Traceback (most recent call last):
   File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/MySQL_python-1.2.5-py2.7-linux-x86_64.egg/MySQLdb/connections.py", line 36, in defaulterrorhandler
     raise errorclass, errorvalue
 OperationalError: (1054, "Unknown column 'court_court.phone' in 'field list'")
+2014-07-01 18:00:54,385 [WARNING] django.request: Not Found: /favicon.ico
+2014-07-01 18:06:11,983 [ERROR] django.request: Internal Server Error: /admin/city/district/add/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 432, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/views/decorators/cache.py", line 52, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/sites.py", line 198, in inner
+    return view(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 29, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 25, in bound_func
+    return func(self, *args2, **kwargs2)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/transaction.py", line 371, in inner
+    return func(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 1113, in add_view
+    if form.is_valid():
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/forms/forms.py", line 129, in is_valid
+    return self.is_bound and not bool(self.errors)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/forms/forms.py", line 121, in errors
+    self.full_clean()
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/forms/forms.py", line 275, in full_clean
+    self._post_clean()
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/forms/models.py", line 419, in _post_clean
+    self.validate_unique()
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/forms/models.py", line 428, in validate_unique
+    self.instance.validate_unique(exclude=exclude)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/base.py", line 754, in validate_unique
+    errors = self._perform_unique_checks(unique_checks)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/base.py", line 849, in _perform_unique_checks
+    if qs.exists():
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/query.py", line 515, in exists
+    return self.query.has_results(using=self.db)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 409, in has_results
+    return bool(compiler.execute_sql(SINGLE))
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/compiler.py", line 786, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/backends/util.py", line 69, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/utils.py", line 99, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/MySQLdb/cursors.py", line 205, in execute
+    self.errorhandler(self, exc, value)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (1267, "Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation '='")
+2014-07-01 18:06:29,129 [ERROR] django.request: Internal Server Error: /admin/city/district/add/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 432, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/views/decorators/cache.py", line 52, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/sites.py", line 198, in inner
+    return view(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 29, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 25, in bound_func
+    return func(self, *args2, **kwargs2)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/transaction.py", line 371, in inner
+    return func(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 1133, in add_view
+    self.log_addition(request, new_object)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 599, in log_addition
+    object_repr=force_text(object),
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/encoding.py", line 100, in force_text
+    s = s.__unicode__()
+  File "/home/ethan/Project/TenniSoda/city/models.py", line 18, in __unicode__
+    return self.city + self.name
+TypeError: unsupported operand type(s) for +: 'City' and 'unicode'
+2014-07-01 18:08:06,276 [ERROR] django.request: Internal Server Error: /admin/city/district/add/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 432, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/views/decorators/cache.py", line 52, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/sites.py", line 198, in inner
+    return view(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 29, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 25, in bound_func
+    return func(self, *args2, **kwargs2)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/transaction.py", line 371, in inner
+    return func(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 1113, in add_view
+    if form.is_valid():
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/forms/forms.py", line 129, in is_valid
+    return self.is_bound and not bool(self.errors)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/forms/forms.py", line 121, in errors
+    self.full_clean()
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/forms/forms.py", line 275, in full_clean
+    self._post_clean()
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/forms/models.py", line 419, in _post_clean
+    self.validate_unique()
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/forms/models.py", line 428, in validate_unique
+    self.instance.validate_unique(exclude=exclude)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/base.py", line 754, in validate_unique
+    errors = self._perform_unique_checks(unique_checks)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/base.py", line 849, in _perform_unique_checks
+    if qs.exists():
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/query.py", line 515, in exists
+    return self.query.has_results(using=self.db)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 409, in has_results
+    return bool(compiler.execute_sql(SINGLE))
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/compiler.py", line 786, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/backends/util.py", line 69, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/utils.py", line 99, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/MySQLdb/cursors.py", line 205, in execute
+    self.errorhandler(self, exc, value)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (1267, "Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation '='")
+2014-07-01 18:09:28,862 [ERROR] django.request: Internal Server Error: /admin/city/district/add/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 432, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/views/decorators/cache.py", line 52, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/sites.py", line 198, in inner
+    return view(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 29, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 25, in bound_func
+    return func(self, *args2, **kwargs2)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/transaction.py", line 371, in inner
+    return func(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 1113, in add_view
+    if form.is_valid():
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/forms/forms.py", line 129, in is_valid
+    return self.is_bound and not bool(self.errors)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/forms/forms.py", line 121, in errors
+    self.full_clean()
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/forms/forms.py", line 275, in full_clean
+    self._post_clean()
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/forms/models.py", line 419, in _post_clean
+    self.validate_unique()
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/forms/models.py", line 428, in validate_unique
+    self.instance.validate_unique(exclude=exclude)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/base.py", line 754, in validate_unique
+    errors = self._perform_unique_checks(unique_checks)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/base.py", line 849, in _perform_unique_checks
+    if qs.exists():
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/query.py", line 515, in exists
+    return self.query.has_results(using=self.db)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 409, in has_results
+    return bool(compiler.execute_sql(SINGLE))
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/compiler.py", line 786, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/backends/util.py", line 69, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/utils.py", line 99, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/MySQLdb/cursors.py", line 205, in execute
+    self.errorhandler(self, exc, value)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (1267, "Illegal mix of collations (latin1_swedish_ci,IMPLICIT) and (utf8_general_ci,COERCIBLE) for operation '='")
+2014-07-01 18:24:09,504 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 18:24:09,883 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 18:25:09,946 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 18:25:26,149 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 18:25:52,237 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 18:43:12,843 [ERROR] django.request: Internal Server Error: /account/change_profile/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 99, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 223, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 230, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/functional.py", line 32, in wrapper
+    result = func(*args)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/ethan/Project/TenniSoda/account/views.py", line 6, in <module>
+    from forms import UserProfileForm
+  File "/home/ethan/Project/TenniSoda/account/forms.py", line 16, in <module>
+    class UserProfileForm(forms.ModelForm):
+  File "/home/ethan/Project/TenniSoda/account/forms.py", line 22, in UserProfileForm
+    district = forms.ModelChoiceField(queryset=District.objests.all(), widget=forms.Select(attrs = {'class': 'form-control'}))
+AttributeError: type object 'District' has no attribute 'objests'
+2014-07-01 18:43:28,138 [ERROR] django.request: Internal Server Error: /account/change_profile/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/ethan/Project/TenniSoda/account/views.py", line 113, in change_profile
+    profile = user.profile
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/functional.py", line 214, in inner
+    return func(self._wrapped, *args)
+  File "/home/ethan/Project/TenniSoda/account/models.py", line 117, in <lambda>
+    Account.profile = property(lambda u: Profile.objects.get_or_create(user=u)[0])
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/manager.py", line 154, in get_or_create
+    return self.get_queryset().get_or_create(**kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/query.py", line 376, in get_or_create
+    return self.get(**lookup), False
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/query.py", line 304, in get
+    num = len(clone)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/query.py", line 77, in __len__
+    self._fetch_all()
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/query.py", line 857, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/query.py", line 220, in iterator
+    for row in compiler.results_iter():
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/compiler.py", line 713, in results_iter
+    for rows in self.execute_sql(MULTI):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/compiler.py", line 786, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/backends/util.py", line 69, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/utils.py", line 99, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/MySQLdb/cursors.py", line 205, in execute
+    self.errorhandler(self, exc, value)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+OperationalError: (1054, "Unknown column 'account_profile.district_id' in 'field list'")
+2014-07-01 18:44:27,922 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 18:44:28,284 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 19:21:44,305 [ERROR] django.request: Internal Server Error: /account/change_profile/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 99, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 223, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 230, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/functional.py", line 32, in wrapper
+    result = func(*args)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/ethan/Project/TenniSoda/account/views.py", line 6, in <module>
+    from forms import UserProfileForm
+  File "/home/ethan/Project/TenniSoda/account/forms.py", line 16, in <module>
+    class UserProfileForm(forms.ModelForm):
+  File "/home/ethan/Project/TenniSoda/account/forms.py", line 22, in UserProfileForm
+    district = forms.ModelChoiceField(queryset=District.objects.filter(city=city), widget=forms.Select(attrs = {'class': 'form-control'}))
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/manager.py", line 163, in filter
+    return self.get_queryset().filter(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/query.py", line 593, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/query.py", line 611, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1204, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1240, in _add_q
+    current_negated=current_negated)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1128, in build_filter
+    lookup_type, value)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/fields/related.py", line 1107, in get_lookup_constraint
+    value[index]), AND)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/tree.py", line 104, in add
+    data = self._prepare_data(data)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/where.py", line 79, in _prepare_data
+    value = obj.prepare(lookup_type, value)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/where.py", line 352, in prepare
+    return self.field.get_prep_lookup(lookup_type, value)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/fields/__init__.py", line 369, in get_prep_lookup
+    return self.get_prep_value(value)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/fields/__init__.py", line 613, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string or a number, not 'ModelChoiceField'
+2014-07-01 19:22:07,447 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 19:22:07,814 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 20:24:33,655 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 20:24:33,994 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 20:27:23,568 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 20:28:17,189 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 20:32:32,599 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 20:32:32,923 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 20:32:36,161 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 20:34:10,498 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 20:37:34,887 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 20:38:23,087 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 20:38:32,942 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 20:38:44,951 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 20:57:56,391 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 20:57:56,757 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 21:00:07,602 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 21:00:07,984 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 21:00:14,442 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 21:00:22,067 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 21:00:22,290 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 21:03:46,356 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 21:05:11,897 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png

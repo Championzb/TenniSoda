@@ -1,7 +1,7 @@
 from django import forms
 from models import Profile
 from court.models import Court
-from city.models import City
+from city.models import City, District
 from django.forms import extras
 from localflavor.cn.forms import CNCellNumberField, CNProvinceSelect
 from django.contrib.admin.widgets import AdminDateWidget
@@ -18,7 +18,8 @@ class UserProfileForm(forms.ModelForm):
 	first_name = forms.CharField(widget=forms.TextInput(attrs = {'class': 'form-control'}))
 	level = forms.ChoiceField(widget=forms.Select(attrs = {'class': 'form-control'}),choices=LEVEL,required=False)
 	gender = forms.ChoiceField(widget=forms.Select(attrs = {'class': 'form-control'}),choices=GENDER,required=False)
-	city = forms.ModelChoiceField(queryset=City.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}), required=False)
+	city = forms.ModelChoiceField(queryset=City.objects.all(), widget=forms.Select(attrs = {'class': 'form-control', 'id': 'city'}), required=False)
+	district = forms.ModelChoiceField(queryset=District.objects.all(), widget=forms.Select(attrs = {'class': 'form-control', 'id': 'district'}), required=False)
 	phone = CNCellNumberField(widget=forms.TextInput(attrs = {'class': 'form-control'}), required=False)
 	birth_date = forms.DateField(widget=forms.DateInput(attrs = {'class': 'form-control','type':'date'}), required=False)
 	#birth_date = forms.DateField(widget=DateTimePicker(options = {"format": "YYYY-MM-DD", "picktime": True}, attrs = {'id': 'datetimepicker'}), required=False)
@@ -28,18 +29,12 @@ class UserProfileForm(forms.ModelForm):
 
 	class Meta:
 		model = Profile
-		fields = ('picture', 'last_name','first_name','gender','city','birth_date','court','level')
+		fields = ('picture', 'last_name','first_name','gender','city', 'district', 'birth_date','court','level')
 
 	def save(self,commit=True):
 		form = super(UserProfileForm,self).save(commit=False)
 		form.phone = self.cleaned_data['phone']
 		if commit:
 			form.save()
-            
+
 		return form
-
-
-
-
-
-	

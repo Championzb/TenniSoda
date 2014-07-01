@@ -2,6 +2,13 @@
 {% load static %}
 {% block head %}
 <script>
+    $(document).ready(function(){
+        $("#city").change(function(){
+            $("#district").html("<option value>XXXXX</option>");
+            $("#district").append("<option value>yyyy</option>");
+        });
+    });
+
     function check(){
         password1 = document.getElementById("new-password-1").value;
         password2 = document.getElementById("new-password-2").value;
@@ -180,9 +187,16 @@
 
                 <div class="form-group">
                   <label class="col-md-3">{{ form.city.label }}</label>
-                  <div class="col-md-7">
+                  <div class="col-md-3">
                     {{ form.city }}
                     {% for err in form.city.errors %}
+                      <span style="color: red">{{ err }}</span>
+                    {% endfor %}
+                  </div> <!-- /.col -->
+                  <label class="col-md-1">{{ form.district.label }}</label>
+                  <div class="col-md-3">
+                    {{ form.district }}
+                    {% for err in form.district.errors %}
                       <span style="color: red">{{ err }}</span>
                     {% endfor %}
                   </div> <!-- /.col -->
