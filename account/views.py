@@ -29,7 +29,7 @@ def register_user(request):
 		if form.is_valid():
 			form.save()
 			#messages.success(request,'You have registered successfully.')
-			return HttpResponseRedirect('/account/login')
+			return HttpResponseRedirect('/account/login/')
 	else:
 		form = UserCreationForm()
 
@@ -43,7 +43,7 @@ def register_user(request):
 def login(request):
 	args = {}
 	args.update(csrf(request))
-	return render_to_response('account-login.html', args)
+	return render(request, 'account-login.html', args)
 
 def auth_view(request):
 	email = request.POST.get('email', '')
@@ -115,8 +115,6 @@ def change_profile(request):
 		profile = user.profile
 		form = UserProfileForm(instance=profile,initial={'phone':profile.phone})	
 
-
-	
 	args['form'] = form
 	args['email'] = request.user.email
 	args['profile'] = request.user.profile
@@ -158,10 +156,12 @@ def change_password(request):
 
 def confirm(request,activation_key):
 	if Account.objects.filter(activation_key = activation_key).count() == 0:
+		messages.warning(request, 'An error happened when activate your email. Please request a new activation key!')
 		return HttpResponseRedirect('/')
 	else:
 		user = Account.objects.get(activation_key=activation_key)
 		user.is_active = True
 		user.save()
-		return HttpResponseRedirect('/')
+		messages.success(request, 'Your account has been activated. Please log in!')
+		return HttpResponseRedirect('/account/login/')
 

@@ -55,6 +55,18 @@
 <script src="{% static "assets/admin/js/mvpready-core.js" %}"></script>
 <script src="{% static "assets/admin/js/mvpready-admin.js" %}"></script>
 
+{% block message %}
+{% if messages %}
+<script>
+    $(function(){
+        {% for message in messages %}
+            alert("{{message}}");
+        {% endfor %}
+    });
+</script>
+{% endif %}
+{% endblock %}
+
 {% block js %}
 
 {% endblock %}

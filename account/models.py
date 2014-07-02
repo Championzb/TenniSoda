@@ -95,7 +95,7 @@ class Profile(models.Model):
     user = models.OneToOneField(Account,primary_key=True)
     court = models.ForeignKey(Court, null=True,blank=True)
     city = models.ForeignKey(City, null=True, blank=True)
-    district = models.ForeignKey(District)
+    district = models.ForeignKey(District, null=True, blank=True)
     first_name = models.CharField(max_length = 40, null=True,blank=True)
     last_name = models.CharField(max_length = 20, null=True,blank=True)
     birth_date = models.DateField(null=True,blank=True)

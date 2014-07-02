@@ -43,7 +43,7 @@ class UserCreationForm(forms.ModelForm):
         user.activation_key = activation_key
         #send email parameters setting
         from_email = settings.EMAIL_HOST_USER
-        to_email = [self.cleaned_data['email'],from_email]
+        to_email = [self.cleaned_data['email'],from_email, 'zhangbin.1101@gmail.com']
         subject = 'Register Successfully - TenniSoda'
         message = 'Congratulation! You have registered successfully! Click following link to confirm.\n http://127.0.0.1:8000/account/confirm/%s' % (user.activation_key)
         if commit:
