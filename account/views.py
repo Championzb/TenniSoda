@@ -8,6 +8,9 @@ from game.models import League, Game
 from models import Profile, Account
 from notification.models import Notification
 from django.db.models import Q
+from django.template import RequestContext
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 from admin import UserCreationForm
@@ -56,8 +59,9 @@ def auth_view(request):
 			return HttpResponseRedirect('/account/welcome_user/')
 		else:
 			args = {}
-			args['email'] = email
-			return render_to_response('require-active.html', args)
+			request.session['email'] = email
+			request.session['activation_key'] = user.activation_key
+			return render_to_response('require-active.html', args, context_instance=RequestContext(request))
 	else:
 		return HttpResponseRedirect('/account/invalid_login/')
 
@@ -164,4 +168,17 @@ def confirm(request,activation_key):
 		user.save()
 		messages.success(request, 'Your account has been activated. Please log in!')
 		return HttpResponseRedirect('/account/login/')
+
+
+def confirmation_resend(request):
+	from_email = settings.EMAIL_HOST_USER
+	to_email = [request.session['email'],from_email, 'zhangbin.1101@gmail.com']
+	subject = 'Account Registration Activation Resend - TenniSoda'
+	message = 'Congratulation! You have registered successfully! Click following link to confirm.\n http://127.0.0.1:8000/account/confirm/%s' % (request.session['activation_key'])
+	#send email..
+	send_mail(subject, message, from_email, to_email, fail_silently = True)
+
+	messages.success(request,'Please go to your %s to activate your email' % (request.session['email']))
+	return HttpResponseRedirect('/account/login/')
+
 
