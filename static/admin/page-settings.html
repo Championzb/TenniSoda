@@ -2,13 +2,31 @@
 {% load static %}
 {% block head %}
 <script>
-    $(document).ready(function(){
+    /*$(document).ready(function(){
         $("#city").change(function(){
             $("#district").html("<option value>XXXXX</option>");
             $("#district").append("<option value>yyyy</option>");
         });
-    });
+    });*/
+    /*
+    $(function(){
+        $('#city').change(function(){
+            $.ajax({
+                type: "POST",
+                url: "/city/get_district/",
+                data: {
+                    'city': $('#city').val(),
+                },
+                success: getDistrictSuccess,
+                dataType: 'html',
+            });
+        });
 
+    });
+    */
+    function getDistrictSuccess(data,textStatus,jqXHR){
+        alert('xxxxx');
+    }
     function check(){
         password1 = document.getElementById("new-password-1").value;
         password2 = document.getElementById("new-password-2").value;

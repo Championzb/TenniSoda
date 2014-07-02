@@ -7191,3 +7191,133 @@ TypeError: int() argument must be a string or a number, not 'ModelChoiceField'
 2014-07-01 21:00:22,290 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
 2014-07-01 21:03:46,356 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
 2014-07-01 21:05:11,897 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 22:05:53,000 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 22:05:53,370 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 22:07:57,383 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-01 22:08:01,282 [WARNING] django.request: Not Found: /profile/get_district/
+2014-07-01 22:29:50,665 [ERROR] django.request: Internal Server Error: /account/change_profile/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 99, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 223, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 230, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/functional.py", line 32, in wrapper
+    result = func(*args)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/ethan/Project/TenniSoda/account/views.py", line 6, in <module>
+    from forms import UserProfileForm
+  File "/home/ethan/Project/TenniSoda/account/forms.py", line 17, in <module>
+    class UserProfileForm(forms.ModelForm):
+  File "/home/ethan/Project/TenniSoda/account/forms.py", line 23, in UserProfileForm
+    district = forms.ModelChoiceField(queryset=get_district(request), widget=forms.Select(attrs = {'class': 'form-control', 'id': 'district'}), required=False)
+NameError: name 'request' is not defined
+2014-07-01 22:38:39,509 [ERROR] django.request: Internal Server Error: /account/change_profile/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 99, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 223, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 230, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/functional.py", line 32, in wrapper
+    result = func(*args)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/ethan/Project/TenniSoda/account/views.py", line 6, in <module>
+    from forms import UserProfileForm
+  File "/home/ethan/Project/TenniSoda/account/forms.py", line 16, in <module>
+    class UserProfileForm(forms.ModelForm):
+  File "/home/ethan/Project/TenniSoda/account/forms.py", line 22, in UserProfileForm
+    district = forms.ModelChoiceField( widget=forms.Select(attrs = {'class': 'form-control', 'id': 'district'}), required=False)
+TypeError: __init__() takes at least 2 arguments (3 given)
+2014-07-01 22:39:45,478 [ERROR] django.request: Internal Server Error: /account/change_profile/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 99, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 223, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 230, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/functional.py", line 32, in wrapper
+    result = func(*args)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/ethan/Project/TenniSoda/account/views.py", line 6, in <module>
+    from forms import UserProfileForm
+  File "/home/ethan/Project/TenniSoda/account/forms.py", line 16, in <module>
+    class UserProfileForm(forms.ModelForm):
+  File "/home/ethan/Project/TenniSoda/account/forms.py", line 22, in UserProfileForm
+    district = forms.ModelChoiceField(widget=forms.Select(attrs = {'class': 'form-control', 'id': 'district'}), required=False)
+TypeError: __init__() takes at least 2 arguments (3 given)
+2014-07-01 22:39:47,665 [ERROR] django.request: Internal Server Error: /account/welcome_user/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 99, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 223, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 230, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/functional.py", line 32, in wrapper
+    result = func(*args)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/ethan/Project/TenniSoda/account/views.py", line 6, in <module>
+    from forms import UserProfileForm
+  File "/home/ethan/Project/TenniSoda/account/forms.py", line 16, in <module>
+    class UserProfileForm(forms.ModelForm):
+  File "/home/ethan/Project/TenniSoda/account/forms.py", line 22, in UserProfileForm
+    district = forms.ModelChoiceField(widget=forms.Select(attrs = {'class': 'form-control', 'id': 'district'}), required=False)
+TypeError: __init__() takes at least 2 arguments (3 given)
+2014-07-01 22:39:57,341 [ERROR] django.request: Internal Server Error: /account/welcome_user/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 99, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 223, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 230, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/functional.py", line 32, in wrapper
+    result = func(*args)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/ethan/Project/TenniSoda/account/views.py", line 6, in <module>
+    from forms import UserProfileForm
+  File "/home/ethan/Project/TenniSoda/account/forms.py", line 16, in <module>
+    class UserProfileForm(forms.ModelForm):
+  File "/home/ethan/Project/TenniSoda/account/forms.py", line 22, in UserProfileForm
+    district = forms.ModelChoiceField(widget=forms.Select(attrs = {'class': 'form-control', 'id': 'district'}), required=False)
+TypeError: __init__() takes at least 2 arguments (3 given)
+2014-07-02 00:40:15,380 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png

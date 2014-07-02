@@ -14,5 +14,6 @@ urlpatterns = patterns('',
     url(r'^review/', include('review.urls')),
     url(r'^notification/', include('notification.urls')),
     url(r'^court/', include('court.urls')),
+    url(r'^city/', include('city.urls')),
 
 )

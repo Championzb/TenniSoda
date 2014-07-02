@@ -154,4 +154,12 @@ def change_password(request):
 
 	return HttpResponseRedirect('/account/change_profile/')
 
+def confirm(request,activation_key):
+	if Account.objects.filter(activation_key = activation_key).count() == 0:
+		return HttpResponseRedirect('/')
+	else:
+		user = Account.objects.get(activation_key=activation_key)
+		user.is_active = True
+		user.save()
+		return HttpResponseRedirect('/')
 

@@ -7,7 +7,7 @@ from datetime import datetime
 from django.core.mail import send_mail
 from django.conf import settings
 from account.models import Account,Profile
-
+import sha, random
 
 class UserCreationForm(forms.ModelForm):
     """A form for creating new users. Includes all the required
@@ -36,14 +36,19 @@ class UserCreationForm(forms.ModelForm):
         user = super(UserCreationForm, self).save(commit=False)
         user.set_password(self.cleaned_data["password1"])
         user.register_time = datetime.now()
+        #generate activation key
+        email = self.cleaned_data["email"]
+        salt = sha.new(str(random.random())).hexdigest()[:5]
+        activation_key = sha.new(salt+email).hexdigest()
+        user.activation_key = activation_key
         #send email parameters setting
         from_email = settings.EMAIL_HOST_USER
         to_email = [self.cleaned_data['email'],from_email]
         subject = 'Register Successfully - TenniSoda'
-        message = 'Congratulation! You have registered successfully!'
+        message = 'Congratulation! You have registered successfully! Click following link to confirm.\n http://127.0.0.1:8000/account/confirm/%s' % (user.activation_key)
         if commit:
             #send email..
-            #send_mail(subject, message, from_email, to_email, fail_silently = True)
+            send_mail(subject, message, from_email, to_email, fail_silently = True)
             user.save()
         return user
 

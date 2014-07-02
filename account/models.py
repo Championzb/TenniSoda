@@ -57,6 +57,7 @@ class Account(AbstractBaseUser):
     register_time = models.DateTimeField(default=datetime.now())
     is_active = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
+    activation_key = models.CharField(max_length=40)
 
     objects = AccountManager()
 

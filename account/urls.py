@@ -10,4 +10,5 @@ urlpatterns = patterns('account.views',
     url(r'^change_profile/$', 'change_profile'),
     url(r'^view_profile/(?P<user_id>\d+)/$','view_profile'),
     url(r'^change_password/$', 'change_password'),
+    url(r'^confirm/(?P<activation_key>\w+)/$', 'confirm'),
 )
