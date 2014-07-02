@@ -28,7 +28,7 @@ def register_user(request):
 		form = UserCreationForm(request.POST)
 		if form.is_valid():
 			form.save()
-			#messages.success(request,'You have registered successfully.')
+			messages.success(request,'You have registered successfully. Please go to your %s to activate your email' % (form.cleaned_data['email']))
 			return HttpResponseRedirect('/account/login/')
 	else:
 		form = UserCreationForm()

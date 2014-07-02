@@ -7769,3 +7769,11 @@ Traceback (most recent call last):
   File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/MySQL_python-1.2.5-py2.7-linux-x86_64.egg/MySQLdb/connections.py", line 36, in defaulterrorhandler
     raise errorclass, errorvalue
 ProgrammingError: (1146, "Table 'TenniSoda.city_district' doesn't exist")
+2014-07-02 20:47:46,788 [WARNING] django.request: Forbidden (CSRF token missing or incorrect.): /account/auth/
+2014-07-02 21:00:28,774 [ERROR] django.request: Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Project/TenniSoda/TenniSoda/views.py", line 11, in home
+    messages.success(request,'You have registered successfully. Please go to your %s to activate your email' % (form.email))
+NameError: global name 'messages' is not defined
