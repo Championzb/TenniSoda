@@ -1,0 +1,54 @@
+{% extends "admin-base.html" %}
+{% load static %}
+
+{% block title %}
+        <title>Require Login &middot; TenniSoda</title>
+{% endblock %}
+
+{% block content %}
+
+<body class="account-bg">
+
+  <header class="navbar navbar-inverse" role="banner">
+
+    <div class="container">
+
+      <div class="navbar-header">
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <i class="fa fa-cog"></i>
+        </button>
+
+        <a href="/" class="navbar-brand navbar-brand-img">
+          <img src="{%static "assets/landing/img/logo.png" %}" alt="TenniSoda">
+        </a>
+      </div> <!-- /.navbar-header -->
+
+      <nav class="collapse navbar-collapse" role="navigation">   
+        <ul class="nav navbar-nav navbar-right">     
+          <li>
+            <a href="/"><i class="fa fa-angle-double-left"></i> &nbsp;Back to Home</a>
+          </li>   
+        </ul>
+      </nav>
+
+    </div> <!-- /.container -->
+
+  </header>
+
+  <div class="account-wrapper">
+
+    <div class="account-body">
+
+      <h3>Your account require to active</h3>
+
+      <h4>Please go to {{email}} to active your account</h4>
+
+      <h5>If you didn't receive an email clear <a href="">here</a> to resend an confirmation email.</h5>
+  </div> <!-- /.account-body -->
+
+  </div> <!-- /.account-wrapper -->
+
+</body>
+
+{% endblock %}

@@ -50,12 +50,14 @@ def auth_view(request):
 	password = request.POST.get('password', '')
 	user = auth.authenticate(email=email, password=password)
 
-	print "--------------"
-	print email
-
 	if user is not None:
-		auth.login(request, user)
-		return HttpResponseRedirect('/account/welcome_user/')
+		if user.is_active:
+			auth.login(request, user)
+			return HttpResponseRedirect('/account/welcome_user/')
+		else:
+			args = {}
+			args['email'] = email
+			return render_to_response('require-active.html', args)
 	else:
 		return HttpResponseRedirect('/account/invalid_login/')
 
