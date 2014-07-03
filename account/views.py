@@ -43,6 +43,41 @@ def register_user(request):
 
 	return render_to_response('account-signup.html', args)
 
+#reset password
+def reset_password(email):
+	user = Account.objects.get(email = email)
+	new_password = Account.objects.make_random_password()
+	print 'new password: %s' % new_password
+	user.set_password(new_password)
+	user.save()
+	from_email = settings.EMAIL_HOST_USER
+	to_email = [email, from_email]
+	subject = 'Reset Password - TenniSoda'
+	message = 'Your password has been reset. \n New password is %s' % (new_password)
+	send_mail(subject, message, from_email, to_email, fail_silently = True)
+
+
+#forget password view
+def forget_password(request):
+	args = {}
+	args.update(csrf(request))
+	args['warning'] = False
+	if request.method == 'POST':
+		email = request.POST.get('email','')
+		print email
+		if Account.objects.filter(email=email).count() == 0:
+			print 'no such user'
+			args['warning'] = True
+			
+			return render_to_response('account-forgot.html',args)
+		else:
+			print 'reset password'
+			reset_password(email)
+			return HttpResponseRedirect('/account/login')
+
+	
+	return render_to_response('account-forgot.html', args)	
+
 def login(request):
 	args = {}
 	args.update(csrf(request))

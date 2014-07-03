@@ -12,5 +12,6 @@ urlpatterns = patterns('account.views',
     url(r'^change_password/$', 'change_password'),
     url(r'^confirm/(?P<activation_key>\w+)/$', 'confirm'),
     url(r'^confirmation_resend/$', 'confirmation_resend'),
+    url(r'^forget_password/$', 'forget_password'),
 
 )

@@ -1,40 +1,11 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
-<head>
-  <title>Forgot Password &middot; MVP Ready Admin</title>
+{% extends "admin-base.html" %}
+{% load static %}
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="">
+{% block title %}
+        <title>Login In &middot; TenniSoda</title>
+{% endblock %}
 
-  <!-- Google Font: Open Sans -->
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300,700">
-
-  <!-- Font Awesome CSS -->
-  <link rel="stylesheet" href="./css/font-awesome.min.css">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="./css/bootstrap.min.css">
-
-  <!-- App CSS -->
-  <link rel="stylesheet" href="./css/mvpready-admin.css">
-  <link rel="stylesheet" href="./css/mvpready-flat.css">
-  <!-- <link href="./css/custom.css" rel="stylesheet">-->
-
-  <!-- Favicon -->
-  <link rel="shortcut icon" href="favicon.ico">
-
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-  <![endif]-->
-</head>
+{% block content %}
 
 <body class="account-bg">
 
@@ -48,15 +19,15 @@
           <i class="fa fa-cog"></i>
         </button>
 
-        <a href="../landing" class="navbar-brand navbar-brand-img">
-          <img src="./img/logo.png" alt="MVP Ready">
+        <a href="/" class="navbar-brand navbar-brand-img">
+          <img src="{%static "assets/landing/img/logo.png" %}" alt="TenniSoda">
         </a>
       </div> <!-- /.navbar-header -->
 
       <nav class="collapse navbar-collapse" role="navigation">   
         <ul class="nav navbar-nav navbar-right">     
           <li>
-            <a href="../landing"><i class="fa fa-angle-double-left"></i> &nbsp;Back to Home</a>
+            <a href="/"><i class="fa fa-angle-double-left"></i> &nbsp;Back to Home</a>
           </li>   
         </ul>
       </nav>
@@ -73,21 +44,23 @@
 
       <h5>We'll email you instructions on how to reset your password.</h5>
 
-      <form class="form account-form" method="POST" action="./account-login.html">
+      <form class="form account-form" method="POST" action="/account/forget_password/">{% csrf_token %}
 
         <div class="form-group">
           <label for="forgot-email" class="placeholder-hidden">Your Email</label>
-          <input type="text" class="form-control" id="forgot-email" placeholder="Your Email" tabindex="1">
+          <input type="text" class="form-control" id="forgot-email" placeholder="Your Email" tabindex="1" name="email">
         </div> <!-- /.form-group -->
-
+	{% if warning %}
+		<small><font color="red">Email has not registered.</font></small>
+	{% endif %}
         <div class="form-group">
           <button type="submit" class="btn btn-secondary btn-block btn-lg" tabindex="2">
-            Reset Password &nbsp; <i class="fa fa-refresh"></i>
+            Send Email to Reset Password &nbsp; <i class="fa fa-refresh"></i>
           </button>
         </div> <!-- /.form-group -->
 
         <div class="form-group">
-          <a href="./account-login.html"><i class="fa fa-angle-double-left"></i> &nbsp;Back to Login</a>
+          <a href="/account/login/"><i class="fa fa-angle-double-left"></i> &nbsp;Back to Login</a>
         </div> <!-- /.form-group -->
       </form>
 
@@ -95,23 +68,5 @@
 
   </div> <!-- /.account-wrapper -->
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Core JS -->
-<script src="./js/libs/jquery-1.10.2.min.js"></script>
-<script src="./js/libs/bootstrap.min.js"></script>
-
-<!--[if lt IE 9]>
-<script src="./js/libs/excanvas.compiled.js"></script>
-<![endif]-->
-<!-- App JS -->
-<script src="./js/mvpready-core.js"></script>
-<script src="./js/mvpready-admin.js"></script>
-
-<!-- Plugin JS -->
-<script src="./js/mvpready-account.js"></script>
-
-
-
 </body>
-</html>
+{% endblock %}
