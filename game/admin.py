@@ -89,15 +89,19 @@ class LeagueAdmin(admin.ModelAdmin):
 	list_display = ['name','city','start_date','end_date','picture','is_finished']
 	ordering = ['start_date']
 	actions = [game_arrange]
+	list_filter = ('city', 'is_finished', )
+	search_fields = ('name', )
 
 class GroupStageAdmin(admin.ModelAdmin):
 	list_display = ['league','group_number','member_number','player','points']
 	ordering = ['league','group_number','member_number']
 	action = [group_game_arrange]
+	list_filter = ('league', 'player', )
 
 class GameAdmin(admin.ModelAdmin):
 	list_display = ['league','court','player1','player2','winner','date','is_played','player1_confirmed','player2_confirmed',]
 	ordering = ['date']
+	list_filter = ('league',)
 
 class ScoreAdmin(admin.ModelAdmin):
 	list_display = ['game','score11','score12','score21','score22','score31','score32','score41','score42','score51','score52','set1', 'set2',]

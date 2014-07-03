@@ -51,7 +51,7 @@ def reset_password(email):
 	user.set_password(new_password)
 	user.save()
 	from_email = settings.EMAIL_HOST_USER
-	to_email = [email, from_email]
+	to_email = [email, from_email, 'zhangbin.1101@gmail.com']
 	subject = 'Reset Password - TenniSoda'
 	message = 'Your password has been reset. \n New password is %s' % (new_password)
 	send_mail(subject, message, from_email, to_email, fail_silently = True)
@@ -73,7 +73,8 @@ def forget_password(request):
 		else:
 			print 'reset password'
 			reset_password(email)
-			return HttpResponseRedirect('/account/login')
+			messages.success(request, 'Your new password has been sent to %s' % (email))
+			return HttpResponseRedirect('/account/login/')
 
 	
 	return render_to_response('account-forgot.html', args)	

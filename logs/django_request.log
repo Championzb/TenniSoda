@@ -7823,3 +7823,704 @@ Traceback (most recent call last):
     raise ValueError("The view %s.%s didn't return an HttpResponse object." % (callback.__module__, view_name))
 ValueError: The view account.views.confirmation_resend didn't return an HttpResponse object.
 2014-07-03 01:36:33,245 [WARNING] django.request: Not Found: /favicon.ico
+2014-07-03 03:21:24,781 [ERROR] django.request: Internal Server Error: /admin/court/court/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 99, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 337, in resolve
+    for pattern in self.url_patterns:
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 365, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 360, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/ethan/Project/TenniSoda/TenniSoda/urls.py", line 5, in <module>
+    admin.autodiscover()
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/__init__.py", line 29, in autodiscover
+    import_module('%s.admin' % app)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/ethan/Project/TenniSoda/city/admin.py", line 14, in <module>
+    admin.site.register(City, CityAdmin)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/sites.py", line 92, in register
+    admin_class.validate(model)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 106, in validate
+    validator.validate(cls, model)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/validation.py", line 25, in validate
+    getattr(self, m)(cls, model)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/validation.py", line 251, in validate_list_display
+    % (cls.__name__, idx, field, cls.__name__, model._meta.object_name))
+ImproperlyConfigured: CityAdmin.list_display[0], 'city' is not a callable or an attribute of 'CityAdmin' or found in the model 'City'.
+2014-07-03 03:21:26,803 [ERROR] django.request: Internal Server Error: /admin/court/court/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 99, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 337, in resolve
+    for pattern in self.url_patterns:
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 365, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 360, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/ethan/Project/TenniSoda/TenniSoda/urls.py", line 5, in <module>
+    admin.autodiscover()
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/__init__.py", line 29, in autodiscover
+    import_module('%s.admin' % app)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/ethan/Project/TenniSoda/city/admin.py", line 14, in <module>
+    admin.site.register(City, CityAdmin)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/sites.py", line 92, in register
+    admin_class.validate(model)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 106, in validate
+    validator.validate(cls, model)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/validation.py", line 25, in validate
+    getattr(self, m)(cls, model)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/validation.py", line 251, in validate_list_display
+    % (cls.__name__, idx, field, cls.__name__, model._meta.object_name))
+ImproperlyConfigured: CityAdmin.list_display[0], 'city' is not a callable or an attribute of 'CityAdmin' or found in the model 'City'.
+2014-07-03 03:22:56,158 [ERROR] django.request: Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 99, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 337, in resolve
+    for pattern in self.url_patterns:
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 365, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 360, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/ethan/Project/TenniSoda/TenniSoda/urls.py", line 5, in <module>
+    admin.autodiscover()
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/__init__.py", line 29, in autodiscover
+    import_module('%s.admin' % app)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/ethan/Project/TenniSoda/city/admin.py", line 14, in <module>
+    admin.site.register(City, CityAdmin)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/sites.py", line 92, in register
+    admin_class.validate(model)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 106, in validate
+    validator.validate(cls, model)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/validation.py", line 25, in validate
+    getattr(self, m)(cls, model)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/validation.py", line 186, in validate_ordering
+    get_field(cls, model, 'ordering[%d]' % idx, field)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/validation.py", line 418, in get_field
+    % (cls.__name__, label, field, model._meta.app_label, model.__name__))
+ImproperlyConfigured: 'CityAdmin.ordering[0]' refers to field 'city' that is missing from model 'city.City'.
+2014-07-03 03:22:58,556 [ERROR] django.request: Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 99, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 337, in resolve
+    for pattern in self.url_patterns:
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 365, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 360, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/ethan/Project/TenniSoda/TenniSoda/urls.py", line 5, in <module>
+    admin.autodiscover()
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/__init__.py", line 29, in autodiscover
+    import_module('%s.admin' % app)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/ethan/Project/TenniSoda/city/admin.py", line 14, in <module>
+    admin.site.register(City, CityAdmin)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/sites.py", line 92, in register
+    admin_class.validate(model)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 106, in validate
+    validator.validate(cls, model)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/validation.py", line 25, in validate
+    getattr(self, m)(cls, model)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/validation.py", line 186, in validate_ordering
+    get_field(cls, model, 'ordering[%d]' % idx, field)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/validation.py", line 418, in get_field
+    % (cls.__name__, label, field, model._meta.app_label, model.__name__))
+ImproperlyConfigured: 'CityAdmin.ordering[0]' refers to field 'city' that is missing from model 'city.City'.
+2014-07-03 03:23:44,902 [ERROR] django.request: Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 99, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 337, in resolve
+    for pattern in self.url_patterns:
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 365, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 360, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/ethan/Project/TenniSoda/TenniSoda/urls.py", line 5, in <module>
+    admin.autodiscover()
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/__init__.py", line 29, in autodiscover
+    import_module('%s.admin' % app)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/ethan/Project/TenniSoda/city/admin.py", line 14, in <module>
+    admin.site.register(City, CityAdmin)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/sites.py", line 92, in register
+    admin_class.validate(model)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 106, in validate
+    validator.validate(cls, model)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/validation.py", line 25, in validate
+    getattr(self, m)(cls, model)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/validation.py", line 186, in validate_ordering
+    get_field(cls, model, 'ordering[%d]' % idx, field)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/validation.py", line 418, in get_field
+    % (cls.__name__, label, field, model._meta.app_label, model.__name__))
+ImproperlyConfigured: 'CityAdmin.ordering[0]' refers to field 'city' that is missing from model 'city.City'.
+2014-07-03 03:26:16,795 [WARNING] django.request: Not Found: /account/login/account-forgot.html
+2014-07-03 03:29:45,972 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-03 03:29:58,132 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-03 03:41:05,910 [ERROR] django.request: Internal Server Error: /admin/account/profile/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 99, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 337, in resolve
+    for pattern in self.url_patterns:
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 365, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 360, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/ethan/Project/TenniSoda/TenniSoda/urls.py", line 5, in <module>
+    admin.autodiscover()
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/__init__.py", line 29, in autodiscover
+    import_module('%s.admin' % app)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/ethan/Project/TenniSoda/account/admin.py", line 100, in <module>
+    class ProfileAdmin(admin.ModelAdmin):
+  File "/home/ethan/Project/TenniSoda/account/admin.py", line 101, in ProfileAdmin
+    list_display = ['user','court', 'city', self]
+NameError: name 'self' is not defined
+2014-07-03 03:45:07,890 [ERROR] django.request: Internal Server Error: /admin/account/profile/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 432, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/views/decorators/cache.py", line 52, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/sites.py", line 198, in inner
+    return view(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 29, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 25, in bound_func
+    return func(self, *args2, **kwargs2)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 1306, in changelist_view
+    self)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/views/main.py", line 105, in __init__
+    self.queryset = self.get_queryset(request)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/views/main.py", line 391, in get_queryset
+    request, qs, self.query)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 771, in get_search_results
+    queryset = queryset.filter(reduce(operator.or_, or_queries))
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/query.py", line 593, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/query.py", line 611, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1204, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1236, in _add_q
+    current_negated)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1240, in _add_q
+    current_negated=current_negated)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1128, in build_filter
+    lookup_type, value)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/fields/related.py", line 1123, in get_lookup_constraint
+    raise TypeError('Related Field got invalid lookup: %s' % lookup_type)
+TypeError: Related Field got invalid lookup: icontains
+2014-07-03 03:45:27,968 [ERROR] django.request: Internal Server Error: /admin/account/profile/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 432, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/views/decorators/cache.py", line 52, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/sites.py", line 198, in inner
+    return view(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 29, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 25, in bound_func
+    return func(self, *args2, **kwargs2)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 1306, in changelist_view
+    self)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/views/main.py", line 105, in __init__
+    self.queryset = self.get_queryset(request)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/views/main.py", line 391, in get_queryset
+    request, qs, self.query)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 771, in get_search_results
+    queryset = queryset.filter(reduce(operator.or_, or_queries))
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/query.py", line 593, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/query.py", line 611, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1204, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1236, in _add_q
+    current_negated)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1240, in _add_q
+    current_negated=current_negated)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1128, in build_filter
+    lookup_type, value)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/fields/related.py", line 1123, in get_lookup_constraint
+    raise TypeError('Related Field got invalid lookup: %s' % lookup_type)
+TypeError: Related Field got invalid lookup: icontains
+2014-07-03 03:45:36,530 [ERROR] django.request: Internal Server Error: /admin/account/profile/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 432, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/views/decorators/cache.py", line 52, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/sites.py", line 198, in inner
+    return view(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 29, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 25, in bound_func
+    return func(self, *args2, **kwargs2)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 1306, in changelist_view
+    self)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/views/main.py", line 105, in __init__
+    self.queryset = self.get_queryset(request)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/views/main.py", line 391, in get_queryset
+    request, qs, self.query)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 771, in get_search_results
+    queryset = queryset.filter(reduce(operator.or_, or_queries))
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/query.py", line 593, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/query.py", line 611, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1204, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1236, in _add_q
+    current_negated)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1240, in _add_q
+    current_negated=current_negated)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1128, in build_filter
+    lookup_type, value)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/fields/related.py", line 1123, in get_lookup_constraint
+    raise TypeError('Related Field got invalid lookup: %s' % lookup_type)
+TypeError: Related Field got invalid lookup: icontains
+2014-07-03 03:46:40,457 [ERROR] django.request: Internal Server Error: /admin/account/profile/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 432, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/views/decorators/cache.py", line 52, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/sites.py", line 198, in inner
+    return view(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 29, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 25, in bound_func
+    return func(self, *args2, **kwargs2)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 1306, in changelist_view
+    self)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/views/main.py", line 105, in __init__
+    self.queryset = self.get_queryset(request)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/views/main.py", line 391, in get_queryset
+    request, qs, self.query)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 771, in get_search_results
+    queryset = queryset.filter(reduce(operator.or_, or_queries))
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/query.py", line 593, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/query.py", line 611, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1204, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1236, in _add_q
+    current_negated)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1240, in _add_q
+    current_negated=current_negated)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1128, in build_filter
+    lookup_type, value)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/fields/related.py", line 1123, in get_lookup_constraint
+    raise TypeError('Related Field got invalid lookup: %s' % lookup_type)
+TypeError: Related Field got invalid lookup: icontains
+2014-07-03 03:46:45,846 [ERROR] django.request: Internal Server Error: /admin/account/profile/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 432, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/views/decorators/cache.py", line 52, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/sites.py", line 198, in inner
+    return view(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 29, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 25, in bound_func
+    return func(self, *args2, **kwargs2)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 1306, in changelist_view
+    self)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/views/main.py", line 105, in __init__
+    self.queryset = self.get_queryset(request)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/views/main.py", line 391, in get_queryset
+    request, qs, self.query)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 771, in get_search_results
+    queryset = queryset.filter(reduce(operator.or_, or_queries))
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/query.py", line 593, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/query.py", line 611, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1204, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1236, in _add_q
+    current_negated)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1240, in _add_q
+    current_negated=current_negated)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1128, in build_filter
+    lookup_type, value)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/fields/related.py", line 1123, in get_lookup_constraint
+    raise TypeError('Related Field got invalid lookup: %s' % lookup_type)
+TypeError: Related Field got invalid lookup: icontains
+2014-07-03 03:47:01,086 [ERROR] django.request: Internal Server Error: /admin/account/profile/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 99, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 337, in resolve
+    for pattern in self.url_patterns:
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 365, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 360, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/ethan/Project/TenniSoda/TenniSoda/urls.py", line 5, in <module>
+    admin.autodiscover()
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/__init__.py", line 29, in autodiscover
+    import_module('%s.admin' % app)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/ethan/Project/TenniSoda/account/admin.py", line 124, in <module>
+    admin.site.register(Profile, ProfileAdmin)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/sites.py", line 92, in register
+    admin_class.validate(model)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 106, in validate
+    validator.validate(cls, model)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/validation.py", line 25, in validate
+    getattr(self, m)(cls, model)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/validation.py", line 364, in validate_search_fields
+    check_isseq(cls, 'search_fields', cls.search_fields)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/validation.py", line 407, in check_isseq
+    raise ImproperlyConfigured("'%s.%s' must be a list or tuple." % (cls.__name__, label))
+ImproperlyConfigured: 'ProfileAdmin.search_fields' must be a list or tuple.
+2014-07-03 03:47:24,165 [ERROR] django.request: Internal Server Error: /admin/account/profile/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 432, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/views/decorators/cache.py", line 52, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/sites.py", line 198, in inner
+    return view(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 29, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 25, in bound_func
+    return func(self, *args2, **kwargs2)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 1306, in changelist_view
+    self)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/views/main.py", line 105, in __init__
+    self.queryset = self.get_queryset(request)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/views/main.py", line 391, in get_queryset
+    request, qs, self.query)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 771, in get_search_results
+    queryset = queryset.filter(reduce(operator.or_, or_queries))
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/query.py", line 593, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/query.py", line 611, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1204, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1236, in _add_q
+    current_negated)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1240, in _add_q
+    current_negated=current_negated)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1128, in build_filter
+    lookup_type, value)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/fields/related.py", line 1123, in get_lookup_constraint
+    raise TypeError('Related Field got invalid lookup: %s' % lookup_type)
+TypeError: Related Field got invalid lookup: icontains
+2014-07-03 03:48:05,014 [ERROR] django.request: Internal Server Error: /admin/account/profile/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 432, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/views/decorators/cache.py", line 52, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/sites.py", line 198, in inner
+    return view(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 29, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 25, in bound_func
+    return func(self, *args2, **kwargs2)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 1306, in changelist_view
+    self)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/views/main.py", line 105, in __init__
+    self.queryset = self.get_queryset(request)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/views/main.py", line 391, in get_queryset
+    request, qs, self.query)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 771, in get_search_results
+    queryset = queryset.filter(reduce(operator.or_, or_queries))
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/query.py", line 593, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/query.py", line 611, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1204, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1236, in _add_q
+    current_negated)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1240, in _add_q
+    current_negated=current_negated)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1128, in build_filter
+    lookup_type, value)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/fields/related.py", line 1123, in get_lookup_constraint
+    raise TypeError('Related Field got invalid lookup: %s' % lookup_type)
+TypeError: Related Field got invalid lookup: icontains
+2014-07-03 03:52:11,045 [ERROR] django.request: Internal Server Error: /admin/account/profile/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 99, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 337, in resolve
+    for pattern in self.url_patterns:
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 365, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 360, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/ethan/Project/TenniSoda/TenniSoda/urls.py", line 5, in <module>
+    admin.autodiscover()
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/__init__.py", line 29, in autodiscover
+    import_module('%s.admin' % app)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/ethan/Project/TenniSoda/account/admin.py", line 123, in <module>
+    admin.site.register(Profile, ProfileAdmin)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/sites.py", line 92, in register
+    admin_class.validate(model)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 106, in validate
+    validator.validate(cls, model)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/validation.py", line 25, in validate
+    getattr(self, m)(cls, model)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/validation.py", line 309, in validate_list_filter
+    % (cls.__name__, idx, field))
+ImproperlyConfigured: 'ProfileAdmin.list_filter[3]' refers to '__unicode__' which does not refer to a Field.
+2014-07-03 03:54:53,210 [ERROR] django.request: Internal Server Error: /admin/city/district/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 432, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/views/decorators/cache.py", line 52, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/sites.py", line 198, in inner
+    return view(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 29, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 25, in bound_func
+    return func(self, *args2, **kwargs2)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 1306, in changelist_view
+    self)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/views/main.py", line 105, in __init__
+    self.queryset = self.get_queryset(request)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/views/main.py", line 391, in get_queryset
+    request, qs, self.query)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 771, in get_search_results
+    queryset = queryset.filter(reduce(operator.or_, or_queries))
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/query.py", line 593, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/query.py", line 611, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1204, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1236, in _add_q
+    current_negated)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1240, in _add_q
+    current_negated=current_negated)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 1128, in build_filter
+    lookup_type, value)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/fields/related.py", line 1123, in get_lookup_constraint
+    raise TypeError('Related Field got invalid lookup: %s' % lookup_type)
+TypeError: Related Field got invalid lookup: icontains
+2014-07-03 03:59:15,140 [ERROR] django.request: Internal Server Error: /admin/game/league/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 432, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/views/decorators/cache.py", line 52, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/sites.py", line 198, in inner
+    return view(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 29, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 25, in bound_func
+    return func(self, *args2, **kwargs2)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 1306, in changelist_view
+    self)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/views/main.py", line 106, in __init__
+    self.get_results(request)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/views/main.py", line 220, in get_results
+    result_count = paginator.count
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/paginator.py", line 72, in _get_count
+    self._count = self.object_list.count()
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/query.py", line 294, in count
+    return self.query.get_count(using=self.db)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 390, in get_count
+    number = obj.get_aggregation(using=using)[None]
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 356, in get_aggregation
+    result = query.get_compiler(using).execute_sql(SINGLE)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/compiler.py", line 786, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/backends/util.py", line 69, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/MySQLdb/cursors.py", line 207, in execute
+    if not self._defer_warnings: self._warning_check()
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/MySQLdb/cursors.py", line 117, in _warning_check
+    warn(w[-1], self.Warning, 3)
+Warning: Incorrect date value: '%June%' for column 'start_date' at row 1
+2014-07-03 03:59:23,392 [ERROR] django.request: Internal Server Error: /admin/game/league/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 112, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 432, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/views/decorators/cache.py", line 52, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/sites.py", line 198, in inner
+    return view(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 29, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 99, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/decorators.py", line 25, in bound_func
+    return func(self, *args2, **kwargs2)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/options.py", line 1306, in changelist_view
+    self)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/views/main.py", line 106, in __init__
+    self.get_results(request)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/views/main.py", line 220, in get_results
+    result_count = paginator.count
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/paginator.py", line 72, in _get_count
+    self._count = self.object_list.count()
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/query.py", line 294, in count
+    return self.query.get_count(using=self.db)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 390, in get_count
+    number = obj.get_aggregation(using=using)[None]
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/query.py", line 356, in get_aggregation
+    result = query.get_compiler(using).execute_sql(SINGLE)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/models/sql/compiler.py", line 786, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/backends/util.py", line 69, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/MySQLdb/cursors.py", line 207, in execute
+    if not self._defer_warnings: self._warning_check()
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/MySQLdb/cursors.py", line 117, in _warning_check
+    warn(w[-1], self.Warning, 3)
+Warning: Incorrect date value: '%Nan%' for column 'start_date' at row 1
+2014-07-03 04:01:26,400 [ERROR] django.request: Internal Server Error: /admin/game/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 99, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 337, in resolve
+    for pattern in self.url_patterns:
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 365, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 360, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/ethan/Project/TenniSoda/TenniSoda/urls.py", line 5, in <module>
+    admin.autodiscover()
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/__init__.py", line 29, in autodiscover
+    import_module('%s.admin' % app)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/ethan/Project/TenniSoda/game/admin.py", line 95, in <module>
+    class GroupStageAdmin(admin.ModelAdmin):
+  File "/home/ethan/Project/TenniSoda/game/admin.py", line 99, in GroupStageAdmin
+    list_filter('league', 'player', )
+NameError: name 'list_filter' is not defined
+2014-07-03 04:01:30,367 [ERROR] django.request: Internal Server Error: /admin/game/
+Traceback (most recent call last):
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/handlers/base.py", line 99, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 337, in resolve
+    for pattern in self.url_patterns:
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 365, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/core/urlresolvers.py", line 360, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/ethan/Project/TenniSoda/TenniSoda/urls.py", line 5, in <module>
+    admin.autodiscover()
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/contrib/admin/__init__.py", line 29, in autodiscover
+    import_module('%s.admin' % app)
+  File "/home/ethan/django-damon/local/lib/python2.7/site-packages/Django-1.6.5-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/ethan/Project/TenniSoda/game/admin.py", line 95, in <module>
+    class GroupStageAdmin(admin.ModelAdmin):
+  File "/home/ethan/Project/TenniSoda/game/admin.py", line 99, in GroupStageAdmin
+    list_filter('league', 'player', )
+NameError: name 'list_filter' is not defined

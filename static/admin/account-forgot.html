@@ -49,10 +49,11 @@
         <div class="form-group">
           <label for="forgot-email" class="placeholder-hidden">Your Email</label>
           <input type="text" class="form-control" id="forgot-email" placeholder="Your Email" tabindex="1" name="email">
+          	{% if warning %}
+              <small><font color="red">Email has not registered.</font></small>
+            {% endif %}
         </div> <!-- /.form-group -->
-	{% if warning %}
-		<small><font color="red">Email has not registered.</font></small>
-	{% endif %}
+
         <div class="form-group">
           <button type="submit" class="btn btn-secondary btn-block btn-lg" tabindex="2">
             Send Email to Reset Password &nbsp; <i class="fa fa-refresh"></i>
