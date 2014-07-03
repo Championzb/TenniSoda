@@ -7822,3 +7822,4 @@ Traceback (most recent call last):
   File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 132, in get_response
     raise ValueError("The view %s.%s didn't return an HttpResponse object." % (callback.__module__, view_name))
 ValueError: The view account.views.confirmation_resend didn't return an HttpResponse object.
+2014-07-03 01:36:33,245 [WARNING] django.request: Not Found: /favicon.ico
