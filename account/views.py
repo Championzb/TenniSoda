@@ -210,7 +210,7 @@ def confirmation_resend(request):
 	from_email = settings.EMAIL_HOST_USER
 	to_email = [request.session['email'],from_email, 'zhangbin.1101@gmail.com']
 	subject = 'Account Registration Activation Resend - TenniSoda'
-	message = 'Congratulation! You have registered successfully! Click following link to confirm.\n http://127.0.0.1:8000/account/confirm/%s' % (request.session['activation_key'])
+	message = 'Congratulation! You have registered successfully! Click following link to confirm.\n http://%s/account/confirm/%s' % (settings.HOST_DOMAIN, request.session['activation_key'])
 	#send email..
 	send_mail(subject, message, from_email, to_email, fail_silently = True)
 
