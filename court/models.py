@@ -2,6 +2,7 @@ from django.db import models
 from city.models import City
 from geoposition.fields import GeopositionField
 from TenniSoda import settings
+from time import time
 
 def get_upload_file_name(instance, filename):
 	return settings.UPLOAD_FILE_PATTERN % ('court_pic', str(time()).replace('.','_'), filename)
