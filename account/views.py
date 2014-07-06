@@ -99,7 +99,10 @@ def auth_view(request):
 			request.session['activation_key'] = user.activation_key
 			return render_to_response('require-active.html', args, context_instance=RequestContext(request))
 	else:
-		return HttpResponseRedirect('/account/invalid_login/')
+		args = {}
+		args.update(csrf(request))
+		args['warning'] = True
+		return render(request, 'account-login.html', args)
 
 @login_required
 def welcome_user(request):

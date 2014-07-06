@@ -46,6 +46,10 @@
 
       <form class="form account-form" method="POST" action="/account/auth/">{% csrf_token %}
 
+      {% if warning %}
+          <small><font color="red">Email has not registered or your password is not correct!</font></small>
+      {% endif %}
+
         <div class="form-group">
           <label for="login-username" class="placeholder-hidden">Email address</label>
           <input type="email" class="form-control"  placeholder="Email address" tabindex="1" name="email">
