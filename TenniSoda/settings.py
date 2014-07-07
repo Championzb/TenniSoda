@@ -138,6 +138,7 @@ MEDIA_URL = ''
 
 UPLOAD_FILE_PATTERN = "uploaded_files/%s/%s_%s"
 
+'''
 LOGGING = {
     'version':1,
     'disable_existing_loggers': True,
@@ -177,6 +178,7 @@ LOGGING = {
         }, 
     }
 }
+'''
 
 AUTH_USER_MODEL = 'account.Account'
 
