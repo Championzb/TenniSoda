@@ -8525,3 +8525,4 @@ Traceback (most recent call last):
     list_filter('league', 'player', )
 NameError: name 'list_filter' is not defined
 2014-07-03 18:26:10,049 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1403732736_2_pic.png
+2014-07-07 02:28:38,970 [WARNING] django.request: Not Found: /favicon.ico
