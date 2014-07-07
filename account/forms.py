@@ -25,13 +25,14 @@ class UserProfileForm(forms.ModelForm):
 	#birth_date = forms.DateField(widget=DateTimePicker(options = {"format": "YYYY-MM-DD", "picktime": True}, attrs = {'id': 'datetimepicker'}), required=False)
 	court = forms.ModelChoiceField(queryset=Court.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}), required=False)
 	picture = forms.ImageField(widget=ImageWidget(attrs = {'class': 'form-control'}), required=False)
-	#picture = forms.ImageField()
+	club = forms.CharField(widget=forms.TextInput(attrs = {'class': 'form-control'}))
+	self_introduction = forms.CharField(widget=forms.Textarea(attrs = {'class': 'form-control'}))
 
 
 	class Meta:
 		model = Profile
 		#fields = ('picture', 'last_name','first_name','gender','city', 'district', 'birth_date','court','level')
-		fields = ('last_name','first_name','gender','city', 'district', 'birth_date','court','level')
+		fields = ('last_name','first_name','gender','city', 'district', 'birth_date','court','level', 'club', 'self_introduction')
 
 	def save(self,commit=True):
 		form = super(UserProfileForm,self).save(commit=False)

@@ -215,6 +215,26 @@
                 </div> <!-- /.form-group -->
 
                 <div class="form-group">
+                  <label class="col-md-3">{{ form.club.label }}</label>
+                  <div class="col-md-7">
+                    {{ form.club }}
+                    {% for err in form.club.errors %}
+                      <span style="color: red">{{ err }}</span>
+                    {% endfor %}
+                  </div> <!-- /.col -->
+                </div> <!-- /.form-group -->
+
+                <div class="form-group">
+                  <label class="col-md-3">{{ form.self_introduction.label }}</label>
+                  <div class="col-md-7">
+                    {{ form.self_introduction }}
+                    {% for err in form.self_introduction.errors %}
+                      <span style="color: red">{{ err }}</span>
+                    {% endfor %}
+                  </div> <!-- /.col -->
+                </div> <!-- /.form-group -->
+
+                <div class="form-group">
                    <div class="col-md-7 col-md-push-3">
                        <button type="submit" class="btn btn-primary">Save Changes</button>
                        &nbsp;
