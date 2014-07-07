@@ -148,6 +148,8 @@ def change_profile(request):
 		form = UserProfileForm(request.POST, request.FILES, instance = request.user.profile,)
 		if form.is_valid():
 			form.save()
+			#request.user.profile.picture = form.cleaned_data['picture']
+			#request.user.profile.save()
 			#messages.success(request,'You have updated the profile')
 			args['form'] = form
 			args['email'] = request.user.email

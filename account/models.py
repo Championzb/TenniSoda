@@ -58,6 +58,7 @@ class Account(AbstractBaseUser):
     is_active = models.BooleanField(default=False)
     is_admin = models.BooleanField(default=False)
     activation_key = models.CharField(max_length=40)
+    first_login = models.BooleanField(default=True)
 
     objects = AccountManager()
 
@@ -107,6 +108,8 @@ class Profile(models.Model):
     league_rank = models.IntegerField(null=True,blank=True)
     local_rank = models.IntegerField( null=True,blank=True)
     picture = models.ImageField(upload_to = get_upload_file_name, null=True, blank=True)
+    club = models.CharField(max_length=40, null = True, blank = True)
+    self_introduction = models.CharField(max_length=100, null = True, blank = True)
 
     def __unicode__(self):
         username = self.user.email.split('@')[0]

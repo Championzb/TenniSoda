@@ -8530,3 +8530,100 @@ NameError: name 'list_filter' is not defined
 2014-07-07 18:39:27,854 [WARNING] django.request: Not Found: /accounts/login/
 2014-07-07 18:39:33,689 [WARNING] django.request: Forbidden (CSRF token missing or incorrect.): /account/auth/
 2014-07-07 18:39:42,082 [WARNING] django.request: Forbidden (CSRF token missing or incorrect.): /account/auth/
+2014-07-07 19:57:05,613 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1404763021_43_default-league.png
+2014-07-07 20:02:31,497 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1404763021_43_default-league.png
+2014-07-07 20:02:31,703 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1404763021_43_default-league.png
+2014-07-07 20:07:38,123 [WARNING] django.request: Not Found: /favicon.ico
+2014-07-07 20:09:11,701 [WARNING] django.request: Not Found: /account/change_profile/uploaded_files/profile_pic/1404763021_43_default-league.png
+2014-07-07 20:22:44,745 [ERROR] django.request: Internal Server Error: /account/change_profile/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/account/views.py", line 151, in change_profile
+    request.user.profile.picture = form.cleaned_data['image']
+KeyError: 'image'
+2014-07-07 20:27:56,149 [ERROR] django.request: Internal Server Error: /account/change_profile/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 223, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 230, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/functional.py", line 32, in wrapper
+    result = func(*args)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/damon/Project/TenniSoda/account/views.py", line 6, in <module>
+    from forms import UserProfileForm
+  File "/home/damon/Project/TenniSoda/account/forms.py", line 28
+    picture = forms.ImageField()
+                               ^
+IndentationError: unindent does not match any outer indentation level
+2014-07-07 20:29:25,684 [ERROR] django.request: Internal Server Error: /account/change_profile/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 223, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 230, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/functional.py", line 32, in wrapper
+    result = func(*args)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/damon/Project/TenniSoda/account/views.py", line 6, in <module>
+    from forms import UserProfileForm
+  File "/home/damon/Project/TenniSoda/account/forms.py", line 28
+    picture = forms.ImageField()
+                               ^
+IndentationError: unindent does not match any outer indentation level
+2014-07-07 20:30:29,351 [ERROR] django.request: Internal Server Error: /account/change_profile/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 339, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 223, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 230, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/functional.py", line 32, in wrapper
+    result = func(*args)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/urlresolvers.py", line 97, in get_callable
+    mod = import_module(mod_name)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/utils/importlib.py", line 40, in import_module
+    __import__(name)
+  File "/home/damon/Project/TenniSoda/account/views.py", line 6, in <module>
+    from forms import UserProfileForm
+  File "/home/damon/Project/TenniSoda/account/forms.py", line 28
+    picture = forms.ImageField()
+                               ^
+IndentationError: unindent does not match any outer indentation level
+2014-07-07 20:32:35,379 [ERROR] django.request: Internal Server Error: /account/change_profile/
+Traceback (most recent call last):
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/damon/Documents/Python/django-damon/local/lib/python2.7/site-packages/Django-1.6.4-py2.7.egg/django/contrib/auth/decorators.py", line 22, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/damon/Project/TenniSoda/account/views.py", line 150, in change_profile
+    form.save()
+  File "/home/damon/Project/TenniSoda/account/forms.py", line 39, in save
+    form.picture = self.cleaned_date['picture']
+AttributeError: 'UserProfileForm' object has no attribute 'cleaned_date'

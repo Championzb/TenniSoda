@@ -79,8 +79,8 @@ class AccountAdmin(UserAdmin):
 	# The fields to be used in displaying the User model.
 	# These override the definitions on the base UserAdmin
 	# that reference specific fields on auth.User.
-	list_display = ('id', 'email', 'is_admin', 'is_active', 'register_time')
-	list_filter = ('is_admin', 'is_active')
+	list_display = ('id', 'email', 'is_admin', 'is_active', 'register_time', 'first_login')
+	list_filter = ('is_admin', 'is_active', 'first_login')
 	fieldsets = (
 		(None, {'fields': ('email', 'password')}),
 		('Permissions', {'fields': ('is_admin',)}),
@@ -98,8 +98,8 @@ class AccountAdmin(UserAdmin):
 	filter_horizontal = ()
 
 class ProfileAdmin(admin.ModelAdmin):
-	list_display = ['user', '__unicode__', 'gender', 'court', 'city', 'birth_date', 'level', 'phone']
-	list_filter = ('city', 'gender', 'level',)
+	list_display = ['user', '__unicode__', 'gender', 'court', 'city', 'birth_date', 'level', 'phone', 'club', 'self_introduction']
+	list_filter = ('city', 'gender', 'level', 'club')
 	ordering = ['city', 'gender', 'level',]
 
 # Now register the new UserAdmin...

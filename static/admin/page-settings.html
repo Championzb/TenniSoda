@@ -107,12 +107,13 @@
                           <img src="{% static "assets/uploaded_files/default.jpg" %}" alt="Profile Image" />
                         {% endif %}
                       </div>
-
+<!--
                       {{ form.picture }}
                       {% for err in form.picture.errors %}
                         <span style="color: red">{{ err }}</span>
                       {% endfor %}
-
+-->
+                      <input type="file" class="form-control" name="picture">
                     </div> <!-- /.fileupload -->
 
                   </div> <!-- /.col -->

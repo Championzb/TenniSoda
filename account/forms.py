@@ -25,15 +25,18 @@ class UserProfileForm(forms.ModelForm):
 	#birth_date = forms.DateField(widget=DateTimePicker(options = {"format": "YYYY-MM-DD", "picktime": True}, attrs = {'id': 'datetimepicker'}), required=False)
 	court = forms.ModelChoiceField(queryset=Court.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}), required=False)
 	picture = forms.ImageField(widget=ImageWidget(attrs = {'class': 'form-control'}), required=False)
+	#picture = forms.ImageField()
 
 
 	class Meta:
 		model = Profile
-		fields = ('picture', 'last_name','first_name','gender','city', 'district', 'birth_date','court','level')
+		#fields = ('picture', 'last_name','first_name','gender','city', 'district', 'birth_date','court','level')
+		fields = ('last_name','first_name','gender','city', 'district', 'birth_date','court','level')
 
 	def save(self,commit=True):
 		form = super(UserProfileForm,self).save(commit=False)
 		form.phone = self.cleaned_data['phone']
+		form.picture = self.cleaned_data['picture']
 		if commit:
 			form.save()
 
