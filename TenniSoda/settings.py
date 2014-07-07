@@ -182,6 +182,6 @@ AUTH_USER_MODEL = 'account.Account'
 
 AUTH_PROFILE_MODULE = 'account.UserProfile'
 
-#HOST_DOMAIN = 'ec2-54-191-12-220.us-west-2.compute.amazonaws.com'
-HOST_DOMAIN = '127.0.0.1:8000'
+HOST_DOMAIN = 'ec2-54-191-12-220.us-west-2.compute.amazonaws.com'
+#HOST_DOMAIN = '127.0.0.1:8000'
 
