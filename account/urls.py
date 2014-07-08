@@ -13,5 +13,5 @@ urlpatterns = patterns('account.views',
     url(r'^confirm/(?P<activation_key>\w+)/$', 'confirm'),
     url(r'^confirmation_resend/$', 'confirmation_resend'),
     url(r'^forget_password/$', 'forget_password'),
-
+    url(r'^first_login/$', 'first_login'),
 )

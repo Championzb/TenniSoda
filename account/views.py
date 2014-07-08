@@ -92,7 +92,10 @@ def auth_view(request):
 	if user is not None:
 		if user.is_active:
 			auth.login(request, user)
-			return HttpResponseRedirect('/account/welcome_user/')
+			if user.first_login:
+				return HttpResponseRedirect('/account/first_login/')
+			else:
+				return HttpResponseRedirect('/account/welcome_user/')
 		else:
 			args = {}
 			request.session['email'] = email
@@ -103,11 +106,22 @@ def auth_view(request):
 		args.update(csrf(request))
 		args['warning'] = True
 		args['email_exist'] = False
-		if Account.objects.filter(email=email).count() != 0:
+		if Account.objects.filter(emailwa=email).count() != 0:
 			args['email_exist'] = True
 		else:
 			args['email_exist'] = False
 		return render(request, 'account-login.html', args)
+
+@login_required
+def first_login(request):
+	user = request.user
+	user.first_login = False
+	user.save()
+	notifications = Notification.objects.filter(user = request.user, viewed = False).order_by('time').reverse()
+
+	args = {}
+	args['notifications'] = notifications
+	return render_to_response('account-tutorial.html', args)
 
 @login_required
 def welcome_user(request):

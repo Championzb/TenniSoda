@@ -25,8 +25,8 @@ class UserProfileForm(forms.ModelForm):
 	#birth_date = forms.DateField(widget=DateTimePicker(options = {"format": "YYYY-MM-DD", "picktime": True}, attrs = {'id': 'datetimepicker'}), required=False)
 	court = forms.ModelChoiceField(queryset=Court.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}), required=False)
 	picture = forms.ImageField(widget=ImageWidget(attrs = {'class': 'form-control'}), required=False)
-	club = forms.CharField(widget=forms.TextInput(attrs = {'class': 'form-control'}))
-	self_introduction = forms.CharField(widget=forms.Textarea(attrs = {'class': 'form-control'}))
+	club = forms.CharField(widget=forms.TextInput(attrs = {'class': 'form-control'}), required = False)
+	self_introduction = forms.CharField(widget=forms.Textarea(attrs = {'class': 'form-control'}), required = False)
 
 
 	class Meta:
