@@ -37,7 +37,8 @@ class UserProfileForm(forms.ModelForm):
 	def save(self,commit=True):
 		form = super(UserProfileForm,self).save(commit=False)
 		form.phone = self.cleaned_data['phone']
-		form.picture = self.cleaned_data['picture']
+		if self.cleaned_data['picture'] is not None:
+			form.picture = self.cleaned_data['picture']
 		if commit:
 			form.save()
 
