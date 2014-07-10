@@ -106,7 +106,7 @@ def auth_view(request):
 		args.update(csrf(request))
 		args['warning'] = True
 		args['email_exist'] = False
-		if Account.objects.filter(emailwa=email).count() != 0:
+		if Account.objects.filter(email=email).count() != 0:
 			args['email_exist'] = True
 		else:
 			args['email_exist'] = False
