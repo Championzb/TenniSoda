@@ -1,5 +1,5 @@
 from django.contrib import admin
-from models import League, Game, Score, GroupStage,FreeLeagueGame
+from models import League, Game, Score, GroupStage,FreeLeagueGame, GameGroup, GameGroupMember
 import datetime
 
 def game_arrange(modeladmin,request,queryset):
@@ -109,8 +109,20 @@ class ScoreAdmin(admin.ModelAdmin):
 class FreeLeagueGameAdmin(admin.ModelAdmin):
 	list_display = ['player','request_time']
 
+class GameGroupAdmin(admin.ModelAdmin):
+	list_display = ['holder', 'maximum', 'city', 'district', 'court', 'time', 'price', 'level_high', 'level_low', 'age_high', 'age_low', 'gender']
+	ordering = ['time']
+	list_filter = ('city', 'district', 'court')
+
+class GameGroupMemberAdmin(admin.ModelAdmin):
+	list_display = ['player', 'game_group']
+	ordering = ['game_group']
+
+
 admin.site.register(League,LeagueAdmin)
 admin.site.register(Game,GameAdmin)
 admin.site.register(Score,ScoreAdmin)
 admin.site.register(GroupStage,GroupStageAdmin)
 admin.site.register(FreeLeagueGame, FreeLeagueGameAdmin)
+admin.site.register(GameGroup, GameGroupAdmin)
+admin.site.register(GameGroupMember, GameGroupMemberAdmin)

@@ -1,6 +1,6 @@
 from django.db import models
 from account.models import Profile
-from city.models import City
+from city.models import City, District
 from court.models import Court
 from TenniSoda import settings
 from time import time
@@ -84,3 +84,28 @@ class FreeLeagueGame(models.Model):
 
     def __unicode__(self):
         return u'%s' % self.player
+
+class GameGroup(models.Model):
+    holder = models.ForeignKey(Profile)
+    maximum = models.IntegerField(default = 4)
+    city = models.ForeignKey(City)
+    district = models.ForeignKey(District, blank = True, null = True)
+    court = models.ForeignKey(Court)
+    time = models.DateTimeField(default=datetime.now())
+    level_high = models.FloatField(default=7.0)
+    level_low = models.FloatField(default=2.0)
+    age_high = models.IntegerField(blank = True, null = True)
+    age_low = models.IntegerField(blank = True, null = True)
+    price = models.IntegerField(default = 0)
+    gender = models.CharField(max_length = 1, default = 2)
+
+    def __unicode__(self):
+        return u'%s %s %s' % (self.holder, self.court, self.time)
+
+class GameGroupMember(models.Model):
+    player = models.ForeignKey(Profile)
+    game_group = models.ForeignKey(GameGroup)
+
+    def __unicode__(self):
+        return u'%s %s' % (self.player, self.game_group)
+
