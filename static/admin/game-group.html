@@ -1,0 +1,246 @@
+{% extends "index-base.html" %}
+{% load static %}
+{% block head %}
+<script>
+    function checkProfile(){
+        {% if profile.last_name and profile.first_name and profile.phone %}
+            window.location = "/game/find_game/";
+        {% else %}
+            alert("Please provide your name and phone first!");
+            window.location = "/account/change_profile/";
+        {% endif %}
+    }
+</script>
+{% endblock %}
+{% block profileimg %}
+    {% if user.picture %}
+      <img src="{% get_static_prefix %}assets/{{user.picture.url}}" class="navbar-profile-avatar" alt="" />
+    {% else %}
+      <img src="{% static "assets/uploaded_files/default.jpg" %}" class="navbar-profile-avatar" alt="" />
+    {% endif %}
+{% endblock %}
+{% block game_group %}
+          <li class="dropdown active">
+
+            <a href="/game/game_group/">
+                <i class="fa fa-calendar"></i>
+                约球
+            </a>
+          </li>
+          {% endblock %}
+{% block content %}
+  <div class="content">
+
+    <div class="container">
+
+      <div class="layout layout-stack-sm layout-main-left">
+    
+        <div class="col-sm-7 col-md-8 layout-main">
+          {% if attended_groups %}
+          <div class="portlet">
+
+            <h4 class="portlet-title">
+              <u>已加入的小组</u>
+            </h4>
+
+            <div class="portlet-body">
+
+              <table class="table table-striped table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Game Time</th>
+                    <th>Opponent</th>
+                    <th class="hidden-xs">Win/Lose</th>
+                    <th class="hidden-xs hidden-sm">Court</th>
+                    <th>Score</th>
+                    <th>Confirm</th>
+                    <th class="hidden-xs hidden-sm">Review</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for game in games %}
+                {% if not game.league %}
+                  <tr>
+                    <!--Date-->
+                    <td>{{ game.date }}</td>
+                    <!-- Opponent -->
+                    {% if game.player1 == user %}
+                      <td>{{ game.player2 }}</td>
+                    {% else %}
+                      <td>{{ game.player1 }}</td>
+                    {% endif %}
+                    <!-- Winner -->
+                    {% if not game.winner %}
+                      <td class="hidden-xs">N/A</td>
+                    {% elif game.winner == user %}
+                      <td class="hidden-xs">W</td>
+                    {% else %}
+                      <td class="hidden-xs">L</td>
+                    {% endif %}
+                    <!-- Court -->
+                    <td class="hidden-xs hidden-sm">{{ game.court }}</td>
+                    <!-- Score -->
+                    {% if game.player1_confirmed or game.player2_confirmed %}
+                      <!--One of the players has uploaded the score-->
+                      {% if game.player1_confirmed and game.player2_confirmed %}
+                      <!-- Both players confirm the socre-->
+                        {% if game.player1 == user %}
+                          <td>{{ game.score.set1 }}:{{ game.score.set2 }}</td>
+                        {% else %}
+                          <td>{{ game.score.set2 }}:{{ game.score.set1 }}</td>
+                        {% endif %}
+                      {% else %}
+                        {% if game.player1 == user %}
+                          <td><a href="/game/upload_score/{{game.id}}">{{ game.score.set1 }}:{{ game.score.set2 }}</a></td>
+                        {% else %}
+                          <td><a href="/game/upload_score/{{game.id}}">{{ game.score.set2 }}:{{ game.score.set1 }}</a></td>
+                        {% endif %}
+                      {% endif %}
+                    {% else %}
+                      <!--No score uploaded-->
+                      <td><a href="/game/upload_score/{{game.id}}">Upload Score</a></td>
+                    {% endif %}
+                    <!-- Confirm -->
+                    {% if game.player1 == user %}
+                      {% if game.player1_confirmed %}
+                        <td>Confirmed</td>
+                      {% else %}
+                        <td><a href="/game/confirm_score/{{game.id}}/">Confirm</a></td>
+                      {% endif %}
+                    {% else %}
+                      {% if game.player2_confirmed %}
+                        <td>Confirmed</td>
+                      {% else %}
+                        <td><a href="/game/confirm_score/{{game.id}}/">Confirm</a></td>
+                      {% endif %}
+                    {% endif %}
+                    <!-- Review -->
+                    <td  class="hidden-xs hidden-sm"><a href="/review/all_review/{{game.id}}/">Review</a></td>
+                  </tr>
+                {% endif %}
+                {% endfor %}
+                </tbody>
+             </table>
+            </div> <!-- /.portlet-body -->
+          </div> <!-- /.portlet -->
+          {% endif %}
+
+          {% if all_groups %}
+          <div class="portlet">
+
+            <h4 class="portlet-title">
+              <u>已有小组</u>
+            </h4>
+
+            <div class="portlet-body">
+
+              <table class="table table-striped table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Game Time</th>
+                    <th>Opponent</th>
+                    <th class="hidden-xs">Win/Lose</th>
+                    <th class="hidden-xs hidden-sm">Court</th>
+                    <th>Score</th>
+                    <th>Confirm</th>
+                    <th class="hidden-xs hidden-sm">Review</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for game in games %}
+                {% if not game.league %}
+                  <tr>
+                    <!--Date-->
+                    <td>{{ game.date }}</td>
+                    <!-- Opponent -->
+                    {% if game.player1 == user %}
+                      <td>{{ game.player2 }}</td>
+                    {% else %}
+                      <td>{{ game.player1 }}</td>
+                    {% endif %}
+                    <!-- Winner -->
+                    {% if not game.winner %}
+                      <td class="hidden-xs">N/A</td>
+                    {% elif game.winner == user %}
+                      <td class="hidden-xs">W</td>
+                    {% else %}
+                      <td class="hidden-xs">L</td>
+                    {% endif %}
+                    <!-- Court -->
+                    <td class="hidden-xs hidden-sm">{{ game.court }}</td>
+                    <!-- Score -->
+                    {% if game.player1_confirmed or game.player2_confirmed %}
+                      <!--One of the players has uploaded the score-->
+                      {% if game.player1_confirmed and game.player2_confirmed %}
+                      <!-- Both players confirm the socre-->
+                        {% if game.player1 == user %}
+                          <td>{{ game.score.set1 }}:{{ game.score.set2 }}</td>
+                        {% else %}
+                          <td>{{ game.score.set2 }}:{{ game.score.set1 }}</td>
+                        {% endif %}
+                      {% else %}
+                        {% if game.player1 == user %}
+                          <td><a href="/game/upload_score/{{game.id}}">{{ game.score.set1 }}:{{ game.score.set2 }}</a></td>
+                        {% else %}
+                          <td><a href="/game/upload_score/{{game.id}}">{{ game.score.set2 }}:{{ game.score.set1 }}</a></td>
+                        {% endif %}
+                      {% endif %}
+                    {% else %}
+                      <!--No score uploaded-->
+                      <td><a href="/game/upload_score/{{game.id}}">Upload Score</a></td>
+                    {% endif %}
+                    <!-- Confirm -->
+                    {% if game.player1 == user %}
+                      {% if game.player1_confirmed %}
+                        <td>Confirmed</td>
+                      {% else %}
+                        <td><a href="/game/confirm_score/{{game.id}}/">Confirm</a></td>
+                      {% endif %}
+                    {% else %}
+                      {% if game.player2_confirmed %}
+                        <td>Confirmed</td>
+                      {% else %}
+                        <td><a href="/game/confirm_score/{{game.id}}/">Confirm</a></td>
+                      {% endif %}
+                    {% endif %}
+                    <!-- Review -->
+                    <td  class="hidden-xs hidden-sm"><a href="/review/all_review/{{game.id}}/">Review</a></td>
+                  </tr>
+                {% endif %}
+                {% endfor %}
+                </tbody>
+             </table>
+            </div> <!-- /.portlet-body -->
+          </div> <!-- /.portlet -->
+          {% endif %}
+        </div> <!-- /.layout-main -->
+        <div class="col-sm-5 col-md-4 layout-sidebar">
+          <div class="portlet">
+            <a class="btn btn-primary btn-jumbo btn-block" onclick="checkProfile()">Join game</a>
+            <br>
+            <a href="javascript:;" class="btn btn-secondary btn-lg btn-block ">New Template</a>
+          </div> <!-- /.portlet -->
+
+
+          <h4>Introduction</h4>
+
+          <div class="well">
+            
+            <ul class="icons-list text-md">
+              <li>
+                <i class="icon-li fa fa-comments-o text-success"></i>
+                <strong>HHEHEHEHHEH</strong>
+                <br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </li>
+            </ul>
+          </div> <!-- /.well -->
+
+        </div> <!-- /.layout-sidebar -->
+
+      </div> <!-- /.layout -->
+
+    </div> <!-- /.container -->
+
+  </div> <!-- .content -->
+{% endblock %}

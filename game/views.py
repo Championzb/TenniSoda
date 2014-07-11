@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response, render
 from django.http import HttpResponseRedirect
-from models import League, Game, Score, FreeLeagueGame
+from models import League, Game, Score, FreeLeagueGame, GameGroup, GameGroupMember
 from forms import ScoreCreationForm, GameEditForm
 from django.core.context_processors import csrf
 from django.contrib.auth.decorators import login_required
@@ -268,3 +268,20 @@ def attended_league(request):
 	args['profile'] = user
 	args['notifications'] = notifications
 	return render_to_response('attended-league.html', args)
+
+@login_required
+def game_group(request):
+	user = request.user.profile
+	attended_groups = GameGroupMember.objects.filter(player=user)
+	all_groups = GameGroup.objects.all()
+	for group in attended_groups:
+		all_groups = all_groups.exclude(id=group.game_group_id)
+
+	notifications = Notification.objects.filter(user = request.user, viewed = False).order_by('time').reverse()
+	args = {}
+	args['profile'] = user
+	args['notifications'] = notifications
+	args['attended_groups'] = attended_groups
+	args['all_groups'] = all_groups
+
+	return render_to_response('game-group.html', args)

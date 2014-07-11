@@ -9,7 +9,8 @@ urlpatterns = patterns('game.views',
     url(r'^quit_game/(?P<game_id>\d+)/$','quit_game'),
     url(r'^ladder_game/$', 'ladder_game'),
     url(r'^all_league/$', 'all_league'),
-    url(r'^attended_league/$', 'attended_league')
+    url(r'^attended_league/$', 'attended_league'),
+    url(r'^game_group/$', 'game_group'),
 #	url(r'^Find/$', 'LeagueMatch.views.find'),
 #	url(r'^CreateMatch/$', 'LeagueMatch.views.create_match'),
 
