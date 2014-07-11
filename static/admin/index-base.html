@@ -87,6 +87,7 @@
               {% endif %}
             </a>
 
+            {% if notifications %}
             <ul class="dropdown-menu noticebar-menu noticebar-hoverable" role="menu">
               <li class="nav-header">
                 <div class="pull-left">
@@ -114,9 +115,26 @@
               {% endfor %}
 
               <li class="noticebar-menu-view-all">
-                <a href="./page-notifications.html">View All Notifications</a>
+                <a href="/notification/all/">View All Notifications</a>
               </li>
             </ul>
+            {% else %}
+              <ul class="dropdown-menu noticebar-menu noticebar-hoverable" role="menu">
+              <li class="nav-header">
+                <div class="pull-left">
+                  Notifications
+                </div>
+              </li>
+
+              <li class="noticebar-empty">
+                  <h4 class="noticebar-empty-title">No notifications here.</h4>
+              </li>
+
+              <li class="noticebar-menu-view-all">
+                <a href="/notification/all/">View All Notifications</a>
+              </li>
+            </ul>
+            {% endif %}
           </li>
 
 
