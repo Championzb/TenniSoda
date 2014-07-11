@@ -18,6 +18,7 @@
     {% else %}
       <img src="{% static "assets/uploaded_files/default.jpg" %}" class="navbar-profile-avatar" alt="" />
     {% endif %}
+      <span class="navbar-profile-label">{{username}}&nbsp;</span>
 {% endblock %}
 {% block profile %}
 <li class="dropdown active">
