@@ -25,18 +25,26 @@
 
       <div class="layout layout-stack-sm layout-main-left">
 
-        <div class="col-sm-8 col-md-9 layout-main">
+        <form action="/account/change_profile/" method="POST" class="form-horizontal" enctype= multipart/form-data>{% csrf_token %}
+          <div class="col-sm-8 col-md-9 layout-main">
+            <div class="form-group">
+              <label class="col-md-3">Email Address</label>
+              <div class="col-md-7">
+                <input type="text" name="user-name" value="{{email}}" class="form-control" disabled />
+              </div> <!-- /.col -->
+            </div> <!-- /.form-group -->
+          </div><!-- /.layout-main -->
 
-        </div> <!-- /.layout-main -->
-
-        <div class="col-sm-4 col-md-3 layout-sidebar">
-          <div class="portlet">
-            <a href="/game/publish_game_group/" class="btn btn-primary btn-jumbo btn-block" onclick="checkProfile()">发布约球信息</a>
-            <br>
-            <a href="/game/all_league/" class="btn btn-secondary btn-lg btn-block ">联赛</a>
-          </div> <!-- /.portlet -->
-
-        </div> <!-- /.layout-sidebar -->
+          <div class="col-sm-4 col-md-3 layout-sidebar">
+            <div class="form-group">
+              <div class="portlet">
+                <button type="submit" class="btn btn-primary btn-jumbo btn-block">发布</button>
+                <br>
+                <button type="reset" class="btn btn-secondary btn-lg btn-block">重置</button>
+              </div><!-- /.portlet -->
+            </div><!-- /.from-group -->
+          </div> <!-- /.layout-sidebar -->
+        </form>
 
       </div> <!-- /.layout -->
 

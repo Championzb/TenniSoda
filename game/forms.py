@@ -1,10 +1,13 @@
 from django import forms
-from models import Score, Game
+from models import Score, Game, GameGroup
 from django.forms import extras
 from court.models import Court
+from city.models import City, District
 
 SET_SCORE = ('60','61','62','63','64','75','57','76','67','06','16','26','36','46',)
 SCORE = (('0', '0'),('1', '1'),('2', '2'),('3', '3'),('4', '4'),('5', '5'),('6', '6'),('7', '7'),)
+GENDER=(('2', 'No Limit'), ('1','Male'),('0','Female'))
+
 class GameEditForm(forms.ModelForm):
     date = forms.DateField(widget=forms.DateInput(attrs = {'class': 'form-control','type':'date'}))
     court = forms.ModelChoiceField(queryset=Court.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}), required=False)
@@ -121,3 +124,21 @@ class ScoreCreationForm(forms.ModelForm):
         if commit:
             score.save()
         return score
+
+class GameGroupForm(forms.ModelForm):
+    holder = forms.CharField(widget=forms.TextInput(attrs = {'class': 'form-control'}))
+    maximum = forms.IntegerField(widget=forms.TextInput(attrs = {'class': 'form-control'}), default=4)
+    city = forms.ModelChoiceField(queryset=City.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}))
+    district = forms.ModelChoiceField(queryset=District.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}))
+    court = forms.ModelChoiceField(query=Court.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}))
+
+    class Meta:
+        model = GameGroup
+        field = ('maximum', 'city', 'district', 'court', 'time', 'level_low', 'level_high', 'age_low', 'age_high', 'price', 'gender')
+
+    def save(self, commit=True):
+        form = super(GameGroupForm,self).save(commit=False)
+        if commit:
+            form.save()
+
+        return form
