@@ -104,6 +104,7 @@ class FreeLeagueGame(models.Model):
 class GameGroup(models.Model):
     holder = models.ForeignKey(Profile)
     maximum = models.IntegerField(default = 4)
+    current_num = models.IntegerField(default = 1)
     city = models.ForeignKey(City)
     district = models.ForeignKey(District, blank = True, null = True)
     court = models.ForeignKey(Court)

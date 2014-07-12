@@ -273,7 +273,7 @@ def attended_league(request):
 def game_group(request):
 	user = request.user.profile
 	attended_groups = GameGroupMember.objects.filter(player=user)
-	all_groups = GameGroup.objects.all()
+	all_groups = GameGroup.objects.all().order_by('time').reverse()
 	for group in attended_groups:
 		all_groups = all_groups.exclude(id=group.game_group_id)
 
@@ -285,3 +285,15 @@ def game_group(request):
 	args['all_groups'] = all_groups
 
 	return render_to_response('game-group.html', args)
+
+@login_required
+def publish_game_group(request):
+	user = request.user.profile
+	notifications = Notification.objects.filter(user = request.user, viewed = False).order_by('time').reverse()
+
+
+	args = {}
+	args['profile'] = user
+	args['notifications'] = notifications
+
+	return render_to_response('publish-game-group.html', args)

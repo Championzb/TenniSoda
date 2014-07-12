@@ -1,5 +1,8 @@
 {% extends "index-base.html" %}
 {% load static %}
+{% block title %}
+    <title>所有评论 &middot; TenniSoda</title>
+{% endblock %}
 {% block profileimg %}
     {% if profile.picture %}
       <img src="{% get_static_prefix %}assets/{{profile.picture.url}}" class="navbar-profile-avatar" alt="" />

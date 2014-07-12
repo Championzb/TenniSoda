@@ -1,51 +1,30 @@
 {% extends "index-base.html" %}
 {% load static %}
 {% block title %}
-    <title>约球 &middot; TenniSoda</title>
-{% endblock %}
-{% block head %}
-<script>
-    /*
-    function checkProfilePublish(){
-        {% if profile.last_name and profile.first_name and profile.phone %}
-            window.location = "/game/publish_game_group/";
-        {% else %}
-            alert("Please provide your name and phone first!");
-            window.location = "/account/change_profile/";
-        {% endif %}
-    }
-    */
-    function checkProfile(){
-        {% if not profile.last_name or not profile.first_name or not profile.phone %}
-            alert("请先提供你的姓名和联系方式！");
-            window.location = "/account/change_profile/";
-        {% endif %}
-    }
-</script>
+    <title>发布约球 &middot; TenniSoda</title>
 {% endblock %}
 {% block profileimg %}
-    {% if profile.picture %}
-      <img src="{% get_static_prefix %}assets/{{profile.picture.url}}" class="navbar-profile-avatar" alt="" />
-    {% else %}
-      <img src="{% static "assets/uploaded_files/default.jpg" %}" class="navbar-profile-avatar" alt="" />
-    {% endif %}
+{% if profile.picture %}
+  <img src="{% get_static_prefix %}assets/{{profile.picture.url}}" class="navbar-profile-avatar" alt="" />
+{% else %}
+  <img src="{% static "assets/uploaded_files/default.jpg" %}" class="navbar-profile-avatar" alt="" />
+{% endif %}
 {% endblock %}
 {% block game_group %}
-          <li class="dropdown active">
-
-            <a href="/game/game_group/">
-                <i class="fa fa-calendar"></i>
-                约球
-            </a>
-          </li>
-          {% endblock %}
+<li class="dropdown active">
+<a href="/game/game_group/">
+    <i class="fa fa-user"></i>
+    约球
+</a>
+</li>
+{% endblock %}
 {% block content %}
   <div class="content">
 
     <div class="container">
 
       <div class="layout layout-stack-sm layout-main-left">
-    
+
         <div class="col-sm-8 col-md-9 layout-main">
           {% if attended_groups %}
           <div class="portlet">
@@ -202,7 +181,7 @@
           <h4>介绍</h4>
 
           <div class="well">
-            
+
             <ul class="icons-list text-md">
               <li>
                 <i class="icon-li fa fa-comments-o text-success"></i>

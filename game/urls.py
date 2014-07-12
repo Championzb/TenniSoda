@@ -11,6 +11,7 @@ urlpatterns = patterns('game.views',
     url(r'^all_league/$', 'all_league'),
     url(r'^attended_league/$', 'attended_league'),
     url(r'^game_group/$', 'game_group'),
+    url(r'^publish_game_group/$', 'publish_game_group'),
 #	url(r'^Find/$', 'LeagueMatch.views.find'),
 #	url(r'^CreateMatch/$', 'LeagueMatch.views.create_match'),
 
