@@ -102,13 +102,13 @@ class FreeLeagueGame(models.Model):
         return u'%s' % self.player
 
 class GameGroup(models.Model):
-    holder = models.ForeignKey(Profile)
+    holder = models.ForeignKey(Profile,blank = True, null = True)
     maximum = models.IntegerField(default = 4)
     current_num = models.IntegerField(default = 1)
-    city = models.ForeignKey(City)
+    city = models.ForeignKey(City,blank = True, null = True)
     district = models.ForeignKey(District, blank = True, null = True)
-    court = models.ForeignKey(Court)
-    time = models.DateTimeField(default=datetime.now())
+    court = models.ForeignKey(Court, blank = True, null = True)
+    time = models.DateTimeField(default = datetime.now(), blank = True, null = True)
     level_high = models.FloatField(default=7.0)
     level_low = models.FloatField(default=2.0)
     age_high = models.IntegerField(blank = True, null = True)

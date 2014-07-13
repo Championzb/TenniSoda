@@ -1,6 +1,7 @@
 from django import forms
 from models import Score, Game, GameGroup
 from django.forms import extras
+from django.forms.widgets import DateTimeInput
 from court.models import Court
 from city.models import City, District
 
@@ -126,19 +127,26 @@ class ScoreCreationForm(forms.ModelForm):
         return score
 
 class GameGroupForm(forms.ModelForm):
-    holder = forms.CharField(widget=forms.TextInput(attrs = {'class': 'form-control'}))
-    maximum = forms.IntegerField(widget=forms.TextInput(attrs = {'class': 'form-control'}), default=4)
-    city = forms.ModelChoiceField(queryset=City.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}))
-    district = forms.ModelChoiceField(queryset=District.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}))
-    court = forms.ModelChoiceField(query=Court.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}))
+#	holder = forms.CharField(widget=forms.TextInput(attrs = {'class': 'form-control'}))
+	maximum = forms.IntegerField(widget=forms.NumberInput(attrs = {'class': 'form-control'}))
+	city = forms.ModelChoiceField(queryset=City.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}))
+#	district = forms.ModelChoiceField(queryset=District.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}))
+	court = forms.ModelChoiceField(queryset=Court.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}))
+	time = forms.DateTimeField(widget=DateTimeInput(attrs = {'class': 'form-control','type':'date',}))
+	gender = forms.ChoiceField(choices=GENDER, widget=forms.Select(attrs = {'class': 'form-control'}))
 
-    class Meta:
-        model = GameGroup
-        field = ('maximum', 'city', 'district', 'court', 'time', 'level_low', 'level_high', 'age_low', 'age_high', 'price', 'gender')
-
-    def save(self, commit=True):
-        form = super(GameGroupForm,self).save(commit=False)
-        if commit:
-            form.save()
-
-        return form
+	class Meta:
+		model = GameGroup
+		field = ('maximum', 'city', 'court', 'time', 'level_low', 'level_high', 'age_low', 'age_high', 'price', 'gender')
+	
+	def save(self, commit=True):
+		print '1'
+		user = request.user.profile
+		print '2'
+		form = super(GameGroupForm,self).save(commit=False)
+		print '3'
+		if commit:
+			user = request.user.profile
+			print '4'
+			form.save()
+		return form

@@ -8,6 +8,7 @@ from django.db.models import Q
 from django.contrib import auth, messages
 from datetime import datetime
 from notification.models import Notification
+from forms import GameGroupForm
 
 @login_required
 def join_league(request, league_match_id=1):
@@ -291,8 +292,19 @@ def publish_game_group(request):
 	user = request.user.profile
 	notifications = Notification.objects.filter(user = request.user, viewed = False).order_by('time').reverse()
 
+	if request.method == 'POST':
+		form = GameGroupForm(request.POST)
+		if form.is_valid():
+			print 'valid'
+			form.save()
+			return HttpResponseRedirect('/game/game_group/')
+	else:
+		form = GameGroupForm()
+
 
 	args = {}
+	args.update(csrf(request))
+	args['form'] = form
 	args['profile'] = user
 	args['notifications'] = notifications
 
