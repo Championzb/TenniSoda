@@ -140,13 +140,8 @@ class GameGroupForm(forms.ModelForm):
 		field = ('maximum', 'city', 'court', 'time', 'level_low', 'level_high', 'age_low', 'age_high', 'price', 'gender')
 	
 	def save(self, commit=True):
-		print '1'
-		user = request.user.profile
-		print '2'
 		form = super(GameGroupForm,self).save(commit=False)
-		print '3'
+		form.is_published = True
 		if commit:
-			user = request.user.profile
-			print '4'
 			form.save()
 		return form

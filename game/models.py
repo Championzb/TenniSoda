@@ -115,6 +115,7 @@ class GameGroup(models.Model):
     age_low = models.IntegerField(blank = True, null = True)
     price = models.IntegerField(default = 0)
     gender = models.CharField(max_length = 1, default = 2)
+    is_published = models.BooleanField(default = False)
 
     def __unicode__(self):
         return u'%s %s %s' % (self.holder, self.court, self.time)
