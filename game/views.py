@@ -336,3 +336,36 @@ def quit_game_group(request, game_group_id):
 		game_group.save()
 	return HttpResponseRedirect('/game/game_group/')
 
+@login_required
+def edit_game_group(request, game_group_id):
+	user = request.user.profile
+	game_group = GameGroup.objects.get(id=game_group_id)
+	notifications = Notification.objects.filter(user = request.user, viewed = False).order_by('time').reverse()
+
+	if request.method == 'POST':
+		form = GameGroupForm(request.POST, instance = game_group)
+		if form.is_valid():
+			print 'valid'
+			form.save()
+			return HttpResponseRedirect('/game/game_group/')
+	else:
+		form = GameGroupForm(instance=game_group)
+
+	args = {}
+	args.update(csrf(request))
+	args['form'] = form
+	args['profile'] = user
+	args['notifications'] = notifications
+
+	return render_to_response('publish-game-group.html', args)
+
+@login_required
+def delete_game_group(request, game_group_id):
+	user = request.user.profile
+	game_group = GameGroup.objects.get(id=game_group_id)
+	if GameGroup.objects.filter(id=game_group_id, holder=user).count() != 0:
+		game_group.delete()
+	return HttpResponseRedirect('/game/game_group/')
+
+
+

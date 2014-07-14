@@ -14,6 +14,8 @@ urlpatterns = patterns('game.views',
     url(r'^publish_game_group/$', 'publish_game_group'),
     url(r'^join_game_group/(?P<game_group_id>\d+)/$', 'join_game_group'),
     url(r'^quit_game_group/(?P<game_group_id>\d+)/$', 'quit_game_group'),
+    url(r'^edit_game_group/(?P<game_group_id>\d+)/$', 'edit_game_group'),
+    url(r'^delete_game_group/(?P<game_group_id>\d+)/$', 'delete_game_group'),
 #	url(r'^Find/$', 'LeagueMatch.views.find'),
 #	url(r'^CreateMatch/$', 'LeagueMatch.views.create_match'),
 
