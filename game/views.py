@@ -312,7 +312,7 @@ def publish_game_group(request):
 	return render_to_response('publish-game-group.html', args)
 
 @login_required
-def join_game_group(request,game_group_id):
+def join_game_group(request, game_group_id):
 	user = request.user.profile
 	if user.first_name is None or user.first_name == ''\
 		or user.last_name is None or user.last_name == ''\
@@ -320,10 +320,19 @@ def join_game_group(request,game_group_id):
 		or user.level is None or user.level == '':
 		return render_to_response('profile_notify.html')
 	game_group = GameGroup.objects.get(id=game_group_id)
-	if GameGroup.objects.filter(id=game_group_id, members=user).count()==0:
+	if GameGroup.objects.filter(id=game_group_id, members=user).count() == 0:
 		game_group.members.add(user)
 		game_group.current_num += 1
 		game_group.save()
 	return HttpResponseRedirect('/game/game_group/')
 
+@login_required
+def quit_game_group(request, game_group_id):
+	user = request.user.profile
+	game_group = GameGroup.objects.get(id=game_group_id)
+	if GameGroup.objects.filter(id=game_group_id, members=user).count() != 0:
+		game_group.current_num -= 1
+		game_group.members.remove(user)
+		game_group.save()
+	return HttpResponseRedirect('/game/game_group/')
 
