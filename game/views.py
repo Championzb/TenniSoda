@@ -274,7 +274,7 @@ def attended_league(request):
 def game_group(request):
 	user = request.user.profile
 	attended_groups = GameGroupMember.objects.filter(player=user)
-	all_groups = GameGroup.objects.all().order_by('time').reverse()
+	all_groups = GameGroup.objects.all().order_by('date','start_time').reverse()
 	for group in attended_groups:
 		all_groups = all_groups.exclude(id=group.game_group_id)
 
