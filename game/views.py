@@ -300,6 +300,8 @@ def publish_game_group(request):
 			print 'valid'
 			form.save()
 			return HttpResponseRedirect('/game/game_group/')
+		else:
+			game_group_instance.delete()
 	else:
 		form = GameGroupForm()
 
