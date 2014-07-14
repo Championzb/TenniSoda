@@ -308,6 +308,7 @@ def publish_game_group(request):
 	args['form'] = form
 	args['profile'] = user
 	args['notifications'] = notifications
+	args['url'] = '/game/publish_game_group/'
 
 	return render_to_response('publish-game-group.html', args)
 
@@ -356,6 +357,7 @@ def edit_game_group(request, game_group_id):
 	args['form'] = form
 	args['profile'] = user
 	args['notifications'] = notifications
+	args['url'] = '/game/edit_game_group/' + game_group_id +'/'
 
 	return render_to_response('publish-game-group.html', args)
 
