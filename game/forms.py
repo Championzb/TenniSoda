@@ -129,11 +129,13 @@ class ScoreCreationForm(forms.ModelForm):
 
 class GameGroupForm(forms.ModelForm):
 	#holder = forms.CharField(widget=forms.TextInput(attrs = {'class': 'form-control'}))
-	maximum = forms.IntegerField(widget=forms.NumberInput(attrs = {'class': 'form-control'}))
+	maximum = forms.IntegerField(min_value = 2, max_value = 8, widget=forms.NumberInput(attrs = {'class': 'form-control'}))
 	city = forms.ModelChoiceField(queryset=City.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}))
 #	district = forms.ModelChoiceField(queryset=District.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}))
 	court = forms.ModelChoiceField(queryset=Court.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}))
-	time = forms.DateTimeField(widget=DateTimeInput(attrs = {'class': 'form-control','type':'date',}))
+	date = forms.DateField(widget=forms.widgets.DateInput(attrs = {'class': 'form-control','type':'date'}))
+	start_time = forms.TimeField(widget=forms.widgets.TimeInput(attrs = {'class': 'form-control','type':'time',}))
+	last_hour = forms.IntegerField(min_value = 0, widget=forms.NumberInput(attrs = {'class': 'form-control'}))
 	level_low = forms.ChoiceField(widget=forms.Select(attrs = {'class': 'form-control'}),choices=LEVEL)
 	level_high = forms.ChoiceField(widget=forms.Select(attrs = {'class': 'form-control'}),choices=LEVEL)
 	price = forms.IntegerField(min_value = 0, widget=forms.NumberInput(attrs = {'class': 'form-control'}))
@@ -141,11 +143,5 @@ class GameGroupForm(forms.ModelForm):
 
 	class Meta:
 		model = GameGroup
-		field = ('maximum', 'city', 'court', 'time', 'level_low', 'level_high', 'price', 'gender')
+		fields = ('maximum', 'city', 'court', 'date', 'start_time', 'last_hour', 'level_low', 'level_high', 'price', 'gender')
 	
-	def save(self, commit=True):
-		form = super(GameGroupForm,self).save(commit=False)
-		#form.is_published = True
-		if commit:
-			form.save()
-		return form

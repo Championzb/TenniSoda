@@ -50,11 +50,31 @@
               </div> <!-- /.col -->
           </div> <!-- /.form-group -->
 
-            <div class="form-group">
+	  <div class="form-group">
+              <label class="col-md-3">日期</label>
+              <div class="col-md-7">
+              {{ form.date }}
+              {% for err in form.date.errors %}
+                <span style="color: red">{{ err }}</span>
+              {% endfor %}
+              </div> <!-- /.col -->
+          </div> <!-- /.form-group -->
+
+	  <div class="form-group">
               <label class="col-md-3">时间</label>
               <div class="col-md-7">
-              {{ form.time }}
-              {% for err in form.time.errors %}
+              {{ form.start_time }}
+              {% for err in form.start_time.errors %}
+                <span style="color: red">{{ err }}</span>
+              {% endfor %}
+              </div> <!-- /.col -->
+          </div> <!-- /.form-group -->
+
+            <div class="form-group">
+              <label class="col-md-3">持续时间</label>
+              <div class="col-md-7">
+              {{ form.last_hour }}
+              {% for err in form.last_hour.errors %}
                 <span style="color: red">{{ err }}</span>
               {% endfor %}
               </div> <!-- /.col -->
