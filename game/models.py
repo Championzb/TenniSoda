@@ -119,14 +119,9 @@ class GameGroup(models.Model):
     price = models.IntegerField(default = 0)
     gender = models.CharField(max_length = 2, default = '2')
     is_published = models.BooleanField(default = False)
+    members = models.ManyToManyField(Profile, blank = True, null = True, related_name='members')
 
     def __unicode__(self):
         return u'%s %s %s' % (self.holder, self.court, self.time)
 
-class GameGroupMember(models.Model):
-    player = models.ForeignKey(Profile)
-    game_group = models.ForeignKey(GameGroup)
-
-    def __unicode__(self):
-        return u'%s %s' % (self.player, self.game_group)
 

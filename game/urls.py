@@ -12,6 +12,7 @@ urlpatterns = patterns('game.views',
     url(r'^attended_league/$', 'attended_league'),
     url(r'^game_group/$', 'game_group'),
     url(r'^publish_game_group/$', 'publish_game_group'),
+    url(r'^join_game_group/(?P<game_group_id>\d+)/$', 'join_game_group'),
 #	url(r'^Find/$', 'LeagueMatch.views.find'),
 #	url(r'^CreateMatch/$', 'LeagueMatch.views.create_match'),
 

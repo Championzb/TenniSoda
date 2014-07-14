@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response, render
 from django.http import HttpResponseRedirect
-from models import League, Game, Score, FreeLeagueGame, GameGroup, GameGroupMember
+from models import League, Game, Score, FreeLeagueGame, GameGroup 
 from forms import ScoreCreationForm, GameEditForm
 from django.core.context_processors import csrf
 from django.contrib.auth.decorators import login_required
@@ -273,17 +273,18 @@ def attended_league(request):
 @login_required
 def game_group(request):
 	user = request.user.profile
-	attended_groups = GameGroupMember.objects.filter(player=user)
+	attended_groups = GameGroup.objects.filter(members=user)
+	holding_groups = GameGroup.objects.filter(holder=user)
 	all_groups = GameGroup.objects.all().order_by('date','start_time').reverse()
-	for group in attended_groups:
-		all_groups = all_groups.exclude(id=group.game_group_id)
-
+	all_groups = all_groups.exclude(members=user)
+	all_groups = all_groups.exclude(holder=user)
 	notifications = Notification.objects.filter(user = request.user, viewed = False).order_by('time').reverse()
 	args = {}
 	args['profile'] = user
 	args['notifications'] = notifications
 	args['attended_groups'] = attended_groups
 	args['all_groups'] = all_groups
+	args['holding_groups'] = holding_groups
 
 	return render_to_response('game-group.html', args)
 
@@ -309,3 +310,20 @@ def publish_game_group(request):
 	args['notifications'] = notifications
 
 	return render_to_response('publish-game-group.html', args)
+
+@login_required
+def join_game_group(request,game_group_id):
+	user = request.user.profile
+	if user.first_name is None or user.first_name == ''\
+		or user.last_name is None or user.last_name == ''\
+		or user.phone is None or user.phone == ''\
+		or user.level is None or user.level == '':
+		return render_to_response('profile_notify.html')
+	game_group = GameGroup.objects.get(id=game_group_id)
+	if GameGroup.objects.filter(id=game_group_id, members=user).count()==0:
+		game_group.members.add(user)
+		game_group.current_num += 1
+		game_group.save()
+	return HttpResponseRedirect('/game/game_group/')
+
+
