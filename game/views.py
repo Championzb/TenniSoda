@@ -291,18 +291,18 @@ def game_group(request):
 def publish_game_group(request):
 	user = request.user.profile
 	notifications = Notification.objects.filter(user = request.user, viewed = False).order_by('time').reverse()
-	game_group = GameGroup.objects.create(holder = user)
 
 	if request.method == 'POST':
-		form = GameGroupForm(request.POST, instance = game_group)
+		form = GameGroupForm(request.POST)
 		if form.is_valid():
 			print 'valid'
+			game_group, created = GameGroup.objects.get_or_create(**form.cleaned_data)
 			form.save()
 			return HttpResponseRedirect('/game/game_group/')
 		print 'invalid'
+		print form.cleaned_data['court']
 	else:
-		form = GameGroupForm(instance = game_group)
-
+		form = GameGroupForm()
 
 	args = {}
 	args.update(csrf(request))

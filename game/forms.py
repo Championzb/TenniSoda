@@ -4,6 +4,7 @@ from django.forms import extras
 from django.forms.widgets import DateTimeInput
 from court.models import Court
 from city.models import City, District
+from account.forms import LEVEL
 
 SET_SCORE = ('60','61','62','63','64','75','57','76','67','06','16','26','36','46',)
 SCORE = (('0', '0'),('1', '1'),('2', '2'),('3', '3'),('4', '4'),('5', '5'),('6', '6'),('7', '7'),)
@@ -127,21 +128,24 @@ class ScoreCreationForm(forms.ModelForm):
 		return score
 
 class GameGroupForm(forms.ModelForm):
-#	holder = forms.CharField(widget=forms.TextInput(attrs = {'class': 'form-control'}))
+	#holder = forms.CharField(widget=forms.TextInput(attrs = {'class': 'form-control'}))
 	maximum = forms.IntegerField(widget=forms.NumberInput(attrs = {'class': 'form-control'}))
 	city = forms.ModelChoiceField(queryset=City.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}))
 #	district = forms.ModelChoiceField(queryset=District.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}))
 	court = forms.ModelChoiceField(queryset=Court.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}))
 	time = forms.DateTimeField(widget=DateTimeInput(attrs = {'class': 'form-control','type':'date',}))
+	level_low = forms.ChoiceField(widget=forms.Select(attrs = {'class': 'form-control'}),choices=LEVEL)
+	level_high = forms.ChoiceField(widget=forms.Select(attrs = {'class': 'form-control'}),choices=LEVEL)
+	price = forms.IntegerField(min_value = 0, widget=forms.NumberInput(attrs = {'class': 'form-control'}))
 	gender = forms.ChoiceField(choices=GENDER, widget=forms.Select(attrs = {'class': 'form-control'}))
 
 	class Meta:
 		model = GameGroup
-		field = ('maximum', 'city', 'court', 'time', 'level_low', 'level_high', 'age_low', 'age_high', 'price', 'gender')
+		field = ('maximum', 'city', 'court', 'time', 'level_low', 'level_high', 'price', 'gender')
 	
 	def save(self, commit=True):
 		form = super(GameGroupForm,self).save(commit=False)
-		form.is_published = True
+		#form.is_published = True
 		if commit:
 			form.save()
 		return form
