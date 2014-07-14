@@ -51,6 +51,7 @@
                 <thead>
                   <tr>
                     <th>时间</th>
+                    <th>持续时间</th>
                     <th>发起人</th>
                     <th>场地</th>
                     <th class="hidden-xs">城市</th>
@@ -67,7 +68,9 @@
                 {% for group in attended_groups %}
                   <tr>
                     <!-- time -->
-                    <td>{{ group.game_group.time }}</td>
+                    <td>{{ group.game_group.date }} {{group.game_group.start_time}}</td>
+                    <!-- last_hour -->
+                    <td>{{ group.game_group.last_hour }}</td>
                     <!-- holder -->
                     <td>{{ group.game_group.holder }}</td>
                     <!-- court -->
@@ -123,6 +126,7 @@
                 <thead>
                   <tr>
                     <th>时间</th>
+		    <th>持续时间</th>
                     <th>发起人</th>
                     <th>场地</th>
                     <th class="hidden-xs">城市</th>
@@ -139,7 +143,9 @@
                 {% for group in all_groups %}
                   <tr>
                     <!-- time -->
-                    <td>{{ group.time }}</td>
+                    <td>{{ group.date }} {{group.start_time}}</td>
+                    <!-- last_hour -->
+                    <td>{{ group.last_hour }}</td>
                     <!-- holder -->
                     <td>{{ group.holder }}</td>
                     <!-- court -->
