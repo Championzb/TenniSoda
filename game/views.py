@@ -273,8 +273,8 @@ def attended_league(request):
 @login_required
 def game_group(request):
 	user = request.user.profile
-	attended_groups = GameGroup.objects.filter(members=user)
-	holding_groups = GameGroup.objects.filter(holder=user)
+	attended_groups = GameGroup.objects.filter(members=user).order_by('date','start_time').reverse()
+	holding_groups = GameGroup.objects.filter(holder=user).order_by('date','start_time').reverse()
 	all_groups = GameGroup.objects.all().order_by('date','start_time').reverse()
 	all_groups = all_groups.exclude(members=user)
 	all_groups = all_groups.exclude(holder=user)
