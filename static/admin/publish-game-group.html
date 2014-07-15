@@ -81,22 +81,21 @@
           </div> <!-- /.form-group -->
 
           <div class="form-group">
-              <label class="col-md-3">等级下限</label>
-              <div class="col-md-7">
-              {{ form.level_low }}
-              {% for err in form.level_low.errors %}
-                <span style="color: red">{{ err }}</span>
-              {% endfor %}
+            <label class="col-md-3">等级</label>
+              <div class="col-md-3">
+                {{ form.level_low }}
+                {% for err in form.level_low.errors %}
+                  <span style="color: red">{{ err }}</span>
+                {% endfor %}
               </div> <!-- /.col -->
-          </div> <!-- /.form-group -->
-
-          <div class="form-group">
-              <label class="col-md-3">等级上限</label>
-              <div class="col-md-7">
-              {{ form.level_high }}
-              {% for err in form.level_high.errors %}
-                <span style="color: red">{{ err }}</span>
-              {% endfor %}
+              <div class="col-md-1">
+                <center>~</center>
+              </div> <!-- /.col -->
+              <div class="col-md-3">
+                {{ form.level_high }}
+                {% for err in form.level_high.errors %}
+                  <span style="color: red">{{ err }}</span>
+                {% endfor %}
               </div> <!-- /.col -->
           </div> <!-- /.form-group -->
 
