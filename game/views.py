@@ -6,7 +6,7 @@ from django.core.context_processors import csrf
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib import auth, messages
-from datetime import datetime
+from datetime import datetime, date
 from notification.models import Notification
 from forms import GameGroupForm
 
@@ -278,6 +278,10 @@ def game_group(request):
 	all_groups = GameGroup.objects.all().order_by('date','start_time').reverse()
 	all_groups = all_groups.exclude(members=user)
 	all_groups = all_groups.exclude(holder=user)
+	today = date.today()
+	attended_groups = attended_groups.filter(date__gt=today)
+	holding_groups = holding_groups.filter(date__gt=today)
+	all_groups = all_groups.filter(date__gt=today)
 	notifications = Notification.objects.filter(user = request.user, viewed = False).order_by('time').reverse()
 	args = {}
 	args['profile'] = user
