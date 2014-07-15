@@ -151,3 +151,11 @@ class GameGroupForm(forms.ModelForm):
 		if date < date.today():
 			raise forms.ValidationError("The date cannot be in the past!")
 		return date
+	def clean(self):
+		level_low = self.cleaned_data['level_low']
+		level_high = self.cleaned_data['level_high']
+		if level_low > level_high:
+			raise forms.ValidationError("Level lower bound cannot be higher than the upper bound. ")
+		return self.cleaned_data
+		
+

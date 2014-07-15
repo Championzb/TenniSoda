@@ -90,12 +90,18 @@
               </div> <!-- /.col -->
               <div class="col-md-1">
                 <center>~</center>
+		{% if form.errors %}
+		<center>
+              	<span style="color: red">></span>
+		</center>
+                {% endif %}
               </div> <!-- /.col -->
               <div class="col-md-3">
                 {{ form.level_high }}
                 {% for err in form.level_high.errors %}
                   <span style="color: red">{{ err }}</span>
                 {% endfor %}
+		
               </div> <!-- /.col -->
           </div> <!-- /.form-group -->
 
