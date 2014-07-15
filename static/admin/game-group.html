@@ -59,15 +59,13 @@
                 <thead>
                   <tr>
                     <th>时间</th>
-		            <th>持续时间</th>
-                    <th>发起人</th>
+		            <th class="hidden-xs">持续时间</th>
+                    <th class="hidden-xs">发起人</th>
                     <th>场地</th>
                     <th class="hidden-xs">城市</th>
                     <th class="hidden-xs">等级</th>
-                    <th class="hidden-xs hidden-sm">年龄要求</th>
                     <th>价格</th>
-                    <th>人数上限</th>
-                    <th>现有人数</th>
+                    <th>人数</th>
                     <th class="hidden-xs hidden-sm">性别要求</th>
                     <th>动作</th>
                   </tr>
@@ -78,16 +76,17 @@
                     <!-- time -->
                     <td>{{ group.date }} {{group.start_time}}</td>
                     <!-- last_hour -->
-                    <td>{{ group.last_hour }}</td>
+                    <td class="hidden-xs">{{ group.last_hour }}</td>
                     <!-- holder -->
-                    <td>{{ group.holder }}</td>
+                    <td class="hidden-xs">{{ group.holder }}</td>
                     <!-- court -->
                     <td>{{ group.court }}</td>
                     <!-- city -->
-                    <td>{{ group.city }}</td>
+                    <td class="hidden-xs">{{ group.city }}</td>
                     <!-- level -->
-                    <td>{{ group.level_low }}~{{ group.level_high }}</td>
+                    <td class="hidden-xs">{{ group.level_low }}~{{ group.level_high }}</td>
                     <!-- age -->
+		    <!--
                     {% if group.age_low and group.age_high %}
                     <td>{{ group.age_low }}~{{ group.age_high }}岁</td>
                     {% elif group.age_low %}
@@ -97,21 +96,21 @@
                     {% else %}
                     <td>没有限制</td>
                     {% endif %}
+		    -->
                     <!-- price -->
                     <td>{{ group.price }}</td>
-                    <!-- maximum -->
-                    <td>{{ group.maximum }}人</td>
-                    <!-- current number -->
-                    <td>{{ group.current_num }}人</td>
+                    <!-- members -->
+                    <td>{{group.current_num}}/{{ group.maximum }}</td>
+                    
                     <!-- gender -->
                     {% ifequal group.gender '2' %}
-                    <td>无限制</td>
+                    <td class="hidden-xs hidden-sm">无限制</td>
                     {% endifequal %}
                     {% ifequal group.gender '1' %}
-                    <td>仅限男</td>
+                    <td class="hidden-xs hidden-sm">仅限男</td>
                     {% endifequal %}
                     {% ifequal group.gender '0' %}
-                    <td>仅限女</td>
+                    <td class="hidden-xs hidden-sm">仅限女</td>
                     {% endifequal %}
                     <td>
                       <a href="/game/edit_game_group/{{group.id}}/">
@@ -143,15 +142,13 @@
                 <thead>
                   <tr>
                     <th>时间</th>
-                    <th>持续时间</th>
-                    <th>发起人</th>
+                    <th class="hidden-xs">持续时间</th>
+                    <th class="hidden-xs">发起人</th>
                     <th>场地</th>
                     <th class="hidden-xs">城市</th>
                     <th class="hidden-xs">等级</th>
-                    <th class="hidden-xs hidden-sm">年龄要求</th>
                     <th>价格</th>
-                    <th>人数上限</th>
-                    <th>现有人数</th>
+                    <th>人数</th>
                     <th class="hidden-xs hidden-sm">性别要求</th>
                     <th>动作</th>
                   </tr>
@@ -162,16 +159,17 @@
                     <!-- time -->
                     <td>{{ group.date }} {{group.start_time}}</td>
                     <!-- last_hour -->
-                    <td>{{ group.last_hour }}</td>
+                    <td class="hidden-xs">{{ group.last_hour }}</td>
                     <!-- holder -->
-                    <td>{{ group.holder }}</td>
+                    <td class="hidden-xs">{{ group.holder }}</td>
                     <!-- court -->
                     <td>{{ group.court }}</td>
                     <!-- city -->
-                    <td>{{ group.city }}</td>
+                    <td class="hidden-xs">{{ group.city }}</td>
                     <!-- level -->
-                    <td>{{ group.level_low }}~{{ group.level_high }}</td>
+                    <td class="hidden-xs">{{ group.level_low }}~{{ group.level_high }}</td>
                     <!-- age -->
+		    <!--
                     {% if group.age_low and group.age_high %}
                     <td>{{ group.age_low }}~{{ group.age_high }}岁</td>
                     {% elif group.age_low %}
@@ -181,21 +179,21 @@
                     {% else %}
                     <td>没有限制</td>
                     {% endif %}
+		    -->
                     <!-- price -->
                     <td>{{ group.price }}</td>
-                    <!-- maximum -->
-                    <td>{{ group.maximum }}人</td>
-                    <!-- current number -->
-                    <td>{{ group.current_num }}人</td>
+                    <!-- members -->
+                    <td>{{group.current_num}}/{{ group.maximum }}</td>
+                    
                     <!-- gender -->
                     {% ifequal group.gender '2' %}
-                    <td>无限制</td>
+                    <td class="hidden-xs hidden-sm">无限制</td>
                     {% endifequal %}
                     {% ifequal group.gender '1' %}
-                    <td>仅限男</td>
+                    <td class="hidden-xs hidden-sm">仅限男</td>
                     {% endifequal %}
                     {% ifequal group.gender '0' %}
-                    <td>仅限女</td>
+                    <td class="hidden-xs hidden-sm">仅限女</td>
                     {% endifequal %}
 		    <td>
 		      <a href="/game/quit_game_group/{{group.id}}/">
@@ -223,15 +221,13 @@
                 <thead>
                   <tr>
                     <th>时间</th>
-		            <th>持续时间</th>
-                    <th>发起人</th>
+		            <th class="hidden-xs">持续时间</th>
+                    <th class="hidden-xs">发起人</th>
                     <th>场地</th>
                     <th class="hidden-xs">城市</th>
                     <th class="hidden-xs">等级</th>
-                    <th class="hidden-xs hidden-sm">年龄要求</th>
                     <th>价格</th>
-                    <th>人数上限</th>
-                    <th>现有人数</th>
+                    <th>人数</th>
                     <th class="hidden-xs hidden-sm">性别要求</th>
                     <th>动作</th>
                   </tr>
@@ -242,16 +238,17 @@
                     <!-- time -->
                     <td>{{ group.date }} {{group.start_time}}</td>
                     <!-- last_hour -->
-                    <td>{{ group.last_hour }}</td>
+                    <td class="hidden-xs">{{ group.last_hour }}</td>
                     <!-- holder -->
-                    <td>{{ group.holder }}</td>
+                    <td class="hidden-xs">{{ group.holder }}</td>
                     <!-- court -->
                     <td>{{ group.court }}</td>
                     <!-- city -->
-                    <td>{{ group.city }}</td>
+                    <td class="hidden-xs">{{ group.city }}</td>
                     <!-- level -->
-                    <td>{{ group.level_low }}~{{ group.level_high }}</td>
+                    <td class="hidden-xs">{{ group.level_low }}~{{ group.level_high }}</td>
                     <!-- age -->
+		    <!--
                     {% if group.age_low and group.age_high %}
                     <td>{{ group.age_low }}~{{ group.age_high }}岁</td>
                     {% elif group.age_low %}
@@ -261,21 +258,21 @@
                     {% else %}
                     <td>没有限制</td>
                     {% endif %}
+		    -->
                     <!-- price -->
                     <td>{{ group.price }}</td>
                     <!-- maximum -->
-                    <td>{{ group.maximum }}人</td>
-                    <!-- current number -->
-                    <td>{{ group.current_num }}人</td>
+                    <td>{{group.current_num}}/{{ group.maximum }}</td>
+                    
                     <!-- gender -->
                     {% ifequal group.gender '2' %}
-                    <td>无限制</td>
+                    <td class="hidden-xs hidden-sm">无限制</td>
                     {% endifequal %}
                     {% ifequal group.gender '1' %}
-                    <td>仅限男</td>
+                    <td class="hidden-xs hidden-sm">仅限男</td>
                     {% endifequal %}
                     {% ifequal group.gender '0' %}
-                    <td>仅限女</td>
+                    <td class="hidden-xs hidden-sm">仅限女</td>
                     {% endifequal %}
                     <td>
                       <button class="btn btn-xs btn-primary" onclick="checkProfileJoin({{group.id}})"><i class="fa fa-plus-circle"></i></button>
