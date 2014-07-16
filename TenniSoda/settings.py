@@ -68,6 +68,7 @@ INSTALLED_APPS = (
     'bootstrap3_datetime',
     'form_utils',
     'geoposition',
+    'friendship',
 )
 
 MIDDLEWARE_CLASSES = (
