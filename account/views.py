@@ -242,14 +242,14 @@ def confirmation_resend(request):
 	messages.success(request,'Please go to your %s to activate your email' % (request.session['email']))
 	return HttpResponseRedirect('/account/login/')
 
-def follow(request, user_id = 1):
+def add_follower(request, user_id = 1):
 	user= Account.objects.get(id = user_id)
 	Follow.objects.add_follower(request.user, user)
 
-	notifications = Notification.objects.filter(user=request.user, viewed=False).order_by('time').reverse()
-	args= ={}
-	args['notifications'] = notifications
+	return HttpResponseRedirect('/account/welcome_user/')
 
-def follow_remove(request, user_id = 1):
+def remove_follower(request, user_id = 1):
+	user = Account.objects.get(id = user_id)
+	Follow.objects.remove_follower(request.user, user)
 
-	return
+	return HttpResponseRedirect('/account/welcome_user/')

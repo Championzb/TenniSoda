@@ -14,6 +14,6 @@ urlpatterns = patterns('account.views',
     url(r'^confirmation_resend/$', 'confirmation_resend'),
     url(r'^forget_password/$', 'forget_password'),
     url(r'^first_login/$', 'first_login'),
-    url(r'^follow/(?P<user_id>\d+)/$', 'follow'),
-    url(r'^follow_remove/(?P<user_id>\d+)/$', 'follow_remove'),
+    url(r'^add_follower/(?P<user_id>\d+)/$', 'add_follower'),
+    url(r'^remove_follower/(?P<user_id>\d+)/$', 'remove_follower'),
 )

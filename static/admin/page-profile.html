@@ -1,6 +1,5 @@
 {% extends "index-base.html" %}
 {% load static %}
-{% load friendshiptags %}
 {% block title %}
     <title>主页 &middot; TenniSoda</title>
 {% endblock %}
@@ -151,7 +150,8 @@
           <div class="col-sm-4 col-md-3 layout-sidebar">
           <div class="portlet">
             <!-- button class="btn btn-primary btn-jumbo btn-block" onclick="checkProfile()">Ladder Games</button-->
-            <a class="btn btn-primary btn-jumbo btn-block" onclick="checkProfile()">Ladder Game</a>
+            <!--<a class="btn btn-primary btn-jumbo btn-block" onclick="checkProfile()">Ladder Game</a>-->
+            <a href="/game/ladder_game/" class="btn btn-primary btn-jumbo btn-block">Ladder Game</a>
             <br>
             <a href="/game/all_league/" class="btn btn-secondary btn-lg btn-block ">View the League</a>
           </div> <!-- /.portlet -->
