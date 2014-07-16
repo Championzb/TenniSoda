@@ -11,6 +11,7 @@ from django.db.models import Q
 from django.template import RequestContext
 from django.core.mail import send_mail
 from django.conf import settings
+from friendship.models import Friend, Follow
 
 
 from admin import UserCreationForm
@@ -241,4 +242,14 @@ def confirmation_resend(request):
 	messages.success(request,'Please go to your %s to activate your email' % (request.session['email']))
 	return HttpResponseRedirect('/account/login/')
 
+def follow(request, user_id = 1):
+	user= Account.objects.get(id = user_id)
+	Follow.objects.add_follower(request.user, user)
 
+	notifications = Notification.objects.filter(user=request.user, viewed=False).order_by('time').reverse()
+	args= ={}
+	args['notifications'] = notifications
+
+def follow_remove(request, user_id = 1):
+
+	return

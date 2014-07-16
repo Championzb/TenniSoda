@@ -102,6 +102,7 @@ class ProfileAdmin(admin.ModelAdmin):
 	list_filter = ('city', 'gender', 'level', 'club')
 	ordering = ['city', 'gender', 'level',]
 
+
 # Now register the new UserAdmin...
 admin.site.register(Account, AccountAdmin)
 admin.site.register(Profile, ProfileAdmin)
