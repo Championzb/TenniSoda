@@ -110,7 +110,7 @@ class GameGroup(models.Model):
     court = models.ForeignKey(Court, blank = True, null = True)
     date = models.DateField(blank = True, null = True)
     start_time = models.TimeField(blank = True, null = True)
-    last_hour = models.IntegerField(blank = True, null = True)
+    last_hour = models.IntegerField(default = 2)
     time = models.DateTimeField(default = datetime.now())
     level_high = models.FloatField(default=7.0)
     level_low = models.FloatField(default=2.0)
