@@ -130,16 +130,16 @@ class ScoreCreationForm(forms.ModelForm):
 
 class GameGroupForm(forms.ModelForm):
 	#holder = forms.CharField(widget=forms.TextInput(attrs = {'class': 'form-control'}))
-	maximum = forms.IntegerField(min_value = 2, max_value = 8, widget=forms.NumberInput(attrs = {'class': 'form-control'}))
-	city = forms.ModelChoiceField(queryset=City.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}))
+	maximum = forms.IntegerField(min_value = 2, max_value = 8, widget=forms.NumberInput(attrs = {'class': 'form-control'}), initial=4, required=True)
+	city = forms.ModelChoiceField(queryset=City.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}), required=True)
 #	district = forms.ModelChoiceField(queryset=District.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}))
-	court = forms.ModelChoiceField(queryset=Court.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}))
-	date = forms.DateField( widget=forms.widgets.DateInput(attrs = {'class': 'form-control','type':'date'}))
-	start_time = forms.TimeField(widget=forms.widgets.TimeInput(attrs = {'class': 'form-control','type':'time',}))
-	last_hour = forms.IntegerField(min_value = 0, max_value = 12, widget=forms.NumberInput(attrs = {'class': 'form-control'}))
-	level_low = forms.ChoiceField(widget=forms.Select(attrs = {'class': 'form-control'}),choices=LEVEL)
-	level_high = forms.ChoiceField(widget=forms.Select(attrs = {'class': 'form-control'}),choices=LEVEL)
-	price = forms.IntegerField(min_value = 0, widget=forms.NumberInput(attrs = {'class': 'form-control'}))
+	court = forms.ModelChoiceField(queryset=Court.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}), required=True)
+	date = forms.DateField( widget=forms.widgets.DateInput(attrs = {'class': 'form-control','type':'date'}), required=True)
+	start_time = forms.TimeField(widget=forms.widgets.TimeInput(attrs = {'class': 'form-control','type':'time',}), required=True)
+	last_hour = forms.IntegerField(min_value = 0, max_value = 12, widget=forms.NumberInput(attrs = {'class': 'form-control'}), initial=2, required=True)
+	level_low = forms.ChoiceField(widget=forms.Select(attrs = {'class': 'form-control'}),choices=LEVEL, initial=2, required=True)
+	level_high = forms.ChoiceField(widget=forms.Select(attrs = {'class': 'form-control'}),choices=LEVEL, initial=5.5, required=True)
+	price = forms.IntegerField(min_value = 0, widget=forms.NumberInput(attrs = {'class': 'form-control'}), initial = 50, required=True)
 	gender = forms.ChoiceField(choices=GENDER, widget=forms.Select(attrs = {'class': 'form-control'}))
 
 	class Meta:
