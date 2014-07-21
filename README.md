@@ -21,4 +21,3 @@ city
 Here is the package you should pip install:
 south, pil, django-localflavor, django_cleanup, django-bootstrap3-datetimepicker, django-form-utils, django-geoposition, django-allauth
 
-try cloud 9 IDE
