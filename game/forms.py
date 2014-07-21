@@ -129,10 +129,10 @@ class ScoreCreationForm(forms.ModelForm):
 		return score
 
 class GameGroupForm(forms.ModelForm):
-	#holder = forms.CharField(widget=forms.TextInput(attrs = {'class': 'form-control'}))
+	# holder = forms.CharField(widget=forms.TextInput(attrs = {'class': 'form-control'}))
 	maximum = forms.IntegerField(min_value = 2, max_value = 8, widget=forms.NumberInput(attrs = {'class': 'form-control'}), initial=4, required=True)
 	city = forms.ModelChoiceField(queryset=City.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}), required=True)
-#	district = forms.ModelChoiceField(queryset=District.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}))
+	# district = forms.ModelChoiceField(queryset=District.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}))
 	court = forms.ModelChoiceField(queryset=Court.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}), required=True)
 	date = forms.DateField( widget=forms.widgets.DateInput(attrs = {'class': 'form-control','type':'date'}), required=True)
 	start_time = forms.TimeField(widget=forms.widgets.TimeInput(attrs = {'class': 'form-control','type':'time',}), required=True)
@@ -140,22 +140,24 @@ class GameGroupForm(forms.ModelForm):
 	level_low = forms.ChoiceField(widget=forms.Select(attrs = {'class': 'form-control'}),choices=LEVEL, initial=2, required=True)
 	level_high = forms.ChoiceField(widget=forms.Select(attrs = {'class': 'form-control'}),choices=LEVEL, initial=5.5, required=True)
 	price = forms.IntegerField(min_value = 0, widget=forms.NumberInput(attrs = {'class': 'form-control'}), initial = 50, required=True)
-#	gender = forms.ChoiceField(choices=GENDER, widget=forms.Select(attrs = {'class': 'form-control'}))
+	# gender = forms.ChoiceField(choices=GENDER, widget=forms.Select(attrs = {'class': 'form-control'}))
+	description = forms.CharField(widget=forms.Textarea(attrs = {'class': 'form-control'}), initial = 'Welcome to my group!', required = True)
 
 	class Meta:
 		model = GameGroup
-		fields = ('maximum', 'city', 'court', 'date', 'start_time', 'last_hour', 'level_low', 'level_high', 'price')
-	
+		fields = ('maximum', 'city', 'court', 'date', 'start_time', 'last_hour', 'level_low', 'level_high', 'price', 'description', )
+
 	def clean_date(self):
-		date = self.cleaned_data['date']	
+		date = self.cleaned_data['date']
 		if date < date.today():
 			raise forms.ValidationError("The date cannot be in the past!")
 		return date
+
 	def clean(self):
 		level_low = self.cleaned_data['level_low']
 		level_high = self.cleaned_data['level_high']
 		if level_low > level_high:
 			raise forms.ValidationError("Level lower bound cannot be higher than the upper bound. ")
 		return self.cleaned_data
-		
+
 

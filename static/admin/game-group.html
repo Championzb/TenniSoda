@@ -66,7 +66,6 @@
                     <th class="hidden-xs">等级</th>
                     <th>价格</th>
                     <th>人数</th>
-                    <th class="hidden-xs hidden-sm">性别要求</th>
 		            <th>成员</th>
                     <th>操作</th>
                   </tr>
@@ -103,6 +102,7 @@
                     <!-- members -->
                     <td>{{group.current_num}}/{{ group.maximum }}</td>
                     <!-- gender -->
+                    <!--
                     {% ifequal group.gender '2' %}
                     <td class="hidden-xs hidden-sm">无限制</td>
                     {% endifequal %}
@@ -112,10 +112,11 @@
                     {% ifequal group.gender '0' %}
                     <td class="hidden-xs hidden-sm">仅限女</td>
                     {% endifequal %}
-		    <td class="dropdown">
+                    -->
+		            <td class="dropdown">
             		<a href="javascript:;" id="myTabDrop2" class="dropdown-toggle" data-toggle="dropdown">
             		    <button class="btn btn-xs btn-primary" ><i class="fa fa-caret-square-o-down"></i></button>
-			</a>
+		        	</a>
 
              		<ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
 			    <li ><a href="#dropdown3" tabindex="-1" data-toggle="tab"><span style="color: red">{{group.holder.last_name}} {{group.holder.first_name}}</span></a></li>

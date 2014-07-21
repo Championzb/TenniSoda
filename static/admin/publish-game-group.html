@@ -125,6 +125,16 @@
               </div> <!-- /.col -->
           </div> <!-- /.form-group -->
 
+          <div class="form-group">
+              <label class="col-md-3">介绍</label>
+              <div class="col-md-7">
+              {{ form.description }}
+              {% for err in form.description.errors %}
+                <span style="color: red">{{ err }}</span>
+              {% endfor %}
+              </div> <!-- /.col -->
+          </div> <!-- /.form-group -->
+
           </div><!-- /.layout-main -->
 
           <div class="col-sm-4 col-md-3 layout-sidebar">

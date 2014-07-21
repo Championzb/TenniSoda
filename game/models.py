@@ -114,12 +114,13 @@ class GameGroup(models.Model):
     time = models.DateTimeField(default = datetime.now())
     level_high = models.FloatField(default=7.0)
     level_low = models.FloatField(default=2.0)
-    age_high = models.IntegerField(blank = True, null = True)
-    age_low = models.IntegerField(blank = True, null = True)
+    #age_high = models.IntegerField(blank = True, null = True)
+    #age_low = models.IntegerField(blank = True, null = True)
     price = models.IntegerField(default = 0)
-    gender = models.CharField(max_length = 2, default = '2')
-    is_published = models.BooleanField(default = False)
+    #gender = models.CharField(max_length = 2, default = '2')
+    #is_published = models.BooleanField(default = False)
     members = models.ManyToManyField(Profile, blank = True, null = True, related_name='members')
+    description = models.CharField(max_length = 140, default = 'Looking for interesting guys' )
 
     def __unicode__(self):
         return u'%s %s %s' % (self.holder, self.court, self.time)
@@ -127,4 +128,6 @@ class GameGroup(models.Model):
     def get_members(self):
         return self.members.all()
 
+    def get_members_list(self):
+        return "\n".join([u'%s %s' % (p.first_name, p.last_name) for p in self.members.all()])
 

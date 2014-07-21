@@ -82,10 +82,7 @@ def group_game_arrange(group_stage_set, start_date):
 					aList[j]=aList[j-1]
 				aList[0]=temp
 
-
-
-		
-class LeagueAdmin(admin.ModelAdmin): 
+class LeagueAdmin(admin.ModelAdmin):
 	list_display = ['name','city','start_date','end_date','picture','is_finished']
 	ordering = ['start_date']
 	actions = [game_arrange]
@@ -110,9 +107,9 @@ class FreeLeagueGameAdmin(admin.ModelAdmin):
 	list_display = ['player','request_time']
 
 class GameGroupAdmin(admin.ModelAdmin):
-	list_display = ['holder', 'maximum', 'city', 'district', 'court', 'date', 'start_time', 'last_hour','time', 'price', 'level_high', 'level_low', 'age_high', 'age_low', 'gender', 'is_published']
+	list_display = ['holder', 'maximum', 'city', 'district', 'court', 'date', 'start_time', 'last_hour','time', 'price', 'level_high', 'level_low',  'description', 'get_members_list',]
 	ordering = ['date', 'start_time']
-	list_filter = ('city', 'district', 'court', 'is_published')
+	list_filter = ('city', 'district', 'court',)
 
 
 

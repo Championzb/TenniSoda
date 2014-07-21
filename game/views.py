@@ -1,14 +1,13 @@
 from django.shortcuts import render_to_response, render
 from django.http import HttpResponseRedirect
 from models import League, Game, Score, FreeLeagueGame, GameGroup 
-from forms import ScoreCreationForm, GameEditForm
+from forms import ScoreCreationForm, GameEditForm, GameGroupForm
 from django.core.context_processors import csrf
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib import auth, messages
 from datetime import datetime, date
 from notification.models import Notification
-from forms import GameGroupForm
 
 @login_required
 def join_league(request, league_match_id=1):
