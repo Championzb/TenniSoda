@@ -140,11 +140,11 @@ class GameGroupForm(forms.ModelForm):
 	level_low = forms.ChoiceField(widget=forms.Select(attrs = {'class': 'form-control'}),choices=LEVEL, initial=2, required=True)
 	level_high = forms.ChoiceField(widget=forms.Select(attrs = {'class': 'form-control'}),choices=LEVEL, initial=5.5, required=True)
 	price = forms.IntegerField(min_value = 0, widget=forms.NumberInput(attrs = {'class': 'form-control'}), initial = 50, required=True)
-	gender = forms.ChoiceField(choices=GENDER, widget=forms.Select(attrs = {'class': 'form-control'}))
+#	gender = forms.ChoiceField(choices=GENDER, widget=forms.Select(attrs = {'class': 'form-control'}))
 
 	class Meta:
 		model = GameGroup
-		fields = ('maximum', 'city', 'court', 'date', 'start_time', 'last_hour', 'level_low', 'level_high', 'price', 'gender')
+		fields = ('maximum', 'city', 'court', 'date', 'start_time', 'last_hour', 'level_low', 'level_high', 'price')
 	
 	def clean_date(self):
 		date = self.cleaned_data['date']	
