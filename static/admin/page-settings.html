@@ -103,7 +103,8 @@
                   <label class="col-md-3">Profile Picture</label>
                   <div class="col-md-7">
                     <div class="fileupload fileupload-new" data-provides="fileupload">
-                      <div class="fileupload-new thumbnail" style="width: 180px; height: 180px;">
+                      <!--div class="fileupload-new thumbnail" style="width: 180px; height: 180px;"-->
+                      <div class="fileupload-new thumbnail" style="width: 180px;">
                       <!--div class="fileupload-new thumbnail"-->
                         {% if profile.picture %}
                           <img src="{% get_static_prefix %}assets/{{profile.picture.url}}" class="profile-avatar-img thumbnail" alt="Profile Image" />
