@@ -53,7 +53,7 @@
   <div class="content">
 
     <div class="container">
-
+      {% if all_league %}
       <h3 class="content-title"><u>All leagues</u></h3>
 
       <div class="row">
@@ -63,7 +63,7 @@
           <div class="table-responsive">
           <!-- all league table -->
           <table class="table table-striped table-bordered thumbnail-table">
-            <thead>
+            <thead>master
                 <tr>
                     <th style="width: 150px">Image</th>
                     <th>Name</th>
@@ -148,7 +148,9 @@
         </div> <!-- /.col -->
 
       </div> <!-- /.row -->
-
+      {% else %}
+        <h3 class="content-title text-center"><u><strong>最新联赛，敬请期待！</strong></u></h3>
+      {% endif %}
     </div> <!-- /.container -->
 
   </div> <!-- .content -->

@@ -41,7 +41,8 @@
   <div class="content">
 
     <div class="container">
-
+      {% if league_attended_not_finished or league_attended_finished %}
+      {% if league_attended_not_finished %}
       <h3 class="content-title"><u>Attended leagues not finished</u></h3>
 
       <div class="row">
@@ -114,6 +115,7 @@
           </div> <!-- /.table-responsive -->
         </div> <!-- /.col -->
       </div> <!-- /.row -->
+      {% endif %}
       {% if league_attended_finished %}
       <h3 class="content-title"><u>Attended leagues finished</u></h3>
       <div class="row">
@@ -183,6 +185,9 @@
         </div> <!-- /.col -->
 
       </div> <!-- /.row -->
+      {% endif %}
+      {% else %}
+        <h3 class="content-title text-center"><u><strong>您还没参加过任何联赛！点击<a href="/game/all_league/">这里</a>参加！</strong></u></h3>
       {% endif %}
 
     </div> <!-- /.container -->
