@@ -45,6 +45,7 @@
 
       <div class="layout layout-stack-sm layout-main-left">
         <div class="col-sm-8 col-md-9 layout-main">
+
         {% if holding_groups %}
         <h3 class="content-title"><u>My Game Group</u></h3>
 
@@ -55,57 +56,64 @@
                     <table class="table table-striped table-bordered thumbnail-table">
                         <thead>
                             <tr>
-                                <th>时间</th>
-                                <th class="hidden-xs">持续时间</th>
-                                <th class="hidden-xs">发起人</th>
-                                <th>场地</th>
-                                <th class="hidden-xs">城市</th>
-                                <th class="hidden-xs">等级</th>
-                                <th>价格</th>
-                                <th>人数</th>
-                                <th>成员</th>
-                                <th>操作</th>
+                                <th style="width: 150px">发起人</th>
+                                <th>详情</th>
+                                <th class="hidden-xs hidden-sm">要求</th>
+                                <th class="hidden-xs text-center">成员</th>
+                                <th class="text-center">操作</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for group in holding_groups %}
                             <tr>
-                                <!-- time -->
-                                <td>{{ group.date }} {{group.start_time}}</td>
-                                <!-- last_hour -->
-                                <td class="hidden-xs">{{ group.last_hour }}</td>
                                 <!-- holder -->
-                                <td class="hidden-xs">{{ group.holder }}</td>
-                                <!-- court -->
-                                <td>{{ group.court }}</td>
-                                <!-- city -->
-                                <td class="hidden-xs">{{ group.city }}</td>
-                                <!-- level -->
-                                <td class="hidden-xs">{{ group.level_low }}~{{ group.level_high }}</td>
-                                <!-- price -->
-                                <td>{{ group.price }}</td>
-                                <!-- members -->
-                                <td>{{group.current_num}}/{{ group.maximum }}</td>
-                                <td class="dropdown">
-                                <a href="javascript:;" id="myTabDrop2" class="dropdown-toggle" data-toggle="dropdown">
-                                    <button class="btn btn-xs btn-primary" ><i class="fa fa-caret-square-o-down"></i></button>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
-                                    <li ><a href="#dropdown3" tabindex="-1" data-toggle="tab"><span style="color: red">{{group.holder.last_name}} {{group.holder.first_name}}</span></a></li>
-                                    {% for member in group.get_members %}
-                                    <li><a href="#dropdown3" tabindex="-1" data-toggle="tab">{{member.last_name}} {{member.first_name}}</a></li>
-                                    {% endfor %}
-                                </ul>
-                                </td>
                                 <td>
-                                  <a href="/game/edit_game_group/{{group.id}}/">
-                                    <button class="btn btn-xs btn-primary" ><i class="fa fa-pencil"></i></button>
-                                  </a>
-                                  &nbsp;
-                                  <a href="/game/delete_game_group/{{group.id}}">
-                                    <button class="btn btn-xs btn-primary"><i class="fa fa-times"></i></button>
-                                  </a>
+                                    <div class="thumbnail">
+                                        <div class="thumbnail-view">
+                                            {% if group.holder.picture %}
+                                                <a class="thumbnail-view-hover ui-lightbox" href="{% get_static_prefix %}assets/{{ group.holder.picture.url}}"></a>
+                                                <img src="{% get_static_prefix %}assets/{{ group.holder.picture.url}}" width="125" alt="Holder Image"/>
+                                            {% else %}
+                                                <a class="thumbnail-view-hover ui-lightbox" href="{% static "assets/uploaded_files/default.jpg" %}"></a>
+                                                <img src="{% static "assets/uploaded_files/default.jpg" %}" width="125" alt="Holder Image" />
+                                            {% endif %}
+                                        </div>
+                                    </div><!-- /.thumbnail -->
+                                </td>
+                                <!-- Game Group Description -->
+                                <td class="valign-middle">
+                                    <span>{{ group.city }}&nbsp;&nbsp;{{ group.court }}</span><br />
+                                    <span>{{ group.date }} {{ group.start_time }}</span><br />
+                                    <span>时间： {{ group.last_hour }}小时</span><br />
+                                    <span>人数： {{ group.current_num}}/{{ group.maximum }}</span>
+                                </td>
+                                <!-- Game Group Requirement -->
+                                <td class="valign-middle hidden-xs hidden-sm">
+                                    <p>等级要求: {{ group.level_low }}~{{ group.level_high}}</p>
+                                    <p>{{ group.description }}</p>
+                                </td>
+                                <!-- Game Group Members -->
+                                <td class="dropdown text-center valign-middle hidden-xs">
+                                    <a href="javascript:;" id="myTabDrop2" class="dropdown-toggle" data-toggle="dropdown">
+                                        <button class="btn btn-xs btn-primary" ><i class="fa fa-caret-square-o-down"></i></button>
+                                    </a>
+
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+                                        <li ><a href="#dropdown3" tabindex="-1" data-toggle="tab"><span style="color: red">{{group.holder.last_name}} {{group.holder.first_name}}</span></a></li>
+                                        {% for member in group.get_members %}
+                                        <li><a href="#dropdown3" tabindex="-1" data-toggle="tab">{{member.last_name}} {{member.first_name}}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                                <!-- Action -->
+                                <td class="text-center valign-middle">
+                                    <a href="/game/edit_game_group/{{group.id}}/">
+                                        <button class="btn btn-xs btn-primary" ><i class="fa fa-pencil"></i></button>
+                                    </a>
+                                    &nbsp;
+                                    <a href="/game/delete_game_group/{{group.id}}">
+                                        <button class="btn btn-xs btn-primary"><i class="fa fa-times"></i></button>
+                                    </a>
                                 </td>
                             </tr>
                             {% endfor %}
