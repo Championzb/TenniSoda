@@ -70,7 +70,7 @@ def forget_password(request):
 		if Account.objects.filter(email=email).count() == 0:
 			print 'no such user'
 			args['warning'] = True
-			
+
 			return render_to_response('account-forgot.html',args)
 		else:
 			print 'reset password'
@@ -78,8 +78,8 @@ def forget_password(request):
 			messages.success(request, '您的新密码已发送至 %s' % (email))
 			return HttpResponseRedirect('/account/login/')
 
-	
-	return render_to_response('account-forgot.html', args)	
+
+	return render_to_response('account-forgot.html', args)
 
 def login(request):
 	args = {}
@@ -184,22 +184,25 @@ def change_profile(request):
 	args['form'] = form
 	args['email'] = request.user.email
 	args['profile'] = request.user.profile
-	
+
 	return render(request, 'page-settings.html',args)
 
 @login_required
 def view_profile(request, user_id=1):
-	user = request.user.profile
-	opponent_profile = Profile.objects.get(user_id=user_id)
-	if Game.objects.filter(player1=user,player2=opponent_profile).count() == 0 and Game.objects.filter(player2=user,player1=opponent_profile).count() == 0:
-		return HttpResponseRedirect('/game/list_all_games')
+	user = request.user
+	opponent_user = Account.objects.get(user_id=user_id)
+	if user == opponent_user:
+		return HttpResponseRedirect('/account/welcome_user/')
+
+	notifications = Notification.objects.filter(user=user, viewed=False).order_by('time').reverse()
+
 	args = {}
-	args['email']= Account.objects.get(id = user_id).email
-	args['first_name'] = opponent_profile.first_name
-	args['last name'] = opponent_profile.last_name
-	args['phone'] = opponent_profile.phone
-	args['level'] = opponent_profile.level
-	return render_to_response('view_profile.html',args)
+	args['profile'] = user.profile
+	args['opponent_profile'] = opponent_user.profile
+	args['is_followed'] = Follow.objects.follows(user, opponent_user)
+	args['notifications'] = notifications
+
+	return render_to_response('view-profile.html',args)
 
 
 @login_required
