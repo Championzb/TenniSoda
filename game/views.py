@@ -278,9 +278,9 @@ def game_group(request):
 	all_groups = all_groups.exclude(members=user)
 	all_groups = all_groups.exclude(holder=user)
 	today = date.today()
-	attended_groups = attended_groups.filter(date__gt=today)
-	holding_groups = holding_groups.filter(date__gt=today)
-	all_groups = all_groups.filter(date__gt=today)
+	attended_groups = attended_groups.filter(date__gte=today)
+	holding_groups = holding_groups.filter(date__gte=today)
+	all_groups = all_groups.filter(date__gte=today)
 	notifications = Notification.objects.filter(user = request.user, viewed = False).order_by('time').reverse()
 	args = {}
 	args['profile'] = user

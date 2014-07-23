@@ -90,6 +90,7 @@
                                 <td class="valign-middle hidden-xs hidden-sm">
                                     <span><strong>等级要求</strong>: {{ group.level_low }}~{{ group.level_high}}</span><br />
                                     <span><strong>人数</strong>： {{ group.current_num}}/{{ group.maximum }}</span><br />
+                                    <span><strong>价格</strong>: {{ group.price }}</span><br />
                                     <span><strong>介绍</strong>: {{ group.description }}</span>
                                 </td>
                                 <!-- Game Group Members -->
@@ -99,9 +100,42 @@
                                     </a>
 
                                     <ul class="dropdown-menu">
-                                        <li ><a href=""><span style="color: red">{{group.holder.last_name}} {{group.holder.first_name}}</span></a></li>
+                                        <li class="text-left">
+                                            <a href="">
+                                                {% if group.holder.picture %}
+                                                    <img src="{% get_static_prefix %}assets/{{ group.holder.picture.url}}" class="navbar-profile-avatar">
+                                                {% else %}
+                                                    <img src="{% static "assets/uploaded_files/default.jpg" %}" class="navbar-profile-avatar">
+                                                {% endif %}
+                                                <span style="color: red">{{group.holder.last_name}} {{group.holder.first_name}}</span>&nbsp;
+                                                {% if group.holder.gender %}
+                                                    {% ifequal group.holder.gender '0' %}
+                                                        <i class="fa fa-female"></i>
+                                                    {% else %}
+                                                        <i class="fa fa-male"></i>
+                                                    {% endifequal %}
+                                                {% endif %}
+                                            </a>
+                                        </li>
                                         {% for member in group.get_members %}
-                                            <li><a href="">{{member.last_name}} {{member.first_name}}</a></li>
+                                           <li class="text-left">
+                                                <a href="">
+                                                    {% if member.picture %}
+                                                        <img src="{% get_static_prefix %}assets/{{ member.picture.url}}" class="navbar-profile-avatar">
+                                                    {% else %}
+                                                        <img src="{% static "assets/uploaded_files/default.jpg" %}" class="navbar-profile-avatar">
+                                                    {% endif %}
+                                                    {{member.last_name}} {{member.first_name}}
+                                                    {% if member.gender %}
+                                                        {% ifequal member.gender '0' %}
+                                                            <i class="fa fa-female"></i>
+                                                        {% else %}
+                                                            <i class="fa fa-male"></i>
+                                                        {% endifequal %}
+                                                    {% endif %}
+                                                    &nbsp;&nbsp;{{ member.phone }}
+                                                </a>
+                                            </li>
                                         {% endfor %}
                                     </ul>
                                 </td>
@@ -168,6 +202,7 @@
                                 <td class="valign-middle hidden-xs hidden-sm">
                                     <span><strong>等级要求</strong>: {{ group.level_low }}~{{ group.level_high}}</span><br />
                                     <span><strong>人数</strong>： {{ group.current_num}}/{{ group.maximum }}</span><br />
+                                    <span><strong>价格</strong>: {{ group.price }}</span><br />
                                     <span><strong>介绍</strong>: {{ group.description }}</span>
                                 </td>
                                 <!-- Game Group Members -->
@@ -177,9 +212,42 @@
                                     </a>
 
                                     <ul class="dropdown-menu">
-                                        <li ><a href=""><span style="color: red">{{group.holder.last_name}} {{group.holder.first_name}}</span></a></li>
+                                        <li class="text-left">
+                                            <a href="">
+                                                {% if group.holder.picture %}
+                                                    <img src="{% get_static_prefix %}assets/{{ group.holder.picture.url}}" class="navbar-profile-avatar">
+                                                {% else %}
+                                                    <img src="{% static "assets/uploaded_files/default.jpg" %}" class="navbar-profile-avatar">
+                                                {% endif %}
+                                                <span style="color: red">{{group.holder.last_name}} {{group.holder.first_name}}</span>&nbsp;
+                                                {% if group.holder.gender %}
+                                                    {% ifequal group.holder.gender '0' %}
+                                                        <i class="fa fa-female"></i>
+                                                    {% else %}
+                                                        <i class="fa fa-male"></i>
+                                                    {% endifequal %}
+                                                {% endif %}
+                                                &nbsp;&nbsp;{{ group.holder.phone }}
+                                            </a>
+                                        </li>
                                         {% for member in group.get_members %}
-                                        <li><a href="">{{member.last_name}} {{member.first_name}}</a></li>
+                                           <li class="text-left">
+                                                <a href="">
+                                                    {% if member.picture %}
+                                                        <img src="{% get_static_prefix %}assets/{{ member.picture.url}}" class="navbar-profile-avatar">
+                                                    {% else %}
+                                                        <img src="{% static "assets/uploaded_files/default.jpg" %}" class="navbar-profile-avatar">
+                                                    {% endif %}
+                                                    {{member.last_name}} {{member.first_name}}
+                                                    {% if member.gender %}
+                                                        {% ifequal member.gender '0' %}
+                                                            <i class="fa fa-female"></i>
+                                                        {% else %}
+                                                            <i class="fa fa-male"></i>
+                                                        {% endifequal %}
+                                                    {% endif %}
+                                                </a>
+                                            </li>
                                         {% endfor %}
                                     </ul>
                                 </td>
@@ -242,6 +310,7 @@
                                 <td class="valign-middle hidden-xs hidden-sm">
                                     <span><strong>等级要求</strong>: {{ group.level_low }}~{{ group.level_high}}</span><br />
                                     <span><strong>人数</strong>： {{ group.current_num}}/{{ group.maximum }}</span><br />
+                                    <span><strong>价格</strong>: {{ group.price }}</span><br />
                                     <span><strong>介绍</strong>: {{ group.description }}</span>
                                 </td>
                                 <!-- Game Group Members -->
@@ -250,10 +319,42 @@
                                         <button class="btn btn-xs btn-primary" ><i class="fa fa-caret-square-o-down"></i></button>
                                     </a>
 
-                                    <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
-                                        <li ><a href=""><span style="color: red">{{group.holder.last_name}} {{group.holder.first_name}}</span></a></li>
+                                    <ul class="dropdown-menu">
+                                        <li class="text-left">
+                                            <a href="">
+                                                {% if group.holder.picture %}
+                                                    <img src="{% get_static_prefix %}assets/{{ group.holder.picture.url}}" class="navbar-profile-avatar">
+                                                {% else %}
+                                                    <img src="{% static "assets/uploaded_files/default.jpg" %}" class="navbar-profile-avatar">
+                                                {% endif %}
+                                                <span style="color: red">{{group.holder.last_name}} {{group.holder.first_name}}</span>&nbsp;
+                                                {% if group.holder.gender %}
+                                                    {% ifequal group.holder.gender '0' %}
+                                                        <i class="fa fa-female"></i>
+                                                    {% else %}
+                                                        <i class="fa fa-male"></i>
+                                                    {% endifequal %}
+                                                {% endif %}
+                                            </a>
+                                        </li>
                                         {% for member in group.get_members %}
-                                        <li><a href="">{{member.last_name}} {{member.first_name}}</a></li>
+                                           <li class="text-left">
+                                                <a href="">
+                                                    {% if member.picture %}
+                                                        <img src="{% get_static_prefix %}assets/{{ member.picture.url}}" class="navbar-profile-avatar">
+                                                    {% else %}
+                                                        <img src="{% static "assets/uploaded_files/default.jpg" %}" class="navbar-profile-avatar">
+                                                    {% endif %}
+                                                    {{member.last_name}} {{member.first_name}}
+                                                    {% if member.gender %}
+                                                        {% ifequal member.gender '0' %}
+                                                            <i class="fa fa-female"></i>
+                                                        {% else %}
+                                                            <i class="fa fa-male"></i>
+                                                        {% endifequal %}
+                                                    {% endif %}
+                                                </a>
+                                            </li>
                                         {% endfor %}
                                     </ul>
                                 </td>
