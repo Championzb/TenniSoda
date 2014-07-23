@@ -31,7 +31,7 @@
 
 
           <div class="form-group">
-              <label class="col-md-3">场地*</label>
+              <label class="col-md-3">场地&nbsp;<span style="color: red">*</span></label>
               <div class="col-md-7">
               {{ form.court }}
               {% for err in form.court.errors %}
@@ -51,7 +51,7 @@
           </div> <!-- /.form-group -->
 
 	  <div class="form-group">
-              <label class="col-md-3">日期 (YYYY-MM-DD)*</label>
+              <label class="col-md-3">日期 (YYYY-MM-DD)&nbsp;<span style="color: red">*</span></label>
               <div class="col-md-7">
               {{ form.date }}
               {% for err in form.date.errors %}
@@ -61,7 +61,7 @@
           </div> <!-- /.form-group -->
 
 	  <div class="form-group">
-              <label class="col-md-3">时间 (HH:MM)*</label>
+              <label class="col-md-3">时间 (HH:MM)&nbsp;<span style="color: red">*</span></label>
               <div class="col-md-7">
               {{ form.start_time }}
               {% for err in form.start_time.errors %}
@@ -116,7 +116,7 @@
           </div> <!-- /.form-group -->
 
           <div class="form-group">
-              <label class="col-md-3">城市*</label>
+              <label class="col-md-3">城市&nbsp;<span style="color: red">*</span></label>
               <div class="col-md-7">
               {{ form.city }}
               {% for err in form.city.errors %}

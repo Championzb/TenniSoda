@@ -1,3 +1,4 @@
+#-*-coding:utf-8-*-
 from django import forms
 from models import Score, Game, GameGroup
 from django.forms import extras
@@ -9,7 +10,7 @@ from datetime import date
 
 SET_SCORE = ('60','61','62','63','64','75','57','76','67','06','16','26','36','46',)
 SCORE = (('0', '0'),('1', '1'),('2', '2'),('3', '3'),('4', '4'),('5', '5'),('6', '6'),('7', '7'),)
-GENDER=(('2', 'No Limit'), ('1','Male'),('0','Female'))
+GENDER=(('2', '男女不限'), ('1','Male'),('0','Female'))
 
 class GameEditForm(forms.ModelForm):
 	date = forms.DateField(widget=forms.DateInput(attrs = {'class': 'form-control','type':'date'}))

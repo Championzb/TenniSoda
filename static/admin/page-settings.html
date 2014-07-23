@@ -133,7 +133,7 @@
                 </div> <!-- /.form-group -->
 
                 <div class="form-group">
-                  <label class="col-md-3">{{ form.last_name.label }}&#42;</label>
+                  <label class="col-md-3">{{ form.last_name.label }}&nbsp;<span style="color: red">&#42;</span></label>
                   <div class="col-md-7">
                     {{ form.last_name }}
                     {% for err in form.last_name.errors %}
@@ -143,7 +143,7 @@
                 </div> <!-- /.form-group -->
 
                 <div class="form-group">
-                  <label class="col-md-3">{{ form.first_name.label }}&#42;</label>
+                  <label class="col-md-3">{{ form.first_name.label }}&nbsp;<span style="color: red">&#42;</label>
                   <div class="col-md-7">
                     {{ form.first_name }}
                     {% for err in form.first_name.errors %}

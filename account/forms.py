@@ -1,3 +1,4 @@
+#-*-coding:utf-8-*-
 from django import forms
 from models import Profile
 from court.models import Court
@@ -9,9 +10,8 @@ from bootstrap3_datetime.widgets import DateTimePicker
 from form_utils.widgets import ImageWidget
 
 
-LEVEL=(('1','1 (low)'),('1.5','1.5'),('2','2'),('2.5','2.5'),('3','3'),('3.5','3.5'),('4','4 (median)'),('4.5','4.5'),('5','5'),('5.5','5.5'),('6','6'),('6.5','6.5'),('7','7'),('7.5','7.5 (high)'),)
-GENDER=(('1','Male'),('0','Female'))
-#CITY=(('1','Suzhou'),('2','Beijing'),('3','Shanghai'))
+LEVEL=(('1','1 (低)'),('1.5','1.5'),('2','2'),('2.5','2.5'),('3','3'),('3.5','3.5'),('4','4 (中)'),('4.5','4.5'),('5','5'),('5.5','5.5'),('6','6'),('6.5','6.5'),('7','7'),('7.5','7.5 (高)'),)
+GENDER=(('1','男'),('0','女'))
 
 class UserProfileForm(forms.ModelForm):
 	last_name = forms.CharField(widget=forms.TextInput(attrs = {'class': 'form-control'}))

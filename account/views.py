@@ -228,7 +228,11 @@ def confirm(request,activation_key):
 		user.is_active = True
 		user.save()
 		messages.success(request, 'Your account has been activated. Please log in!')
-		return HttpResponseRedirect('/account/login/')
+		args = {}
+		args.update(csrf(request))
+		args['email'] = user.email
+		return render(request, 'account-login.html', args)
+
 
 
 def confirmation_resend(request):

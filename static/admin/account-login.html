@@ -56,7 +56,11 @@
 
         <div class="form-group">
           <label for="login-username" class="placeholder-hidden">Email address</label>
-          <input type="email" class="form-control"  placeholder="Email address" tabindex="1" name="email">
+          {% if email %}
+            <input type="email" class="form-control"  placeholder="Email address" tabindex="1" name="email" value="{{email}}">
+          {% else %}
+            <input type="email" class="form-control"  placeholder="Email address" tabindex="1" name="email">
+          {% endif %}
         </div> <!-- /.form-group -->
 
         <div class="form-group">
