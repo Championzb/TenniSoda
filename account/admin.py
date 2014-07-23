@@ -1,3 +1,4 @@
+#-*-coding:utf-8-*-
 from django import forms
 from django.contrib import admin
 from django.contrib.auth.models import Group
@@ -13,11 +14,11 @@ class UserCreationForm(forms.ModelForm):
 	"""A form for creating new users. Includes all the required
 	fields, plus a repeated password."""
 	email = forms.CharField(label = '', widget=forms.TextInput(attrs = {'class': 'form-control',
-															'placeholder': 'Email Address',}))
+															'placeholder': '邮箱地址',}))
 	password1 = forms.CharField(label = '', widget=forms.PasswordInput(attrs = {'class': 'form-control',
-																	'placeholder': 'Password',}))
+																	'placeholder': '密码',}))
 	password2 = forms.CharField(label = '', widget=forms.PasswordInput(attrs = {'class': 'form-control',
-																	'placeholder': 'Confirm Password',}))
+																	'placeholder': '确认密码',}))
 
 	class Meta:
 		model = Account
@@ -44,8 +45,8 @@ class UserCreationForm(forms.ModelForm):
 		#send email parameters setting
 		from_email = settings.EMAIL_HOST_USER
 		to_email = [self.cleaned_data['email'],from_email, 'zhangbin.1101@gmail.com']
-		subject = 'Register Successfully - TenniSoda'
-		message = 'Congratulation! You have registered successfully! Click following link to confirm.\n http://%s/account/confirm/%s' % (settings.HOST_DOMAIN, user.activation_key)
+		subject = '注册成功 - TenniSoda'
+		message = '恭喜您已成功注册网球苏打，请点击以下链接激活帐号。\n http://%s/account/confirm/%s' % (settings.HOST_DOMAIN, user.activation_key)
 		if commit:
 			#send email..
 			send_mail(subject, message, from_email, to_email, fail_silently = True)

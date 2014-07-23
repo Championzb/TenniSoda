@@ -1,3 +1,4 @@
+#-*-coding:utf-8-*-
 from django.db import models
 from account.models import Account
 from game.models import Game
@@ -17,8 +18,8 @@ class Notification(models.Model):
 def create_welcome_message(sender, **kwargs):
     if kwargs.get('created', False):
         Notification.objects.create(user = kwargs.get('instance'),
-                                    title = 'Welcome to TenniSoda',
-                                    message = 'Thanks for sign up in TenniSoda',
+                                    title = '欢迎来到网球苏打',
+                                    message = '感谢您注册网球苏打',
                                     time = datetime.now())
 
 @receiver(post_save, sender = Game)
@@ -26,10 +27,10 @@ def create_game_message(sender, **kwargs):
     if kwargs.get('created', False):
         game = kwargs.get('instance')
         Notification.objects.create(user = game.player1.user,
-                                    title = 'New game',
-                                    message = 'You have a new game to play, go to the game page to view details',
+                                    title = '新的比赛',
+                                    message = '您有一场新的比赛，请去比赛页面查看比赛详情',
                                     time = datetime.now())
         Notification.objects.create(user = game.player2.user,
-                                    title = 'New game',
-                                    message = 'You have a new game to play, go to the game page to view details',
+                                    title = '新的比赛',
+                                    message = '您有一场新的比赛，请去比赛页面查看比赛详情',
                                     time = datetime.now())

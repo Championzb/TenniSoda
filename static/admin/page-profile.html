@@ -1,7 +1,7 @@
 {% extends "index-base.html" %}
 {% load static %}
 {% block title %}
-    <title>主页 &middot; TenniSoda</title>
+    <title>我的主页 &middot; TenniSoda</title>
 {% endblock %}
 {% block head %}
 <script>
@@ -26,7 +26,7 @@
 <li class="dropdown active">
 <a href="/account/welcome_user/">
     <i class="fa fa-user"></i>
-    Profile
+    我的主页
 </a>
 </li>
 {% endblock %}
@@ -69,7 +69,7 @@
             </a> 
 
             <a href="/account/change_profile/" class="list-group-item">
-              <i class="fa fa-cog text-primary"></i> &nbsp;&nbsp;Settings
+              <i class="fa fa-cog text-primary"></i> &nbsp;&nbsp;修改设置
 
               <i class="fa fa-chevron-right list-group-chevron"></i>
             </a> 
@@ -151,9 +151,9 @@
           <div class="portlet">
             <!-- button class="btn btn-primary btn-jumbo btn-block" onclick="checkProfile()">Ladder Games</button-->
             <!--<a class="btn btn-primary btn-jumbo btn-block" onclick="checkProfile()">Ladder Game</a>-->
-            <a href="/game/ladder_game/" class="btn btn-primary btn-jumbo btn-block">Ladder Game</a>
+            <a href="/game/game_group/" class="btn btn-primary btn-jumbo btn-block">约球</a>
             <br>
-            <a href="/game/all_league/" class="btn btn-secondary btn-lg btn-block ">View the League</a>
+            <a href="/game/all_league/" class="btn btn-secondary btn-lg btn-block ">查看联赛</a>
           </div> <!-- /.portlet -->
 
             <h5 class="content-title"><u>Social Stats</u></h5>

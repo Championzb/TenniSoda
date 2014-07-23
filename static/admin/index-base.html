@@ -6,7 +6,7 @@
 <!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <head>
   {% block title %}
-    <title>Welcome &middot; TenniSoda</title>
+    <title>欢迎进入 &middot; TenniSoda</title>
   {% endblock %}
 
   <meta charset="utf-8">
@@ -81,7 +81,7 @@
           <li class="dropdown">
             <a href="/notification/all/" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-bell"></i>
-              <span class="navbar-visible-collapsed">&nbsp;Notifications&nbsp;</span>
+              <span class="navbar-visible-collapsed">&nbsp;通知&nbsp;</span>
               {% if notifications %}
                 <span class="badge badge-primary">{{ notifications.count }}</span>
               {% endif %}
@@ -91,11 +91,11 @@
             <ul class="dropdown-menu noticebar-menu noticebar-hoverable" role="menu">
               <li class="nav-header">
                 <div class="pull-left">
-                  Notifications
+                  通知
                 </div>
 
                 <div class="pull-right">
-                  <a href="/notification/mark_all/">Mark as Read</a>
+                  <a href="/notification/mark_all/">标为已读</a>
                 </div>
               </li>
 
@@ -115,23 +115,23 @@
               {% endfor %}
 
               <li class="noticebar-menu-view-all">
-                <a href="/notification/all/">View All Notifications</a>
+                <a href="/notification/all/">查看所有通知</a>
               </li>
             </ul>
             {% else %}
               <ul class="dropdown-menu noticebar-menu noticebar-hoverable" role="menu">
               <li class="nav-header">
                 <div class="pull-left">
-                  Notifications
+                  通知
                 </div>
               </li>
 
               <li class="noticebar-empty">
-                  <h4 class="noticebar-empty-title">No notifications here.</h4>
+                  <h4 class="noticebar-empty-title">暂时没有新的通知！</h4>
               </li>
 
               <li class="noticebar-menu-view-all">
-                <a href="/notification/all/">View All Notifications</a>
+                <a href="/notification/all/">查看所有通知</a>
               </li>
             </ul>
             {% endif %}
@@ -217,11 +217,11 @@
         <ul class="nav navbar-nav navbar-right">
 
           <li>
-            <a href="javsacript:;">About</a>
+            <a href="javsacript:;">关于</a>
           </li>
 
           <li>
-            <a href="javascript:;">Resources</a>
+            <a href="javascript:;">规则</a>
           </li>
 
           <li class="dropdown navbar-profile">
@@ -229,7 +229,7 @@
               {% block profileimg %}
                 <img src="{% static "assets/uploaded_files/default.jpg" %}" class="navbar-profile-avatar" alt="">
               {% endblock %}
-              <span class="navbar-profile-label">Account &nbsp;</span>
+              <span class="navbar-profile-label">帐号 &nbsp;</span>
               <i class="fa fa-caret-down"></i>
             </a>
 
@@ -238,7 +238,7 @@
               <li>
                 <a href="/account/welcome_user/">
                   <i class="fa fa-user"></i>
-                  &nbsp;&nbsp;My Profile
+                  &nbsp;&nbsp;我的资料
                 </a>
               </li>
 <!--
@@ -252,7 +252,7 @@
               <li>
                 <a href="/account/change_profile/">
                   <i class="fa fa-cogs"></i>
-                  &nbsp;&nbsp;Settings
+                  &nbsp;&nbsp;修改设置
                 </a>
               </li>
 
@@ -261,7 +261,7 @@
               <li>
                 <a href="/account/logout/">
                   <i class="fa fa-sign-out"></i>
-                  &nbsp;&nbsp;Logout
+                  &nbsp;&nbsp;注销
                 </a>
               </li>
 
@@ -300,7 +300,7 @@
           <li class="dropdown">
             <a href="/account/welcome_user/">
           	    <i class="fa fa-user"></i>
-                Profile
+                我的主页
           	</a>
           </li>
           {% endblock %}
@@ -309,7 +309,7 @@
           <li class="dropdown">
             <a href="/court/all/">
           	    <i class="fa fa-table"></i>
-                Court
+                场地
           	</a>
           </li>
           {% endblock %}
@@ -339,7 +339,7 @@
           <li class="dropdown ">
 
             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-            League game
+            联赛
             <i class="mainnav-caret"></i>
             </a>
 
@@ -347,14 +347,14 @@
               <li>
                 <a href="/game/all_league/">
                 <i class="fa fa-money"></i>
-                &nbsp;&nbsp;Gallery
+                &nbsp;&nbsp;所有联赛
                 </a>
               </li>
 
               <li>
                 <a href="/game/attended_league">
                 <i class="fa fa-user"></i>
-                &nbsp;&nbsp;Attended
+                &nbsp;&nbsp;已参加联赛
                 </a>
               </li>
 
@@ -367,7 +367,7 @@
           <li class="dropdown ">
 
             <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-            Extras
+            其它
             <i class="mainnav-caret"></i>
             </a>
 

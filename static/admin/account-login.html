@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-        <title>Login In &middot; TenniSoda</title>
+        <title>登录 &middot; TenniSoda</title>
 {% endblock %}
 
 {% block content %}
@@ -27,7 +27,7 @@
       <nav class="collapse navbar-collapse" role="navigation">   
         <ul class="nav navbar-nav navbar-right">     
           <li>
-            <a href="/"><i class="fa fa-angle-double-left"></i> &nbsp;Back to Home</a>
+            <a href="/"><i class="fa fa-angle-double-left"></i> &nbsp; 回到主页</a>
           </li>   
         </ul>
       </nav>
@@ -40,9 +40,9 @@
 
     <div class="account-body">
 
-      <h3>Welcome back to TenniSoda</h3>
+      <h3>欢迎回到网球苏打</h3>
 
-      <h5>Please sign in to get access.</h5>
+      <h5>请输入邮箱和密码登录</h5>
 
       <form class="form account-form" method="POST" action="/account/auth/">{% csrf_token %}
 
@@ -59,30 +59,30 @@
           {% if email %}
             <input type="email" class="form-control"  placeholder="Email address" tabindex="1" name="email" value="{{email}}">
           {% else %}
-            <input type="email" class="form-control"  placeholder="Email address" tabindex="1" name="email">
+            <input type="email" class="form-control"  placeholder="邮箱" tabindex="1" name="email">
           {% endif %}
         </div> <!-- /.form-group -->
 
         <div class="form-group">
           <label for="login-password" class="placeholder-hidden">Password</label>
-          <input type="password" class="form-control" id="login-password" placeholder="Password" tabindex="2" name="password">
+          <input type="password" class="form-control" id="login-password" placeholder="密码" tabindex="2" name="password">
         </div> <!-- /.form-group -->
 
         <div class="form-group clearfix">
           <div class="pull-left">					
             <label class="checkbox-inline">
-              <input type="checkbox" name="remember_me" value="true" tabindex="3"> <small>Remember me</small>
+              <!--input type="checkbox" name="remember_me" value="true" tabindex="3"> <small>记住我</small-->
             </label>
           </div>
 
           <div class="pull-right">
-            <small><a href="/account/forget_password/">Forgot Password?</a></small>
+            <small><a href="/account/forget_password/">忘记密码？</a></small>
           </div>
         </div> <!-- /.form-group -->
 
         <div class="form-group">
           <button type="submit" class="btn btn-primary btn-block btn-lg" tabindex="4">
-            Signin &nbsp; <i class="fa fa-play-circle"></i>
+            登录 &nbsp; <i class="fa fa-play-circle"></i>
           </button>
         </div> <!-- /.form-group -->
 
@@ -93,8 +93,8 @@
 
     <div class="account-footer">
       <p>
-      Don't have an account? &nbsp;
-      <a href="/account/register/" class="">Create an Account!</a>
+      没有帐号？ &nbsp;
+      <a href="/account/register/" class="">注册！</a>
       </p>
     </div> <!-- /.account-footer -->
 

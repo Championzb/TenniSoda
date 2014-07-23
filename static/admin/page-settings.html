@@ -26,7 +26,7 @@
 <li class="dropdown active">
 <a href="/account/welcome_user/">
     <i class="fa fa-user"></i>
-    Profile
+    我的主页
 </a>
 </li>
 {% endblock %}
@@ -47,21 +47,21 @@
               <li class="active">
               <a href="#profile-tab" data-toggle="tab">
               <i class="fa fa-user"></i>
-              &nbsp;&nbsp;Profile Settings
+              &nbsp;&nbsp;资料设置
               </a>
             </li>
 
             <li>
               <a href="#password-tab" data-toggle="tab">
               <i class="fa fa-lock"></i>
-              &nbsp;&nbsp;Change Password
+              &nbsp;&nbsp;修改密码
               </a>
             </li>
 
             <li>
               <a href="#messaging" data-toggle="tab">
               <i class="fa fa-bullhorn"></i>
-              &nbsp;&nbsp;Notifications
+              &nbsp;&nbsp;邮件订阅
               </a>
             </li>
 
@@ -90,9 +90,9 @@
 
             <div class="tab-pane fade in active" id="profile-tab">
 
-              <h3 class="content-title"><u>Edit Profile</u></h3>
+              <h3 class="content-title"><u>编辑资料</u></h3>
 
-              <p>Please edit profile.</p>
+              <p>带 <span style="color: red">*</span> 的必填，如果您想参与联赛或者约球，请填写真实手机号码。<br />(手机号码仅供联系对手使用，我们承诺不会向您的手机发送任何垃圾短信和电话。)</p>
 
               <br><br>
 
@@ -100,7 +100,7 @@
 
                 <div class="form-group">
 
-                  <label class="col-md-3">Profile Picture</label>
+                  <label class="col-md-3">头像</label>
                   <div class="col-md-7">
                     <div class="fileupload fileupload-new" data-provides="fileupload">
                       <!--div class="fileupload-new thumbnail" style="width: 180px; height: 180px;"-->
@@ -126,14 +126,14 @@
                 </div> <!-- /.form-group -->
 
                 <div class="form-group">
-                  <label class="col-md-3">Email Address</label>
+                  <label class="col-md-3">注册邮箱</label>
                   <div class="col-md-7">
                     <input type="text" name="user-name" value="{{email}}" class="form-control" disabled />
                   </div> <!-- /.col -->
                 </div> <!-- /.form-group -->
 
                 <div class="form-group">
-                  <label class="col-md-3">{{ form.last_name.label }}&nbsp;<span style="color: red">&#42;</span></label>
+                  <label class="col-md-3">姓&nbsp;<span style="color: red">&#42;</span></label>
                   <div class="col-md-7">
                     {{ form.last_name }}
                     {% for err in form.last_name.errors %}
@@ -143,7 +143,7 @@
                 </div> <!-- /.form-group -->
 
                 <div class="form-group">
-                  <label class="col-md-3">{{ form.first_name.label }}&nbsp;<span style="color: red">&#42;</label>
+                  <label class="col-md-3">名&nbsp;<span style="color: red">&#42;</label>
                   <div class="col-md-7">
                     {{ form.first_name }}
                     {% for err in form.first_name.errors %}
@@ -153,7 +153,7 @@
                 </div> <!-- /.form-group -->
 
                 <div class="form-group">
-                  <label class="col-md-3">{{ form.gender.label }}</label>
+                  <label class="col-md-3">性别</label>
                   <div class="col-md-7">
                     {{ form.gender }}
                     {% for err in form.gender.errors %}
@@ -163,14 +163,14 @@
                 </div> <!-- /.form-group -->
 
                 <div class="form-group">
-                  <label class="col-md-3">{{ form.city.label }}</label>
+                  <label class="col-md-3">城市</label>
                   <div class="col-md-3">
                     {{ form.city }}
                     {% for err in form.city.errors %}
                       <span style="color: red">{{ err }}</span>
                     {% endfor %}
                   </div> <!-- /.col -->
-                  <label class="col-md-1">{{ form.district.label }}</label>
+                  <label class="col-md-1">地区</label>
                   <div class="col-md-3">
                     {{ form.district }}
                     {% for err in form.district.errors %}
@@ -180,7 +180,7 @@
                 </div> <!-- /.form-group -->
 
                 <div class="form-group">
-                  <label class="col-md-3">{{ form.birth_date.label }}</label>
+                  <label class="col-md-3">生日</label>
                   <div class="col-md-7">
                     {{ form.birth_date }}
                     {% for err in form.birth_date.errors %}
@@ -190,7 +190,7 @@
                 </div> <!-- /.form-group -->
 
                 <div class="form-group">
-                  <label class="col-md-3">{{ form.court.label }}</label>
+                  <label class="col-md-3">主场</label>
                   <div class="col-md-7">
                     {{ form.court }}
                     {% for err in form.court.errors %}
@@ -200,7 +200,7 @@
                 </div> <!-- /.form-group -->
 
                 <div class="form-group">
-                  <label class="col-md-3">{{ form.level.label }}</label>
+                  <label class="col-md-3">水平等级</label>
                   <div class="col-md-7">
                     {{ form.level }}
                     {% for err in form.level.errors %}
@@ -210,7 +210,7 @@
                 </div> <!-- /.form-group -->
 
                 <div class="form-group">
-                  <label class="col-md-3">{{ form.phone.label }}</label>
+                  <label class="col-md-3">电话</label>
                   <div class="col-md-7">
                     {{ form.phone }}
                     {% for err in form.phone.errors %}
@@ -220,7 +220,7 @@
                 </div> <!-- /.form-group -->
 
                 <div class="form-group">
-                  <label class="col-md-3">{{ form.club.label }}</label>
+                  <label class="col-md-3">俱乐部</label>
                   <div class="col-md-7">
                     {{ form.club }}
                     {% for err in form.club.errors %}
@@ -230,7 +230,7 @@
                 </div> <!-- /.form-group -->
 
                 <div class="form-group">
-                  <label class="col-md-3">{{ form.self_introduction.label }}</label>
+                  <label class="col-md-3">签名</label>
                   <div class="col-md-7">
                     {{ form.self_introduction }}
                     {% for err in form.self_introduction.errors %}
@@ -241,9 +241,9 @@
 
                 <div class="form-group">
                    <div class="col-md-7 col-md-push-3">
-                       <button type="submit" class="btn btn-primary">Save Changes</button>
+                       <button type="submit" class="btn btn-primary">保存修改</button>
                        &nbsp;
-                       <button type="reset" class="btn btn-default">Cancel</button>
+                       <button type="reset" class="btn btn-default">取消</button>
                    </div><!-- /.col -->
                 </div><!-- /.from-group -->
 
@@ -256,9 +256,7 @@
 
             <div class="tab-pane fade" id="password-tab">
 
-              <h3 class="content-title"><u>Change Password</u></h3>
-
-              <p>Please Change Password!</p>
+              <h3 class="content-title"><u>修改密码</u></h3>
 
               <br><br>
 
@@ -266,7 +264,7 @@
 
                 <div class="form-group">
 
-                  <label class="col-md-3">Old Password</label>
+                  <label class="col-md-3">旧密码</label>
 
                   <div class="col-md-7">
                     <input type="password" name="old-password" class="form-control" />
@@ -280,7 +278,7 @@
 
                 <div class="form-group">
 
-                  <label class="col-md-3">New Password</label>
+                  <label class="col-md-3">当前密码</label>
 
                   <div class="col-md-7">
                     <input type="password" name="new-password-1" class="form-control" id="new-password-1" />
@@ -291,7 +289,7 @@
 
                 <div class="form-group">
 
-                  <label class="col-md-3">New Password Confirm</label>
+                  <label class="col-md-3">确认新密码</label>
 
                   <div class="col-md-7">
                     <input type="password" name="new-password-2" class="form-control" id="new-password-2" />
@@ -303,9 +301,9 @@
                 <div class="form-group">
 
                   <div class="col-md-7 col-md-push-3">
-                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <button type="submit" class="btn btn-primary">设置密码</button>
                     &nbsp;
-                    <button type="reset" class="btn btn-default">Cancel</button>
+                    <button type="reset" class="btn btn-default">取消</button>
                   </div> <!-- /.col -->
 
                 </div> <!-- /.form-group -->

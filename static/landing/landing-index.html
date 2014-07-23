@@ -5,7 +5,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 <head>
-  <title>Welcome &middot; TenniSoda</title>
+  <title>欢迎来到 &middot; TenniSoda</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,19 +63,19 @@
         <ul class="nav navbar-nav navbar-right mainnav-menu">
 
           <li class="active">
-            <a href="/">Home</a>
+            <a href="/">主页</a>
           </li>    
 
           <li class="">
-            <a href="{% static "assets/landing/page-features.html" %}">Features</a>
+            <a href="{% static "assets/landing/page-features.html" %}">特色</a>
           </li>      
 
           <li class="">
-            <a href="{% static "assets/landing/page-faq.html" %}">FAQ</a>
+            <a href="{% static "assets/landing/page-faq.html" %}">问答</a>
           </li>
 
           <li class="">
-            <a href="{% static "assets/landing/page-contact.html" %}">Contact</a>
+            <a href="{% static "assets/landing/page-contact.html" %}">联系我们</a>
           </li>     
 
           <!-- <li class="dropdown">
@@ -105,7 +105,7 @@
           </li> -->
 
           <li>
-            <a href="/account/login/">Login</a>
+            <a href="/account/login/">登录</a>
           </li>    
 
         </ul>
@@ -157,7 +157,7 @@
                     </a>
 
                     <a href="/account/register/" class="btn btn-primary btn-jumbo">
-                    Create an Account
+                    免费注册
                     </a>
                   </div> <!-- /.masthead-actions -->
                 </div> <!-- /.masthead-text -->
@@ -165,9 +165,9 @@
                 <div class="col-md-6 masthead-img animated fadeInRightBig">
                   <form class="form masthead-form well" action="/" method="POST">{% csrf_token %}
 
-                    <h3 class="text-center">Register</h3>
+                    <h3 class="text-center">快捷注册</h3>
 
-                    <p class="text-center"><font color="red"> You have accepted the <a href="/">term and policy</a> to register!</font></p>
+                    <p class="text-center"><font color="red"> 您已同意我们的<a href="/">条款和规定</a>!</font></p>
 
                     {% for field in form %}
                       <div class = "form-group">
@@ -181,7 +181,7 @@
 
 
                     <div class="form-group">
-                      <button type="submit" class="btn btn-secondary btn-jumbo btn-block">Get Started Today!</button>
+                      <button type="submit" class="btn btn-secondary btn-jumbo btn-block">免费加入！</button>
                     </div> <!-- /.form-group -->
 
                   </form>
@@ -278,7 +278,7 @@
       <div class="container">
 
         <h4 class="content-title">
-          <span>Why Choose TenniSoda?</span>
+          <span>为什么选择网球苏打？</span>
         </h4>
 
         <br>

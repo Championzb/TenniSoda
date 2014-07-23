@@ -1,3 +1,4 @@
+#-*-coding:utf-8-*-
 from django.shortcuts import render_to_response, render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib import auth, messages
@@ -32,7 +33,7 @@ def register_user(request):
 		form = UserCreationForm(request.POST)
 		if form.is_valid():
 			form.save()
-			messages.success(request,'You have registered successfully. Please go to your %s to activate your email' % (form.cleaned_data['email']))
+			messages.success(request,'您已经成功注册， 请去您的邮箱%s激活帐号！' % (form.cleaned_data['email']))
 			return HttpResponseRedirect('/account/login/')
 	else:
 		form = UserCreationForm()
@@ -53,8 +54,8 @@ def reset_password(email):
 	user.save()
 	from_email = settings.EMAIL_HOST_USER
 	to_email = [email, from_email, 'zhangbin.1101@gmail.com']
-	subject = 'Reset Password - TenniSoda'
-	message = 'Your password has been reset. \n New password is %s' % (new_password)
+	subject = '重置密码 - TenniSoda'
+	message = '您的密码已经被重置为 %s' % (new_password)
 	send_mail(subject, message, from_email, to_email, fail_silently = True)
 
 
@@ -74,7 +75,7 @@ def forget_password(request):
 		else:
 			print 'reset password'
 			reset_password(email)
-			messages.success(request, 'Your new password has been sent to %s' % (email))
+			messages.success(request, '您的新密码已发送至 %s' % (email))
 			return HttpResponseRedirect('/account/login/')
 
 	
@@ -209,25 +210,25 @@ def change_password(request):
 		old_password = request.POST.get('old-password', '')
 		new_password1 = request.POST.get('new-password-1', '')
 		if not user.check_password(old_password):
-			messages.warning(request,'Invalid Password!')
+			messages.warning(request,'密码错误！')
 			return HttpResponseRedirect('/account/change_profile/')
 		else:
 			user.set_password(new_password1)
 			user.save()
-			messages.success(request,'Change Password Successfully.')
+			messages.success(request,'成功修改密码！')
 			return HttpResponseRedirect('/account/change_profile/')
 
 	return HttpResponseRedirect('/account/change_profile/')
 
 def confirm(request,activation_key):
 	if Account.objects.filter(activation_key = activation_key).count() == 0:
-		messages.warning(request, 'An error happened when activate your email. Please request a new activation key!')
+		messages.warning(request, '激活链接错误，请重新申请激活帐号！')
 		return HttpResponseRedirect('/')
 	else:
 		user = Account.objects.get(activation_key=activation_key)
 		user.is_active = True
 		user.save()
-		messages.success(request, 'Your account has been activated. Please log in!')
+		messages.success(request, '帐号已激活，请登录！')
 		args = {}
 		args.update(csrf(request))
 		args['email'] = user.email
@@ -238,12 +239,12 @@ def confirm(request,activation_key):
 def confirmation_resend(request):
 	from_email = settings.EMAIL_HOST_USER
 	to_email = [request.session['email'],from_email, 'zhangbin.1101@gmail.com']
-	subject = 'Account Registration Activation Resend - TenniSoda'
-	message = 'Congratulation! You have registered successfully! Click following link to confirm.\n http://%s/account/confirm/%s' % (settings.HOST_DOMAIN, request.session['activation_key'])
+	subject = '帐号激活 - TenniSoda'
+	message = '请点击以下链接激活帐号。\n http://%s/account/confirm/%s' % (settings.HOST_DOMAIN, request.session['activation_key'])
 	#send email..
 	send_mail(subject, message, from_email, to_email, fail_silently = True)
 
-	messages.success(request,'Please go to your %s to activate your email' % (request.session['email']))
+	messages.success(request,'请去您的邮箱 %s 激活帐号' % (request.session['email']))
 	return HttpResponseRedirect('/account/login/')
 
 def add_follower(request, user_id = 1):

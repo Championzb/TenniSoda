@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    <title>Sign Up &middot; TenniSoda</title>
+    <title>注册 &middot; TenniSoda</title>
 {% endblock %}
 {% block content %}
 
@@ -10,7 +10,7 @@
     function check(){
         flag = document.getElementById("check_terms").checked;
         if (!flag){
-            alert("You must agree the Terms and Service!");
+            alert("您必须同意我们的服务条款和隐私政策！");
             return flag;
         }
     }
@@ -36,7 +36,7 @@
       <nav class="collapse navbar-collapse" role="navigation">   
         <ul class="nav navbar-nav navbar-right">     
           <li>
-            <a href="/"><i class="fa fa-angle-double-left"></i> &nbsp;Back to Home</a>
+            <a href="/"><i class="fa fa-angle-double-left"></i> &nbsp;回到主页</a>
           </li>   
         </ul>
       </nav>
@@ -49,9 +49,9 @@
 
     <div class="account-body">
 
-      <h3>Register</h3>
+      <h3>注册</h3>
 
-      <h5>Sign up in 30 seconds. No credit card required.</h5>
+      <h5>欢迎注册网球苏打</h5>
 
       <form class="form account-form" method="POST" action="/account/register/" onsubmit="return check()">{% csrf_token %}
 
@@ -66,13 +66,13 @@
 
         <div class="form-group">
           <label class="checkbox-inline">
-          <input type="checkbox" id="check_terms" class="" value="" tabindex="5"> I agree to the <a href="javascript:;" target="_blank">Terms of Service</a> &amp; <a href="javascript:;" target="_blank">Privacy Policy</a>
+          <input type="checkbox" id="check_terms" class="" value="" tabindex="5"> 我同意网球苏打的 <a href="javascript:;" target="_blank">服务条款</a> &amp; <a href="javascript:;" target="_blank">隐私政策</a>
           </label>
         </div> <!-- /.form-group -->
 
         <div class="form-group">
           <button type="submit" class="btn btn-secondary btn-block btn-lg" tabindex="6">
-          Create My Account &nbsp; <i class="fa fa-play-circle"></i>
+          创建帐号 &nbsp; <i class="fa fa-play-circle"></i>
           </button>
         </div> <!-- /.form-group -->
 
@@ -82,8 +82,8 @@
 
     <div class="account-footer">
       <p>
-      Already have an account? &nbsp;
-      <a href="/account/login" class="">Login to your Account!</a>
+      已经有帐号了？ &nbsp;
+      <a href="/account/login" class="">登录！</a>
       </p>
     </div> <!-- /.account-footer -->
 
