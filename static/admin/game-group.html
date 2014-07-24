@@ -101,7 +101,7 @@
 
                                     <ul class="dropdown-menu">
                                         <li class="text-left">
-                                            <a href="">
+                                            <a href="/account/view_profile/{{group.holder.user_id}}/">
                                                 {% if group.holder.picture %}
                                                     <img src="{% get_static_prefix %}assets/{{ group.holder.picture.url}}" class="navbar-profile-avatar">
                                                 {% else %}
@@ -119,7 +119,7 @@
                                         </li>
                                         {% for member in group.get_members %}
                                            <li class="text-left">
-                                                <a href="">
+                                                <a href="/account/view_profile/{{member.user_id}}/">
                                                     {% if member.picture %}
                                                         <img src="{% get_static_prefix %}assets/{{ member.picture.url}}" class="navbar-profile-avatar">
                                                     {% else %}
@@ -213,7 +213,7 @@
 
                                     <ul class="dropdown-menu">
                                         <li class="text-left">
-                                            <a href="">
+                                            <a href="/account/view_profile/{{group.holder.user_id}}/">
                                                 {% if group.holder.picture %}
                                                     <img src="{% get_static_prefix %}assets/{{ group.holder.picture.url}}" class="navbar-profile-avatar">
                                                 {% else %}
@@ -232,7 +232,7 @@
                                         </li>
                                         {% for member in group.get_members %}
                                            <li class="text-left">
-                                                <a href="">
+                                                <a href="/account/view_profile/{{member.user_id}}/">
                                                     {% if member.picture %}
                                                         <img src="{% get_static_prefix %}assets/{{ member.picture.url}}" class="navbar-profile-avatar">
                                                     {% else %}
@@ -321,7 +321,7 @@
 
                                     <ul class="dropdown-menu">
                                         <li class="text-left">
-                                            <a href="">
+                                            <a href="/account/view_profile/{{group.holder.user_id}}/">
                                                 {% if group.holder.picture %}
                                                     <img src="{% get_static_prefix %}assets/{{ group.holder.picture.url}}" class="navbar-profile-avatar">
                                                 {% else %}
@@ -339,7 +339,7 @@
                                         </li>
                                         {% for member in group.get_members %}
                                            <li class="text-left">
-                                                <a href="">
+                                                <a href="/account/view_profile/{{member.user_id}}/">
                                                     {% if member.picture %}
                                                         <img src="{% get_static_prefix %}assets/{{ member.picture.url}}" class="navbar-profile-avatar">
                                                     {% else %}

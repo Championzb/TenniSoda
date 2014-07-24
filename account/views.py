@@ -190,7 +190,7 @@ def change_profile(request):
 @login_required
 def view_profile(request, user_id=1):
 	user = request.user
-	opponent_user = Account.objects.get(user_id=user_id)
+	opponent_user = Account.objects.get(id=user_id)
 	if user == opponent_user:
 		return HttpResponseRedirect('/account/welcome_user/')
 
@@ -254,10 +254,10 @@ def add_follower(request, user_id = 1):
 	user= Account.objects.get(id = user_id)
 	Follow.objects.add_follower(request.user, user)
 
-	return HttpResponseRedirect('/account/welcome_user/')
+	return HttpResponseRedirect('/account/view_profile/%s/' % (user_id))
 
 def remove_follower(request, user_id = 1):
 	user = Account.objects.get(id = user_id)
 	Follow.objects.remove_follower(request.user, user)
 
-	return HttpResponseRedirect('/account/welcome_user/')
+	return HttpResponseRedirect('/account/view_profile/%s/' % (user_id))

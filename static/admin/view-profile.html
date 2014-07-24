@@ -23,7 +23,7 @@
     {% endif %}
 {% endblock %}
 {% block profile %}
-<li class="dropdown active">
+<li class="dropdown ">
 <a href="/account/welcome_user/">
     <i class="fa fa-user"></i>
     我的主页
@@ -41,44 +41,13 @@
         <div class="col-md-3 col-sm-5">
 
           <div class="profile-avatar">
-            <img src="./img/avatars/avatar-2-lg.jpg" class="profile-avatar-img thumbnail" alt="Profile Image">
+		   	{% if opponent_profile.picture %}
+		      	<img src="{% get_static_prefix %}assets/{{opponent_profile.picture.url}}" class="profile-avatar-img thumbnail" alt="Profile Image" />
+    		{% else %}
+      			<img src="{% static "assets/uploaded_files/default.jpg" %}" class="profile-avatar-img thumbnail" alt="Profile Image" />
+    		{% endif %}
+
           </div> <!-- /.profile-avatar -->
-
-          <div class="list-group">
-
-            <a href="javascript:;" class="list-group-item">
-              <i class="fa fa-asterisk text-primary"></i> &nbsp;&nbsp;Activity Feed
-
-              <i class="fa fa-chevron-right list-group-chevron"></i>
-            </a>
-
-            <a href="javascript:;" class="list-group-item">
-              <i class="fa fa-book text-primary"></i> &nbsp;&nbsp;Projects
-
-              <i class="fa fa-chevron-right list-group-chevron"></i>
-              <span class="badge">3</span>
-            </a>
-
-            <a href="javascript:;" class="list-group-item">
-              <i class="fa fa-envelope text-primary"></i> &nbsp;&nbsp;Messages
-
-              <i class="fa fa-chevron-right list-group-chevron"></i>
-            </a>
-
-            <a href="javascript:;" class="list-group-item">
-              <i class="fa fa-group text-primary"></i> &nbsp;&nbsp;Friends
-
-              <i class="fa fa-chevron-right list-group-chevron"></i>
-            </a>
-
-            <a href="javascript:;" class="list-group-item">
-              <i class="fa fa-cog text-primary"></i> &nbsp;&nbsp;Settings
-
-              <i class="fa fa-chevron-right list-group-chevron"></i>
-            </a>
-          </div> <!-- /.list-group -->
-
-
 
         </div> <!-- /.col -->
 
@@ -86,29 +55,31 @@
 
         <div class="col-md-6 col-sm-7">
 
-          <h3>Nikita Williams</h3>
+			<span><font size=5>{{ opponent_profile }}</font></span>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<i class="icon-li fa fa-envelope"></i>{{opponent_profile.user.email}}
 
-          <h5 class="text-muted">Visual, UI, UX Designer</h5>
+			<hr>
 
-          <hr>
-
-          <p>
-            <a href="javascript:;" class="btn btn-primary">Follow Nikita</a>
-            &nbsp;&nbsp;
-            <a href="javascript:;" class="btn btn-secondary">Send Message</a>
-          </p>
-
-          <hr>
-
-          <ul class="icons-list">
-            <li><i class="icon-li fa fa-envelope"></i> support@jumpstartthemes.com</li>
-            <li><i class="icon-li fa fa-globe"></i> jumstartthemes.com</li>
-            <li><i class="icon-li fa fa-map-marker"></i> Las Vegas, NV</li>
-          </ul>
-
-          <br>
-
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec.</p>
+			<div class="row">
+				<div class="col-md-4 col-sm-4">
+           			<i class="icon-li fa fa-sort-alpha-asc"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{opponent_profile.level}}
+				</div><!-- /.col -->
+				<div class="col-md-4 col-sm-4">
+           			<i class="icon-li fa fa-globe"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{opponent_profile.city}}
+				</div><!-- /.col -->
+				<div class="col-md-4 col-sm-4">
+           			<i class="icon-li fa fa-map-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{opponent_profile.court}}
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		  <br/>
+          <p>签名：{{opponent_profile.self_introduction}}</p>
+		  <br/>
+			{% if is_followed %}
+           		<a href="/account/remove_follower/{{opponent_profile.user_id}}/" class="btn btn-secondary">&nbsp;&nbsp;&nbsp;取消关注&nbsp;&nbsp;&nbsp;</a>
+			{% else %}
+           		<a href="/account/add_follower/{{opponent_profile.user_id}}/" class="btn btn-primary">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关&nbsp;&nbsp;&nbsp;注&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+			{% endif %}
 
           <hr>
 
@@ -300,26 +271,26 @@
 
 
           <div class="col-md-3">
-            <h5 class="content-title"><u>Social Stats</u></h5>
+            <h5 class="content-title"><u>个人数据</u></h5>
 
             <div class="list-group">
 
               <a href="javascript:;" class="list-group-item">
                   <h3 class="pull-right"><i class="fa fa-eye text-primary"></i></h3>
                   <h4 class="list-group-item-heading">38,847</h4>
-                  <p class="list-group-item-text">Profile Views</p>
+                  <p class="list-group-item-text">粉丝数</p>
                 </a>
 
               <a href="javascript:;" class="list-group-item">
                 <h3 class="pull-right"><i class="fa fa-facebook-square  text-primary"></i></h3>
                 <h4 class="list-group-item-heading">3,482</h4>
-                <p class="list-group-item-text">Facebook Likes</p>
+                <p class="list-group-item-text">胜场数</p>
               </a>
 
               <a href="javascript:;" class="list-group-item">
                 <h3 class="pull-right"><i class="fa fa-twitter-square  text-primary"></i></h3>
                 <h4 class="list-group-item-heading">5,845</h4>
-                <p class="list-group-item-text">Twitter Followers</p>
+                <p class="list-group-item-text">总场数</p>
               </a>
             </div> <!-- /.list-group -->
 
