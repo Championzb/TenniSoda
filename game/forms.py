@@ -6,7 +6,7 @@ from django.forms.widgets import DateTimeInput
 from court.models import Court
 from city.models import City, District
 from account.forms import LEVEL
-from datetime import date
+from datetime import date, timedelta
 
 SET_SCORE = ('60','61','62','63','64','75','57','76','67','06','16','26','36','46',)
 SCORE = (('0', '0'),('1', '1'),('2', '2'),('3', '3'),('4', '4'),('5', '5'),('6', '6'),('7', '7'),)
@@ -151,14 +151,15 @@ class GameGroupForm(forms.ModelForm):
 	def clean_date(self):
 		date = self.cleaned_data['date']
 		if date < date.today():
-			raise forms.ValidationError("The date cannot be in the past!")
+			raise forms.ValidationError("时间已过，无法约球！")
+		elif date > (date.today() + timedelta(days=60)):
+			raise forms.ValidationError("您的约球时间太远了！")
+
 		return date
 
 	def clean(self):
 		level_low = self.cleaned_data['level_low']
 		level_high = self.cleaned_data['level_high']
 		if level_low > level_high:
-			raise forms.ValidationError("Level lower bound cannot be higher than the upper bound. ")
+			raise forms.ValidationError("请正确填写等级范围！")
 		return self.cleaned_data
-
-
