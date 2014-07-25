@@ -308,4 +308,29 @@ def get_following(request, user_id = 1):
 		return render_to_response('view-my-following.html',args)
 
 	return render_to_response('view-following.html',args)
+
+def search(request):
+	user = request.user
+	games_count = Game.objects.filter((Q(player1 = request.user) | Q(player2 = request.user))).count()
+	games_win_count = Game.objects.filter(winner = request.user).count()
+	notifications = Notification.objects.filter(user=user, viewed=False).order_by('time').reverse()
+
+	keyword=request.GET.get('keyword','')
+
+	following = Follow.objects.following(user)
+
+	search_result = Profile.objects.all()
+	for word in keyword:
+		search_result = search_result.filter(Q(first_name__contains=word)|Q(last_name__contains=word))
+
+	args = {}
+	args.update(csrf(request))
+	args['profile'] = user.profile
+	args['games_count'] = games_count
+	args['games_win_count'] = games_win_count
+	args['notifications'] = notifications
+	args['search_result'] = search_result
+	args['following'] = following
+
+	return render_to_response('search-result.html', args) 
 	

@@ -18,4 +18,5 @@ urlpatterns = patterns('account.views',
     url(r'^remove_follower/(?P<user_id>\d+)/$', 'remove_follower'),
     url(r'^get_followers/(?P<user_id>\d+)/$', 'get_followers'),
     url(r'^get_following/(?P<user_id>\d+)/$', 'get_following'),
+	url(r'^search/$', 'search'),
 )

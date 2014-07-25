@@ -1,0 +1,71 @@
+{% extends "page-profile.html" %}
+{% load static %}
+{% block list_group %}
+	<div class="list-group">  
+
+		<a href="javascript:;" class="list-group-item">
+		<i class="fa fa-asterisk text-primary"></i> &nbsp;&nbsp;Activity Feed
+		<i class="fa fa-chevron-right list-group-chevron"></i>
+        </a>
+
+		<a href="/account/get_followers/{{profile.user_id}}/" class="list-group-item">
+		<i class="fa fa-envelope text-primary"></i> &nbsp;&nbsp;粉丝
+
+		<i class="fa fa-chevron-right list-group-chevron"></i>
+		</a> 
+
+		<a href="/account/get_following/{{profile.user_id}}/" class="list-group-item">
+		<i class="fa fa-group text-primary"></i> &nbsp;&nbsp;关注
+
+		<i class="fa fa-chevron-right list-group-chevron"></i>
+		</a> 
+
+		<a href="/account/change_profile/" class="list-group-item">
+		<i class="fa fa-cog text-primary"></i> &nbsp;&nbsp;修改设置
+
+		<i class="fa fa-chevron-right list-group-chevron"></i>
+		</a> 
+	</div> <!-- /.list-group -->
+
+{% endblock %}
+
+{% block subcontent %}
+	<h4 class="content-title"><u>搜索结果</u></h4>
+	<div class="table-responsive">
+		<table class="table table-striped thumbnail-table">
+
+			<tbody>
+				{% for profile in search_result %}
+				<tr>
+					<td class="text-center">
+					<a href="/account/view_profile/{{profile.id}}/">					
+					{% if profile.picture %}
+		      		<img src="{% get_static_prefix %}assets/{{profile.picture.url}}" width=75 height=75 alt="Profile Image" />
+    				{% else %}
+      				<img src="{% static "assets/uploaded_files/default.jpg" %}" width=75 height=75 alt="Profile Image" />
+    				{% endif %}
+					</a>
+					</td>
+					<td class="valign-middle">
+					<a href="/account/view_profile/{{profile.id}}/">
+					<strong>{{profile}}</strong>
+					</a>
+					<br/>
+					{{profile.user.email}}
+					</td>
+					<td class="text-right valign-top">
+					{% if profile.user in following %}
+					<a href="/account/remove_follower/{{profile.user_id}}/" class="btn">取消关注</a>
+					{% else %}
+					<a href="/account/add_follower/{{profile.user_id}}/" class="btn"><i class="fa fa-plus text-primary"></i><font color="green">&nbsp;&nbsp;关&nbsp;&nbsp;注&nbsp;&nbsp;</font></a>
+					{% endif %}
+					</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+	</div>
+
+
+{% endblock %}
