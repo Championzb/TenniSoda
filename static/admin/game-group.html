@@ -158,12 +158,12 @@
 				<div class="dataTables_paginate paging_bootstrap">
 				<ul class="pagination">
 					{% if holding_groups.has_previous %}
-					<li class="prev"><a href="?holding_groups_page={{holding_groups.previous_page_number}}"><i class="fa fa-angle-double-left"></i>Previous</a></li>
+					<li class="prev"><a href="?holding_groups_page={{holding_groups.previous_page_number}}&attended_groups_page={{attended_groups.paginator.num_pages}}&all_groups_page={{all_groups.paginator.num_pages}}"><i class="fa fa-angle-double-left"></i>Previous</a></li>
 					{% else %}
 					<li class="prev disabled"><a href=""><i class="fa fa-angle-double-left"></i>Previous</a></li>
 					{% endif %}
 					{%if holding_groups.has_next %}
-					<li class="next"><a href="?holding_groups_page={{holding_groups.next_page_number}}">Next<i class="fa fa-angle-double-right"></i></a></li>
+					<li class="next"><a href="?holding_groups_page={{holding_groups.next_page_number}}&attended_groups_page={{attended_groups.paginator.num_pages}}&all_groups_page={{all_groups.paginator.num_pages}}">Next<i class="fa fa-angle-double-right"></i></a></li>
 					{% else %}
 					<li class="next disabled"><a href="">Next<i class="fa fa-angle-double-right"></i></a></li>
 					{% endif %}

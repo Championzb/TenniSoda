@@ -324,7 +324,7 @@ def search(request):
 	keyword=request.GET.get('keyword','')
 
 	following = Follow.objects.following(user)
-	Paginator(followers,1).page(page_number)
+	page_number = request.GET.get('page','1')
 
 	search_result = Profile.objects.all()
 	for word in keyword:
