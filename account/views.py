@@ -321,7 +321,10 @@ def search(request):
 
 	search_result = Profile.objects.all()
 	for word in keyword:
-		search_result = search_result.filter(Q(first_name__contains=word)|Q(last_name__contains=word))
+		if search_result.filter(Q(first_name__contains=word)|Q(last_name__contains=word)):
+			search_result = search_result.filter(Q(first_name__contains=word)|Q(last_name__contains=word))
+		else:	
+			break
 
 	args = {}
 	args.update(csrf(request))
