@@ -8,6 +8,8 @@ from django.db.models import Q
 from django.contrib import auth, messages
 from datetime import datetime, date
 from notification.models import Notification
+from django.core.paginator import Paginator
+
 
 @login_required
 def join_league(request, league_match_id=1):
@@ -282,12 +284,17 @@ def game_group(request):
 	holding_groups = holding_groups.filter(date__gte=today)
 	all_groups = all_groups.filter(date__gte=today)
 	notifications = Notification.objects.filter(user = request.user, viewed = False).order_by('time').reverse()
+	
+	all_groups_page_number = request.GET.get('all_groups_page','1')
+	attended_groups_page_number = request.GET.get('attended_groups_page', '1')
+	holding_groups_page_number = request.GET.get('holding_groups_page', '1')
+
 	args = {}
 	args['profile'] = user
 	args['notifications'] = notifications
-	args['attended_groups'] = attended_groups
-	args['all_groups'] = all_groups
-	args['holding_groups'] = holding_groups
+	args['attended_groups'] = Paginator(attended_groups,1).page(attended_groups_page_number)
+	args['all_groups'] = Paginator(all_groups,1).page(all_groups_page_number)
+	args['holding_groups'] = Paginator(holding_groups,1).page(holding_groups_page_number)
 
 	return render_to_response('game-group.html', args)
 

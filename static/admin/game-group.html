@@ -154,6 +154,21 @@
                         </tbody>
                     </table>
                 </div><!-- /.table-responsive -->
+				<!-- pagination-->
+				<div class="dataTables_paginate paging_bootstrap">
+				<ul class="pagination">
+					{% if holding_groups.has_previous %}
+					<li class="prev"><a href="?holding_groups_page={{holding_groups.previous_page_number}}"><i class="fa fa-angle-double-left"></i>Previous</a></li>
+					{% else %}
+					<li class="prev disabled"><a href=""><i class="fa fa-angle-double-left"></i>Previous</a></li>
+					{% endif %}
+					{%if holding_groups.has_next %}
+					<li class="next"><a href="?holding_groups_page={{holding_groups.next_page_number}}">Next<i class="fa fa-angle-double-right"></i></a></li>
+					{% else %}
+					<li class="next disabled"><a href="">Next<i class="fa fa-angle-double-right"></i></a></li>
+					{% endif %}
+				</ul>
+			</div>
             </div><!-- /.col -->
         </div><!-- /.row -->
         {% endif %}
@@ -262,6 +277,21 @@
                         </tbody>
                     </table>
                 </div><!-- /.table-responsive -->
+				<!-- pagination-->
+				<div class="dataTables_paginate paging_bootstrap">
+				<ul class="pagination">
+					{% if attended_groups.has_previous %}
+					<li class="prev"><a href="?attended_groups_page={{attended_groups.previous_page_number}}"><i class="fa fa-angle-double-left"></i>Previous</a></li>
+					{% else %}
+					<li class="prev disabled"><a href=""><i class="fa fa-angle-double-left"></i>Previous</a></li>
+					{% endif %}
+					{%if attended_groups.has_next %}
+					<li class="next"><a href="?attended_groups_page={{attended_groups.next_page_number}}">Next<i class="fa fa-angle-double-right"></i></a></li>
+					{% else %}
+					<li class="next disabled"><a href="">Next<i class="fa fa-angle-double-right"></i></a></li>
+					{% endif %}
+				</ul>
+			</div>
             </div><!-- /.col -->
         </div><!-- /.row -->
         {% endif %}
@@ -367,6 +397,21 @@
                         </tbody>
                     </table>
                 </div><!-- /.table-responsive -->
+				<!-- pagination-->
+				<div class="dataTables_paginate paging_bootstrap">
+				<ul class="pagination">
+					{% if all_groups.has_previous %}
+					<li class="prev"><a href="?all_groups_page={{all_groups.previous_page_number}}"><i class="fa fa-angle-double-left"></i>Previous</a></li>
+					{% else %}
+					<li class="prev disabled"><a href=""><i class="fa fa-angle-double-left"></i>Previous</a></li>
+					{% endif %}
+					{%if all_groups.has_next %}
+					<li class="next"><a href="?all_groups_page={{all_groups.next_page_number}}">Next<i class="fa fa-angle-double-right"></i></a></li>
+					{% else %}
+					<li class="next disabled"><a href="">Next<i class="fa fa-angle-double-right"></i></a></li>
+					{% endif %}
+				</ul>
+			</div>
             </div><!-- /.col -->
         </div><!-- /.row -->
         {% endif %}

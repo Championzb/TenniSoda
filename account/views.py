@@ -13,6 +13,8 @@ from django.template import RequestContext
 from django.core.mail import send_mail
 from django.conf import settings
 from friendship.models import Friend, Follow
+from django.core.paginator import Paginator
+
 
 
 from admin import UserCreationForm
@@ -270,6 +272,8 @@ def get_followers(request, user_id = 1):
 
 	notifications = Notification.objects.filter(user=user, viewed=False).order_by('time').reverse()
 
+	page_number = request.GET.get('page','1')
+
 	args = {}
 	args['profile'] = user.profile
 	args['opponent_profile'] = opponent_user.profile
@@ -277,7 +281,7 @@ def get_followers(request, user_id = 1):
 	args['games_win_count'] = games_win_count
 	args['notifications'] = notifications
 	args['is_followed'] = Follow.objects.follows(user, opponent_user)
-	args['followers'] = followers
+	args['followers'] = Paginator(followers,1).page(page_number)
 	args['myfollowing'] = Follow.objects.following(user)	
 	if user == opponent_user:
 		return render_to_response('view-my-followers.html',args)
@@ -295,6 +299,8 @@ def get_following(request, user_id = 1):
 
 	notifications = Notification.objects.filter(user=user, viewed=False).order_by('time').reverse()
 
+	page_number = request.GET.get('page','1')
+
 	args = {}
 	args['profile'] = user.profile
 	args['opponent_profile'] = opponent_user.profile
@@ -302,7 +308,7 @@ def get_following(request, user_id = 1):
 	args['games_win_count'] = games_win_count
 	args['notifications'] = notifications
 	args['is_followed'] = Follow.objects.follows(user, opponent_user)
-	args['following'] = following
+	args['following'] = Paginator(following,1).page(page_number)
 	args['myfollowing'] = Follow.objects.following(user)	
 	if user == opponent_user:
 		return render_to_response('view-my-following.html',args)
@@ -318,6 +324,7 @@ def search(request):
 	keyword=request.GET.get('keyword','')
 
 	following = Follow.objects.following(user)
+	Paginator(followers,1).page(page_number)
 
 	search_result = Profile.objects.all()
 	for word in keyword:
@@ -332,7 +339,7 @@ def search(request):
 	args['games_count'] = games_count
 	args['games_win_count'] = games_win_count
 	args['notifications'] = notifications
-	args['search_result'] = search_result
+	args['search_result'] = Paginator(search_result,1).page(page_number)
 	args['following'] = following
 
 	return render_to_response('search-result.html', args) 

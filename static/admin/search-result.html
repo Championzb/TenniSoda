@@ -32,37 +32,42 @@
 {% block subcontent %}
 	<h4 class="content-title"><u>搜索结果</u></h4>
 	<div class="table-responsive">
-		<table class="table table-striped thumbnail-table">
+		<table class="table table-striped thumbnail-table" >
 
 			<tbody>
-				{% for profile in search_result %}
+				{% for user in search_result %}
 				<tr>
 					<td class="text-center">
-					<a href="/account/view_profile/{{profile.id}}/">					
-					{% if profile.picture %}
-		      		<img src="{% get_static_prefix %}assets/{{profile.picture.url}}" width=75 height=75 alt="Profile Image" />
+					<a href="/account/view_profile/{{user.id}}/">					
+					{% if user.picture %}
+		      		<img src="{% get_static_prefix %}assets/{{user.picture.url}}" width=75 height=75 alt="Profile Image" />
     				{% else %}
       				<img src="{% static "assets/uploaded_files/default.jpg" %}" width=75 height=75 alt="Profile Image" />
     				{% endif %}
 					</a>
 					</td>
 					<td class="valign-middle">
-					<a href="/account/view_profile/{{profile.id}}/">
-					<strong>{{profile}}</strong>
+					<a href="/account/view_profile/{{user.id}}/">
+					<strong>{{user}}</strong>
 					</a>
 					<br/>
-					{{profile.user.email}}
+					{{user.user.email}}
 					</td>
 					<td class="text-right valign-top">
-					{% if profile.user in following %}
-					<a href="/account/remove_follower/{{profile.user_id}}/" class="btn">取消关注</a>
+					{% ifequal user profile %}
 					{% else %}
-					<a href="/account/add_follower/{{profile.user_id}}/" class="btn"><i class="fa fa-plus text-primary"></i><font color="green">&nbsp;&nbsp;关&nbsp;&nbsp;注&nbsp;&nbsp;</font></a>
+					{% if user.user in following %}
+					<a href="/account/remove_follower/{{user.user_id}}/" class="btn">取消关注</a>
+					{% else %}
+					<a href="/account/add_follower/{{user.user_id}}/" class="btn"><i class="fa fa-plus text-primary"></i><font color="green">&nbsp;&nbsp;关&nbsp;&nbsp;注&nbsp;&nbsp;</font></a>
 					{% endif %}
+					{% endifequal %}
 					</td>
+
 				</tr>
 				{% endfor %}
 			</tbody>
+
 		</table>
 
 	</div>
