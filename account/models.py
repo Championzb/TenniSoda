@@ -7,6 +7,7 @@ from city.models import City, District
 from TenniSoda import settings
 from time import time
 from datetime import datetime
+from friendship.models import Friend, Follow 
 
 # Create your models here.
 
@@ -85,7 +86,7 @@ class Account(AbstractBaseUser):
         "Does the user have permissions to view the app `app_label`?"
         # Simplest possible answer: Yes, always
         return True
-
+	
     @property
     def is_staff(self):
         "Is the user a member of staff?"

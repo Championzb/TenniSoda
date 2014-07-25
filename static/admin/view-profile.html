@@ -48,6 +48,30 @@
     		{% endif %}
 
           </div> <!-- /.profile-avatar -->
+		  {% block list_group %}
+		  <div class="list-group">  
+
+            <a href="" class="list-group-item active">
+              <i class="fa fa-asterisk text-primary"></i> &nbsp;&nbsp;动态
+
+              <i class="fa fa-chevron-right list-group-chevron"></i>
+            </a>
+			
+            <a href="/account/get_followers/{{opponent_profile.user_id}}/" class="list-group-item">
+              <i class="fa fa-envelope text-primary"></i> &nbsp;&nbsp;粉丝
+
+              <i class="fa fa-chevron-right list-group-chevron"></i>
+            </a> 
+
+            <a href="/account/get_following/{{opponent_profile.user_id}}/" class="list-group-item">
+              <i class="fa fa-group text-primary"></i> &nbsp;&nbsp;关注
+
+              <i class="fa fa-chevron-right list-group-chevron"></i>
+            </a> 
+
+            
+          </div> <!-- /.list-group -->
+		  {% endblock %}
 
         </div> <!-- /.col -->
 
@@ -86,6 +110,7 @@
 
           <br><br>
 
+			{% block subcontent %}
           <h4 class="content-title"><u>Activity Feed</u></h4>
 
             <div class="share-widget clearfix">
@@ -267,8 +292,9 @@
             <br class="visible-xs">
             <br class="visible-xs">
 
+		{% endblock %}
           </div> <!-- /.col -->
-
+		
 
           <div class="col-md-3">
             <h5 class="content-title"><u>个人数据</u></h5>

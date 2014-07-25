@@ -48,22 +48,23 @@
             {% endif %}
           </div> <!-- /.profile-avatar -->
 
+		{% block list_group %}
           <div class="list-group">  
 
-            <a href="javascript:;" class="list-group-item">
+            <a href="javascript:;" class="list-group-item active">
               <i class="fa fa-asterisk text-primary"></i> &nbsp;&nbsp;Activity Feed
 
               <i class="fa fa-chevron-right list-group-chevron"></i>
             </a>
 
-            <a href="javascript:;" class="list-group-item">
-              <i class="fa fa-envelope text-primary"></i> &nbsp;&nbsp;Messages
+            <a href="/account/get_followers/{{profile.user_id}}/" class="list-group-item">
+              <i class="fa fa-envelope text-primary"></i> &nbsp;&nbsp;粉丝
 
               <i class="fa fa-chevron-right list-group-chevron"></i>
             </a> 
 
-            <a href="javascript:;" class="list-group-item">
-              <i class="fa fa-group text-primary"></i> &nbsp;&nbsp;Friends
+            <a href="/account/get_following/{{profile.user_id}}/" class="list-group-item">
+              <i class="fa fa-group text-primary"></i> &nbsp;&nbsp;关注
 
               <i class="fa fa-chevron-right list-group-chevron"></i>
             </a> 
@@ -74,7 +75,7 @@
               <i class="fa fa-chevron-right list-group-chevron"></i>
             </a> 
           </div> <!-- /.list-group -->
-
+		{% endblock %}
 
 
         </div> <!-- /.col -->
@@ -83,7 +84,7 @@
 
         <div class="col-md-6 col-sm-7">
 
-          <h3>{{ username }}</h3>
+          <h3>{{ profile }}</h3>
 
           <h5 class="text-muted">Ladder points: XXXX</h5>
           
@@ -109,6 +110,7 @@
           </ul>
 
           <br><br>
+		  {% block subcontent %}
           <h4 class="content-title"><u>Activity Feed</u></h4>
 
             <br><br>
@@ -143,7 +145,7 @@
 
             <br class="visible-xs">
             <br class="visible-xs">
-
+			{% endblock %}
           </div> <!-- /.col -->
 
 
@@ -151,7 +153,7 @@
           <div class="portlet">
             <!-- button class="btn btn-primary btn-jumbo btn-block" onclick="checkProfile()">Ladder Games</button-->
             <!--<a class="btn btn-primary btn-jumbo btn-block" onclick="checkProfile()">Ladder Game</a>-->
-            <a href="/game/game_group/" class="btn btn-primary btn-jumbo btn-block">约球</a>
+            <a href="/game/game_group/" class="btn btn-primary btn-jumbo btn-block">约&nbsp;&nbsp;球</a>
             <br>
             <a href="/game/all_league/" class="btn btn-secondary btn-lg btn-block ">查看联赛</a>
           </div> <!-- /.portlet -->

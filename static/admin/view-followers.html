@@ -1,0 +1,72 @@
+{% extends "view-profile.html" %}
+{% load static %}
+{% block list_group %}
+	<div class="list-group">  
+
+       <a href="" class="list-group-item">
+         <i class="fa fa-asterisk text-primary"></i> &nbsp;&nbsp;动态
+
+         <i class="fa fa-chevron-right list-group-chevron"></i>
+       </a>
+			
+       <a href="/account/get_followers/{{opponent_profile.user_id}}/" class="list-group-item active">
+         <i class="fa fa-envelope text-primary"></i> &nbsp;&nbsp;粉丝
+
+         <i class="fa fa-chevron-right list-group-chevron"></i>
+       </a> 
+
+       <a href="/account/get_following/{{opponent_profile.user_id}}/" class="list-group-item">
+         <i class="fa fa-group text-primary"></i> &nbsp;&nbsp;关注
+
+         <i class="fa fa-chevron-right list-group-chevron"></i>
+       </a> 
+
+            
+    </div> <!-- /.list-group -->
+
+{% endblock %}
+
+{% block subcontent %}
+	<h4 class="content-title"><u>粉丝列表</u></h4>
+	<div class="table-responsive">
+		<table class="table table-striped thumbnail-table">
+
+			<tbody>
+				{% for follower in followers %}
+				<tr>
+					<td class="text-center">
+					<a href="/account/view_profile/{{follower.id}}/">					
+					{% if follower.profile.picture %}
+		      		<img src="{% get_static_prefix %}assets/{{follower.profile.picture.url}}" width=75 height=75 alt="Profile Image" />
+    				{% else %}
+      				<img src="{% static "assets/uploaded_files/default.jpg" %}" width=75 height=75 alt="Profile Image" />
+    				{% endif %}
+					</a>
+					</td>
+					<td class="valign-middle">
+					<a href="/account/view_profile/{{follower.id}}/">
+					<strong>{{follower.profile}}</strong>
+					</a>
+					<br/>
+					{{follower.email}}
+					</td>
+					<td class="text-right valign-top">
+					{% ifequal follower profile.user %}
+					&nbsp;
+					{% else %}
+						{% if follower in myfollowing %}
+						<a href="/account/remove_follower/{{follower.id}}/" class="btn">取消关注</a>
+						{% else %}
+						<a href="/account/add_follower/{{follower.id}}/" class="btn"><i class="fa fa-plus text-primary"></i><font color="green">&nbsp;&nbsp;关&nbsp;&nbsp;注&nbsp;&nbsp;</font></a>
+						{% endif %}
+					{% endifequal %}
+					</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+	</div>
+
+
+{% endblock %}
