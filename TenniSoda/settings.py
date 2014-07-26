@@ -130,7 +130,7 @@ STATIC_ROOT = PROJECT_DIR
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS=(
-    ('assets', os.path.join(os.getcwd(),'static/')),        
+    ('assets', os.path.join(os.getcwd(),'static/')),
 )
 
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'static/')
@@ -145,8 +145,8 @@ LOGGING = {
     'disable_existing_loggers': True,
     'formatters':{
         'standard':{
-            'format':'%(asctime)s [%(levelname)s] %(name)s: %(message)s'  
-        },    
+            'format':'%(asctime)s [%(levelname)s] %(name)s: %(message)s'
+        },
     },
     'handlers':{
         'default':{
@@ -176,7 +176,7 @@ LOGGING = {
             'handlers':['request_handler'],
             'level':'DEBUG',
             'propagate':False,
-        }, 
+        },
     }
 }
 '''
@@ -184,6 +184,8 @@ LOGGING = {
 AUTH_USER_MODEL = 'account.Account'
 
 AUTH_PROFILE_MODULE = 'account.UserProfile'
+
+SESSION_COOKIE_AGE = 1209600
 
 HOST_DOMAIN = 'ec2-54-191-12-220.us-west-2.compute.amazonaws.com'
 #HOST_DOMAIN = '127.0.0.1:8000'

@@ -44,7 +44,7 @@
 
       <h5>请输入邮箱和密码登录</h5>
 
-      <form class="form account-form" method="POST" action="/account/auth/">{% csrf_token %}
+      <form class="form account-form" method="POST" action="/account/login/">{% csrf_token %}
 
       {% if warning %}
           {% if email_exist %}

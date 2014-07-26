@@ -16,7 +16,6 @@ from friendship.models import Friend, Follow
 from django.core.paginator import Paginator
 
 
-
 from admin import UserCreationForm
 
 import logging
@@ -84,36 +83,36 @@ def forget_password(request):
 	return render_to_response('account-forgot.html', args)
 
 def login(request):
-	args = {}
-	args.update(csrf(request))
-	return render(request, 'account-login.html', args)
+	if request.method == 'POST':
+		email = request.POST.get('email', '')
+		password = request.POST.get('password', '')
+		user = auth.authenticate(email=email, password=password)
 
-def auth_view(request):
-	email = request.POST.get('email', '')
-	password = request.POST.get('password', '')
-	user = auth.authenticate(email=email, password=password)
-
-	if user is not None:
-		if user.is_active:
-			auth.login(request, user)
-			if user.first_login:
-				return HttpResponseRedirect('/account/first_login/')
+		if user is not None:
+			if user.is_active:
+				auth.login(request, user)
+				if user.first_login:
+					return HttpResponseRedirect('/account/first_login/')
+				else:
+					return HttpResponseRedirect('/account/welcome_user/')
 			else:
-				return HttpResponseRedirect('/account/welcome_user/')
+				args = {}
+				request.session['email'] = email
+				request.session['activation_key'] = user.activation_key
+				return render_to_response('require-active.html', args, context_instance=RequestContext(request))
 		else:
 			args = {}
-			request.session['email'] = email
-			request.session['activation_key'] = user.activation_key
-			return render_to_response('require-active.html', args, context_instance=RequestContext(request))
+			args.update(csrf(request))
+			args['warning'] = True
+			args['email_exist'] = False
+			if Account.objects.filter(email=email).count() != 0:
+				args['email_exist'] = True
+			else:
+				args['email_exist'] = False
+			return render(request, 'account-login.html', args)
 	else:
 		args = {}
 		args.update(csrf(request))
-		args['warning'] = True
-		args['email_exist'] = False
-		if Account.objects.filter(email=email).count() != 0:
-			args['email_exist'] = True
-		else:
-			args['email_exist'] = False
 		return render(request, 'account-login.html', args)
 
 @login_required
@@ -266,7 +265,7 @@ def remove_follower(request, user_id = 1):
 def get_followers(request, user_id = 1):
 	user = request.user
 	opponent_user = Account.objects.get(id=user_id)
-	followers = Follow.objects.followers(opponent_user)	
+	followers = Follow.objects.followers(opponent_user)
 	games_count = Game.objects.filter((Q(player1 = request.user) | Q(player2 = request.user))).count()
 	games_win_count = Game.objects.filter(winner = request.user).count()
 
@@ -282,7 +281,7 @@ def get_followers(request, user_id = 1):
 	args['notifications'] = notifications
 	args['is_followed'] = Follow.objects.follows(user, opponent_user)
 	args['followers'] = Paginator(followers,1).page(page_number)
-	args['myfollowing'] = Follow.objects.following(user)	
+	args['myfollowing'] = Follow.objects.following(user)
 	if user == opponent_user:
 		return render_to_response('view-my-followers.html',args)
 
@@ -291,7 +290,7 @@ def get_followers(request, user_id = 1):
 def get_following(request, user_id = 1):
 	user = request.user
 	opponent_user = Account.objects.get(id=user_id)
-	following = Follow.objects.following(opponent_user)	
+	following = Follow.objects.following(opponent_user)
 	games_count = Game.objects.filter((Q(player1 = request.user) | Q(player2 = request.user))).count()
 	games_win_count = Game.objects.filter(winner = request.user).count()
 	print games_count
@@ -309,7 +308,7 @@ def get_following(request, user_id = 1):
 	args['notifications'] = notifications
 	args['is_followed'] = Follow.objects.follows(user, opponent_user)
 	args['following'] = Paginator(following,1).page(page_number)
-	args['myfollowing'] = Follow.objects.following(user)	
+	args['myfollowing'] = Follow.objects.following(user)
 	if user == opponent_user:
 		return render_to_response('view-my-following.html',args)
 
@@ -330,7 +329,7 @@ def search(request):
 	for word in keyword:
 		if search_result.filter(Q(first_name__contains=word)|Q(last_name__contains=word)):
 			search_result = search_result.filter(Q(first_name__contains=word)|Q(last_name__contains=word))
-		else:	
+		else:
 			break
 
 	args = {}
@@ -342,5 +341,5 @@ def search(request):
 	args['search_result'] = Paginator(search_result,1).page(page_number)
 	args['following'] = following
 
-	return render_to_response('search-result.html', args) 
-	
+	return render_to_response('search-result.html', args)
+
