@@ -3,4 +3,5 @@
 migrations/
 *.swp
 *.log
+logs/
 
