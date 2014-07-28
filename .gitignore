@@ -4,4 +4,6 @@ migrations/
 *.swp
 *.log
 logs/
-
+*.jpg
+*.png
+*.jpeg
