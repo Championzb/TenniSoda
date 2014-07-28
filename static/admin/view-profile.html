@@ -302,20 +302,26 @@
             <div class="list-group">
 
               <a href="javascript:;" class="list-group-item">
-                  <h3 class="pull-right"><i class="fa fa-eye text-primary"></i></h3>
-                  <h4 class="list-group-item-heading">38,847</h4>
-                  <p class="list-group-item-text">粉丝数</p>
-                </a>
-
-              <a href="javascript:;" class="list-group-item">
-                <h3 class="pull-right"><i class="fa fa-facebook-square  text-primary"></i></h3>
-                <h4 class="list-group-item-heading">3,482</h4>
-                <p class="list-group-item-text">胜场数</p>
+                <h3 class="pull-right"><i class="fa fa-eye text-primary"></i></h3>
+                <h4 class="list-group-item-heading">{{ followers_count }}</h4>
+                <p class="list-group-item-text">粉丝</p>
               </a>
 
               <a href="javascript:;" class="list-group-item">
-                <h3 class="pull-right"><i class="fa fa-twitter-square  text-primary"></i></h3>
-                <h4 class="list-group-item-heading">5,845</h4>
+                <h3 class="pull-right"><i class="fa fa-eye text-primary"></i></h3>
+                <h4 class="list-group-item-heading">{{ following_count }}</h4>
+                <p class="list-group-item-text">关注</p>
+              </a>
+
+              <a href="javascript:;" class="list-group-item">
+                <h3 class="pull-right"><i class="fa fa-eye text-primary"></i></h3>
+                <h4 class="list-group-item-heading">{{ games_win_count }}</h4>
+                <p class="list-group-item-text">胜场</p>
+              </a>
+
+              <a href="javascript:;" class="list-group-item">
+                <h3 class="pull-right"><i class="fa fa-facebook-square  text-primary"></i></h3>
+                <h4 class="list-group-item-heading">{{games_count}}</h4>
                 <p class="list-group-item-text">总场数</p>
               </a>
             </div> <!-- /.list-group -->

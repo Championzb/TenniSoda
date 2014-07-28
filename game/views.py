@@ -292,9 +292,9 @@ def game_group(request):
 	args = {}
 	args['profile'] = user
 	args['notifications'] = notifications
-	args['attended_groups'] = Paginator(attended_groups,1).page(attended_groups_page_number)
+	args['attended_groups'] = Paginator(holding_groups|attended_groups,3).page(attended_groups_page_number)
 	args['all_groups'] = Paginator(all_groups,1).page(all_groups_page_number)
-	args['holding_groups'] = Paginator(holding_groups,1).page(holding_groups_page_number)
+	#args['holding_groups'] = Paginator(holding_groups,1).page(holding_groups_page_number)
 
 	return render_to_response('game-group.html', args)
 

@@ -146,6 +146,8 @@ def welcome_user(request):
 	#args['league_matches_attended'] = league_match_attended
 	#args['league_matches_remained'] = League.objects.exclude(players=request.user)
 	args['notifications'] = notifications
+	args['followers_count'] = len(Follow.objects.followers(request.user))
+	args['following_count'] = len(Follow.objects.following(request.user))
 	return render_to_response('page-profile.html',args)
 
 def invalid_login(request):
@@ -194,13 +196,20 @@ def view_profile(request, user_id=1):
 	if user == opponent_user:
 		return HttpResponseRedirect('/account/welcome_user/')
 
+
+	games_count = Game.objects.filter((Q(player1=request.user) | Q(player2=request.user))).count()
+	games_win_count = Game.objects.filter(winner=request.user).count()
 	notifications = Notification.objects.filter(user=user, viewed=False).order_by('time').reverse()
 
 	args = {}
 	args['profile'] = user.profile
 	args['opponent_profile'] = opponent_user.profile
 	args['is_followed'] = Follow.objects.follows(user, opponent_user)
+	args['games_count'] = games_count
+	args['games_win_count'] = games_win_count
 	args['notifications'] = notifications
+	args['followers_count'] = len(Follow.objects.followers(request.user))
+	args['following_count'] = len(Follow.objects.following(request.user))
 
 	return render_to_response('view-profile.html',args)
 
@@ -282,6 +291,8 @@ def get_followers(request, user_id = 1):
 	args['is_followed'] = Follow.objects.follows(user, opponent_user)
 	args['followers'] = Paginator(followers,1).page(page_number)
 	args['myfollowing'] = Follow.objects.following(user)
+	args['followers_count'] = len(Follow.objects.followers(request.user))
+	args['following_count'] = len(Follow.objects.following(request.user))
 	if user == opponent_user:
 		return render_to_response('view-my-followers.html',args)
 
@@ -293,8 +304,6 @@ def get_following(request, user_id = 1):
 	following = Follow.objects.following(opponent_user)
 	games_count = Game.objects.filter((Q(player1 = request.user) | Q(player2 = request.user))).count()
 	games_win_count = Game.objects.filter(winner = request.user).count()
-	print games_count
-	print 'xxx'
 
 	notifications = Notification.objects.filter(user=user, viewed=False).order_by('time').reverse()
 
@@ -309,6 +318,9 @@ def get_following(request, user_id = 1):
 	args['is_followed'] = Follow.objects.follows(user, opponent_user)
 	args['following'] = Paginator(following,1).page(page_number)
 	args['myfollowing'] = Follow.objects.following(user)
+	args['followers_count'] = len(Follow.objects.followers(request.user))
+	args['following_count'] = len(Follow.objects.following(request.user))
+
 	if user == opponent_user:
 		return render_to_response('view-my-following.html',args)
 
