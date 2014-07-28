@@ -1,0 +1,7 @@
+*.pyc
+*~
+migrations/
+*.swp
+*.log
+logs/
+
