@@ -63,6 +63,7 @@ INSTALLED_APPS = (
     'court',
     'city',
     'review',
+    'activity',
 	'localflavor',
     'django_cleanup',
     'bootstrap3_datetime',
