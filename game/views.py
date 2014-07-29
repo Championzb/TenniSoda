@@ -273,11 +273,20 @@ def attended_league(request):
 
 @login_required
 def league(request):
+	args = {}
+	league_history = League.objects.filter(players = request.user.profile).order_by('start_date').reverse()
+	if league_history.count():
+		current_league = league_history[0]
+		args['current_league'] = current_league
+
 	notifications = Notification.objects.filter(user=request.user, viewed=False).order_by('time').reverse()
 
-	args = {}
+
+	args['league_history'] = league_history
+
 	args['profile'] = request.user.profile
 	args['notifications'] = notifications
+
 
 	return render_to_response('league.html', args)
 
@@ -304,7 +313,7 @@ def game_group(request):
 	args['profile'] = user
 	args['notifications'] = notifications
 	args['attended_groups'] = Paginator(holding_groups|attended_groups,3).page(attended_groups_page_number)
-	args['all_groups'] = Paginator(all_groups,1).page(all_groups_page_number)
+	args['all_groups'] = Paginator(all_groups,3).page(all_groups_page_number)
 	#args['holding_groups'] = Paginator(holding_groups,1).page(holding_groups_page_number)
 
 	return render_to_response('game-group.html', args)

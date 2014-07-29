@@ -289,7 +289,7 @@ def get_followers(request, user_id = 1):
 	args['games_win_count'] = games_win_count
 	args['notifications'] = notifications
 	args['is_followed'] = Follow.objects.follows(user, opponent_user)
-	args['followers'] = Paginator(followers,1).page(page_number)
+	args['followers'] = Paginator(followers,10).page(page_number)
 	args['myfollowing'] = Follow.objects.following(user)
 	args['followers_count'] = len(Follow.objects.followers(request.user))
 	args['following_count'] = len(Follow.objects.following(request.user))
@@ -316,7 +316,7 @@ def get_following(request, user_id = 1):
 	args['games_win_count'] = games_win_count
 	args['notifications'] = notifications
 	args['is_followed'] = Follow.objects.follows(user, opponent_user)
-	args['following'] = Paginator(following,1).page(page_number)
+	args['following'] = Paginator(following,10).page(page_number)
 	args['myfollowing'] = Follow.objects.following(user)
 	args['followers_count'] = len(Follow.objects.followers(request.user))
 	args['following_count'] = len(Follow.objects.following(request.user))
@@ -350,7 +350,7 @@ def search(request):
 	args['games_count'] = games_count
 	args['games_win_count'] = games_win_count
 	args['notifications'] = notifications
-	args['search_result'] = Paginator(search_result,1).page(page_number)
+	args['search_result'] = Paginator(search_result, 20).page(page_number)
 	args['following'] = following
 
 	return render_to_response('search-result.html', args)
