@@ -10,6 +10,11 @@ from datetime import datetime, date
 from notification.models import Notification
 from django.core.paginator import Paginator
 
+@login_required
+def arrange_league(request):
+	profile = request.user.profile
+	print 'XXXXX'
+	return HttpResponseRedirect('/game/league/')
 
 @login_required
 def join_league(request, league_match_id=1):

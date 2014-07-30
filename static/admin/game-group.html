@@ -9,7 +9,7 @@
         {% if profile.last_name and profile.first_name and profile.phone %}
             window.location = "/game/publish_game_group/";
         {% else %}
-            alert("Please provide your name and phone first!");
+            alert("我们需要您的姓名以及联系方式，这样才能发布约球信息");
             window.location = "/account/change_profile/";
         {% endif %}
     }
@@ -17,7 +17,7 @@
         {% if profile.last_name and profile.first_name and profile.phone %}
             window.location = "/game/join_game_group/"+group_id;
         {% else %}
-            alert("Please provide your name and phone first!");
+            alert("我们需要您的姓名以及联系方式，以联系其他球友");
             window.location = "/account/change_profile/";
         {% endif %}
     }

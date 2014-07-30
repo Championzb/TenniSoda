@@ -5,11 +5,11 @@
 {% endblock %}
 {% block head %}
 <script>
-    function checkProfile(id){
+    function checkProfile(){
         {% if profile.last_name and profile.first_name and profile.phone %}
-            window.location = "/game/join_league/"+id;
+            window.location = "/game/join_league/";
         {% else %}
-            alert("Please provide your name and phone first!");
+            alert("我们需要您的姓名以及联系电话，这样才能方便联系您的对手！");
             window.location = "/account/change_profile/";
         {% endif %}
     }
@@ -141,9 +141,8 @@
 
         <div class="col-sm-4 col-md-3 layout-sidebar">
           <div class="portlet">
-            <a class="btn btn-primary btn-jumbo btn-block" onclick="checkProfilePublish()">发布约球信息</a>
+            <a class="btn btn-primary btn-jumbo btn-block" onclick="checkProfile()">参加联赛</a>
             <br>
-            <a href="/game/league/" class="btn btn-secondary btn-lg btn-block ">联赛</a>
           </div> <!-- /.portlet -->
 
           <h4>介绍</h4>
