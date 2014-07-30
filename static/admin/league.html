@@ -39,7 +39,7 @@
     <div class="container">
       <div class="layout layout-stack-sm layout-main-left">
         <div class="col-sm-8 col-md-9 layout-main">
-          {% if league_history %}
+          {% if current_league %}
           <section class="demo-section">
 
             <h3 class="content-title"><u>我的联赛</u></h3>
@@ -96,10 +96,9 @@
                                 <thead>
                                     <tr>
                                         <th style="width: 100px">联赛</th>
-                                        <th>详情</th>
-                                        <th class="hidden-xs hidden-sm">要求</th>
-                                        <th class="hidden-xs text-center">成员</th>
-                                        <th class="text-center">退出</th>
+                                        <th class="hidden-xs hidden-sm">城市</th>
+                                        <th class="hidden-xs hidden-sm">等级</th>
+                                        <th class="hidden-xs text-center">数据统计</th>
                                     </tr>
                                 </thead>
 
@@ -107,6 +106,10 @@
                                   {% for league in league_history %}
                                     <tr>
                                         <td>{{ league.name }}</td>
+                                        <td class="hidden-xs hidden-sm">{{ league.city }}</td>
+                                        <td class="hidden-xs hidden-sm">{{ league.level_low }} ~ {{league.level_high}}</td>
+                                        <td>敬请期待</td>
+                                        
                                     </tr>
                                   {% endfor %}
                                 </tbody>
@@ -141,7 +144,15 @@
 
         <div class="col-sm-4 col-md-3 layout-sidebar">
           <div class="portlet">
-            <a class="btn btn-primary btn-jumbo btn-block" onclick="checkProfile()">参加联赛</a>
+            {% if current_league %}
+              {% if current_league.is_finished %}
+                <a class="btn btn-primary btn-jumbo btn-block" onclick="checkProfile()">参加联赛</a>
+              {% else %}
+                <a class="btn btn-primary btn-jumbo btn-block disabled" onclick="checkProfile()">参加联赛</a>
+              {% endif %}
+            {% else %}
+              <a class="btn btn-primary btn-jumbo btn-block" onclick="checkProfile()">参加联赛</a>
+            {% endif %}
             <br>
           </div> <!-- /.portlet -->
 
@@ -152,9 +163,9 @@
             <ul class="icons-list text-md">
               <li>
                 <i class="icon-li fa fa-comments-o text-success"></i>
-                <strong>约球？</strong>
+                <strong>联赛</strong>
                 <br>
-                在这里你可以发布约球信息，也能看别人的约球。
+                我们将会根据您的城市、等级，给您安排联赛！
               </li>
             </ul>
           </div> <!-- /.well -->

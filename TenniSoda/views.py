@@ -1,3 +1,4 @@
+#-*-coding:utf-8-*-
 from django.shortcuts import render_to_response
 from django.http import HttpResponseRedirect
 from account.admin import UserCreationForm
@@ -9,7 +10,7 @@ def home(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request,'You have registered successfully. Please go to your %s to activate your email' % (form.cleaned_data['email']))
+            messages.success(request, u'您已经成功注册， 请去您的邮箱 %s 激活帐号！' % (form.cleaned_data['email']))
             return HttpResponseRedirect('/account/login/')
     else:
         form = UserCreationForm()

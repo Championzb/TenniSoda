@@ -1,6 +1,7 @@
+#-*-coding:utf-8-*-
 from django.shortcuts import render_to_response, render
 from django.http import HttpResponseRedirect
-from models import League, Game, Score, FreeLeagueGame, GameGroup 
+from models import League, Game, Score, FreeLeagueGame, GameGroup
 from forms import ScoreCreationForm, GameEditForm, GameGroupForm
 from django.core.context_processors import csrf
 from django.contrib.auth.decorators import login_required
@@ -13,7 +14,6 @@ from django.core.paginator import Paginator
 @login_required
 def arrange_league(request):
 	profile = request.user.profile
-	print 'XXXXX'
 	return HttpResponseRedirect('/game/league/')
 
 @login_required
@@ -279,13 +279,14 @@ def attended_league(request):
 @login_required
 def league(request):
 	args = {}
-	league_history = League.objects.filter(players = request.user.profile).order_by('start_date').reverse()
-	if league_history.count():
-		current_league = league_history[0]
+	league_all = League.objects.filter(players = request.user.profile).order_by('start_date').reverse()
+	if league_all.count():
+		current_league = league_all[0]
 		args['current_league'] = current_league
 
-	notifications = Notification.objects.filter(user=request.user, viewed=False).order_by('time').reverse()
+	league_history = league_all.filter(is_finished = True)
 
+	notifications = Notification.objects.filter(user=request.user, viewed=False).order_by('time').reverse()
 
 	args['league_history'] = league_history
 
@@ -309,10 +310,12 @@ def game_group(request):
 	holding_groups = holding_groups.filter(date__gte=today)
 	all_groups = all_groups.filter(date__gte=today)
 	notifications = Notification.objects.filter(user = request.user, viewed = False).order_by('time').reverse()
-	
+
 	all_groups_page_number = request.GET.get('all_groups_page','1')
 	attended_groups_page_number = request.GET.get('attended_groups_page', '1')
 	holding_groups_page_number = request.GET.get('holding_groups_page', '1')
+
+	print holding_groups|attended_groups
 
 	args = {}
 	args['profile'] = user
@@ -358,6 +361,10 @@ def join_game_group(request, game_group_id):
 		or user.level is None or user.level == '':
 		return render_to_response('profile_notify.html')
 	game_group = GameGroup.objects.get(id=game_group_id)
+	if game_group.current_num >= game_group.maximum:
+		messages.success(request,u'你当你谁啊，我们CTO又不傻')
+		auth.logout(request)
+		return HttpResponseRedirect('/account/login/')
 	if GameGroup.objects.filter(id=game_group_id, members=user).count() == 0:
 		game_group.members.add(user)
 		game_group.current_num += 1
@@ -378,6 +385,9 @@ def quit_game_group(request, game_group_id):
 def edit_game_group(request, game_group_id):
 	user = request.user.profile
 	game_group = GameGroup.objects.get(id=game_group_id)
+	if game_group.holder != user:
+		auth.logout(request)
+		return HttpResponseRedirect('/account/login/')
 	notifications = Notification.objects.filter(user = request.user, viewed = False).order_by('time').reverse()
 
 	if request.method == 'POST':
@@ -402,6 +412,16 @@ def edit_game_group(request, game_group_id):
 def delete_game_group(request, game_group_id):
 	user = request.user.profile
 	game_group = GameGroup.objects.get(id=game_group_id)
+	if game_group.holder != user:
+		auth.logout(request)
+		return HttpResponseRedirect('/account/login/')
+
+	for member in game_group.members.all():
+		Notification.objects.create(user = member.user,
+									title = u'小组解散',
+									message = u'您加入的由 %s 发起的小组已被解散' % (game_group.holder),
+									time = datetime.now(),)
+
 	if GameGroup.objects.filter(id=game_group_id, holder=user).count() != 0:
 		game_group.delete()
 	return HttpResponseRedirect('/game/game_group/')

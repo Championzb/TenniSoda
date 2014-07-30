@@ -13,6 +13,7 @@ class ActivityFeed(models.Model):
     game_group = models.ForeignKey(GameGroup, blank = True, null = True)
     league = models.ForeignKey(League, blank = True, null = True)
     game = models.ForeignKey(Game, blank = True, null = True)
+    like_num = models.IntegerField(default = 0)
 
     def __unicode__(self):
         return u'%s %s %s' % (self.type, self.date_time, self.creator)

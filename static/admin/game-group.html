@@ -21,6 +21,20 @@
             window.location = "/account/change_profile/";
         {% endif %}
     }
+    function confirmDelete(group_id){
+    	if (confirm("确认删除吗？（此过程不可逆）") == true) {
+		    window.location = "/game/delete_game_group/" + group_id;
+		} else {
+		    
+		}
+    }
+    function confirmQuit(group_id){
+    	if (confirm("确认退出吗？（此过程不可逆）") == true) {
+		    window.location = "/game/quit_game_group/" + group_id;
+		} else {
+		    
+		}
+    }
 </script>
 {% endblock %}
 {% block profileimg %}
@@ -60,7 +74,7 @@
                                 <th>详情</th>
                                 <th class="hidden-xs hidden-sm">要求</th>
                                 <th class="hidden-xs text-center">成员</th>
-                                <th class="text-center">退出</th>
+                                <th class="text-center">动作</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -141,9 +155,18 @@
                                 </td>
                                 <!-- Action -->
                                 <td class="text-center valign-middle">
-                                    <a href="/game/quit_game_group/{{group.id}}/">
-                                        <button class="btn btn-xs btn-secondary" ><i class="fa fa-times"></i></button>
+                                  {% ifequal group.holder profile %}
+                                  	<a href="/game/edit_game_group/{{group.id}}/">
+                                  		<button class="btn btn-xs btn-primary" title="修改"><i class="fa fa-pencil"></i></button>
+                                  	</a>
+                                  	<a>
+                                  		<button onclick="confirmDelete({{group.id}})" class="btn btn-xs btn-secondary" title="删除"><i class="fa fa-times"></i></button>
+                                  	</a>
+                                  {% else %}
+                                    <a>
+                                        <button onclick="confirmQuit({{group.id}})" class="btn btn-xs btn-secondary" title="退出"><i class="fa fa-minus"></i></button>
                                     </a>
+                                  {% endifequal %}
                                 </td>
                             </tr>
                             {% endfor %}
@@ -154,14 +177,14 @@
 				<div class="dataTables_paginate paging_bootstrap">
 				<ul class="pagination">
 					{% if attended_groups.has_previous %}
-					<li class="prev"><a href="?attended_groups_page={{attended_groups.previous_page_number}}"><i class="fa fa-angle-double-left"></i>Previous</a></li>
+					<li class="prev"><a href="?attended_groups_page={{attended_groups.previous_page_number}}"><i class="fa fa-angle-double-left"></i>前一页</a></li>
 					{% else %}
-					<li class="prev disabled"><a href=""><i class="fa fa-angle-double-left"></i>Previous</a></li>
+					<li class="prev disabled"><a href=""><i class="fa fa-angle-double-left"></i>前一页</a></li>
 					{% endif %}
 					{%if attended_groups.has_next %}
-					<li class="next"><a href="?attended_groups_page={{attended_groups.next_page_number}}">Next<i class="fa fa-angle-double-right"></i></a></li>
+					<li class="next"><a href="?attended_groups_page={{attended_groups.next_page_number}}">后一页<i class="fa fa-angle-double-right"></i></a></li>
 					{% else %}
-					<li class="next disabled"><a href="">Next<i class="fa fa-angle-double-right"></i></a></li>
+					<li class="next disabled"><a href="">后一页<i class="fa fa-angle-double-right"></i></a></li>
 					{% endif %}
 				</ul>
 			</div>
@@ -263,7 +286,11 @@
                                 </td>
                                 <!-- Action -->
                                 <td class="text-center valign-middle">
-                                    <button class="btn btn-xs btn-primary" onclick="checkProfileJoin({{group.id}})"><i class="fa fa-plus-circle"></i></button>
+                                  {% ifequal group.current_num group.maximum %}
+                                    <button class="btn btn-xs btn-primary disabled" title="人已满"><i class="fa fa-plus-circle"></i></button>
+                               	  {% else %}
+                                    <button class="btn btn-xs btn-primary" title="加入" onclick="checkProfileJoin({{group.id}})"><i class="fa fa-plus-circle"></i></button>
+                               	  {% endifequal %}
                                 </td>
                             </tr>
                             {% endfor %}
@@ -274,14 +301,14 @@
 				<div class="dataTables_paginate paging_bootstrap">
 				<ul class="pagination">
 					{% if all_groups.has_previous %}
-					<li class="prev"><a href="?all_groups_page={{all_groups.previous_page_number}}"><i class="fa fa-angle-double-left"></i>Previous</a></li>
+					<li class="prev"><a href="?all_groups_page={{all_groups.previous_page_number}}"><i class="fa fa-angle-double-left"></i>前一页</a></li>
 					{% else %}
-					<li class="prev disabled"><a href=""><i class="fa fa-angle-double-left"></i>Previous</a></li>
+					<li class="prev disabled"><a href=""><i class="fa fa-angle-double-left"></i>前一页</a></li>
 					{% endif %}
 					{%if all_groups.has_next %}
-					<li class="next"><a href="?all_groups_page={{all_groups.next_page_number}}">Next<i class="fa fa-angle-double-right"></i></a></li>
+					<li class="next"><a href="?all_groups_page={{all_groups.next_page_number}}">后一页<i class="fa fa-angle-double-right"></i></a></li>
 					{% else %}
-					<li class="next disabled"><a href="">Next<i class="fa fa-angle-double-right"></i></a></li>
+					<li class="next disabled"><a href="">后一页<i class="fa fa-angle-double-right"></i></a></li>
 					{% endif %}
 				</ul>
 			</div>
