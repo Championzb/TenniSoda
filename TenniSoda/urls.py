@@ -15,5 +15,6 @@ urlpatterns = patterns('',
     url(r'^notification/', include('notification.urls')),
     url(r'^court/', include('court.urls')),
     url(r'^city/', include('city.urls')),
+    url(r'^activity/', include('activity.urls')),
 
 )

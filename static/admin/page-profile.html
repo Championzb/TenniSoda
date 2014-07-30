@@ -109,7 +109,8 @@
           <h4 class="content-title"><u>Activity Feed</u></h4>
 
             <br><br>
-
+			{% for activity in activities %}
+			{% ifequal activity.type 1 %}
             <div class="feed-item feed-item-idea">
 
               <div class="feed-icon">
@@ -117,27 +118,33 @@
               </div> <!-- /.feed-icon -->
 
               <div class="feed-subject">
-                <p><a href="javascript:;">Nikita Williams</a> shared an idea: <a href="javascript:;">Create an Awesome Idea</a></p>
+                <p><a href="javascript:;">{{activity.creator}}</a>发布了约球小组</p>
               </div> <!-- /.feed-subject -->
 
               <div class="feed-content">
                 <ul class="icons-list">
                   <li>
-                    <i class="icon-li fa fa-quote-left"></i>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.
+                  		该小组地点为{{activity.game_group.court}}, 开始于{{activity.game_group.start_time}}, 持续{{activity.game_group.last_hour}}小时, 价格为每小时{{activity.game_group.price}}                     
                   </li>
                 </ul>
               </div> <!-- /.feed-content -->
 
               <div class="feed-actions">
-                <a href="javascript:;" class="pull-left"><i class="fa fa-thumbs-up"></i> 123</a>
-                <a href="javascript:;" class="pull-left"><i class="fa fa-comment-o"></i> 29</a>
+                <a href="/activity/like/{{activity.id}}" class="pull-left"><i class="fa fa-thumbs-up"></i>{{activity.like_num}}</a>
+                
 
-                <a href="javascript:;" class="pull-right"><i class="fa fa-clock-o"></i> 2 days ago</a>
-              </div> <!-- /.feed-actions -->
+                <a href="" class="pull-right disabled"><i class="fa fa-clock-o"></i>{{activity.date_time}}</a> 
+				</div> <!-- /.feed-actions -->
 
             </div> <!-- /.feed-item -->
+			{% endifequal %}
+			{% ifequal activity.type 2 %}
 
+			{% endifequal %}
+			{% ifequal activity.tpye 3 %}
+
+			{% endifequal %}
+			{% endfor %}
             <br class="visible-xs">
             <br class="visible-xs">
 			{% endblock %}

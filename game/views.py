@@ -315,12 +315,16 @@ def game_group(request):
 	attended_groups_page_number = request.GET.get('attended_groups_page', '1')
 	holding_groups_page_number = request.GET.get('holding_groups_page', '1')
 
-	print holding_groups|attended_groups
+	print holding_groups
+
+	print attended_groups
+
+	print holding_groups | attended_groups
 
 	args = {}
 	args['profile'] = user
 	args['notifications'] = notifications
-	args['attended_groups'] = Paginator(holding_groups|attended_groups,3).page(attended_groups_page_number)
+	args['attended_groups'] = Paginator(holding_groups | attended_groups,3).page(attended_groups_page_number)
 	args['all_groups'] = Paginator(all_groups,3).page(all_groups_page_number)
 	#args['holding_groups'] = Paginator(holding_groups,1).page(holding_groups_page_number)
 

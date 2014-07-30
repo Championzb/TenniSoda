@@ -14,6 +14,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from friendship.models import Friend, Follow
 from django.core.paginator import Paginator
+from activity.models import ActivityFeed
 
 
 from admin import UserCreationForm
@@ -136,7 +137,15 @@ def welcome_user(request):
 	games_count = Game.objects.filter((Q(player1 = request.user) | Q(player2 = request.user))).count()
 	games_win_count = Game.objects.filter(winner = request.user).count()
 	notifications = Notification.objects.filter(user = request.user, viewed = False).order_by('time').reverse()
-
+	
+	followings = Follow.objects.following(request.user)
+	
+	activities = []
+	for following in followings:
+		if following.profile:
+			for activity in ActivityFeed.objects.filter(creator=following).order_by('date_time').reverse():
+				activities.append(activity)
+	
 	profile = request.user.profile
 
 	args = {}
@@ -148,6 +157,7 @@ def welcome_user(request):
 	args['notifications'] = notifications
 	args['followers_count'] = len(Follow.objects.followers(request.user))
 	args['following_count'] = len(Follow.objects.following(request.user))
+	args['activities'] = activities
 	return render_to_response('page-profile.html',args)
 
 def invalid_login(request):
