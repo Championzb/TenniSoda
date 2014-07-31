@@ -261,12 +261,12 @@ def confirm(request,activation_key):
 def confirmation_resend(request):
 	from_email = settings.EMAIL_HOST_USER
 	to_email = [request.session['email'],from_email, 'zhangbin.1101@gmail.com']
-	subject = '帐号激活 - TenniSoda'
-	message = '请点击以下链接激活帐号。\n http://%s/account/confirm/%s' % (settings.HOST_DOMAIN, request.session['activation_key'])
+	subject = u'帐号激活 - TenniSoda'
+	message = u'请点击以下链接激活帐号。\n http://%s/account/confirm/%s' % (settings.HOST_DOMAIN, request.session['activation_key'])
 	#send email..
 	send_mail(subject, message, from_email, to_email, fail_silently = True)
 
-	messages.success(request,'请去您的邮箱 %s 激活帐号' % (request.session['email']))
+	messages.success(request,u'请去您的邮箱 %s 激活帐号' % (request.session['email']))
 	return HttpResponseRedirect('/account/login/')
 
 def add_follower(request, user_id = 1):
