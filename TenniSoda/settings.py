@@ -104,7 +104,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'TenniSoda',
         'USER': 'root',
-        'PASSWORD':'root',
+        'PASSWORD':'tennisoda123',
         'HOST': 'localhost',
         'PORT': '3306',
     }
@@ -188,6 +188,6 @@ AUTH_PROFILE_MODULE = 'account.UserProfile'
 
 SESSION_COOKIE_AGE = 1209600
 
-HOST_DOMAIN = 'ec2-54-191-12-220.us-west-2.compute.amazonaws.com'
+#HOST_DOMAIN = 'ec2-54-191-12-220.us-west-2.compute.amazonaws.com'
 #HOST_DOMAIN = '127.0.0.1:8000'
-
+HOST_DOMAIN = '114.215.122.73'
