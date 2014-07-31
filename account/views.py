@@ -35,7 +35,7 @@ def register_user(request):
 		form = UserCreationForm(request.POST)
 		if form.is_valid():
 			form.save()
-			messages.success(request,'您已经成功注册， 请去您的邮箱%s激活帐号！' % (form.cleaned_data['email']))
+			messages.success(request,u'您已经成功注册， 请去您的邮箱%s激活帐号！' % (form.cleaned_data['email']))
 			return HttpResponseRedirect('/account/login/')
 	else:
 		form = UserCreationForm()
@@ -56,8 +56,8 @@ def reset_password(email):
 	user.save()
 	from_email = settings.EMAIL_HOST_USER
 	to_email = [email, from_email, 'zhangbin.1101@gmail.com']
-	subject = '重置密码 - TenniSoda'
-	message = '您的密码已经被重置为 %s' % (new_password)
+	subject = u'重置密码 - TenniSoda'
+	message = u'您的密码已经被重置为 %s' % (new_password)
 	send_mail(subject, message, from_email, to_email, fail_silently = True)
 
 
@@ -77,7 +77,7 @@ def forget_password(request):
 		else:
 			print 'reset password'
 			reset_password(email)
-			messages.success(request, '您的新密码已发送至 %s' % (email))
+			messages.success(request, u'您的新密码已发送至 %s' % (email))
 			return HttpResponseRedirect('/account/login/')
 
 
@@ -232,25 +232,25 @@ def change_password(request):
 		old_password = request.POST.get('old-password', '')
 		new_password1 = request.POST.get('new-password-1', '')
 		if not user.check_password(old_password):
-			messages.warning(request,'密码错误！')
+			messages.warning(request,u'密码错误！')
 			return HttpResponseRedirect('/account/change_profile/')
 		else:
 			user.set_password(new_password1)
 			user.save()
-			messages.success(request,'成功修改密码！')
+			messages.success(request,u'成功修改密码！')
 			return HttpResponseRedirect('/account/change_profile/')
 
 	return HttpResponseRedirect('/account/change_profile/')
 
 def confirm(request,activation_key):
 	if Account.objects.filter(activation_key = activation_key).count() == 0:
-		messages.warning(request, '激活链接错误，请重新申请激活帐号！')
+		messages.warning(request, u'激活链接错误，请重新申请激活帐号！')
 		return HttpResponseRedirect('/')
 	else:
 		user = Account.objects.get(activation_key=activation_key)
 		user.is_active = True
 		user.save()
-		messages.success(request, '帐号已激活，请登录！')
+		messages.success(request, u'帐号已激活，请登录！')
 		args = {}
 		args.update(csrf(request))
 		args['email'] = user.email
