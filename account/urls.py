@@ -18,4 +18,5 @@ urlpatterns = patterns('account.views',
     url(r'^get_followers/(?P<user_id>\d+)/$', 'get_followers'),
     url(r'^get_following/(?P<user_id>\d+)/$', 'get_following'),
 	url(r'^search/$', 'search'),
+	url(r'^display_all_users/$', 'display_all_users'),
 )

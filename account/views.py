@@ -158,6 +158,7 @@ def welcome_user(request):
 	args['followers_count'] = len(Follow.objects.followers(request.user))
 	args['following_count'] = len(Follow.objects.following(request.user))
 	args['activities'] = activities
+	print activities
 	return render_to_response('page-profile.html',args)
 
 def invalid_login(request):
@@ -364,4 +365,20 @@ def search(request):
 	args['following'] = following
 
 	return render_to_response('search-result.html', args)
+
+def display_all_users(request):
+	user = request.user
+	all_users = Account.objects.all().exclude(id = user.id)
+	notifications = Notification.objects.filter(user=user, viewed=False).order_by('time').reverse()
+	page_number = request.GET.get('page','1')
+	following = Follow.objects.following(user)
+	
+	
+	args = {}
+	args['all_users'] = Paginator(all_users, 10).page(page_number)
+	args['profile'] = user.profile
+	args['notifications'] = notifications
+	args['following'] = following
+
+	return render_to_response('all-users.html',args)
 

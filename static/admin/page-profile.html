@@ -52,7 +52,7 @@
           <div class="list-group">  
 
             <a href="javascript:;" class="list-group-item active">
-              <i class="fa fa-asterisk text-primary"></i> &nbsp;&nbsp;Activity Feed
+              <i class="fa fa-asterisk text-primary"></i> &nbsp;&nbsp; 动态
 
               <i class="fa fa-chevron-right list-group-chevron"></i>
             </a>
@@ -86,7 +86,7 @@
 
           <h3>{{ profile }}</h3>
 
-          <h5 class="text-muted">Ladder points: XXXX</h5>
+          <!--<h5 class="text-muted">Ladder points: XXXX</h5>-->
           
           <ul class="icons-list">
             <li><i class="icon-li fa fa-map-marker"></i> {{ profile.city }}</li>
@@ -106,7 +106,7 @@
 
           <br><br>
 		  
-          <h4 class="content-title"><u>Activity Feed</u></h4>
+          <h4 class="content-title"><u>动态</u></h4>
 
             <br><br>
 			{% for activity in activities %}
@@ -114,19 +114,34 @@
             <div class="feed-item feed-item-idea">
 
               <div class="feed-icon">
-                <i class="fa fa-lightbulb-o"></i>
+                <i class="fa fa-group"></i>
               </div> <!-- /.feed-icon -->
 
               <div class="feed-subject">
-                <p><a href="javascript:;">{{activity.creator}}</a>发布了约球小组</p>
+                <p><a href="javascript:;">{{activity.creator}}</a></p>
+				<table width="485px">
+				<tr>
+				<td class="text-left">
+				发布了约球小组
+				</td>
+				<td class="text-right">
+				  {% if profile in activity.game_group.get_members %}
+				  您已经加入
+				  {% else %}
+				  {% ifequal profile activity.game_group.holder %}
+				  您是小组发起人
+				  {% else %}
+				  <a href="/game/join_game_group/{{activity.game_group.id}}/" class="btn"><i class="fa fa-plus">加入这个小组</i></a>                     
+				  {% endifequal %}
+				  {% endif %}
+
+				</td>
+				</tr>
+				</table>
               </div> <!-- /.feed-subject -->
 
               <div class="feed-content">
-                <ul class="icons-list">
-                  <li>
-                  		该小组地点为{{activity.game_group.court}}, 开始于{{activity.game_group.start_time}}, 持续{{activity.game_group.last_hour}}小时, 价格为每小时{{activity.game_group.price}}                     
-                  </li>
-                </ul>
+                  地点为{{activity.game_group.court}}, 开始于{{activity.game_group.date}}&nbsp;{{activity.game_group.start_time}}, 持续{{activity.game_group.last_hour}}小时, 价格为每小时{{activity.game_group.price}}元                     
               </div> <!-- /.feed-content -->
 
               <div class="feed-actions">
@@ -139,10 +154,89 @@
             </div> <!-- /.feed-item -->
 			{% endifequal %}
 			{% ifequal activity.type 2 %}
+            <div class="feed-item feed-item-file">
+
+              <div class="feed-icon">
+                <i class="fa fa-group"></i>
+              </div> <!-- /.feed-icon -->
+
+              <div class="feed-subject">
+                <p><a href="javascript:;">{{activity.creator}}</a></p>
+				<table width="485px">
+				<tr>
+				<td class="text-left">
+				加入了约球小组
+				</td>
+				<td class="text-right">
+				  {% if profile in activity.game_group.members %}
+				  您已经加入
+				  {% else %}
+				  {% ifequal profile activity.game_group.holder %}
+				  您是小组发起人
+				  {% else %}
+				  <a href="/game/join_game_group/{{activity.game_group.id}}/" class="btn">加入这个小组</a>                     
+				  {% endifequal %}
+				  {% endif %}
+
+				</td>
+				</tr>
+				</table>
+              </div> <!-- /.feed-subject -->
+
+              <div class="feed-content">
+                  地点为{{activity.game_group.court}}, 开始于{{activity.game_group.date}}&nbsp;{{activity.game_group.start_time}}, 持续{{activity.game_group.last_hour}}小时, 价格为每小时{{activity.game_group.price}}元
+              </div> <!-- /.feed-content -->
+
+              <div class="feed-actions">
+                <a href="/activity/like/{{activity.id}}" class="pull-left"><i class="fa fa-thumbs-up"></i>{{activity.like_num}}</a>
+                
+
+                <a href="" class="pull-right disabled"><i class="fa fa-clock-o"></i>{{activity.date_time}}</a> 
+				</div> <!-- /.feed-actions -->
+
+            </div> <!-- /.feed-item -->
 
 			{% endifequal %}
-			{% ifequal activity.tpye 3 %}
+			{% ifequal activity.type 3 %}
+            <div class="feed-item feed-item-file">
 
+              <div class="feed-icon">
+                <i class="fa fa-sitemap"></i>
+              </div> <!-- /.feed-icon -->
+
+              <div class="feed-subject">
+                <p><a href="javascript:;">{{activity.creator}}</a></p>
+				<table width="485px">
+				<tr>
+				<td class="text-left">
+				加入了联赛{{activity.league.name}}
+				</td>
+				<td class="text-right">
+				  {% if profile in activity.league.get_players %}
+				  您已经参加
+				  {% else %}
+				  <a href="/game/join_league/{{activity.league.id}}/" class="btn">参加联赛</a>                     
+				  {% endif %}
+
+				</td>
+				</tr>
+				</table>
+              </div> <!-- /.feed-subject -->
+
+              <div class="feed-content">
+                  开始于{{activity.league.start_date}}, 结束于{{activity.league.end_date}}, 城市为{{activity.league.city}}
+				  <br>
+				  现有{{activity.league.current_player_number}}人参加,总共可以有{{activity.league.max_player_number}}参与                     
+              </div> <!-- /.feed-content -->
+
+              <div class="feed-actions">
+                <a href="/activity/like/{{activity.id}}" class="pull-left"><i class="fa fa-thumbs-up"></i>{{activity.like_num}}</a>
+                
+
+                <a href="" class="pull-right disabled"><i class="fa fa-clock-o"></i>{{activity.date_time}}</a> 
+				</div> <!-- /.feed-actions -->
+
+            </div> <!-- /.feed-item -->
 			{% endifequal %}
 			{% endfor %}
             <br class="visible-xs">

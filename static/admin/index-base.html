@@ -305,14 +305,7 @@
           </li>
           {% endblock %}
 
-          {% block court %}
-          <li class="dropdown">
-            <a href="/court/all/">
-          	    <i class="fa fa-table"></i>
-                场地
-          	</a>
-          </li>
-          {% endblock %}
+
 
 <!--
           {% block ladder %}
@@ -345,8 +338,26 @@
 
           </li>
           {% endblock %}
+		
 
+		  {% block court %}
+          <li class="dropdown">
+            <a href="/court/all/">
+          	    <i class="fa fa-table"></i>
+                场地
+          	</a>
+          </li>
+          {% endblock %}
 
+		  {% block display_all_users %}
+          <li class="dropdown">
+            <a href="/account/display_all_users/">
+          	    <i class="fa fa-cloud"></i>
+                所有用户
+          	</a>
+          </li>
+          {% endblock %}
+		<!--
           {% block extras %}
           <li class="dropdown ">
 
@@ -442,6 +453,7 @@
 
           </li>
           {% endblock %}
+		  -->
 
         </ul>
 

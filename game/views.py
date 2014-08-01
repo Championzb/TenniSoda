@@ -2,6 +2,7 @@
 from django.shortcuts import render_to_response, render
 from django.http import HttpResponseRedirect
 from models import League, Game, Score, FreeLeagueGame, GameGroup
+from activity.models import ActivityFeed
 from forms import ScoreCreationForm, GameEditForm, GameGroupForm
 from django.core.context_processors import csrf
 from django.contrib.auth.decorators import login_required
@@ -29,6 +30,10 @@ def join_league(request, league_match_id=1):
 		league_match.players.add(user)
 		league_match.current_player_number += 1
 		league_match.save()
+		ActivityFeed.objects.create(type = '3',
+                                    date_time = datetime.now(),
+                                    creator = user,
+                                    league = league_match)
 	return HttpResponseRedirect('/game/all_league/')
 
 @login_required
@@ -373,6 +378,10 @@ def join_game_group(request, game_group_id):
 		game_group.members.add(user)
 		game_group.current_num += 1
 		game_group.save()
+		ActivityFeed.objects.create(type = '2',
+                                    date_time = datetime.now(),
+                                    creator = user,
+                                    game_group = game_group)	
 	return HttpResponseRedirect('/game/game_group/')
 
 @login_required
@@ -383,6 +392,10 @@ def quit_game_group(request, game_group_id):
 		game_group.current_num -= 1
 		game_group.members.remove(user)
 		game_group.save()
+		ActivityFeed.objects.create(type = '6',
+                                    date_time = datetime.now(),
+                                    creator = request.user,
+                                    game_group = game_group)
 	return HttpResponseRedirect('/game/game_group/')
 
 @login_required
@@ -399,6 +412,10 @@ def edit_game_group(request, game_group_id):
 		if form.is_valid():
 			print 'valid'
 			form.save()
+			ActivityFeed.objects.create(type = '5',
+                                    date_time = datetime.now(),
+                                    creator = user,
+                                    game_group = game_group)
 			return HttpResponseRedirect('/game/game_group/')
 	else:
 		form = GameGroupForm(instance=game_group)
@@ -427,6 +444,10 @@ def delete_game_group(request, game_group_id):
 									time = datetime.now(),)
 
 	if GameGroup.objects.filter(id=game_group_id, holder=user).count() != 0:
+		ActivityFeed.objects.create(type = '4',
+                                    date_time = datetime.now(),
+                                    creator = user,
+                                    game_group = game_group)
 		game_group.delete()
 	return HttpResponseRedirect('/game/game_group/')
 

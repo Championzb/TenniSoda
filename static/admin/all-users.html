@@ -1,0 +1,105 @@
+{% extends "index-base.html" %}
+{% load static %}
+{% block title %}
+    <title>所有用户 &middot; TenniSoda</title>
+{% endblock %}
+{% block profileimg %}
+    {% if profile.picture %}
+      <img src="{% get_static_prefix %}assets/{{profile.picture.url}}" class="navbar-profile-avatar" alt="" />
+    {% else %}
+      <img src="{% static "assets/uploaded_files/default.jpg" %}" class="navbar-profile-avatar" alt="" />
+    {% endif %}
+{% endblock %}
+{% block display_all_users %}
+    <li class="dropdown active">
+    <a href="/account/display_all_users/">
+        <i class="fa fa-cloud"></i>
+        所有用户
+    </a>
+    </li>
+{% endblock %}
+{% block content %}
+  <div class="content">
+
+    <div class="container">
+
+      <h3 class="content-title"><u>所有用户</u></h3>
+
+      <div class="row">
+
+        <div class="col-md-12">
+
+			<div class="table-responsive">
+		<table class="table table-striped thumbnail-table" >
+
+			<tbody>
+				{% for user in all_users %}
+				<tr>
+					<td class="text-center" width="120px">
+					<a href="/account/view_profile/{{user.profile.id}}/">					
+					{% if user.profile.picture %}
+		      		<img src="{% get_static_prefix %}assets/{{user.profile.picture.url}}" width=75 height=75 alt="Profile Image" />
+    				{% else %}
+      				<img src="{% static "assets/uploaded_files/default.jpg" %}" width=75 height=75 alt="Profile Image" />
+    				{% endif %}
+					</a>
+					</td>
+					<td class="valign-middle">
+					{% if user.profile %}
+					<a href="/account/view_profile/{{user.id}}/" target="_blank">
+					<strong>{{user}}</strong>
+					</a>
+					<br/>
+					{{user.profile}}
+					{% else %}
+					<strong>{{user}}</strong>	
+					{% endif %}
+
+					</td>
+					<td class="text-right valign-top">
+					{% ifequal user.profile profile %}
+					<a href="" class="btn">本人</a>
+					{% else %}
+					{% if user in following %}
+					<a href="/account/remove_follower/{{user.id}}/" class="btn">取消关注</a>
+					{% else %}
+					<a href="/account/add_follower/{{user.id}}/" class="btn"><i class="fa fa-plus text-primary"></i><font color="green">&nbsp;&nbsp;关&nbsp;&nbsp;注&nbsp;&nbsp;</font></a>
+					{% endif %}
+					{% endifequal %}
+					</td>
+
+				</tr>
+				{% endfor %}
+			</tbody>
+
+		</table>
+		<!-- pagination-->
+		<div class="dataTables_paginate paging_bootstrap">
+			<ul class="pagination">
+				{% if all_users.has_previous %}
+				<li class="prev"><a href="?page={{all_users.previous_page_number}}"><i class="fa fa-angle-double-left"></i>上一页</a></li>
+				{% else %}
+				<li class="prev disabled"><a href=""><i class="fa fa-angle-double-left"></i>上一页</a></li>
+				{% endif %}
+				{%if all_users.has_next %}
+				<li class="next"><a href="?page={{all_users.next_page_number}}">下一页<i class="fa fa-angle-double-right"></i></a></li>
+				{% else %}
+				<li class="next disabled"><a href="">下一页<i class="fa fa-angle-double-right"></i></a></li>
+				{% endif %}
+				</ul>
+		</div>
+
+	</div>
+ 
+
+        </div> <!-- /.col -->
+
+      </div> <!-- /.row -->
+
+    </div> <!-- /.container -->
+
+  </div> <!-- .content -->
+
+
+
+{% endblock %}
