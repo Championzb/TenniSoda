@@ -10,8 +10,8 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 #email
 EMAIL_USE_TLS = False
 EMAIL_HOST = 'smtp.hichina.com'
-EMAIL_HOST_USER = 'postmaster@tennisoda.com'
-EMAIL_HOST_PASSWORD = 'tennisoda123'
+EMAIL_HOST_USER = 'no-reply@tennisoda.com'
+EMAIL_HOST_PASSWORD = 'TenniSoda123noreply'
 EMAIL_PORT = 25
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
