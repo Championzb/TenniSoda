@@ -49,7 +49,7 @@ class UserCreationForm(forms.ModelForm):
 		message = '恭喜您已成功注册网球苏打，请点击以下链接激活帐号。\n http://%s/account/confirm/%s' % (settings.HOST_DOMAIN, user.activation_key)
 		if commit:
 			#send email..
-			send_mail(subject, message, from_email, to_email, fail_silently = True)
+			send_mail(subject, message, from_email, to_email, fail_silently = False)
 			user.save()
 		return user
 
