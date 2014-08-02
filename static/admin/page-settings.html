@@ -119,6 +119,9 @@
                       {% endfor %}
 -->
                       <input type="file" class="form-control" name="picture">
+                      {% for err in form.picture.errors %}
+                      	<span style="color: red">{{ err }}</span>
+                      {% endfor %}
                     </div> <!-- /.fileupload -->
 
                   </div> <!-- /.col -->

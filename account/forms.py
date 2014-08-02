@@ -43,3 +43,10 @@ class UserProfileForm(forms.ModelForm):
 			form.save()
 
 		return form
+		
+	def clean_picture(self):
+		picture = self.cleaned_data.get('picture', False)
+		if picture:
+			if picture._size > 4*1024*1024:
+				raise forms.ValidationError("图片尺寸不得超过4M")
+			return picture
