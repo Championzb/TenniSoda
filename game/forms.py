@@ -64,7 +64,7 @@ class ScoreCreationForm(forms.ModelForm):
 			else:
 				self.player2_set_point += 1
 		else:
-			raise forms.ValidationError('set 1 invalid set score')
+			raise forms.ValidationError('第1局比分出错')
 
 		if set2_score in SET_SCORE:
 			if score21 > score22:
@@ -72,7 +72,7 @@ class ScoreCreationForm(forms.ModelForm):
 			else:
 				self.player2_set_point += 1
 		else:
-			raise forms.ValidationError('set 2 invalid set score')
+			raise forms.ValidationError('第2局比分出错')
 
 		if set3_score in SET_SCORE:
 			if score31 > score32:
@@ -84,9 +84,9 @@ class ScoreCreationForm(forms.ModelForm):
 		elif set3_score == '00' or (score31 is None and score32 is None):
 			finish_flag = True
 			if self.player1_set_point == 1:
-				raise forms.ValidationError('can not be draw')
+				raise forms.ValidationError('比赛不能为平局')
 		else:
-			raise forms.ValidationError('set 3 invalid set score')
+			raise forms.ValidationError('第3局比分出错')
 		print 'after set 3 %s' % finish_flag
 
 		if set4_score in SET_SCORE:
@@ -98,13 +98,13 @@ class ScoreCreationForm(forms.ModelForm):
 				if self.player1_set_point == 3 or self.player2_set_point == 3:
 					finish_flag = True
 			else:
-				raise forms.ValidationError('set 4 is not necessary')
+				raise forms.ValidationError('不需要第4局比分了')
 		elif (set4_score == '00' or (score41 is None and score42 is None)) and not finish_flag:
 			finish_flag = True
 			if (score11>score12 and score21>score22) or (score11<score12 and score21<score22):
-				raise forms.ValidationError('set 3 is not neccessary or game is in 5 sets')
+				raise forms.ValidationError('请填写第5局比分')
 		elif not finish_flag:
-			raise forms.ValidationError('set 4 invalid set score')
+			raise forms.ValidationError('第4局比分出错')
 
 		if set5_score in SET_SCORE:
 			if not finish_flag:
@@ -113,11 +113,11 @@ class ScoreCreationForm(forms.ModelForm):
 				else:
 					self.player2_set_point += 1
 			else:
-				raise forms.ValidationError('set 5 is not necessary')
+				raise forms.ValidationError('不需要第5局比分')
 		elif (set5_score == '00' or (score51 is None and score52 is None))and not finish_flag:
-			raise forms.ValidationError('can not be draw')
+			raise forms.ValidationError('比赛不能为平局')
 		elif not finish_flag:
-			raise forms.ValidationError('set 4 invalid set score')
+			raise forms.ValidationError('第4局比分出错')
 
 		return cleaned_data
 
