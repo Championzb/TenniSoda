@@ -159,11 +159,11 @@
                                   	<a href="/game/edit_game_group/{{group.id}}/">
                                   		<!--button class="btn btn-xs btn-primary" title="修改"><i class="fa fa-pencil"></i></button-->修改
                                   	</a>
-                                  	<a>
+                                  	<a onclick="confirmDeleter({{group.id}})">
                                   		<!--button onclick="confirmDelete({{group.id}})" class="btn btn-xs btn-secondary" title="删除"><i class="fa fa-times"></i></button-->删除
                                   	</a>
                                   {% else %}
-                                    <a>
+                                    <a onclick="confirmQuit({{group.id}})">
                                         <!--button onclick="confirmQuit({{group.id}})" class="btn btn-xs btn-secondary" title="退出"><i class="fa fa-minus"></i></button-->退出
                                     </a>
                                   {% endifequal %}
