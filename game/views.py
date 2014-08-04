@@ -394,7 +394,7 @@ def quit_game_group(request, game_group_id):
 		game_group.save()
 		ActivityFeed.objects.create(type = '6',
                                     date_time = datetime.now(),
-                                    creator = request.user,
+                                    creator = user,
                                     game_group = game_group)
 	return HttpResponseRedirect('/game/game_group/')
 
