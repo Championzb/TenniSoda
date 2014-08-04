@@ -7,7 +7,7 @@ from django.db.models.signals import post_save
 
 # Create your models here.
 class ActivityFeed(models.Model):
-    type = models.IntegerField(default = 0) #1 for hold game_group; 2 for join game_group; 3 for join league; 4 for win game
+    type = models.IntegerField(default = 0) #1 for hold game_group; 2 for join game_group; 3 for join league; 4 for win game; 5 for game group edit; 6 for quit game group
     date_time = models.DateTimeField(default = datetime.now())
     creator = models.ForeignKey(Profile)
     game_group = models.ForeignKey(GameGroup, blank = True, null = True)
