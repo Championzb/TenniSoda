@@ -14,7 +14,7 @@ from django.conf import settings
 from friendship.models import Friend, Follow
 from django.core.paginator import Paginator
 from activity.models import ActivityFeed
-from admin import UserCreationForm
+from admin import UserCreationForm, send_email
 
 import logging
 
@@ -51,11 +51,13 @@ def reset_password(email):
 	print 'new password: %s' % new_password
 	user.set_password(new_password)
 	user.save()
-	from_email = settings.EMAIL_HOST_USER
-	to_email = [email, from_email, 'zhangbin.1101@gmail.com']
-	subject = u'重置密码 - TenniSoda'
-	message = u'您的密码已经被重置为 %s' % (new_password)
-	send_mail(subject, message, from_email, to_email, fail_silently = True)
+	#from_email = settings.EMAIL_HOST_USER
+	#to_email = [email, from_email, 'zhangbin.1101@gmail.com']
+	#subject = u'重置密码 - TenniSoda'
+	#message = u'您的密码已经被重置为 %s' % (new_password)
+	#send_mail(subject, message, from_email, to_email, fail_silently = True)
+	send_email(u'重置密码 - TenniSoda', u'您的密码已经被重置为 %s' % (new_password), [email])
+	
 
 
 #forget password view
@@ -260,13 +262,13 @@ def confirm(request,activation_key):
 
 
 def confirmation_resend(request):
-	from_email = settings.EMAIL_HOST_USER
-	to_email = [request.session['email'],from_email, 'zhangbin.1101@gmail.com']
-	subject = u'帐号激活 - TenniSoda'
-	message = u'请点击以下链接激活帐号。\n http://%s/account/confirm/%s' % (settings.HOST_DOMAIN, request.session['activation_key'])
+	#from_email = settings.EMAIL_HOST_USER
+	#to_email = [request.session['email'],from_email, 'zhangbin.1101@gmail.com']
+	#subject = u'帐号激活 - TenniSoda'
+	#message = u'请点击以下链接激活帐号。\n http://%s/account/confirm/%s' % (settings.HOST_DOMAIN, request.session['activation_key'])
 	#send email..
-	send_mail(subject, message, from_email, to_email, fail_silently = True)
-
+	#send_mail(subject, message, from_email, to_email, fail_silently = True)
+	send_email(u'帐号激活 - TenniSoda', u'请点击以下链接激活帐号。\n http://%s/account/confirm/%s' % (settings.HOST_DOMAIN, request.session['activation_key']), [request.session['email']])
 	messages.success(request,u'请去您的邮箱 %s 激活帐号' % (request.session['email']))
 	return HttpResponseRedirect('/account/login/')
 

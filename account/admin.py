@@ -43,15 +43,15 @@ class UserCreationForm(forms.ModelForm):
 		activation_key = sha.new(salt+email).hexdigest()
 		user.activation_key = activation_key
 		#send email parameters setting
-		from_email = settings.EMAIL_HOST_USER
-		to_email = [self.cleaned_data['email'],from_email, 'zhangbin.1101@gmail.com']
-		subject = '注册成功 - TenniSoda'
-		message = '恭喜您已成功注册网球苏打，请点击以下链接激活帐号。\n http://%s/account/confirm/%s' % (settings.HOST_DOMAIN, user.activation_key)
+		#from_email = settings.EMAIL_HOST_USER
+		#to_email = [self.cleaned_data['email'],from_email, 'zhangbin.1101@gmail.com']
+		#subject = '注册成功 - TenniSoda'
+		#message = '恭喜您已成功注册网球苏打，请点击以下链接激活帐号。\n http://%s/account/confirm/%s' % (settings.HOST_DOMAIN, user.activation_key)
 		if commit:
 			#send email..
-			print 'OOOOO'
-			send_email('注册成功1 - TenniSoda', '恭喜您已成功注册网球苏打，请点击以下链接激活帐号。\n http://%s/account/confirm/%s' % (settings.HOST_DOMAIN, user.activation_key), [self.cleaned_data['email']])
-			send_mail(subject, message, from_email, to_email, fail_silently = False)
+			#print 'OOOOO'
+			send_email('注册成功 - TenniSoda', '恭喜您已成功注册网球苏打，请点击以下链接激活帐号。\n http://%s/account/confirm/%s' % (settings.HOST_DOMAIN, user.activation_key), [self.cleaned_data['email']])
+			#send_mail(subject, message, from_email, to_email, fail_silently = False)
 			user.save()
 		return user
 
@@ -106,11 +106,8 @@ class ProfileAdmin(admin.ModelAdmin):
 	ordering = ['city', 'gender', 'level',]
 
 def send_email(subject, message, to_email, bcc_email = [settings.EMAIL_HOST_USER], fail_silently = False):
-	print '-----'
-	
 	msg = EmailMessage(subject, message, settings.EMAIL_HOST_USER, to_email, bcc = bcc_email)
-	print msg
-	msg.send(fail_silently=True)
+	msg.send(fail_silently=fail_silently)
 	
 # Now register the new UserAdmin...
 admin.site.register(Account, AccountAdmin)
