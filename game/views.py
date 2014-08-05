@@ -366,9 +366,8 @@ def join_game_group(request, game_group_id):
 	user = request.user.profile
 	if user.first_name is None or user.first_name == ''\
 		or user.last_name is None or user.last_name == ''\
-		or user.phone is None or user.phone == ''\
-		or user.level is None or user.level == '':
-		return render_to_response('profile_notify.html')
+		or user.phone is None or user.phone == '':
+		return render_to_response('/account/change_profile/')
 	game_group = GameGroup.objects.get(id=game_group_id)
 	if game_group.current_num >= game_group.maximum:
 		messages.success(request,u'你当你谁啊，我们CTO又不傻')

@@ -10,13 +10,10 @@ from models import Profile, Account
 from notification.models import Notification
 from django.db.models import Q
 from django.template import RequestContext
-from django.core.mail import send_mail
 from django.conf import settings
 from friendship.models import Friend, Follow
 from django.core.paginator import Paginator
 from activity.models import ActivityFeed
-
-
 from admin import UserCreationForm
 
 import logging
@@ -212,6 +209,8 @@ def view_profile(request, user_id=1):
 	games_win_count = Game.objects.filter(winner=request.user).count()
 	notifications = Notification.objects.filter(user=user, viewed=False).order_by('time').reverse()
 
+	activities = ActivityFeed.objects.filter(creator = opponent_user).order_by('date_time').reverse()
+
 	args = {}
 	args['profile'] = user.profile
 	args['opponent_profile'] = opponent_user.profile
@@ -219,6 +218,7 @@ def view_profile(request, user_id=1):
 	args['games_count'] = games_count
 	args['games_win_count'] = games_win_count
 	args['notifications'] = notifications
+	args['activities'] = activities
 	args['followers_count'] = len(Follow.objects.followers(request.user))
 	args['following_count'] = len(Follow.objects.following(request.user))
 
@@ -381,4 +381,5 @@ def display_all_users(request):
 	args['following'] = following
 
 	return render_to_response('all-users.html',args)
+	
 

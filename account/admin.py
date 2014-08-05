@@ -5,7 +5,7 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from datetime import datetime
-from django.core.mail import send_mail
+from django.core.mail import send_mail, EmailMessage
 from django.conf import settings
 from account.models import Account,Profile
 import sha, random
@@ -49,6 +49,8 @@ class UserCreationForm(forms.ModelForm):
 		message = '恭喜您已成功注册网球苏打，请点击以下链接激活帐号。\n http://%s/account/confirm/%s' % (settings.HOST_DOMAIN, user.activation_key)
 		if commit:
 			#send email..
+			print 'OOOOO'
+			send_email('注册成功1 - TenniSoda', '恭喜您已成功注册网球苏打，请点击以下链接激活帐号。\n http://%s/account/confirm/%s' % (settings.HOST_DOMAIN, user.activation_key), [self.cleaned_data['email']])
 			send_mail(subject, message, from_email, to_email, fail_silently = False)
 			user.save()
 		return user
@@ -103,7 +105,13 @@ class ProfileAdmin(admin.ModelAdmin):
 	list_filter = ('city', 'gender', 'level', 'club')
 	ordering = ['city', 'gender', 'level',]
 
-
+def send_email(subject, message, to_email, bcc_email = [settings.EMAIL_HOST_USER], fail_silently = False):
+	print '-----'
+	
+	msg = EmailMessage(subject, message, settings.EMAIL_HOST_USER, to_email, bcc = bcc_email)
+	print msg
+	msg.send(fail_silently=True)
+	
 # Now register the new UserAdmin...
 admin.site.register(Account, AccountAdmin)
 admin.site.register(Profile, ProfileAdmin)

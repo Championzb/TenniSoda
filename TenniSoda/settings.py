@@ -9,10 +9,13 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 #email
 EMAIL_USE_TLS = False
+EMAIL_USE_SSL = False
 EMAIL_HOST = 'smtp.hichina.com'
 EMAIL_HOST_USER = 'no-reply@tennisoda.com'
 EMAIL_HOST_PASSWORD = 'TenniSoda123noreply'
 EMAIL_PORT = 25
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
@@ -103,13 +106,17 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'TenniSoda',
-        'USER': 'root',
+        #'USER': 'root',
         'PASSWORD':'tennisoda123',
-        #'PASSWORD':'root',
+        'PASSWORD':'root',
         'HOST': 'localhost',
         'PORT': '3306',
     }
 }
+
+#HOST_DOMAIN = 'ec2-54-191-12-220.us-west-2.compute.amazonaws.com'
+#HOST_DOMAIN = '127.0.0.1:8000'
+HOST_DOMAIN = '114.215.122.73'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
@@ -188,7 +195,3 @@ AUTH_USER_MODEL = 'account.Account'
 AUTH_PROFILE_MODULE = 'account.UserProfile'
 
 SESSION_COOKIE_AGE = 1209600
-
-#HOST_DOMAIN = 'ec2-54-191-12-220.us-west-2.compute.amazonaws.com'
-#HOST_DOMAIN = '127.0.0.1:8000'
-HOST_DOMAIN = '114.215.122.73'

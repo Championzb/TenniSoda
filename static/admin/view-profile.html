@@ -1,4 +1,4 @@
-{% extends "index-base.html" %}
+{% extends "page-profile.html" %}
 {% load static %}
 {% block title %}
     <title>{{opponent_profile}}的主页 &middot; TenniSoda</title>
@@ -111,188 +111,154 @@
           <br><br>
 
 			{% block subcontent %}
-          <h4 class="content-title"><u>Activity Feed</u></h4>
+          <h4 class="content-title"><u>Coming game</u></h4>
 
-            <div class="share-widget clearfix">
+          <ul class="icons-list notifications-list">
+            <li>
+              <i class="icon-li fa fa-eye text-secondary"></i>
+              <a href="javascript:;">You</a> watched the project <a href="javascript:;">MVP Ready Development</a>
+            </li>
+          </ul>
 
-              <textarea class="form-control share-widget-textarea" rows="3" placeholder="Share what you've been up to..." tabindex="1"></textarea>
-
-              <div class="share-widget-actions">
-                <div class="share-widget-types pull-left">
-                  <a href="javascript:;" class="fa fa-picture-o ui-tooltip" title="Post an Image"><i></i></a>
-                  <a href="javascript:;" class="fa fa-video-camera ui-tooltip" title="Upload a Video"><i></i></a>
-                  <a href="javascript:;" class="fa fa-lightbulb-o ui-tooltip" title="Post an Idea"><i></i></a>
-                  <a href="javascript:;" class="fa fa-question-circle ui-tooltip" title="Ask a Question"><i></i></a>
-                </div>
-
-              <div class="pull-right">
-                <a class="btn btn-primary btn-sm" tabindex="2">Post</a>
-              </div>
-
-              </div> <!-- /.share-widget-actions -->
-
-            </div> <!-- /.share-widget -->
+          <br><br>
+		  
+          <h4 class="content-title"><u>动态</u></h4>
 
             <br><br>
-
+			{% for activity in activities %}
+			{% ifequal activity.type 1 %}
             <div class="feed-item feed-item-idea">
 
               <div class="feed-icon">
-                <i class="fa fa-lightbulb-o"></i>
+                <i class="fa fa-group"></i>
               </div> <!-- /.feed-icon -->
 
               <div class="feed-subject">
-                <p><a href="javascript:;">Nikita Williams</a> shared an idea: <a href="javascript:;">Create an Awesome Idea</a></p>
+                <p><a href="/account/view_profile/{{activity.creator.user_id}}/">{{activity.creator}}</a></p>
+				<table width="485px">
+				<tr>
+				<td class="text-left">
+				发布了约球小组
+				</td>
+				<td class="text-right">
+				  {% if profile in activity.game_group.get_members %}
+				  您已经加入
+				  {% else %}
+				  {% ifequal profile activity.game_group.holder %}
+				  您是小组发起人
+				  {% else %}
+				  <a href="/game/join_game_group/{{activity.game_group.id}}/" class="btn"><i class="fa fa-plus">加入这个小组</i></a>                     
+				  {% endifequal %}
+				  {% endif %}
+
+				</td>
+				</tr>
+				</table>
               </div> <!-- /.feed-subject -->
 
               <div class="feed-content">
-                <ul class="icons-list">
-                  <li>
-                    <i class="icon-li fa fa-quote-left"></i>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.
-                  </li>
-                </ul>
+                  地点为{{activity.game_group.court}}, 开始于{{activity.game_group.date}}&nbsp;{{activity.game_group.start_time}}, 持续{{activity.game_group.last_hour}}小时, 价格为每小时{{activity.game_group.price}}元                     
               </div> <!-- /.feed-content -->
 
               <div class="feed-actions">
-                <a href="javascript:;" class="pull-left"><i class="fa fa-thumbs-up"></i> 123</a>
-                <a href="javascript:;" class="pull-left"><i class="fa fa-comment-o"></i> 29</a>
+                <a href="/activity/like/{{activity.id}}" class="pull-left"><i class="fa fa-thumbs-up"></i>{{activity.like_num}}</a>
+                
 
-                <a href="javascript:;" class="pull-right"><i class="fa fa-clock-o"></i> 2 days ago</a>
-              </div> <!-- /.feed-actions -->
-
-            </div> <!-- /.feed-item -->
-
-
-
-            <div class="feed-item feed-item-image">
-
-              <div class="feed-icon">
-                <i class="fa fa-picture-o"></i>
-              </div> <!-- /.feed-icon -->
-
-              <div class="feed-subject">
-                <p><a href="javascript:;">Nikita Williams</a> posted the <strong>4 files</strong>: <a href="javascript:;">Annual Reports</a></p>
-              </div> <!-- /.feed-subject -->
-
-              <div class="feed-content">
-                <div class="thumbnail" style="width: 375px">
-                  <img src="./img/mockup.png" style="width: 100%;" alt="Gallery Image">
-                </div> <!-- /.thumbnail -->
-              </div> <!-- /.feed-content -->
-
-              <div class="feed-actions">
-                <a href="javascript:;" class="pull-left"><i class="fa fa-thumbs-up"></i> 123</a>
-                <a href="javascript:;" class="pull-left"><i class="fa fa-comment-o"></i> 29</a>
-
-                <a href="javascript:;" class="pull-right"><i class="fa fa-clock-o"></i> 2 days ago</a>
-              </div> <!-- /.feed-actions -->
+                <a href="" class="pull-right disabled"><i class="fa fa-clock-o"></i>{{activity.date_time}}</a> 
+				</div> <!-- /.feed-actions -->
 
             </div> <!-- /.feed-item -->
-
-
-
+			{% endifequal %}
+			{% ifequal activity.type 2 %}
             <div class="feed-item feed-item-file">
 
               <div class="feed-icon">
-                <i class="fa fa-cloud-upload"></i>
+                <i class="fa fa-group"></i>
               </div> <!-- /.feed-icon -->
 
               <div class="feed-subject">
-                <p><a href="javascript:;">Nikita Williams</a> posted the <strong>4 files</strong>: <a href="javascript:;">Annual Reports</a></p>
+                <p><a href="javascript:;">{{activity.creator}}</a></p>
+				<table width="485px">
+				<tr>
+				<td class="text-left">
+				加入了约球小组
+				</td>
+				<td class="text-right">
+				  {% if profile in activity.game_group.members %}
+				  您已经加入
+				  {% else %}
+				  {% ifequal profile activity.game_group.holder %}
+				  您是小组发起人
+				  {% else %}
+				  <a href="/game/join_game_group/{{activity.game_group.id}}/" class="btn">加入这个小组</a>                     
+				  {% endifequal %}
+				  {% endif %}
+
+				</td>
+				</tr>
+				</table>
               </div> <!-- /.feed-subject -->
 
               <div class="feed-content">
-                <ul class="icons-list">
-                  <li>
-                    <i class="icon-li fa fa-file-text-o"></i>
-                    <a href="javascript:;">Annual Report 2007</a> - annual_report_2007.pdf
-                  </li>
-
-                  <li>
-                    <i class="icon-li fa fa-file-text-o"></i>
-                    <a href="javascript:;">Annual Report 2008</a> - annual_report_2007.pdf
-                  </li>
-
-                  <li>
-                    <i class="icon-li fa fa-file-text-o"></i>
-                    <a href="javascript:;">Annual Report 2009</a> - annual_report_2007.pdf
-                  </li>
-
-                  <li>
-                    <i class="icon-li fa fa-file-text-o"></i>
-                    <a href="javascript:;">Annual Report 2010</a> - annual_report_2007.pdf
-                  </li>
-                </ul>
+                  地点为{{activity.game_group.court}}, 开始于{{activity.game_group.date}}&nbsp;{{activity.game_group.start_time}}, 持续{{activity.game_group.last_hour}}小时, 价格为每小时{{activity.game_group.price}}元
               </div> <!-- /.feed-content -->
 
               <div class="feed-actions">
-                <a href="javascript:;" class="pull-left"><i class="fa fa-thumbs-up"></i> 123</a>
-                <a href="javascript:;" class="pull-left"><i class="fa fa-comment-o"></i> 29</a>
+                <a href="/activity/like/{{activity.id}}" class="pull-left"><i class="fa fa-thumbs-up"></i>{{activity.like_num}}</a>
+                
 
-                <a href="javascript:;" class="pull-right"><i class="fa fa-clock-o"></i> 2 days ago</a>
-              </div> <!-- /.feed-actions -->
+                <a href="" class="pull-right disabled"><i class="fa fa-clock-o"></i>{{activity.date_time}}</a> 
+				</div> <!-- /.feed-actions -->
 
             </div> <!-- /.feed-item -->
 
-
-
-            <div class="feed-item feed-item-bookmark">
+			{% endifequal %}
+			{% ifequal activity.type 3 %}
+            <div class="feed-item feed-item-file">
 
               <div class="feed-icon">
-                <i class="fa fa-bookmark"></i>
+                <i class="fa fa-sitemap"></i>
               </div> <!-- /.feed-icon -->
 
               <div class="feed-subject">
-                <p><a href="javascript:;">Nikita Williams</a> bookmarked a page on Delicious: <a href="javascript:;">Jumpstart Themes</a></p>
+                <p><a href="javascript:;">{{activity.creator}}</a></p>
+				<table width="485px">
+				<tr>
+				<td class="text-left">
+				加入了联赛{{activity.league.name}}
+				</td>
+				<td class="text-right">
+				  {% if profile in activity.league.get_players %}
+				  您已经参加
+				  {% else %}
+				  <a href="/game/join_league/{{activity.league.id}}/" class="btn">参加联赛</a>                     
+				  {% endif %}
+
+				</td>
+				</tr>
+				</table>
               </div> <!-- /.feed-subject -->
 
               <div class="feed-content">
+                  开始于{{activity.league.start_date}}, 结束于{{activity.league.end_date}}, 城市为{{activity.league.city}}
+				  <br>
+				  现有{{activity.league.current_player_number}}人参加,总共可以有{{activity.league.max_player_number}}参与                     
               </div> <!-- /.feed-content -->
 
               <div class="feed-actions">
-                <a href="javascript:;" class="pull-left"><i class="fa fa-thumbs-up"></i> 123</a>
-                <a href="javascript:;" class="pull-left"><i class="fa fa-comment-o"></i> 29</a>
+                <a href="/activity/like/{{activity.id}}" class="pull-left"><i class="fa fa-thumbs-up"></i>{{activity.like_num}}</a>
+                
 
-                <a href="javascript:;" class="pull-right"><i class="fa fa-clock-o"></i> 2 days ago</a>
-              </div> <!-- /.feed-actions -->
-
-            </div> <!-- /.feed-item -->
-
-
-
-            <div class="feed-item feed-item-question">
-
-              <div class="feed-icon">
-                <i class="fa fa-question"></i>
-              </div> <!-- /.feed-icon -->
-
-              <div class="feed-subject">
-                <p><a href="javascript:;">Nikita Williams</a> posted the question: <a href="javascript:;">Who can I call to get a new parking pass for the Rowan Building?</a></p>
-              </div> <!-- /.feed-subject -->
-
-              <div class="feed-content">
-                <ul class="icons-list">
-                  <li>
-                    <i class="icon-li fa fa-quote-left"></i>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.
-                  </li>
-                </ul>
-              </div> <!-- /.feed-content -->
-
-              <div class="feed-actions">
-                <a href="javascript:;" class="pull-left"><i class="fa fa-thumbs-up"></i> 123</a>
-                <a href="javascript:;" class="pull-left"><i class="fa fa-comment-o"></i> 29</a>
-
-                <a href="javascript:;" class="pull-right"><i class="fa fa-clock-o"></i> 2 days ago</a>
-              </div> <!-- /.feed-actions -->
+                <a href="" class="pull-right disabled"><i class="fa fa-clock-o"></i>{{activity.date_time}}</a> 
+				</div> <!-- /.feed-actions -->
 
             </div> <!-- /.feed-item -->
-
+			{% endifequal %}
+			{% endfor %}
             <br class="visible-xs">
             <br class="visible-xs">
-
 		{% endblock %}
+			
           </div> <!-- /.col -->
 		
 

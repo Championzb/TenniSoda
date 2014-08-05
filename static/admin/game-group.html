@@ -15,7 +15,7 @@
     }
     function checkProfileJoin(group_id){
         {% if profile.last_name and profile.first_name and profile.phone %}
-            window.location = "/game/join_game_group/"+group_id;
+            window.location = "/game/join_game_group/" + group_id;
         {% else %}
             alert("我们需要您的姓名以及联系方式，以联系其他球友");
             window.location = "/account/change_profile/";
@@ -85,11 +85,15 @@
                                     <div class="thumbnail">
                                         <div class="thumbnail-view">
                                             {% if group.holder.picture %}
-                                                <a class="thumbnail-view-hover ui-lightbox" href="{% get_static_prefix %}assets/{{ group.holder.picture.url}}"></a>
-                                                <img src="{% get_static_prefix %}assets/{{ group.holder.picture.url}}" width="125" alt="Holder Image"/>
+                                                <!--a class="thumbnail-view-hover ui-lightbox" href="{% get_static_prefix %}assets/{{ group.holder.picture.url}}"></a-->
+                                                <a class="ui-lightbox" href="/account/view_profile/{{group.holder.user_id}}/">
+                                            	    <img src="{% get_static_prefix %}assets/{{ group.holder.picture.url}}" width="125" alt="Holder Image"/>
+                                            	</a>	
                                             {% else %}
-                                                <a class="thumbnail-view-hover ui-lightbox" href="{% static "assets/uploaded_files/default.jpg" %}"></a>
-                                                <img src="{% static "assets/uploaded_files/default.jpg" %}" width="125" alt="Holder Image" />
+                                                <!--a class="thumbnail-view-hover ui-lightbox" href="{% static "assets/uploaded_files/default.jpg" %}"></a-->
+                                                <a class="ui-lightbox" href="/account/view_profile/{{group.holder.user_id}}/">
+                                                	<img src="{% static "assets/uploaded_files/default.jpg" %}" width="125" alt="Holder Image" />
+                                                </a>
                                             {% endif %}
                                         </div>
                                     </div><!-- /.thumbnail -->
@@ -217,11 +221,15 @@
                                     <div class="thumbnail">
                                         <div class="thumbnail-view">
                                             {% if group.holder.picture %}
-                                                <a class="thumbnail-view-hover ui-lightbox" href="{% get_static_prefix %}assets/{{ group.holder.picture.url}}"></a>
-                                                <img src="{% get_static_prefix %}assets/{{ group.holder.picture.url}}" width="125" alt="Holder Image"/>
+                                                <!--a class="thumbnail-view-hover ui-lightbox" href="{% get_static_prefix %}assets/{{ group.holder.picture.url}}"></a-->
+                                                <a class="ui-lightbox" href="/account/view_profile/{{group.holder.user_id}}/">
+                                                	<img src="{% get_static_prefix %}assets/{{ group.holder.picture.url}}" width="125" alt="Holder Image"/>
+                                                </a>
                                             {% else %}
-                                                <a class="thumbnail-view-hover ui-lightbox" href="{% static "assets/uploaded_files/default.jpg" %}"></a>
-                                                <img src="{% static "assets/uploaded_files/default.jpg" %}" width="125" alt="Holder Image" />
+                                                <!--a class="thumbnail-view-hover ui-lightbox" href="{% static "assets/uploaded_files/default.jpg" %}"></a-->
+                                                <a class="ui-lightbox" href="/account/view_profile/{{group.holder.user_id}}/">
+                                                	<img src="{% static "assets/uploaded_files/default.jpg" %}" width="125" alt="Holder Image" />
+                                                </a>
                                             {% endif %}
                                         </div>
                                     </div><!-- /.thumbnail -->
