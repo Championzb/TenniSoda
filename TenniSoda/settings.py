@@ -114,9 +114,9 @@ DATABASES = {
     }
 }
 
-#HOST_DOMAIN = 'ec2-54-191-12-220.us-west-2.compute.amazonaws.com'
 #HOST_DOMAIN = '127.0.0.1:8000'
-HOST_DOMAIN = '114.215.122.73'
+#HOST_DOMAIN = '114.215.122.73'
+HOST_DOMAIN = 'www.tennisoda.com'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
