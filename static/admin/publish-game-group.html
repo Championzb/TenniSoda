@@ -71,7 +71,7 @@
           </div> <!-- /.form-group -->
 
             <div class="form-group">
-              <label class="col-md-3">持续时间</label>
+              <label class="col-md-3">持续时间(小时)</label>
               <div class="col-md-7">
               {{ form.last_hour }}
               {% for err in form.last_hour.errors %}
@@ -106,7 +106,7 @@
           </div> <!-- /.form-group -->
 
           <div class="form-group">
-              <label class="col-md-3">人数上限</label>
+              <label class="col-md-3">人数</label>
               <div class="col-md-7">
               {{ form.maximum }}
               {% for err in form.maximum.errors %}

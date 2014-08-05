@@ -156,14 +156,14 @@
                                 <!-- Action -->
                                 <td class="text-center valign-middle">
                                   {% ifequal group.holder profile %}
-                                  	<a href="/game/edit_game_group/{{group.id}}/">
+                                  	<a class="btn" href="/game/edit_game_group/{{group.id}}/">
                                   		<!--button class="btn btn-xs btn-primary" title="修改"><i class="fa fa-pencil"></i></button-->修改
                                   	</a>
-                                  	<a onclick="confirmDeleter({{group.id}})">
+                                  	<a class="btn" onclick="confirmDeleter({{group.id}})">
                                   		<!--button onclick="confirmDelete({{group.id}})" class="btn btn-xs btn-secondary" title="删除"><i class="fa fa-times"></i></button-->删除
                                   	</a>
                                   {% else %}
-                                    <a onclick="confirmQuit({{group.id}})">
+                                    <a class="btn" onclick="confirmQuit({{group.id}})">
                                         <!--button onclick="confirmQuit({{group.id}})" class="btn btn-xs btn-secondary" title="退出"><i class="fa fa-minus"></i></button-->退出
                                     </a>
                                   {% endifequal %}
@@ -287,9 +287,11 @@
                                 <!-- Action -->
                                 <td class="text-center valign-middle">
                                   {% ifequal group.current_num group.maximum %}
-                                    <button class="btn btn-xs btn-primary disabled" title="人已满"><i class="fa fa-plus-circle"></i></button>
+                                    <!--button class="btn btn-xs btn-primary disabled" title="人已满"><i class="fa fa-plus-circle"></i></button-->
+                                    <p class="btn disabled">人数已满</p>
                                	  {% else %}
-                                    <button class="btn btn-xs btn-primary" title="加入" onclick="checkProfileJoin({{group.id}})"><i class="fa fa-plus-circle"></i>加入</button>
+                                    <!-- button class="btn btn-xs btn-primary" title="加入" onclick="checkProfileJoin({{group.id}})"><i class="fa fa-plus-circle"></i></button-->
+                                    <a class="btn" onclick="checkProfileJoin({{group.id}})">加入</a>
                                	  {% endifequal %}
                                 </td>
                             </tr>
