@@ -15,6 +15,7 @@ from friendship.models import Friend, Follow
 from django.core.paginator import Paginator
 from activity.models import ActivityFeed
 from admin import UserCreationForm, send_email
+from datetime import datetime
 
 import logging
 
@@ -290,7 +291,9 @@ def confirmation_resend(request):
 def add_follower(request, user_id = 1):
 	user= Account.objects.get(id = user_id)
 	Follow.objects.add_follower(request.user, user)
-
+	Notification.objects.create(user = user, title = u'新增粉丝', message = u'%s 关注了您！' % (request.user), time = datetime.now())
+	print 'XXX'
+										
 	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 def remove_follower(request, user_id = 1):
