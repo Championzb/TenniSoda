@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-        <title>Login In &middot; TenniSoda</title>
+        <title>重置密码&middot; TenniSoda</title>
 {% endblock %}
 
 {% block content %}
@@ -27,7 +27,7 @@
       <nav class="collapse navbar-collapse" role="navigation">   
         <ul class="nav navbar-nav navbar-right">     
           <li>
-            <a href="/"><i class="fa fa-angle-double-left"></i> &nbsp;Back to Home</a>
+            <a href="/"><i class="fa fa-angle-double-left"></i> &nbsp;回到主页</a>
           </li>   
         </ul>
       </nav>
@@ -40,28 +40,28 @@
 
     <div class="account-body">
 
-      <h2>Password Reset</h2>
+      <h2>密码重置</h2>
 
-      <h5>We'll email you instructions on how to reset your password.</h5>
+      <h5>我们会给您的注册邮箱发邮件来指导您重置密码！</h5>
 
       <form class="form account-form" method="POST" action="/account/forget_password/">{% csrf_token %}
 
         <div class="form-group">
-          <label for="forgot-email" class="placeholder-hidden">Your Email</label>
-          <input type="text" class="form-control" id="forgot-email" placeholder="Your Email" tabindex="1" name="email">
+          <label for="forgot-email" class="placeholder-hidden">你的邮箱</label>
+          <input type="text" class="form-control" id="forgot-email" placeholder="您的邮箱" tabindex="1" name="email">
           	{% if warning %}
-              <small><font color="red">Email has not registered.</font></small>
+              <small><font color="red">该邮箱没有被注册</font></small>
             {% endif %}
         </div> <!-- /.form-group -->
 
         <div class="form-group">
           <button type="submit" class="btn btn-secondary btn-block btn-lg" tabindex="2">
-            Send Email to Reset Password &nbsp; <i class="fa fa-refresh"></i>
+            发送邮件重置密码 &nbsp; <i class="fa fa-refresh"></i>
           </button>
         </div> <!-- /.form-group -->
 
         <div class="form-group">
-          <a href="/account/login/"><i class="fa fa-angle-double-left"></i> &nbsp;Back to Login</a>
+          <a href="/account/login/"><i class="fa fa-angle-double-left"></i> &nbsp;登录</a>
         </div> <!-- /.form-group -->
       </form>
 
