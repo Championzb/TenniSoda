@@ -91,6 +91,16 @@ def login(request):
 		if user is not None:
 			if user.is_active:
 				auth.login(request, user)
+				if request.POST.getlist('remember_me'):
+					request.session['email'] = email
+					request.session['password'] = password
+				else:
+					try:
+						del request.session['email']
+						del request.session['password']
+					except KeyError:
+						pass
+				
 				if user.first_login:
 					return HttpResponseRedirect('/account/first_login/')
 				else:
@@ -164,6 +174,11 @@ def invalid_login(request):
 	return render_to_response('invalid_login.html')
 
 def logout(request):
+	try:
+		del request.session['email']
+		del request.session['password']
+	except KeyError:
+		pass
 	auth.logout(request)
 
 	args = {}
