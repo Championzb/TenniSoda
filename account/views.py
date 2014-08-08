@@ -227,8 +227,8 @@ def view_profile(request, user_id=1):
 		return HttpResponseRedirect('/account/welcome_user/')
 
 
-	games_count = Game.objects.filter((Q(player1=request.user) | Q(player2=request.user))).count()
-	games_win_count = Game.objects.filter(winner=request.user).count()
+	games_count = Game.objects.filter((Q(player1=opponent_user) | Q(player2=opponent_user))).count()
+	games_win_count = Game.objects.filter(winner=opponent_user).count()
 	notifications = Notification.objects.filter(user=user, viewed=False).order_by('time').reverse()
 
 	activities = ActivityFeed.objects.filter(creator = opponent_user).order_by('date_time').reverse()
@@ -241,8 +241,8 @@ def view_profile(request, user_id=1):
 	args['games_win_count'] = games_win_count
 	args['notifications'] = notifications
 	args['activities'] = activities
-	args['followers_count'] = len(Follow.objects.followers(request.user))
-	args['following_count'] = len(Follow.objects.following(request.user))
+	args['followers_count'] = len(Follow.objects.followers(opponent_user))
+	args['following_count'] = len(Follow.objects.following(opponent_user))
 
 	return render_to_response('view-profile.html',args)
 
@@ -309,8 +309,8 @@ def get_followers(request, user_id = 1):
 	user = request.user
 	opponent_user = Account.objects.get(id=user_id)
 	followers = Follow.objects.followers(opponent_user)
-	games_count = Game.objects.filter((Q(player1 = request.user) | Q(player2 = request.user))).count()
-	games_win_count = Game.objects.filter(winner = request.user).count()
+	games_count = Game.objects.filter((Q(player1 = opponent_user) | Q(player2 = opponent_user))).count()
+	games_win_count = Game.objects.filter(winner = opponent_user).count()
 
 	notifications = Notification.objects.filter(user=user, viewed=False).order_by('time').reverse()
 
@@ -325,8 +325,8 @@ def get_followers(request, user_id = 1):
 	args['is_followed'] = Follow.objects.follows(user, opponent_user)
 	args['followers'] = Paginator(followers,10).page(page_number)
 	args['myfollowing'] = Follow.objects.following(user)
-	args['followers_count'] = len(Follow.objects.followers(request.user))
-	args['following_count'] = len(Follow.objects.following(request.user))
+	args['followers_count'] = len(Follow.objects.followers(opponent_user))
+	args['following_count'] = len(Follow.objects.following(opponent_user))
 	if user == opponent_user:
 		return render_to_response('view-my-followers.html',args)
 
@@ -336,8 +336,8 @@ def get_following(request, user_id = 1):
 	user = request.user
 	opponent_user = Account.objects.get(id=user_id)
 	following = Follow.objects.following(opponent_user)
-	games_count = Game.objects.filter((Q(player1 = request.user) | Q(player2 = request.user))).count()
-	games_win_count = Game.objects.filter(winner = request.user).count()
+	games_count = Game.objects.filter((Q(player1 = opponent_user) | Q(player2 = opponent_user))).count()
+	games_win_count = Game.objects.filter(winner = opponent_user).count()
 
 	notifications = Notification.objects.filter(user=user, viewed=False).order_by('time').reverse()
 
@@ -352,8 +352,8 @@ def get_following(request, user_id = 1):
 	args['is_followed'] = Follow.objects.follows(user, opponent_user)
 	args['following'] = Paginator(following,10).page(page_number)
 	args['myfollowing'] = Follow.objects.following(user)
-	args['followers_count'] = len(Follow.objects.followers(request.user))
-	args['following_count'] = len(Follow.objects.following(request.user))
+	args['followers_count'] = len(Follow.objects.followers(opponent_user))
+	args['following_count'] = len(Follow.objects.following(opponent_user))
 
 	if user == opponent_user:
 		return render_to_response('view-my-following.html',args)
@@ -403,7 +403,7 @@ def display_all_users(request):
 	
 	
 	args = {}
-	args['all_users'] = Paginator(all_users, 10).page(page_number)
+	args['all_users'] = Paginator(all_users, 3).page(page_number)
 	args['profile'] = user.profile
 	args['notifications'] = notifications
 	args['following'] = following
