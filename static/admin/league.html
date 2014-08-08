@@ -136,7 +136,13 @@
           </section> <!-- /.demo-section -->
 
           {% else %}
-            <h2>快来加入联赛!</h2>
+          	{% if has_request %}
+          		<h4>您已报名参加联赛</h4>
+          		<p>您的等级为{{ profile.level}}，如需修改，请去<a href="/account/change_profile/">修改设置页面</a>修改！</p>
+          		<p>我们会尽快为您安排联赛！</p>
+          	{% else %}
+            	<h2>快来加入联赛!</h2>
+            {% endif %}
           {% endif %}
         </div><!-- /.layout-main -->
 

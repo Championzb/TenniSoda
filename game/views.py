@@ -316,6 +316,9 @@ def join_league_request(request):
 	:return:
 	"""
 	user = request.user.profile
+	league_request = JoinLeagueRequest.objects.filter(player = user)
+	if league_request.count() != 0:
+		return HttpResponseRedirect('/game/league/')
 	if user.first_name is None or user.first_name == ''\
 		or user.last_name is None or user.last_name == ''\
 		or user.phone is None or user.phone == ''\
@@ -335,7 +338,9 @@ def join_league_request(request):
 	args['has_request'] = True
 	
 	return render(request, 'league.html', args)
-
+	
+	#return HttpResponseRedirect('/game/league/')
+	
 @login_required
 def game_group(request):
 	user = request.user.profile
