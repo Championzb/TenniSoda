@@ -37,7 +37,7 @@
 						{% for user in all_users %}
 						<tr>
 							<td class="text-center" width="120px">
-							<a href="/account/view_profile/{{user.profile.id}}/" target="_blank">					
+							<a href="/account/view_profile/{{user.id}}/" target="_blank">					
 							{% if user.profile.picture %}
 					  		<img src="{% get_static_prefix %}assets/{{user.profile.picture.url}}" width=75 height=75 alt="Profile Image" />
 							{% else %}
