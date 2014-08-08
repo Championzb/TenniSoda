@@ -207,7 +207,11 @@ def change_profile(request):
 	else:
 		user = request.user
 		profile = user.profile
-		form = UserProfileForm(instance=profile, initial={'phone':profile.phone, 'picture':profile.picture})
+		if profile.level:
+			level = profile.level
+		else:
+			level = '3'
+		form = UserProfileForm(instance=profile, initial={'phone':profile.phone, 'picture':profile.picture, 'level': level})
 
 	args['form'] = form
 	args['email'] = request.user.email
