@@ -291,8 +291,7 @@ def confirmation_resend(request):
 def add_follower(request, user_id = 1):
 	user= Account.objects.get(id = user_id)
 	Follow.objects.add_follower(request.user, user)
-	Notification.objects.create(user = user, title = u'新增粉丝', message = u'%s 关注了您！' % (request.user), time = datetime.now())
-	print 'XXX'
+	Notification.objects.create(user = user, title = u'新增粉丝', message = u'%s 关注了您！' % (request.user.profile), time = datetime.now())
 										
 	return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
