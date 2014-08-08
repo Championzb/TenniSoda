@@ -47,13 +47,11 @@
 							</td>
 							<td class="valign-middle">
 							{% if user.profile %}
-							<a href="/account/view_profile/{{user.id}}/" target="_blank">
-							<strong>{{user}}</strong>
-							</a>
-							<br/>
-							{{user.profile}}
+								<a href="/account/view_profile/{{user.id}}/" target="_blank">
+								<strong>{{user.profile}}</strong>
+								</a>
 							{% else %}
-							<strong>{{user}}</strong>	
+								<strong>{{user}}</strong>	
 							{% endif %}
 
 							</td>

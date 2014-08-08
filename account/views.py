@@ -372,7 +372,7 @@ def search(request):
 		if search_result.filter(Q(first_name__contains=word)|Q(last_name__contains=word)):
 			search_result = search_result.filter(Q(first_name__contains=word)|Q(last_name__contains=word))
 		else:
-			break
+			continue
 
 	args = {}
 	args.update(csrf(request))
