@@ -58,13 +58,13 @@
             </a>
 			
             <a href="/account/get_followers/{{opponent_profile.user_id}}/" class="list-group-item">
-              <i class="fa fa-envelope text-primary"></i> &nbsp;&nbsp;粉丝
+              <i class="fa fa-envelope text-primary"></i> &nbsp;&nbsp;粉丝 ({{ followers_count }})
 
               <i class="fa fa-chevron-right list-group-chevron"></i>
             </a> 
 
             <a href="/account/get_following/{{opponent_profile.user_id}}/" class="list-group-item">
-              <i class="fa fa-group text-primary"></i> &nbsp;&nbsp;关注
+              <i class="fa fa-group text-primary"></i> &nbsp;&nbsp;关注 ({{ following_count }})
 
               <i class="fa fa-chevron-right list-group-chevron"></i>
             </a> 
@@ -86,18 +86,41 @@
 			<hr>
 
 			<div class="row">
-				<div class="col-md-4 col-sm-4">
-           			<i class="icon-li fa fa-sort-alpha-asc"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{opponent_profile.level}}
+				<div class="col-md-6 col-sm-6">
+           			<i class="icon-li fa fa-sort-alpha-asc"></i>
+           			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+           			{% if opponent_profile.level %}
+           				{{opponent_profile.level}}
+           			{% else %}
+           				未填等级
+           			{% endif %}
 				</div><!-- /.col -->
-				<div class="col-md-4 col-sm-4">
-           			<i class="icon-li fa fa-globe"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{opponent_profile.city}}
-				</div><!-- /.col -->
-				<div class="col-md-4 col-sm-4">
-           			<i class="icon-li fa fa-map-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{opponent_profile.court}}
+				<div class="col-md-6 col-sm-6">
+           			<i class="icon-li fa fa-globe"></i>
+           			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           			{% if opponent_profile.city %}
+           				{{opponent_profile.city}}
+           			{% else %}
+           				未选城市
+           			{% endif %}
 				</div><!-- /.col -->
 			</div><!-- /.row -->
-		  <br/>
-          <p>签名：{{opponent_profile.self_introduction}}</p>
+			<p>
+	   			<i class="icon-li fa fa-map-marker"></i>
+	   			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	   			{% if opponent_profile.court %}
+	   				{{opponent_profile.court}}
+	   			{% else %}
+	   				未选主场
+	   			{% endif %}
+			</p>
+          <p>签名：
+          	{% if opponent_profile.self_introduction %}
+           		{{opponent_profile.self_introduction}}
+           	{% else %}
+           		无
+           	{% endif %}
+          </p>
 		  <br/>
 			{% if is_followed %}
            		<a href="/account/remove_follower/{{opponent_profile.user_id}}/" class="btn btn-secondary">&nbsp;&nbsp;&nbsp;取消关注&nbsp;&nbsp;&nbsp;</a>
@@ -267,17 +290,17 @@
 
             <div class="list-group">
 
-              <a href="javascript:;" class="list-group-item">
+              <!--a href="javascript:;" class="list-group-item">
                 <h3 class="pull-right"><i class="fa fa-eye text-primary"></i></h3>
                 <h4 class="list-group-item-heading">{{ followers_count }}</h4>
                 <p class="list-group-item-text">粉丝</p>
-              </a>
+              </a-->
 
-              <a href="javascript:;" class="list-group-item">
+              <!--a href="javascript:;" class="list-group-item">
                 <h3 class="pull-right"><i class="fa fa-eye text-primary"></i></h3>
                 <h4 class="list-group-item-heading">{{ following_count }}</h4>
                 <p class="list-group-item-text">关注</p>
-              </a>
+              </a-->
 
               <a href="javascript:;" class="list-group-item">
                 <h3 class="pull-right"><i class="fa fa-eye text-primary"></i></h3>

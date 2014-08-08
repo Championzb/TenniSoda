@@ -100,7 +100,22 @@ mixpanel.init("7839eb0766d436492cbf86caab93a026");
           <!--<h5 class="text-muted">Ladder points: XXXX</h5>-->
           
           <ul class="icons-list">
-            <li><i class="icon-li fa fa-map-marker"></i> {{ profile.city }}</li>
+            <li>
+            	<i class="icon-li fa fa-globe"></i>
+            	{% if profile.city %}
+            		{{ profile.city }}
+            	{% else %}
+            		 未选城市
+            	{% endif %}
+            </li>
+            <li>
+            	<i class="icon-li fa fa-map-marker"></i>
+            	{%if profile.court %}
+            		{{profile.court}}
+            	{% else %}
+            		未选主场
+            	{% endif %}
+            </li>
           </ul>    
 
           <hr>
