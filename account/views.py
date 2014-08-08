@@ -367,10 +367,12 @@ def search(request):
 	following = Follow.objects.following(user)
 	page_number = request.GET.get('page','1')
 
+	has_match = False
 	search_result = Profile.objects.all()
 	for word in keyword:
 		if search_result.filter(Q(first_name__contains=word)|Q(last_name__contains=word)):
 			search_result = search_result.filter(Q(first_name__contains=word)|Q(last_name__contains=word))
+			has_match = True
 		else:
 			continue
 
@@ -384,6 +386,7 @@ def search(request):
 	args['followers_count'] = len(Follow.objects.followers(request.user))
 	args['following_count'] = len(Follow.objects.following(request.user))
 	args['following'] = following
+	args['has_match'] = has_match
 
 	return render_to_response('search-result.html', args)
 

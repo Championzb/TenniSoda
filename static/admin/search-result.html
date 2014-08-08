@@ -31,6 +31,7 @@
 
 {% block subcontent %}
 	<h4 class="content-title"><u>搜索结果</u></h4>
+	{% if has_match %}
 	<div class="table-responsive">
 		<table class="table table-striped thumbnail-table" >
 
@@ -82,9 +83,12 @@
 				<li class="next disabled"><a href="">下一页<i class="fa fa-angle-double-right"></i></a></li>
 				{% endif %}
 				</ul>
-		</div>
+		</div><!-- /.paginate -->
 
-	</div>
-
+	</div><!-- /.table -->
+	{% else %}
+		<h5>未搜索到该用户！</h5>
+	{% endif %}
+	
 
 {% endblock %}
