@@ -16,7 +16,7 @@ GENDER=(('1','男'),('0','女'))
 class UserProfileForm(forms.ModelForm):
 	last_name = forms.CharField(widget=forms.TextInput(attrs = {'class': 'form-control'}))
 	first_name = forms.CharField(widget=forms.TextInput(attrs = {'class': 'form-control'}))
-	level = forms.ChoiceField(widget=forms.Select(attrs = {'class': 'form-control'}),choices=LEVEL,required=False)
+	level = forms.ChoiceField(widget=forms.Select(attrs = {'class': 'form-control'}), choices=LEVEL, required=False, initial = '3')
 	gender = forms.ChoiceField(widget=forms.Select(attrs = {'class': 'form-control'}),choices=GENDER,required=False)
 	city = forms.ModelChoiceField(queryset=City.objects.all(), widget=forms.Select(attrs = {'class': 'form-control', 'id': 'city'}), required=False)
 	district = forms.ModelChoiceField(queryset=District.objects.all(), widget=forms.Select(attrs = {'class': 'form-control', 'id': 'district'}), required=False)

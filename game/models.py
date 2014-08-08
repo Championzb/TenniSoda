@@ -131,3 +131,12 @@ class GameGroup(models.Model):
     def get_members_list(self):
         return "\n".join([u'%s %s' % (p.first_name, p.last_name) for p in self.members.all()])
 
+class JoinLeagueRequest(models.Model):
+    '''
+    Define the request to join a league
+    '''
+    player = models.ForeignKey(Profile,primary_key = True)
+    request_time = models.DateTimeField(default = datetime.now())
+
+    def __unicode__(self):
+        return u'%s' % self.player

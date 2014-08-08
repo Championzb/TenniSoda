@@ -1,7 +1,7 @@
 #-*-coding:utf-8-*-
 from django.shortcuts import render_to_response, render
 from django.http import HttpResponseRedirect
-from models import League, Game, Score, FreeLeagueGame, GameGroup
+from models import League, Game, Score, FreeLeagueGame, GameGroup, JoinLeagueRequest
 from activity.models import ActivityFeed
 from forms import ScoreCreationForm, GameEditForm, GameGroupForm
 from django.core.context_processors import csrf
@@ -293,6 +293,13 @@ def league(request):
 
 	notifications = Notification.objects.filter(user=request.user, viewed=False).order_by('time').reverse()
 
+	join_request = JoinLeagueRequest.objects.filter(player = request.user.profile)
+	
+	if join_request.count() == 0:
+		args['has_request'] = False
+	else:
+		args['has_request'] = True
+
 	args['league_history'] = league_history
 
 	args['profile'] = request.user.profile
@@ -301,6 +308,33 @@ def league(request):
 
 	return render_to_response('league.html', args)
 
+@login_required
+def join_league_request(request):
+	"""
+
+	:param request:
+	:return:
+	"""
+	user = request.user.profile
+	if user.first_name is None or user.first_name == ''\
+		or user.last_name is None or user.last_name == ''\
+		or user.phone is None or user.phone == ''\
+		or user.level is None or user.level == '':
+		auth.logout(request)
+		return HttpResponseRedirect('/')
+	league_request = JoinLeagueRequest.objects.get_or_create(player = user)[0]
+	league_request.request_time = datetime.now()
+	league_request.save()
+	messages.success(request,'您已成功报名联赛！')
+	
+	args = {}
+	notifications = Notification.objects.filter(user = request.user, viewed = False)
+
+	args['profile'] = user
+	args['notifications'] = notifications
+	args['has_request'] = True
+	
+	return render(request, 'league.html', args)
 
 @login_required
 def game_group(request):

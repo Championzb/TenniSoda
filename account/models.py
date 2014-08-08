@@ -101,7 +101,7 @@ class Profile(models.Model):
     first_name = models.CharField(max_length = 40, null=True,blank=True)
     last_name = models.CharField(max_length = 20, null=True,blank=True)
     birth_date = models.DateField(null=True,blank=True)
-    level = models.CharField(max_length=15, null=True,blank=True)
+    level = models.CharField(max_length=15, null=True, blank=True)
     real_level = models.CharField(max_length=15, null=True,blank=True)
     ladder_points = models.IntegerField(null=True, blank=True)
     phone = models.CharField(max_length=11, null=True,blank=True)
