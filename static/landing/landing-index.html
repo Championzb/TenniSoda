@@ -162,8 +162,8 @@ mixpanel.init("7839eb0766d436492cbf86caab93a026");
                   <br>
 
                   <div class="masthead-actions">
-                    <a href="{% static "assets/landing/page-features.html" %}" class="btn btn-transparent btn-jumbo">
-                    Learn More
+                    <a href="{% static "assets/landing/page-contact.html" %}" class="btn btn-transparent btn-jumbo">
+                    了解更多
                     </a>
 
                     <a href="/account/register/" class="btn btn-primary btn-jumbo">
@@ -173,29 +173,49 @@ mixpanel.init("7839eb0766d436492cbf86caab93a026");
                 </div> <!-- /.masthead-text -->
 
                 <div class="col-md-6 masthead-img animated fadeInRightBig">
-                  <form class="form masthead-form well" action="/" method="POST">{% csrf_token %}
+                  <form class="form masthead-form well" method="POST" action="/account/login/">{% csrf_token %}
+                  <h3>欢迎回到网球苏打</h3>
 
-                    <h3 class="text-center">快捷注册</h3>
-
-                    <p class="text-center"><font color="red"> 您已同意我们的<a target="_blank" href="{% static "assets/landing/page-terms.html" %}">条款和规定</a>!</font></p>
-
-                    {% for field in form %}
-                      <div class = "form-group">
-                          {{ field }}
-                          {% for err in field.errors %}
-                            <span style="color: red">{{ err }}</span>
-                          {% endfor %}
-                      </div><!-- /.form-group -->
-                    {% endfor %}
-
-
+                  <h5>请输入邮箱和密码登录</h5>
+                  {% if warning %}
+                      {% if email_exist %}
+                        <small><font color="red">Password is not correct!</font></small>
+                      {% else %}
+                        <small><font color="red">Email does not exist!</font></small>
+                      {% endif %}
+                  {% endif %}
 
                     <div class="form-group">
-                      <button type="submit" class="btn btn-secondary btn-jumbo btn-block">免费加入！</button>
+                      {% if email %}
+                        <input type="email" class="form-control"  placeholder="Email address" tabindex="1" name="email" value="{{email}}">
+                      {% else %}
+                        <input type="email" class="form-control"  placeholder="邮箱" tabindex="1" name="email">
+                      {% endif %}
+                    </div> <!-- /.form-group -->
+
+                    <div class="form-group">
+                      <input type="password" class="form-control" id="login-password" placeholder="密码" tabindex="2" name="password">
+                    </div> <!-- /.form-group -->
+
+                    <div class="form-group clearfix">
+                      <div class="pull-left">         
+                        <label class="checkbox-inline">
+                          <input type="checkbox" name="remember_me" value="true" tabindex="3"><small>记住我</small>
+                        </label>
+                      </div>
+
+                      <div class="pull-right">
+                        <small><a href="/account/forget_password/">忘记密码？</a></small>
+                      </div>
+                    </div> <!-- /.form-group -->
+
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-primary btn-block btn-lg" tabindex="4">
+                        登录 &nbsp; <i class="fa fa-play-circle"></i>
+                      </button>
                     </div> <!-- /.form-group -->
 
                   </form>
-
                 </div> <!-- /.masthead-img -->
 
               </div> <!-- /.row -->
@@ -207,27 +227,27 @@ mixpanel.init("7839eb0766d436492cbf86caab93a026");
               <div class="row">
 
                 <div class="col-md-6 masthead-text animated fadeInDownBig">
-                  <h1 class="masthead-title">Page 2 title</h1>
+                  <h1 class="masthead-title">网球苏打</h1>
 
                   <p class="masthead-">
-                  page 2 slogan
+                  欢迎订阅我们的微信、微薄平台，网球苏打为您搜集最新的网球周边。
                   </p>
 
                   <br>
 
                   <div class="masthead-actions">
-                    <a href="{% static "assets/landing/page-features.html" %}" class="btn btn-transparent btn-jumbo">
-                    Learn More
+                    <a href="{% static "assets/landing/page-contact.html" %}" class="btn btn-transparent btn-jumbo">
+                    了解更多
                     </a>
 
                     <a href="/account/register/" class="btn btn-primary btn-jumbo">
-                    Create an Account
+                    免费注册
                     </a>
                   </div> <!-- /.masthead-actions -->
                 </div> <!-- /.masthead-text -->
 
                 <div class="col-md-6 masthead-img animated fadeInUpBig">
-                  <img src="{% static "assets/landing/img/masthead/mobile.png" %}" alt="slide2" class="img-responsive" />
+                  <img src="{% static "assets/landing/img/masthead/wechat-qr.jpg" %}" alt="slide2" class="img-responsive" />
                 </div> <!-- /.masthead-img -->
 
               </div> <!-- /.row -->
@@ -248,12 +268,12 @@ mixpanel.init("7839eb0766d436492cbf86caab93a026");
                   <br>
 
                   <div class="masthead-actions">
-                    <a href="{% static "assets/landing/page-features.html" %}" class="btn btn-transparent btn-jumbo">
-                    Learn More
+                    <a href="{% static "assets/landing/page-contact.html" %}" class="btn btn-transparent btn-jumbo">
+                    了解更多
                     </a>
 
                     <a href="/account/register/" class="btn btn-primary btn-jumbo">
-                    Create an Account
+                    免费注册
                     </a>
                   </div> <!-- /.masthead-actions -->
                 </div> <!-- /.masthead-text -->
