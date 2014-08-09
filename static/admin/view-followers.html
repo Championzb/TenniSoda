@@ -10,13 +10,13 @@
        </a>
 			
        <a href="/account/get_followers/{{opponent_profile.user_id}}/" class="list-group-item active">
-         <i class="fa fa-envelope text-primary"></i> &nbsp;&nbsp;粉丝
+         <i class="fa fa-envelope text-primary"></i> &nbsp;&nbsp;粉丝 ({{ followers_count }})
 
          <i class="fa fa-chevron-right list-group-chevron"></i>
        </a> 
 
        <a href="/account/get_following/{{opponent_profile.user_id}}/" class="list-group-item">
-         <i class="fa fa-group text-primary"></i> &nbsp;&nbsp;关注
+         <i class="fa fa-group text-primary"></i> &nbsp;&nbsp;关注 ({{ following_count }})
 
          <i class="fa fa-chevron-right list-group-chevron"></i>
        </a> 
@@ -47,8 +47,6 @@
 					<a href="/account/view_profile/{{follower.id}}/">
 					<strong>{{follower.profile}}</strong>
 					</a>
-					<br/>
-					{{follower.email}}
 					</td>
 					<td class="text-right valign-top">
 					{% ifequal follower profile.user %}
@@ -66,21 +64,22 @@
 				
 			</tbody>
 		</table>
+		{% if followers %}
 			<div class="dataTables_paginate paging_bootstrap">
 				<ul class="pagination">
 					{% if followers.has_previous %}
-					<li class="prev"><a href="?page={{followers.previous_page_number}}"><i class="fa fa-angle-double-left"></i>上一页</a></li>
+					<li class="btn prev"><a href="?page={{followers.previous_page_number}}"><i class="fa fa-angle-double-left"></i>上一页</a></li>
 					{% else %}
-					<li class="prev disabled"><a href=""><i class="fa fa-angle-double-left"></i>上一页</a></li>
+					<li class="btn prev disabled"><a href=""><i class="fa fa-angle-double-left"></i>上一页</a></li>
 					{% endif %}
 					{%if followers.has_next %}
-					<li class="next"><a href="?page={{followers.next_page_number}}">下一页<i class="fa fa-angle-double-right"></i></a></li>
+					<li class="btn next"><a href="?page={{followers.next_page_number}}">下一页<i class="fa fa-angle-double-right"></i></a></li>
 					{% else %}
-					<li class="next disabled"><a href="">下一页<i class="fa fa-angle-double-right"></i></a></li>
+					<li class="btn next disabled"><a href="">下一页<i class="fa fa-angle-double-right"></i></a></li>
 					{% endif %}
 				</ul>
-			</div>
-
+			</div><!-- /.paginate -->
+		{% endif %}
 	</div>
 
 

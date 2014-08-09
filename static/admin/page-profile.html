@@ -69,13 +69,13 @@ mixpanel.init("7839eb0766d436492cbf86caab93a026");
             </a>
 
             <a href="/account/get_followers/{{profile.user_id}}/" class="list-group-item">
-              <i class="fa fa-envelope text-primary"></i> &nbsp;&nbsp;粉丝
+              <i class="fa fa-envelope text-primary"></i> &nbsp;&nbsp;粉丝 ({{ followers_count }})
 
               <i class="fa fa-chevron-right list-group-chevron"></i>
             </a> 
 
             <a href="/account/get_following/{{profile.user_id}}/" class="list-group-item">
-              <i class="fa fa-group text-primary"></i> &nbsp;&nbsp;关注
+              <i class="fa fa-group text-primary"></i> &nbsp;&nbsp;关注 ({{ following_count }})
 
               <i class="fa fa-chevron-right list-group-chevron"></i>
             </a> 
@@ -100,13 +100,28 @@ mixpanel.init("7839eb0766d436492cbf86caab93a026");
           <!--<h5 class="text-muted">Ladder points: XXXX</h5>-->
           
           <ul class="icons-list">
-            <li><i class="icon-li fa fa-map-marker"></i> {{ profile.city }}</li>
+            <li>
+            	<i class="icon-li fa fa-globe"></i>
+            	{% if profile.city %}
+            		{{ profile.city }}
+            	{% else %}
+            		 未选城市
+            	{% endif %}
+            </li>
+            <li>
+            	<i class="icon-li fa fa-map-marker"></i>
+            	{%if profile.court %}
+            		{{profile.court}}
+            	{% else %}
+            		未选主场
+            	{% endif %}
+            </li>
           </ul>    
 
           <hr>
 
 		{% block subcontent %}
-          <h4 class="content-title"><u>Coming game</u></h4>
+          <!--h4 class="content-title"><u>Coming game</u></h4>
 
           <ul class="icons-list notifications-list">
             <li>
@@ -115,7 +130,7 @@ mixpanel.init("7839eb0766d436492cbf86caab93a026");
             </li>
           </ul>
 
-          <br><br>
+          <br><br-->
 		  
           <h4 class="content-title"><u>动态</u></h4>
 
@@ -172,7 +187,7 @@ mixpanel.init("7839eb0766d436492cbf86caab93a026");
               </div> <!-- /.feed-icon -->
 
               <div class="feed-subject">
-                <p><a href="javascript:;">{{activity.creator}}</a></p>
+                <p><a href="/account/view_profile/{{activity.creator.user_id}}/">{{activity.creator}}</a></p>
 				<table width="485px">
 				<tr>
 				<td class="text-left">
@@ -216,7 +231,7 @@ mixpanel.init("7839eb0766d436492cbf86caab93a026");
               </div> <!-- /.feed-icon -->
 
               <div class="feed-subject">
-                <p><a href="javascript:;">{{activity.creator}}</a></p>
+                <p><a href="/account/view_profile/{{activity.creator.user_id}}/">{{activity.creator}}</a></p>
 				<table width="485px">
 				<tr>
 				<td class="text-left">
@@ -269,7 +284,7 @@ mixpanel.init("7839eb0766d436492cbf86caab93a026");
 
             <div class="list-group">  
 
-              <a href="javascript:;" class="list-group-item">
+              <!--a href="javascript:;" class="list-group-item">
                 <h3 class="pull-right"><i class="fa fa-eye text-primary"></i></h3>
                 <h4 class="list-group-item-heading">{{ followers_count }}</h4>
                 <p class="list-group-item-text">粉丝</p>
@@ -279,16 +294,16 @@ mixpanel.init("7839eb0766d436492cbf86caab93a026");
                 <h3 class="pull-right"><i class="fa fa-eye text-primary"></i></h3>
                 <h4 class="list-group-item-heading">{{ following_count }}</h4>
                 <p class="list-group-item-text">关注</p>
-              </a>
+              </a-->
 
               <a href="javascript:;" class="list-group-item">
-                <h3 class="pull-right"><i class="fa fa-eye text-primary"></i></h3>
+                <h3 class="pull-right"><i class="fa fa-flag-checkered text-primary"></i></h3>
                 <h4 class="list-group-item-heading">{{ games_win_count }}</h4>
                 <p class="list-group-item-text">胜场</p>
               </a>
 
               <a href="javascript:;" class="list-group-item">
-                <h3 class="pull-right"><i class="fa fa-facebook-square  text-primary"></i></h3>
+                <h3 class="pull-right"><i class="fa fa-flag text-secondary"></i></h3>
                 <h4 class="list-group-item-heading">{{games_count}}</h4>
                 <p class="list-group-item-text">总场数</p>
               </a>

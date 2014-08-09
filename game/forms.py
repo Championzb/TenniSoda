@@ -142,7 +142,7 @@ class GameGroupForm(forms.ModelForm):
 	level_high = forms.ChoiceField(widget=forms.Select(attrs = {'class': 'form-control'}),choices=LEVEL, initial=5.5, required=True)
 	price = forms.IntegerField(min_value = 0, widget=forms.NumberInput(attrs = {'class': 'form-control'}), initial = 50, required=True)
 	# gender = forms.ChoiceField(choices=GENDER, widget=forms.Select(attrs = {'class': 'form-control'}))
-	description = forms.CharField(widget=forms.Textarea(attrs = {'class': 'form-control'}), initial = 'Welcome to my group!', required = True)
+	description = forms.CharField(widget=forms.Textarea(attrs = {'class': 'form-control'}), initial = '欢迎加入我的小组!', required = True)
 
 	class Meta:
 		model = GameGroup

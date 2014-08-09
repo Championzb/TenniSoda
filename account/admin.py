@@ -50,7 +50,7 @@ class UserCreationForm(forms.ModelForm):
 		if commit:
 			#send email..
 			#print 'OOOOO'
-			send_email('注册成功 - TenniSoda', '恭喜您已成功注册网球苏打，请点击以下链接激活帐号。\n http://%s/account/confirm/%s' % (settings.HOST_DOMAIN, user.activation_key), [self.cleaned_data['email']])
+			send_email('注册成功 - TenniSoda', '恭喜您已成功注册网球苏打，请点击以下链接激活帐号。\n http://%s/account/confirm/%s 。如果点击无效，请您直接将链接复制到地址栏。' % (settings.HOST_DOMAIN, user.activation_key), [self.cleaned_data['email']])
 			#send_mail(subject, message, from_email, to_email, fail_silently = False)
 			user.save()
 		return user

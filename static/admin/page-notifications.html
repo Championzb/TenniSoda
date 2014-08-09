@@ -7,101 +7,6 @@
       <img src="{% static "assets/uploaded_files/default.jpg" %}" class="navbar-profile-avatar" alt="" />
     {% endif %}
 {% endblock %}
-{% block extras %}
-  <li class="dropdown active">
-
-    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown">
-    Extras
-    <i class="mainnav-caret"></i>
-    </a>
-
-    <ul class="dropdown-menu" role="menu">
-      <li>
-        <a href="/notification/all/">
-        <i class="fa fa-bell"></i>
-        &nbsp;&nbsp;Notifications
-        </a>
-      </li>
-
-      <li>
-        <a href="./extras-icons.html">
-        <i class="fa fa-smile-o"></i>
-        &nbsp;&nbsp;Font Icons
-        </a>
-      </li>
-
-      <li class="dropdown-submenu">
-        <a tabindex="-1" href="#">
-        <i class="fa fa-ban"></i>
-        &nbsp;&nbsp;Error Pages
-        </a>
-
-        <ul class="dropdown-menu">
-          <li>
-            <a href="./page-404.html">
-            <i class="fa fa-ban"></i>
-            &nbsp;&nbsp;404 Error
-            </a>
-          </li>
-
-          <li>
-            <a href="./page-500.html">
-            <i class="fa fa-ban"></i>
-            &nbsp;&nbsp;500 Error
-            </a>
-          </li>
-
-          <li>
-            <a href="./page-faq.html">
-              <i class="fa fa-question"></i>
-              &nbsp;&nbsp;FAQ
-            </a>
-          </li>
-        </ul>
-      </li>
-
-      <li class="dropdown-submenu">
-
-        <a tabindex="-1" href="#">
-        <i class="fa fa-lock"></i>
-        &nbsp;&nbsp;Login Pages
-        </a>
-
-        <ul class="dropdown-menu">
-          <li>
-            <a href="./account-login.html">
-            <i class="fa fa-unlock"></i>
-            &nbsp;&nbsp;Login
-            </a>
-          </li>
-
-          <li>
-            <a href="./account-login-social.html">
-            <i class="fa fa-unlock"></i>
-            &nbsp;&nbsp;Login Social
-            </a>
-          </li>
-
-          <li>
-            <a href="./account-signup.html">
-            <i class="fa fa-star"></i>
-            &nbsp;&nbsp;Signup
-            </a>
-            </li>
-
-          <li>
-            <a href="./account-forgot.html">
-            <i class="fa fa-envelope"></i>
-            &nbsp;&nbsp;Forgot Password
-            </a>
-          </li>
-        </ul>
-      </li>
-
-    </ul>
-
-  </li>
-{% endblock %}
 
 {% block content %}
 
@@ -113,7 +18,7 @@
 
         <div class="col-md-8">
 
-          <h2 class="content-title">Your Notifications</h2>
+          <h2 class="content-title"><u>通知</u></h2>
 <!--
           <ul class="icons-list notifications-list">
             {% for notification in notifications_not_viewed %}
@@ -156,7 +61,7 @@
               <tr>
                 <td></td>
                 <td><font color="grey">{{notification.message}}</font></td>
-                <td align="right"><a href="/notification/delete/{{notification.id}}">Delete</a></td>
+                <td align="right"><a href="/notification/delete/{{notification.id}}"><i class="fa fa-trash-o"></i></a></td>
               </tr>
               {% else %}
               <tr>
@@ -168,8 +73,8 @@
                 <td></td>
                 <td>{{notification.message}}</td>
                 <td align="right">
-                  <a href="/notification/mark_as_viewed/{{notification.id}}">Mark as read</a>
-                  &nbsp;&nbsp;&nbsp;&nbsp;<a href="/notification/delete/{{notification.id}}">Delete</a>
+                  <a href="/notification/mark_as_viewed/{{notification.id}}">标为已读</a>
+                  &nbsp;&nbsp;&nbsp;&nbsp;<a href="/notification/delete/{{notification.id}}"><i class="fa fa-trash-o"></i></a>
                 </td>
               </tr>
               {% endif %}

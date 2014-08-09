@@ -6,10 +6,10 @@
 {% block head %}
 <script>
     function checkProfile(){
-        {% if profile.last_name and profile.first_name and profile.phone %}
-            window.location = "/game/join_league/";
+        {% if profile.last_name and profile.first_name and profile.phone and profile.level %}
+            window.location = "/game/join_league_request/";
         {% else %}
-            alert("我们需要您的姓名以及联系电话，这样才能方便联系您的对手！");
+            alert("我们需要您的姓名，联系电话以及水平等级，这样才能方便联系您的对手并更好的为您安排联赛！");
             window.location = "/account/change_profile/";
         {% endif %}
     }
@@ -118,9 +118,7 @@
                           </div> <!-- /.tab-pane -->
 
                           <div class="tab-pane fade" id="match-history">
-                            <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit. Keytar helvetica VHS salvia yr, vero magna velit sapiente labore stumptown. Vegan fanny pack odio cillum wes anderson 8-bit, sustainable jean shorts beard ut DIY ethical culpa terry richardson biodiesel. Art party scenester stumptown, tumblr butcher vero sint qui sapiente accusamus tattooed echo park.</p>
-
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
+                            
                           </div> <!-- /.tab-pane -->
 
                         </div> <!-- /.tab-content -->
@@ -138,12 +136,21 @@
           </section> <!-- /.demo-section -->
 
           {% else %}
-            <h2>快来加入联赛!</h2>
+          	{% if has_request %}
+          		<h4>您已报名参加联赛</h4>
+          		<p>您的等级为{{ profile.level}}，如需修改，请去<a href="/account/change_profile/">修改设置页面</a>修改！</p>
+          		<p>我们会尽快为您安排联赛！</p>
+          	{% else %}
+            	<h2>快来加入联赛!</h2>
+            {% endif %}
           {% endif %}
         </div><!-- /.layout-main -->
 
         <div class="col-sm-4 col-md-3 layout-sidebar">
           <div class="portlet">
+          {% if has_request %}
+          	<a class="btn btn-primary btn-jumbo btn-block disabled" onclick="checkProfile()">已经报名</a>
+          {% else %}
             {% if current_league %}
               {% if current_league.is_finished %}
                 <a class="btn btn-primary btn-jumbo btn-block" onclick="checkProfile()">参加联赛</a>
@@ -153,6 +160,7 @@
             {% else %}
               <a class="btn btn-primary btn-jumbo btn-block" onclick="checkProfile()">参加联赛</a>
             {% endif %}
+          {% endif %}
             <br>
           </div> <!-- /.portlet -->
 

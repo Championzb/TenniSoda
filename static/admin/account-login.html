@@ -48,14 +48,14 @@
 
       {% if warning %}
           {% if email_exist %}
-            <small><font color="red">Password is not correct!</font></small>
+            <small><font color="red">密码不对！</font></small>
           {% else %}
-            <small><font color="red">Email does not exist!</font></small>
+            <small><font color="red">该邮箱不存在！</font></small>
           {% endif %}
       {% endif %}
 
         <div class="form-group">
-          <label for="login-username" class="placeholder-hidden">Email address</label>
+          <label for="login-username" class="placeholder-hidden">邮箱</label>
           {% if email %}
             <input type="email" class="form-control"  placeholder="Email address" tabindex="1" name="email" value="{{email}}">
           {% else %}
@@ -64,7 +64,7 @@
         </div> <!-- /.form-group -->
 
         <div class="form-group">
-          <label for="login-password" class="placeholder-hidden">Password</label>
+          <label for="login-password" class="placeholder-hidden">密码</label>
           <input type="password" class="form-control" id="login-password" placeholder="密码" tabindex="2" name="password">
         </div> <!-- /.form-group -->
 

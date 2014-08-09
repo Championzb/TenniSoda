@@ -3,8 +3,8 @@
 {% block list_group %}
 	<div class="list-group">  
 
-		<a href="javascript:;" class="list-group-item">
-		<i class="fa fa-asterisk text-primary"></i> &nbsp;&nbsp;Activity Feed
+		<a href="/account/welcome_user/" class="list-group-item">
+		<i class="fa fa-asterisk text-primary"></i> &nbsp;&nbsp;动态
 		<i class="fa fa-chevron-right list-group-chevron"></i>
         </a>
 
@@ -31,6 +31,7 @@
 
 {% block subcontent %}
 	<h4 class="content-title"><u>搜索结果</u></h4>
+	{% if has_match %}
 	<div class="table-responsive">
 		<table class="table table-striped thumbnail-table" >
 
@@ -50,8 +51,6 @@
 					<a href="/account/view_profile/{{user.id}}/">
 					<strong>{{user}}</strong>
 					</a>
-					<br/>
-					{{user.user.email}}
 					</td>
 					<td class="text-right valign-top">
 					{% ifequal user profile %}
@@ -74,19 +73,22 @@
 		<div class="dataTables_paginate paging_bootstrap">
 			<ul class="pagination">
 				{% if search_result.has_previous %}
-				<li class="prev"><a href="?page={{search_result.previous_page_number}}"><i class="fa fa-angle-double-left"></i>Previous</a></li>
+				<li class="prev"><a href="?page={{search_result.previous_page_number}}"><i class="fa fa-angle-double-left"></i>上一页</a></li>
 				{% else %}
-				<li class="prev disabled"><a href=""><i class="fa fa-angle-double-left"></i>Previous</a></li>
+				<li class="prev disabled"><a href=""><i class="fa fa-angle-double-left"></i>上一页</a></li>
 				{% endif %}
 				{%if search_result.has_next %}
-				<li class="next"><a href="?page={{search_result.next_page_number}}">Next<i class="fa fa-angle-double-right"></i></a></li>
+				<li class="next"><a href="?page={{search_result.next_page_number}}">下一页<i class="fa fa-angle-double-right"></i></a></li>
 				{% else %}
-				<li class="next disabled"><a href="">Next<i class="fa fa-angle-double-right"></i></a></li>
+				<li class="next disabled"><a href="">下一页<i class="fa fa-angle-double-right"></i></a></li>
 				{% endif %}
 				</ul>
-		</div>
+		</div><!-- /.paginate -->
 
-	</div>
-
+	</div><!-- /.table -->
+	{% else %}
+		<h5>未搜索到该用户！</h5>
+	{% endif %}
+	
 
 {% endblock %}
