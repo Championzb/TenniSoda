@@ -278,14 +278,13 @@ def confirm(request,activation_key):
 		user = Account.objects.get(activation_key=activation_key)
 		user.is_active = True
 		user.save()
-'''
-		messages.success(request, u'帐号已激活，请登录！')
 		
-		args = {}
-		args.update(csrf(request))
-		args['email'] = user.email
-		return render(request, 'account-login.html', args)
-'''		
+		#messages.success(request, u'帐号已激活，请登录！')
+		
+		#args = {}
+		#args.update(csrf(request))
+		#args['email'] = user.email
+		#return render(request, 'account-login.html', args)
 		auth.login(request, user)
 		return HttpResponseRedirect('/account/first_login/')
 
