@@ -285,6 +285,7 @@ def confirm(request,activation_key):
 		#args.update(csrf(request))
 		#args['email'] = user.email
 		#return render(request, 'account-login.html', args)
+		user.backend='django.contrib.auth.backends.ModelBackend'
 		auth.login(request, user)
 		return HttpResponseRedirect('/account/first_login/')
 
