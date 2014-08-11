@@ -166,12 +166,38 @@ mixpanel.init("7839eb0766d436492cbf86caab93a026");
                     了解更多
                     </a>
 
-                    <a href="/account/register/" class="btn btn-primary btn-jumbo">
-                    免费注册
+                    <a href="/account/login/" class="btn btn-primary btn-jumbo">
+                    &nbsp;&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;&nbsp;
                     </a>
                   </div> <!-- /.masthead-actions -->
                 </div> <!-- /.masthead-text -->
+                
+                <div class="col-md-6 masthead-img animated fadeInRightBig">
+                  <form class="form masthead-form well" action="/" method="POST">{% csrf_token %}
 
+                    <h3 class="text-center" style="font-family:微软雅黑;">快捷注册</h3>
+
+                    <p class="text-center"><font color="red"> 您已同意我们的<a target="_blank" href="{% static "assets/landing/page-terms.html" %}">条款和规定</a>!</font></p>
+
+                    {% for field in form %}
+                      <div class = "form-group">
+                          {{ field }}
+                          {% for err in field.errors %}
+                            <span style="color: red">{{ err }}</span>
+                          {% endfor %}
+                      </div><!-- /.form-group -->
+                    {% endfor %}
+
+
+
+                    <div class="form-group">
+                      <button type="submit" class="btn btn-secondary btn-jumbo btn-block">免费加入！</button>
+                    </div> <!-- /.form-group -->
+
+                  </form>
+
+                </div> <!-- /.masthead-img -->
+<!--
                 <div class="col-md-6 masthead-img animated fadeInRightBig">
                   <form class="form masthead-form well" method="POST" action="/account/login/">{% csrf_token %}
                   <h3>欢迎回到网球苏打</h3>
@@ -191,11 +217,11 @@ mixpanel.init("7839eb0766d436492cbf86caab93a026");
                       {% else %}
                         <input type="email" class="form-control"  placeholder="邮箱" tabindex="1" name="email">
                       {% endif %}
-                    </div> <!-- /.form-group -->
+                    </div> <!-- /.form-group >
 
                     <div class="form-group">
                       <input type="password" class="form-control" id="login-password" placeholder="密码" tabindex="2" name="password">
-                    </div> <!-- /.form-group -->
+                    </div> <!-- /.form-group >
 
                     <div class="form-group clearfix">
                       <div class="pull-left">         
@@ -207,16 +233,18 @@ mixpanel.init("7839eb0766d436492cbf86caab93a026");
                       <div class="pull-right">
                         <small><a href="/account/forget_password/">忘记密码？</a></small>
                       </div>
-                    </div> <!-- /.form-group -->
+                    </div> <!-- /.form-group >
 
                     <div class="form-group">
                       <button type="submit" class="btn btn-primary btn-block btn-lg" tabindex="4">
                         登录 &nbsp; <i class="fa fa-play-circle"></i>
                       </button>
-                    </div> <!-- /.form-group -->
+                    </div> <!-- /.form-group >
 
                   </form>
-                </div> <!-- /.masthead-img -->
+                  
+                </div> <!-- /.masthead-img >
+-->
 
               </div> <!-- /.row -->
 
