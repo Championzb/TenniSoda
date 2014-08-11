@@ -27,8 +27,6 @@ def home(request):
 				else:
 					return HttpResponseRedirect('/account/welcome_user/')
 
-	print 'OOOOO'
-
 	args = {}
 	args.update(csrf(request))
 	args['form'] = form

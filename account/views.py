@@ -267,17 +267,27 @@ def change_password(request):
 
 def confirm(request,activation_key):
 	if Account.objects.filter(activation_key = activation_key).count() == 0:
-		messages.warning(request, u'激活链接错误，请重新申请激活帐号！')
-		return HttpResponseRedirect('/')
+		messages.warning(request, u'激活链接错误，请登录后申请重新激活帐号！')
+		form = UserCreationForm()
+		
+		args = {}
+		args.update(csrf(request))
+
+		return render(request, 'account-login.html', args)
 	else:
 		user = Account.objects.get(activation_key=activation_key)
 		user.is_active = True
 		user.save()
+'''
 		messages.success(request, u'帐号已激活，请登录！')
+		
 		args = {}
 		args.update(csrf(request))
 		args['email'] = user.email
 		return render(request, 'account-login.html', args)
+'''		
+		auth.login(request, user)
+		return HttpResponseRedirect('/account/first_login/')
 
 
 
