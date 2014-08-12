@@ -34,9 +34,9 @@
 			    	<div class="thumbnail-view">
 		     			<a href="/account/view_profile/{{user.id}}/" target="_blank" class="valign-middle">
 				        {% if user.profile.picture %}
-					  		<img src="{% get_static_prefix %}assets/{{user.profile.picture.url}}" style="width: 100%;height: 100%;" alt="Profile Image" />
+					  		<img src="{% get_static_prefix %}assets/{{user.profile.picture.url}}" style="width: 253px;height: 253px;" alt="Profile Image" />
 						{% else %}
-			  				<img src="{% static "assets/uploaded_files/default.jpg" %}" style="width: 100%;height: 100%;" alt="Profile Image" />
+			  				<img src="{% static "assets/uploaded_files/default.jpg" %}" style="width: 253px;height: 253px;" alt="Profile Image" />
 						{% endif %}
 						</a>
 				    </div>
