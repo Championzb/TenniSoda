@@ -413,7 +413,7 @@ def display_all_users(request):
 	
 	
 	args = {}
-	args['all_users'] = Paginator(all_users, 3).page(page_number)
+	args['all_users'] = Paginator(all_users, 4).page(page_number)
 	args['profile'] = user.profile
 	args['notifications'] = notifications
 	args['following'] = following
