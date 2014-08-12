@@ -31,6 +31,7 @@
       		<div class="col-md-3 col-sm-6">
       		
       			<div class="thumbnail">
+      				<div class="text-center">
 			    	<div class="thumbnail-view">
 		     			<a href="/account/view_profile/{{user.id}}/" target="_blank" class="valign-middle">
 				        {% if user.profile.picture %}
@@ -39,6 +40,7 @@
 			  				<img src="{% static "assets/uploaded_files/default.jpg" %}" style="width: 253px;height: 253px;" alt="Profile Image" />
 						{% endif %}
 						</a>
+				    </div>
 				    </div>
 				    <div class="caption">
 				        <h3 class="valign-middle">
