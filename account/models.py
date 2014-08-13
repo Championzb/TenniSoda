@@ -45,6 +45,7 @@ class AccountManager(BaseUserManager):
         """
         user = self.create_user(email, password=password,)
         user.is_admin = True
+        user.is_active = True
         user.save(using=self._db)
         return user
 
@@ -92,6 +93,7 @@ class Account(AbstractBaseUser):
         "Is the user a member of staff?"
         # Simplest possible answer: All admins are staff
         return self.is_admin
+
 
 class Profile(models.Model):
     user = models.OneToOneField(Account,primary_key=True)
