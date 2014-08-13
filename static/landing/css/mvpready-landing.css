@@ -1007,7 +1007,7 @@ h5,
 h6 {
   margin-top: 0;
   margin-bottom: .75em;
-  font-family: 'Oswald';
+  font-family: 微软雅黑;
 }
 p {
   line-height: 1.7em;
@@ -2110,3 +2110,6 @@ fieldset[disabled] .footer .btn-transparent.active {
 .footer .btn-transparent:hover {
   background: #2c3e4e;
 }
+.col-sm-12 a{color:#fff;}
+.col-sm-12 a:selected{color:#fff;}
+.col-sm-12 a:hover{color:#fff;text-decoration:none;}
