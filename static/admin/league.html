@@ -13,6 +13,13 @@
             window.location = "/account/change_profile/";
         {% endif %}
     }
+    function cancelLeague(){
+    	if (confirm("确认取消报名吗？") == true) {
+		    window.location = "/game/cancel_league_request/";
+		} else {
+		    
+		}
+    }
 </script>
 {% endblock %}
 {% block profileimg %}
@@ -149,7 +156,7 @@
         <div class="col-sm-4 col-md-3 layout-sidebar">
           <div class="portlet">
           {% if has_request %}
-          	<a class="btn btn-primary btn-jumbo btn-block disabled" onclick="checkProfile()">已经报名</a>
+          	<a class="btn btn-primary btn-jumbo btn-block" onclick="cancelLeague()"> 取消报名</a>
           {% else %}
             {% if current_league %}
               {% if current_league.is_finished %}
