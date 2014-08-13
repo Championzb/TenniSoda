@@ -233,6 +233,7 @@ def view_profile(request, user_id=1):
 	notifications = Notification.objects.filter(user=user, viewed=False).order_by('time').reverse()
 
 	activities = ActivityFeed.objects.filter(creator = opponent_user).order_by('date_time').reverse()
+	page_number = request.GET.get('page','1')
 
 	args = {}
 	args['profile'] = user.profile
@@ -241,7 +242,7 @@ def view_profile(request, user_id=1):
 	args['games_count'] = games_count
 	args['games_win_count'] = games_win_count
 	args['notifications'] = notifications
-	args['activities'] = activities
+	args['activities'] = Paginator(activities,10).page(page_number)
 	args['followers_count'] = len(Follow.objects.followers(opponent_user))
 	args['following_count'] = len(Follow.objects.following(opponent_user))
 
