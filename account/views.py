@@ -155,6 +155,7 @@ def welcome_user(request):
 		if following.profile:
 			for activity in ActivityFeed.objects.filter(creator=following).order_by('date_time').reverse():
 				activities.append(activity)
+	page_number = request.GET.get('page','1')
 	
 	profile = request.user.profile
 
@@ -167,7 +168,7 @@ def welcome_user(request):
 	args['notifications'] = notifications
 	args['followers_count'] = len(Follow.objects.followers(request.user))
 	args['following_count'] = len(Follow.objects.following(request.user))
-	args['activities'] = activities
+	args['activities'] = Paginator(activities, 10).page(page_number)
 	print activities
 	return render_to_response('page-profile.html',args)
 

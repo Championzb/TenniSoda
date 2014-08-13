@@ -265,6 +265,25 @@ mixpanel.init("7839eb0766d436492cbf86caab93a026");
             </div> <!-- /.feed-item -->
 			{% endifequal %}
 			{% endfor %}
+			<div class="row">
+			  	<!-- pagination-->
+				<div class="dataTables_paginate paging_bootstrap">
+					<ul class="pagination">
+						{% if activities.has_previous %}
+						<li class="btn prev"><a href="?page={{activities.previous_page_number}}"><i class="fa fa-angle-double-left"></i>上一页</a></li>
+						{% else %}
+						<li class="btn prev disabled"><a href=""><i class="fa fa-angle-double-left"></i>上一页</a></li>
+						{% endif %}
+						{%if activities.has_next %}
+						<li class="btn next"><a href="?page={{activities.next_page_number}}">下一页<i class="fa fa-angle-double-right"></i></a></li>
+						{% else %}
+						<li class="btn next disabled"><a href="">下一页<i class="fa fa-angle-double-right"></i></a></li>
+						{% endif %}
+						</ul>
+				</div><!-- /.paginate -->
+				
+			</div><!-- /.row -->
+
             <br class="visible-xs">
             <br class="visible-xs">
 		{% endblock %}
