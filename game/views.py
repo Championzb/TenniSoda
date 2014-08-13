@@ -340,6 +340,23 @@ def join_league_request(request):
 	return render(request, 'league.html', args)
 	
 	#return HttpResponseRedirect('/game/league/')
+
+@login_required
+def cancel_league_request(request):
+	user = request.user.profile
+	league_request = JoinLeagueRequest.objects.filter(player = user)
+	if league_request:
+		league_request.delete()
+
+	notifications = Notification.objects.filter(user = request.user, viewed = False)
+
+	args = {}
+
+	args['profile'] = user
+	args['notification'] = notifications
+	args['has_request'] = False
+
+	return render(request, 'league.html', args)
 	
 @login_required
 def game_group(request):

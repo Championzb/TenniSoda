@@ -22,58 +22,76 @@
   <div class="content">
 
     <div class="container">
+		<div class="layout layout-stack-sm layout-main-left">
+		<div class="col-sm-8 col-md-9 layout-main">
+			
+			<h3 class="content-title"><u>所有用户</u></h3>
 
-      <h3 class="content-title"><u>所有用户</u></h3>
-
-      <div class="row">
-
-        <div class="col-md-6">
-
-			<div class="table-responsive">
-		
-				<table class="table table-striped thumbnail-table" >
-
-					<tbody>
-						{% for user in all_users %}
-						<tr>
-							<td class="text-center" width="120px">
-							<a href="/account/view_profile/{{user.id}}/" target="_blank">					
-							{% if user.profile.picture %}
-					  		<img src="{% get_static_prefix %}assets/{{user.profile.picture.url}}" width=75 height=75 alt="Profile Image" />
+		  	<div class="row">
+		  
+		  	{% for user in all_users %}
+		  		<div class="col-md-3 col-sm-6">
+		  		
+		  			<div class="thumbnail">
+		  				<div class="text-center">
+						<div class="thumbnail-view">
+				 			<a href="/account/view_profile/{{user.id}}/" target="_blank" class="valign-middle">
+						    {% if user.profile.picture %}
+						  		<img src="{% get_static_prefix %}assets/{{user.profile.picture.url}}" style="width: 150px;height: 150px;" alt="Profile Image" />
 							{% else %}
-			  				<img src="{% static "assets/uploaded_files/default.jpg" %}" width=75 height=75 alt="Profile Image" />
+				  				<img src="{% static "assets/uploaded_files/default.jpg" %}" style="width: 150px;height: 150px;" alt="Profile Image" />
 							{% endif %}
 							</a>
-							</td>
-							<td class="valign-middle">
-							{% if user.profile %}
-								<a href="/account/view_profile/{{user.id}}/" target="_blank">
-								<strong>{{user.profile}}</strong>
-								</a>
-							{% else %}
-								<strong>{{user}}</strong>	
-							{% endif %}
+						</div>
+						</div>
+						<div class="caption">
+						    <h4 class="valign-middle">
+						    	<a href="/account/view_profile/{{user.id}}/" target="_blank">{{user.profile}}</a>
+						    	<i class="fa fa-signal" style="float:right;font-size:18px">{{user.level}}</i>
+						    </h4>
+                            <p>
+                                <i class="icon-li fa fa-globe"></i>
+                                {% if user.profile.city %}
+                                    {{user.profile.city}}
+                                {% else %}
+                                    未选城市
+                                {% endif %}
+                        	</p>
+                            <p>
+                                <i class="icon-li fa fa-map-marker"></i>
+								{%if user.profile.court %}
+									{{user.profile.court}}
+								{% else %}
+									未选主场
+								{% endif %}
+                            </p>
+						  </div>
+						  <div class="thumbnail-footer">
+						    <div class="pull-left">
+						      
+						    </div>
 
-							</td>
-							<td class="text-right valign-top">
-							{% ifequal user.profile profile %}
-							<a href="" class="btn">本人</a>
-							{% else %}
-							{% if user in following %}
-							<a href="/account/remove_follower/{{user.id}}/" class="btn">取消关注</a>
-							{% else %}
-							<a href="/account/add_follower/{{user.id}}/" class="btn"><i class="fa fa-plus text-primary"></i><font color="green">&nbsp;&nbsp;关&nbsp;&nbsp;注&nbsp;&nbsp;</font></a>
-							{% endif %}
-							{% endifequal %}
-							</td>
+						    <div class="pull-right">
+							  	{% ifequal user profile.user %}
+									<a href=""></a>
+								{% else %}
+									{% if user in following %}
+										<a href="/account/remove_follower/{{user.id}}/"><font color="grey"><i class="fa fa-check">&nbsp;已关注 |</font></i><font color="#0066CC"> 取消</font></a>
+									{% else %}
+										<a href="/account/add_follower/{{user.id}}/"><font color="#669933"><i class="fa fa-plus"><strong>&nbsp;&nbsp;关&nbsp;&nbsp;注&nbsp;&nbsp;</strong></i></font></a>
+									{% endif %}
+								{% endifequal %}
+						    </div>
+						</div>
+					</div>          
 
-						</tr>
-						{% endfor %}
-					</tbody>
+		    	</div> <!-- /.col -->
+		    {% endfor %}
 
-				</table>
-				
-				<!-- pagination-->
+			</div> <!-- /.row -->
+		  
+			<div class="row">
+			  	<!-- pagination-->
 				<div class="dataTables_paginate paging_bootstrap">
 					<ul class="pagination">
 						{% if all_users.has_previous %}
@@ -88,25 +106,21 @@
 						{% endif %}
 						</ul>
 				</div><!-- /.paginate -->
-
-			</div><!-- /.table-responsive -->
-
-        </div> <!-- /.col -->
-        
-        <div class="col-md-6">
-
-			<div class="table-responsive">
-		
-				<table class="table table-striped thumbnail-table" >
 				
-				</table>
-				
-			</div> <!-- /.table-responsive -->
+			</div><!-- /.row -->
 			
-		</div> <!-- /.col -->
-
-      </div> <!-- /.row -->
-
+		</div><!-- /.layout-main -->
+		
+		<div class="col-sm-4 col-md-3 layout-sidebar">
+			<div class="portlet">
+            	<a href="/game/game_group/" class="btn btn-primary btn-jumbo btn-block">约&nbsp;&nbsp;球</a>
+            	<br/>
+            	<a href="/game/league/" class="btn btn-secondary btn-lg btn-block ">查看联赛</a>
+        	</div> <!-- /.portlet -->
+		</div><!-- /.layout-sidebar -->
+		
+		</div><!-- /.layout -->
+		
     </div> <!-- /.container -->
 
   </div> <!-- .content -->

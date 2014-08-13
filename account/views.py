@@ -363,6 +363,7 @@ def get_following(request, user_id = 1):
 	args['following'] = Paginator(following,10).page(page_number)
 	args['myfollowing'] = Follow.objects.following(user)
 	args['followers_count'] = len(Follow.objects.followers(opponent_user))
+	#args['followers_count'] = opponent_user.get_followers_num()
 	args['following_count'] = len(Follow.objects.following(opponent_user))
 
 	if user == opponent_user:
@@ -406,14 +407,15 @@ def search(request):
 
 def display_all_users(request):
 	user = request.user
-	all_users = Account.objects.all().exclude(id = user.id)
+	#all_users = Account.objects.all().exclude(id = user.id)
+	all_users = Account.objects.all()
 	notifications = Notification.objects.filter(user=user, viewed=False).order_by('time').reverse()
 	page_number = request.GET.get('page','1')
 	following = Follow.objects.following(user)
 	
 	
 	args = {}
-	args['all_users'] = Paginator(all_users, 3).page(page_number)
+	args['all_users'] = Paginator(all_users, 8).page(page_number)
 	args['profile'] = user.profile
 	args['notifications'] = notifications
 	args['following'] = following
