@@ -76,9 +76,9 @@
 									<a href=""></a>
 								{% else %}
 									{% if user in following %}
-										<a href="/account/remove_follower/{{user.id}}/" class="">取消关注</a>
+										<a href="/account/remove_follower/{{user.id}}/"><font color="grey"><i class="fa fa-check">&nbsp;已关注 |</font></i><font color="#0066CC"> 取消</font></a>
 									{% else %}
-										<a href="/account/add_follower/{{user.id}}/" class=""><strong>&nbsp;&nbsp;关&nbsp;&nbsp;注&nbsp;&nbsp;</strong></a>
+										<a href="/account/add_follower/{{user.id}}/" ><i class="fa fa-plus"><strong>&nbsp;&nbsp;关&nbsp;&nbsp;注&nbsp;&nbsp;</strong></i></a>
 									{% endif %}
 								{% endifequal %}
 						    </div>
