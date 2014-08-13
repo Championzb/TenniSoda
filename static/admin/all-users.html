@@ -72,13 +72,13 @@
 						    </div>
 
 						    <div class="pull-right">
-							  	{% ifequal user profile %}
+							  	{% ifequal user profile.user %}
 									<a href=""></a>
 								{% else %}
 									{% if user in following %}
 										<a href="/account/remove_follower/{{user.id}}/"><font color="grey"><i class="fa fa-check">&nbsp;已关注 |</font></i><font color="#0066CC"> 取消</font></a>
 									{% else %}
-										<a href="/account/add_follower/{{user.id}}/" ><i class="fa fa-plus"><strong>&nbsp;&nbsp;关&nbsp;&nbsp;注&nbsp;&nbsp;</strong></i></a>
+										<a href="/account/add_follower/{{user.id}}/"><font color="#669933"><i class="fa fa-plus"><strong>&nbsp;&nbsp;关&nbsp;&nbsp;注&nbsp;&nbsp;</strong></i></font></a>
 									{% endif %}
 								{% endifequal %}
 						    </div>
