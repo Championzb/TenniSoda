@@ -133,7 +133,12 @@
                                                         <i class="fa fa-male"></i>
                                                     {% endifequal %}
                                                 {% endif %}
-                                                &nbsp;&nbsp;{{ group.holder.phone }}
+                                                &nbsp;&nbsp;
+                                                {% ifequal group.holder profile %}
+                                                
+                                                {% else %}
+                                                	{{ group.holder.phone }}
+                                               	{% endifequal %}
                                             </a>
                                         </li>
                                         {% for member in group.get_members %}
@@ -152,6 +157,9 @@
                                                             <i class="fa fa-male"></i>
                                                         {% endifequal %}
                                                     {% endif %}
+                                                    {% ifequal group.holder profile %}
+                                                    	{{ member.phone }}
+                                                    {% endifequal %}
                                                 </a>
                                             </li>
                                         {% endfor %}
@@ -163,7 +171,7 @@
                                   	<a class="btn" href="/game/edit_game_group/{{group.id}}/">
                                   		<!--button class="btn btn-xs btn-primary" title="修改"><i class="fa fa-pencil"></i></button-->修改
                                   	</a>
-                                  	<a class="btn" onclick="confirmDeleter({{group.id}})">
+                                  	<a class="btn" onclick="confirmDelete({{group.id}})">
                                   		<!--button onclick="confirmDelete({{group.id}})" class="btn btn-xs btn-secondary" title="删除"><i class="fa fa-times"></i></button-->删除
                                   	</a>
                                   {% else %}
