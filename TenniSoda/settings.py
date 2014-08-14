@@ -117,6 +117,9 @@ DATABASES = {
 #HOST_DOMAIN = '114.215.122.73'
 HOST_DOMAIN = 'www.tennisoda.com'
 
+#URL configuration
+LOGIN_URL = '/account/login/'
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
