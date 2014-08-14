@@ -100,12 +100,15 @@ def login(request):
 						del request.session['email']
 						del request.session['password']
 					except KeyError:
-						pass
-				
-				if user.first_login:
-					return HttpResponseRedirect('/account/first_login/')
+						pass				
+				if request.POST['next']:
+					print 'HH'
+					return HttpResponseRedirect(request.POST['next'])
 				else:
-					return HttpResponseRedirect('/account/welcome_user/')
+					if user.first_login:
+						return HttpResponseRedirect('/account/first_login/')
+					else:
+						return HttpResponseRedirect('/account/welcome_user/')
 			else:
 				args = {}
 				request.session['email'] = email
@@ -124,6 +127,7 @@ def login(request):
 	else:
 		args = {}
 		args.update(csrf(request))
+		args['next'] = request.GET.get('next', '')
 		return render(request, 'account-login.html', args)
 
 @login_required
