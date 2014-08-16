@@ -30,7 +30,7 @@
   <link href="{% static "assets/landing/css/mvpready-landing-belize.css" %}" rel="stylesheet">
   <link href="{% static "assets/landing/css/mvpready-flat.css" %}" rel="stylesheet">
   <link href="{% static "assets/landing/css/animate.css" %}" rel="stylesheet">
-  <!-- <link href="./css/custom.css" rel="stylesheet">-->
+  <link href="{% static "assets/landing/css/custom.css" %}" rel="stylesheet">
 
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -280,7 +280,14 @@ mixpanel.init("7839eb0766d436492cbf86caab93a026");
                 </div> <!-- /.masthead-text -->
 
                 <div class="col-md-6 masthead-img animated fadeInUpBig">
-                  <img src="{% static "assets/landing/img/masthead/wechat-qr.jpg" %}" alt="slide2" class="img-responsive" />
+                   <div class="col-md-6">
+                      <p class="social-media-header">微信:网球苏打</p>
+                    <img src="{% static "assets/landing/img/masthead/wechat-qr.png" %}" alt="slide2" class="img-responsive" />
+                  </div>
+                  <div class="col-md-6">
+                    <p class="social-media-header">微博:网球苏打</p>
+                    <img src="{% static "assets/landing/img/masthead/weibo-qr.png" %}" alt="slide2" class="img-responsive" />
+                  </div>
                 </div> <!-- /.masthead-img -->
 
               </div> <!-- /.row -->
