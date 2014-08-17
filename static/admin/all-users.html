@@ -54,7 +54,9 @@
 								{% else %}
 									<a href="/account/view_profile/{{user.id}}/" target="_blank" style="color:#62A9FF">{{user.profile}}</a>
 								{% endifequal %}
-						    	<i class="fa fa-signal" style="float:right;font-size:18px">{{user.profile.level}}</i>
+								{% if user.profile.level %}
+						    		<i class="fa fa-signal" style="float:right;font-size:18px">{{user.profile.level}}</i>
+						    	{% endif %}
 						    </h4>
                             <p>
                                 <i class="icon-li fa fa-globe"></i>
