@@ -143,7 +143,7 @@ def first_login(request):
 	return render_to_response('account-tutorial.html', args)
 	'''
 	
-	return HttpResponseRedirect("/account/welcome_user/")
+	return HttpResponseRedirect("/game/league/")
 
 @login_required
 def welcome_user(request):
@@ -393,14 +393,23 @@ def search(request):
 	page_number = request.GET.get('page','1')
 
 	has_match = False
-	search_result = Profile.objects.all()
+	profile_set = Profile.objects.all()
 	for word in keyword:
-		if search_result.filter(Q(first_name__contains=word)|Q(last_name__contains=word)):
-			search_result = search_result.filter(Q(first_name__contains=word)|Q(last_name__contains=word))
+		if profile_set.filter(Q(first_name__contains=word)|Q(last_name__contains=word)):
+			profile_set = profile_set.filter(Q(first_name__contains=word)|Q(last_name__contains=word))
 			has_match = True
 		else:
 			continue
-
+			
+	search_result = []
+	search_result.extend(list(profile_set))
+	
+	account = Account.objects.get(email=keyword)
+	if account:
+		has_match = True
+		search_result = []
+		search_result.append(account.profile)
+		
 	args = {}
 	args.update(csrf(request))
 	args['profile'] = user.profile

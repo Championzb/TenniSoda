@@ -38,7 +38,7 @@
   <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
   <![endif]-->
   <!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script-->
-  <script src="{% static "assets/admin/js/libs/jquery.min.js" %}">
+  <script src="{% static "assets/admin/js/libs/jquery.min.js" %}"></script>
   {% block message %}
   {% if messages %}
     <script>
@@ -219,15 +219,15 @@
         <ul class="nav navbar-nav navbar-right">
 
           <li>
+            <a href="javascript:;">联赛规则</a>
+          </li>
+
+          <li>
             <a href="{% static "assets/admin/page-faq.html" %}" target="_blank">常见问题</a>
           </li>
           
           <li>
           	<a href="{% static "assets/admin/page-contact.html" %}" target="_blank">关于我们</a>
-          </li>
-
-          <li>
-            <a href="javascript:;">规则</a>
           </li>
 
           <li class="dropdown navbar-profile">
