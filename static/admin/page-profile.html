@@ -95,26 +95,44 @@ mixpanel.init("7839eb0766d436492cbf86caab93a026");
 
         <div class="col-md-6 col-sm-7">
 
-          <h3>{{ profile }}</h3>
+
+            {% ifequal profile.gender '0' %}
+                <h3 style="color:#FF62B0">{{ profile }}</h3>
+            {% else %}
+            	<h3 style="color:#62A9FF">{{ profile }}</h3>
+            {% endifequal %}
+
+          
 
           <!--<h5 class="text-muted">Ladder points: XXXX</h5>-->
           
           <ul class="icons-list">
             <li>
-            	<i class="icon-li fa fa-globe"></i>
-            	{% if profile.city %}
-            		{{ profile.city }}
-            	{% else %}
-            		 未选城市
-            	{% endif %}
+            	<div class="row">
+            		<div class="col-md-6 col-sm-6">
+				    	<i class="icon-li fa fa-globe"></i>
+				    	{% if profile.city %}
+				    		{{ profile.city }}
+				    	{% else %}
+				    		 未选城市
+				    	{% endif %}
+				    </div> <!-- ./col -->
+				    <div class="col-md-6 col-sm-6">
+				    	等级: {{ profile.level }}
+				    </div> <!-- ./col -->
+				</div> <!-- ./row -->
             </li>
             <li>
-            	<i class="icon-li fa fa-map-marker"></i>
-            	{%if profile.court %}
-            		{{profile.court}}
-            	{% else %}
-            		未选主场
-            	{% endif %}
+            	<div class="row">
+            		<div class="col-md-12 col-sm-6">
+				    	<i class="icon-li fa fa-map-marker"></i>
+				    	{%if profile.court %}
+				    		{{profile.court}}
+				    	{% else %}
+				    		未选主场
+				    	{% endif %}
+				    </div> <!-- ./col -->
+		       	</div> <!-- ./row -->
             </li>
           </ul>    
 

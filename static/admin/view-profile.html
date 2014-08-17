@@ -79,7 +79,11 @@
 
         <div class="col-md-6 col-sm-7">
 
-			<span><font size=5>{{ opponent_profile }}</font></span>
+            {% ifequal opponent_profile.gender '0' %}
+                <h3 style="color:#FF62B0">{{ opponent_profile }}</h3>
+            {% else %}
+            	<h3 style="color:#62A9FF">{{ opponent_profile }}</h3>
+            {% endifequal %}
 			<!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<i class="icon-li fa fa-envelope"></i>{{opponent_profile.user.email}}
 			-->
