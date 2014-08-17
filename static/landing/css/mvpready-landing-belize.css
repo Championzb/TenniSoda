@@ -15,7 +15,7 @@ body {
   padding: 0;
   margin: 0;
   color: #444;
-  font-family:微软雅黑,sans-serif;
+  font-family: 'Open Sans', 'Trebuchet MS', arial, sans-serif;
   font-size: 13px;
 }
 /* !Text */
@@ -1437,6 +1437,7 @@ p {
   width: 100%;
   padding-top: 0;
   padding-bottom: 0;
+  background-color: #283949;
   border-bottom: 7px solid #fff;
   -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
@@ -2045,12 +2046,6 @@ p {
   border-color: #ffffff;
   border: 2px solid #fff;
 }
-.masthead .btn-transparent01{
-  color: #ffffff;
-  background-color: #18c5aa;
-  border-color: #ffffff;
-  border: 2px solid #fff;
-	}
 .masthead .btn-transparent:hover,
 .footer .btn-transparent:hover,
 .masthead .btn-transparent:focus,
@@ -2115,7 +2110,3 @@ fieldset[disabled] .footer .btn-transparent.active {
 .footer .btn-transparent:hover {
   background: #233140;
 }
-
-.col-sm-12 a{color:#fff;}
-.col-sm-12 a:selected{color:#fff;}
-.col-sm-12 a:hover{color:#fff;text-decoration:none;}
