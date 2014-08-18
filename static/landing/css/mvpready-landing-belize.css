@@ -2110,3 +2110,6 @@ fieldset[disabled] .footer .btn-transparent.active {
 .footer .btn-transparent:hover {
   background: #233140;
 }
+.col-sm-12 a{color:#fff;}
+.col-sm-12 a:selected{color:#fff;}
+.col-sm-12 a:hover{color:#fff;text-decoration:none;}
