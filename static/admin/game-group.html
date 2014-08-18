@@ -204,7 +204,7 @@
         </div><!-- /.row -->
         {% endif %}
 
-        {% if all_groups %}
+        {% if unattended_groups %}
         <h3 class="content-title"><u>已有小组</u></h3>
 
         <div class="row">
@@ -222,7 +222,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for group in all_groups %}
+                            {% for group in unattended_groups %}
                             <tr>
                                 <!-- holder -->
                                 <td>
@@ -318,13 +318,13 @@
 				<!-- pagination-->
 				<div class="dataTables_paginate paging_bootstrap">
 				<ul class="pagination">
-					{% if all_groups.has_previous %}
-					<li class="btn prev"><a href="?all_groups_page={{all_groups.previous_page_number}}"><i class="fa fa-angle-double-left"></i>前一页</a></li>
+					{% if unattended_groups.has_previous %}
+					<li class="btn prev"><a href="?unattended_groups_page={{unattended_groups.previous_page_number}}"><i class="fa fa-angle-double-left"></i>前一页</a></li>
 					{% else %}
 					<li class="btn prev disabled"><a href=""><i class="fa fa-angle-double-left"></i>前一页</a></li>
 					{% endif %}
-					{%if all_groups.has_next %}
-					<li class="btn next"><a href="?all_groups_page={{all_groups.next_page_number}}">后一页<i class="fa fa-angle-double-right"></i></a></li>
+					{%if unattended_groups.has_next %}
+					<li class="btn next"><a href="?unattended_groups_page={{unattended_groups.next_page_number}}">后一页<i class="fa fa-angle-double-right"></i></a></li>
 					{% else %}
 					<li class="btn next disabled"><a href="">后一页<i class="fa fa-angle-double-right"></i></a></li>
 					{% endif %}

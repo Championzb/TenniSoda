@@ -361,26 +361,30 @@ def cancel_league_request(request):
 @login_required
 def game_group(request):
 	user = request.user.profile
-	attended_groups = GameGroup.objects.filter(members=user).order_by('date','start_time').reverse()
-	holding_groups = GameGroup.objects.filter(holder=user).order_by('date','start_time').reverse()
-	all_groups = GameGroup.objects.all().order_by('date','start_time').reverse()
-	all_groups = all_groups.exclude(members=user)
-	all_groups = all_groups.exclude(holder=user)
+
 	today = date.today()
-	attended_groups = attended_groups.filter(date__gte=today)
-	holding_groups = holding_groups.filter(date__gte=today)
-	all_groups = all_groups.filter(date__gte=today)
-	notifications = Notification.objects.filter(user = request.user, viewed = False).order_by('time').reverse()
-
-	all_groups_page_number = request.GET.get('all_groups_page','1')
+	unattended_groups = GameGroup.objects.all().exclude(Q(date__lt=today)|Q(members=user)|Q(holder=user)).order_by('date', 'start_time').reverse()
+	#attended_groups = GameGroup.objects.filter(Q(date__gte=today), Q(members=user) | Q(holder=user)).order_by('date', 'start_time').reverse()
+	hold_groups = GameGroup.objects.filter(Q(date__gte=today), Q(holder=user)).order_by('date', 'start_time').reverse()
+	members_groups = GameGroup.objects.filter(Q(date__gte=today), Q(members=user)).order_by('date', 'start_time').reverse()
+	
+	attended_groups = []
+	attended_groups.extend(list(hold_groups))
+	attended_groups.extend(list(members_groups))
+	
+	print 'TEST'
+	print attended_groups
+	
+	unattended_groups_page_number = request.GET.get('unattended_groups_page', '1')
 	attended_groups_page_number = request.GET.get('attended_groups_page', '1')
-	holding_groups_page_number = request.GET.get('holding_groups_page', '1')
-
+	
+	notifications = Notification.objects.filter(user = request.user, viewed = False).order_by('time').reverse()
+	
 	args = {}
 	args['profile'] = user
 	args['notifications'] = notifications
-	args['attended_groups'] = Paginator(holding_groups | attended_groups,3).page(attended_groups_page_number)
-	args['all_groups'] = Paginator(all_groups,3).page(all_groups_page_number)
+	args['attended_groups'] = Paginator(attended_groups,3).page(attended_groups_page_number)
+	args['unattended_groups'] = Paginator(unattended_groups,5).page(unattended_groups_page_number)
 	#args['holding_groups'] = Paginator(holding_groups,1).page(holding_groups_page_number)
 
 	return render_to_response('game-group.html', args)
