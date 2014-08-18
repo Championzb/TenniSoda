@@ -365,8 +365,8 @@ def game_group(request):
 	today = date.today()
 	unattended_groups = GameGroup.objects.all().exclude(Q(date__lt=today)|Q(members=user)|Q(holder=user)).order_by('date', 'start_time').reverse()
 	#attended_groups = GameGroup.objects.filter(Q(date__gte=today), Q(members=user) | Q(holder=user)).order_by('date', 'start_time').reverse()
-	hold_groups = GameGroup.objects.filter(Q(date__gte=today), Q(holder=user)).order_by('date', 'start_time').reverse()
-	members_groups = GameGroup.objects.filter(Q(date__gte=today), Q(members=user)).order_by('date', 'start_time').reverse()
+	hold_groups = GameGroup.objects.filter(Q(date__gte=today), Q(holder=user)).order_by('date', 'start_time')
+	members_groups = GameGroup.objects.filter(Q(date__gte=today), Q(members=user)).order_by('date', 'start_time')
 	
 	attended_groups = []
 	attended_groups.extend(list(hold_groups))
