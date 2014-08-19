@@ -275,7 +275,7 @@ def league(request):
 	args['notifications'] = notifications
 
 
-	return render_to_response('league.html', args)
+	return render(request, 'league.html', args)
 
 @login_required
 def join_league_request(request):
@@ -356,7 +356,7 @@ def game_group(request):
 	args['unattended_groups'] = Paginator(unattended_groups,5).page(unattended_groups_page_number)
 	#args['holding_groups'] = Paginator(holding_groups,1).page(holding_groups_page_number)
 
-	return render_to_response('game-group.html', args)
+	return render(request, 'game-group.html', args)
 
 @login_required
 def publish_game_group(request):
@@ -382,7 +382,7 @@ def publish_game_group(request):
 	args['notifications'] = notifications
 	args['url'] = '/game/publish_game_group/'
 
-	return render_to_response('publish-game-group.html', args)
+	return render(request, 'publish-game-group.html', args)
 
 @login_required
 def join_game_group(request, game_group_id):
@@ -392,19 +392,26 @@ def join_game_group(request, game_group_id):
 		or user.phone is None or user.phone == '':
 		return render_to_response('/account/change_profile/')
 	game_group = GameGroup.objects.get(id=game_group_id)
-	if game_group.current_num >= game_group.maximum:
-		messages.success(request,u'你当你谁啊，我们CTO又不傻')
-		auth.logout(request)
-		return HttpResponseRedirect('/account/login/')
-	if GameGroup.objects.filter(id=game_group_id, members=user).count() == 0:
-		game_group.members.add(user)
-		game_group.current_num += 1
-		game_group.save()
-		ActivityFeed.objects.create(type = '2',
-                                    date_time = datetime.now(),
-                                    creator = user,
-                                    game_group = game_group)	
-	return HttpResponseRedirect('/game/game_group/')
+	if game_group:
+		if game_group.current_num >= game_group.maximum:
+			messages.warning(request,u'对不起，当前小组已满员')
+			return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+		if game_group.date < date.today():
+			messages.warning(request, u'对不起，约球小组信息已过期')
+			return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+			#return HttpResponseRedirect('/game/game_group/')
+		if GameGroup.objects.filter(id=game_group_id, members=user).count() == 0:
+			game_group.members.add(user)
+			game_group.current_num += 1
+			game_group.save()
+			ActivityFeed.objects.create(type = '2',
+		                                date_time = datetime.now(),
+		                                creator = user,
+		                                game_group = game_group)	
+		return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+	else:
+		messages.warning(request, u'对不起，该小组不存在或可能已被解散')
+		return HttpResponseRedirect('/game/game_group/')
 
 @login_required
 def quit_game_group(request, game_group_id):
@@ -449,7 +456,7 @@ def edit_game_group(request, game_group_id):
 	args['notifications'] = notifications
 	args['url'] = '/game/edit_game_group/' + game_group_id +'/'
 
-	return render_to_response('publish-game-group.html', args)
+	return render(request, 'publish-game-group.html', args)
 
 @login_required
 def delete_game_group(request, game_group_id):

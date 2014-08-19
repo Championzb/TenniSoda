@@ -177,8 +177,7 @@ def welcome_user(request):
 	args['followers_count'] = len(Follow.objects.followers(request.user))
 	args['following_count'] = len(Follow.objects.following(request.user))
 	args['activities'] = Paginator(activities, 10).page(page_number)
-	print activities
-	return render_to_response('page-profile.html',args)
+	return render(request, 'page-profile.html',args)
 
 def invalid_login(request):
 	return render_to_response('invalid_login.html')
@@ -254,7 +253,7 @@ def view_profile(request, user_id=1):
 	args['followers_count'] = len(Follow.objects.followers(opponent_user))
 	args['following_count'] = len(Follow.objects.following(opponent_user))
 
-	return render_to_response('view-profile.html',args)
+	return render(request, 'view-profile.html',args)
 
 
 @login_required
@@ -348,9 +347,9 @@ def get_followers(request, user_id = 1):
 	args['followers_count'] = len(Follow.objects.followers(opponent_user))
 	args['following_count'] = len(Follow.objects.following(opponent_user))
 	if user == opponent_user:
-		return render_to_response('view-my-followers.html',args)
+		return render(request, 'view-my-followers.html',args)
 
-	return render_to_response('view-followers.html',args)
+	return render(request, 'view-followers.html',args)
 
 def get_following(request, user_id = 1):
 	user = request.user
@@ -377,9 +376,9 @@ def get_following(request, user_id = 1):
 	args['following_count'] = len(Follow.objects.following(opponent_user))
 
 	if user == opponent_user:
-		return render_to_response('view-my-following.html',args)
+		return render(request, 'view-my-following.html',args)
 
-	return render_to_response('view-following.html',args)
+	return render(request, 'view-following.html',args)
 
 def search(request):
 	user = request.user
@@ -422,7 +421,7 @@ def search(request):
 	args['following'] = following
 	args['has_match'] = has_match
 
-	return render_to_response('search-result.html', args)
+	return render(request, 'search-result.html', args)
 
 def display_all_users(request):
 	user = request.user
@@ -439,6 +438,6 @@ def display_all_users(request):
 	args['notifications'] = notifications
 	args['following'] = following
 
-	return render_to_response('all-users.html',args)
+	return render(request, 'all-users.html',args)
 	
 

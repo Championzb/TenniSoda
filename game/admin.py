@@ -107,7 +107,7 @@ class FreeLeagueGameAdmin(admin.ModelAdmin):
 	list_display = ['player','request_time']
 
 class GameGroupAdmin(admin.ModelAdmin):
-	list_display = ['holder', 'maximum', 'city', 'district', 'court', 'date', 'start_time', 'last_hour','time', 'price', 'level_high', 'level_low',  'description', 'get_members_list',]
+	list_display = ['holder', 'current_num', 'maximum', 'city', 'district', 'court', 'date', 'start_time', 'last_hour','time', 'price', 'level_high', 'level_low',  'description', 'get_members_list',]
 	ordering = ['date', 'start_time']
 	list_filter = ('city', 'district', 'court',)
 

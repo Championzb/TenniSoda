@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, render
 from django.contrib.auth.decorators import login_required
 from models import Court
 from notification.models import Notification
@@ -21,4 +21,4 @@ def all(request):
     args['profile'] = user
     args['notifications'] = notifications
 
-    return render_to_response('all-court.html', args)
+    return render(request, 'all-court.html', args)

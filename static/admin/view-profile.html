@@ -155,6 +155,7 @@
             <br><br>
 			{% for activity in activities %}
 			{% ifequal activity.type 1 %}
+			<!-- hold game group -->
             <div class="feed-item feed-item-idea">
 
               <div class="feed-icon">
@@ -170,13 +171,13 @@
 				</td>
 				<td class="text-right">
 				  {% if profile in activity.game_group.get_members %}
-				  您已经加入
+				  	您已经加入
 				  {% else %}
-				  {% ifequal profile activity.game_group.holder %}
-				  您是小组发起人
-				  {% else %}
-				  <a href="/game/join_game_group/{{activity.game_group.id}}/" class="btn"><i class="fa fa-plus">加入这个小组</i></a>                     
-				  {% endifequal %}
+					  {% ifequal activity.game_group.maximum activity.game_group.current_num %}
+					  	小组已满
+					  {% else %}
+					  	<a href="/game/join_game_group/{{activity.game_group.id}}/" class="btn"><i class="fa fa-plus">加入这个小组</i></a>                     
+					  {% endifequal %}
 				  {% endif %}
 
 				</td>
@@ -198,6 +199,7 @@
             </div> <!-- /.feed-item -->
 			{% endifequal %}
 			{% ifequal activity.type 2 %}
+			<!-- join game group -->
             <div class="feed-item feed-item-file">
 
               <div class="feed-icon">
@@ -213,13 +215,21 @@
 				</td>
 				<td class="text-right">
 				  {% if profile in activity.game_group.members %}
-				  您已经加入
+				  	您已经加入
 				  {% else %}
-				  {% ifequal profile activity.game_group.holder %}
-				  您是小组发起人
-				  {% else %}
-				  <a href="/game/join_game_group/{{activity.game_group.id}}/" class="btn">加入这个小组</a>                     
-				  {% endifequal %}
+					  {% ifequal profile activity.game_group.holder %}
+					  	您是小组发起人
+					  {% else %}
+					  	{% if activity.game_group.is_past_due %}
+					  		已过期
+					  	{% else %}
+						  	{% ifequal activity.game_group.current_num activity.game_group.maximum %}
+						  		小组已满
+						  	{% else %}
+						  		<a href="/game/join_game_group/{{activity.game_group.id}}/" class="btn">加入这个小组</a>
+						  	{% endifequal %}                     
+					  	{% endif %}
+					  {% endifequal %}
 				  {% endif %}
 
 				</td>
