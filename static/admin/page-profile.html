@@ -176,7 +176,11 @@ mixpanel.init("7839eb0766d436492cbf86caab93a026");
 					  {% ifequal activity.game_group.current_num activity.game_group.maximum %}
 					  	小组已满
 					  {% else %}
-					  	<a href="/game/join_game_group/{{activity.game_group.id}}/" class="btn"><i class="fa fa-plus">加入这个小组</i></a>                     
+					  	{% if activity.game_group.date < date %}
+				  			已过期
+				  		{% else %}
+					  		<a href="/game/join_game_group/{{activity.game_group.id}}/" class="btn"><i class="fa fa-plus">加入这个小组</i></a>                     
+					  	{% endif %}
 					  {% endifequal %}
 				  {% endif %}
 
@@ -223,7 +227,11 @@ mixpanel.init("7839eb0766d436492cbf86caab93a026");
 					  	{% ifequal activity.game_group.current_num activity.game_group.maximum %}
 					  		小组已满
 					  	{% else %}
-					  		<a href="/game/join_game_group/{{activity.game_group.id}}/" class="btn">加入这个小组</a>
+					  		{% if activity.game_group.date < date %}
+					  			已过期
+					  		{% else %}
+					  			<a href="/game/join_game_group/{{activity.game_group.id}}/" class="btn">加入这个小组</a>
+					  		{% endif %}
 					  	{% endifequal %}                  
 					  {% endifequal %}
 				  {% endif %}

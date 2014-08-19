@@ -15,7 +15,7 @@ from friendship.models import Friend, Follow
 from django.core.paginator import Paginator
 from activity.models import ActivityFeed
 from admin import UserCreationForm, send_email
-from datetime import datetime
+from datetime import datetime, date
 
 import logging
 
@@ -177,6 +177,7 @@ def welcome_user(request):
 	args['followers_count'] = len(Follow.objects.followers(request.user))
 	args['following_count'] = len(Follow.objects.following(request.user))
 	args['activities'] = Paginator(activities, 10).page(page_number)
+	args['date'] = date.today()
 	return render(request, 'page-profile.html',args)
 
 def invalid_login(request):
@@ -252,6 +253,7 @@ def view_profile(request, user_id=1):
 	args['activities'] = Paginator(activities,10).page(page_number)
 	args['followers_count'] = len(Follow.objects.followers(opponent_user))
 	args['following_count'] = len(Follow.objects.following(opponent_user))
+	args['date'] = date.today()
 
 	return render(request, 'view-profile.html',args)
 
