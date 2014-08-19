@@ -408,9 +408,9 @@ def join_game_group(request, game_group_id):
 		                                date_time = datetime.now(),
 		                                creator = user,
 		                                game_group = game_group)
-            messages.success(request, u'成功加入%s的约球小组' % (game_group.holder))
-        else:
-        	messages.warning(request, u'您已经加入该组了')	
+			messages.success(request, u'成功加入%s的约球小组' % (game_group.holder))
+		else:
+			messages.warning(request, u'您已经加入该组了')	
 		return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 	else:
 		messages.warning(request, u'对不起，该小组不存在或可能已被解散')
