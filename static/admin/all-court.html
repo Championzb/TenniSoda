@@ -40,10 +40,9 @@
 					    <tr>
 					        <th style="width: 100px">图片</th>
 					        <th>名称</th>
-					        <th>城市</th>
 					        <th>地址</th>
-					        <th>费用</th>
-					        <th>联系电话</th>
+					        <!--th>费用</th>
+					        <th>联系电话</th-->
 					    </tr>
 					</thead>
 					<tbody>
@@ -67,21 +66,22 @@
 					            <p><font size="3">{{court.name}}</font></p>
 					        </td>
 					        <!--court city-->
-					        <td class="valign-middle">
+					        <!--td class="valign-middle">
 					            <p><font size="3">{{court.city}}</font></p>
-					        </td>
+					        </td-->
 					        <!--court address-->
 					        <td class="valign-middle">
+					        	<p><font size="3">{{court.city}}</font></p>
 					            <p><font size="3">{{court.address}}</font></p>
 					        </td>
 					        <!--court fee-->
-					        <td class="valign-middle">
+					        <!--td class="valign-middle">
 					            <p><font size="3">{{court.fee}}</font></p>
-					        </td>
+					        </td-->
 					        <!--court phone-->
-					        <td class="valign-middle">
+					        <!--td class="valign-middle">
 					            <p><font size="3">{{court.phone}}</font></p>
-					        </td>
+					        </td-->
 
 					    </tr>
 					    {% endif %}
