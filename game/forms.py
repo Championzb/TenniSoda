@@ -134,7 +134,7 @@ class GameGroupForm(forms.ModelForm):
 	maximum = forms.IntegerField(min_value = 2, max_value = 8, widget=forms.NumberInput(attrs = {'class': 'form-control'}), initial=4, required=True)
 	city = forms.ModelChoiceField(queryset=City.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}), required=True)
 	# district = forms.ModelChoiceField(queryset=District.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}))
-	court = forms.ModelChoiceField(queryset=Court.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}), required=True)
+	court = forms.ModelChoiceField(queryset=Court.objects.all().order_by('id').reverse(), widget=forms.Select(attrs = {'class': 'form-control'}), required=True)
 	date = forms.DateField( widget=forms.widgets.DateInput(attrs = {'class': 'form-control','type':'date'}), initial=datetime.now(), required=True)
 	start_time = forms.TimeField(widget=forms.widgets.TimeInput(format = '%H:%M', attrs = {'class': 'form-control','type':'time',}), initial=datetime.now(), required=True)
 	last_hour = forms.IntegerField(min_value = 0, max_value = 12, widget=forms.NumberInput(attrs = {'class': 'form-control'}), initial=2, required=True)

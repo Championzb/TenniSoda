@@ -23,7 +23,7 @@ class UserProfileForm(forms.ModelForm):
 	phone = CNCellNumberField(widget=forms.TextInput(attrs = {'class': 'form-control'}), required=False)
 	birth_date = forms.DateField(widget=forms.DateInput(attrs = {'class': 'form-control','type':'date'}), required=False)
 	#birth_date = forms.DateField(widget=DateTimePicker(options = {"format": "YYYY-MM-DD", "picktime": True}, attrs = {'id': 'datetimepicker'}), required=False)
-	court = forms.ModelChoiceField(queryset=Court.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}), required=False)
+	court = forms.ModelChoiceField(queryset=Court.objects.all().order_by('id').reverse(), widget=forms.Select(attrs = {'class': 'form-control'}), required=False)
 	picture = forms.ImageField(widget=ImageWidget(attrs = {'class': 'form-control'}), required=False)
 	club = forms.CharField(widget=forms.TextInput(attrs = {'class': 'form-control'}), required = False)
 	self_introduction = forms.CharField(widget=forms.Textarea(attrs = {'class': 'form-control'}), required = False)
