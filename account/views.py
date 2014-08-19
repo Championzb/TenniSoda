@@ -163,6 +163,10 @@ def welcome_user(request):
 		if following.profile:
 			for activity in ActivityFeed.objects.filter(creator=following).order_by('date_time').reverse():
 				activities.append(activity)
+				
+	#activities = activities.order_by('date_time')
+	activities = sorted(activities, key=lambda x: x.date_time, reverse=True)
+	
 	page_number = request.GET.get('page','1')
 	
 	profile = request.user.profile
