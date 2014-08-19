@@ -22,77 +22,107 @@
   <div class="content">
 
     <div class="container">
+    
+		<div class="layout layout-stack-sm layout-main-left">
+		
+			<div class="col-sm-8 col-md-9 layout-main">
 
-      <h3 class="content-title"><u>所有场地</u></h3>
+			  <h3 class="content-title"><u>所有场地</u></h3>
 
-      <div class="row">
+			  <div class="row">
 
-        <div class="col-md-12">
+				<div class="col-md-12">
 
-          <div class="table-responsive">
-          <!-- all courts table -->
-          <table class="table table-striped table-bordered thumbnail-table">
-            <thead>
-                <tr>
-                    <th style="width: 100px">图片</th>
-                    <th>名称</th>
-                    <th>城市</th>
-                    <th>地址</th>
-                    <th>费用</th>
-                    <th>联系电话</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for court in courts %}
-                {% if court.id != 1 %}
-                <tr>
-                    <!--court picture-->
-                    <td>
-                      <div class="thumbnail">
-                        <div class="thumbnail-view">
-                          {% if court.picture %}
-                            <img src="{% get_static_prefix %}assets/{{court.picture.url}}" width="125" alt="League Image" >
-                          {% else %}
-                            <img src="{% static "assets/uploaded_files/default-court.jpg" %}" width="125" alt="League Image" >
-                          {% endif %}
-                        </div>
-                      </div>
-                    </td>
-                    <!--court name-->
-                    <td class="valign-middle">
-                        <p><font size="3">{{court.name}}</font></p>
-                    </td>
-                    <!--court city-->
-                    <td class="valign-middle">
-                        <p><font size="3">{{court.city}}</font></p>
-                    </td>
-                    <!--court address-->
-                    <td class="valign-middle">
-                        <p><font size="3">{{court.address}}</font></p>
-                    </td>
-                    <!--court fee-->
-                    <td class="valign-middle">
-                        <p><font size="3">{{court.fee}}</font></p>
-                    </td>
-                    <!--court phone-->
-                    <td class="valign-middle">
-                        <p><font size="3">{{court.phone}}</font></p>
-                    </td>
+				  <div class="table-responsive">
+				  <!-- all courts table -->
+				  <table class="table table-striped table-bordered thumbnail-table">
+					<thead>
+					    <tr>
+					        <th style="width: 100px">图片</th>
+					        <th>名称</th>
+					        <th>城市</th>
+					        <th>地址</th>
+					        <th>费用</th>
+					        <th>联系电话</th>
+					    </tr>
+					</thead>
+					<tbody>
+					    {% for court in courts %}
+					    {% if court.id != 1 %}
+					    <tr>
+					        <!--court picture-->
+					        <td>
+					          <div class="thumbnail">
+					            <div class="thumbnail-view">
+					              {% if court.picture %}
+					                <img src="{% get_static_prefix %}assets/{{court.picture.url}}" width="125" alt="League Image" >
+					              {% else %}
+					                <img src="{% static "assets/uploaded_files/default-court.jpg" %}" width="125" alt="League Image" >
+					              {% endif %}
+					            </div>
+					          </div>
+					        </td>
+					        <!--court name-->
+					        <td class="valign-middle">
+					            <p><font size="3">{{court.name}}</font></p>
+					        </td>
+					        <!--court city-->
+					        <td class="valign-middle">
+					            <p><font size="3">{{court.city}}</font></p>
+					        </td>
+					        <!--court address-->
+					        <td class="valign-middle">
+					            <p><font size="3">{{court.address}}</font></p>
+					        </td>
+					        <!--court fee-->
+					        <td class="valign-middle">
+					            <p><font size="3">{{court.fee}}</font></p>
+					        </td>
+					        <!--court phone-->
+					        <td class="valign-middle">
+					            <p><font size="3">{{court.phone}}</font></p>
+					        </td>
 
-                </tr>
-                {% endif %}
-                {% endfor %}
-
-
-            </tbody>
-           </table>
-
-          </div> <!-- /.table-responsive -->
+					    </tr>
+					    {% endif %}
+					    {% endfor %}
 
 
-        </div> <!-- /.col -->
+					</tbody>
+				   </table>
 
-      </div> <!-- /.row -->
+				  </div> <!-- /.table-responsive -->
+
+
+				</div> <!-- /.col -->
+
+			  </div> <!-- /.row -->
+			  
+		</div> <!-- /.layout-main -->
+		
+		<div class="col-sm-4 col-md-3 layout-sidebar">
+			<div class="portlet">
+            	<a href="mailto:service@tennisoda.com?subject=上传场地&body=名称:%0D%0A城市:%0D%0A地址:%0D%0A费用:%0D%0A联系电话:%0D%0A" class="btn btn-primary btn-lg btn-block">上传场地</a>
+            	<br/>
+            	<a href="/game/league/" class="btn btn-secondary btn-lg btn-block ">苏打联赛</a>
+        	</div> <!-- /.portlet -->
+        	
+        	<h4>小贴士</h4>
+
+          <div class="well">
+
+            <ul class="icons-list text-md">
+              <li>
+                <i class="icon-li fa fa-comments-o text-success"></i>
+                如果列表中没有您身边的场地，欢迎上传场地通知我们一经审核通过，即可找到该场地。
+                <br>
+              </li>
+            </ul>
+          </div> <!-- /.well -->
+          
+		</div><!-- /.layout-sidebar -->	  
+		  
+      </div> <!-- /.layout -->
 
     </div> <!-- /.container -->
 
