@@ -34,6 +34,7 @@
               <label class="col-md-3">场地&nbsp;<span style="color: red">*</span></label>
               <div class="col-md-7">
               {{ form.court }}
+              <span>如果未在列表中找到场地，请选择“其他”，并在"介绍"中说明</span>
               {% for err in form.court.errors %}
                 <span style="color: red">{{ err }}</span>
               {% endfor %}
@@ -41,7 +42,7 @@
           </div> <!-- /.form-group -->
 
           <div class="form-group">
-              <label class="col-md-3">费用</label>
+              <label class="col-md-3">场地价格(每小时)</label>
               <div class="col-md-7">
               {{ form.price }}
               {% for err in form.price.errors %}
@@ -129,6 +130,7 @@
               <label class="col-md-3">介绍</label>
               <div class="col-md-7">
               {{ form.description }}
+              <span style="color: red">(限140字)</span>
               {% for err in form.description.errors %}
                 <span style="color: red">{{ err }}</span>
               {% endfor %}
