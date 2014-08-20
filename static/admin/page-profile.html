@@ -134,6 +134,18 @@ mixpanel.init("7839eb0766d436492cbf86caab93a026");
 				    </div> <!-- ./col -->
 		       	</div> <!-- ./row -->
             </li>
+            <li>
+            	<div class="row">
+            		<div class="col-md-12 col-sm-6">
+				    	自我介绍：
+					  	{% if profile.self_introduction %}
+					   		{{profile.self_introduction}}
+					   	{% else %}
+					   		无
+					   	{% endif %}	
+					</div> <!-- ./col -->
+          		</div> <!-- ./row -->
+            </li>
           </ul>    
 
           <hr>
