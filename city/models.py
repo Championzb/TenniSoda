@@ -15,4 +15,4 @@ class District(models.Model):
         unique_together = ('city', 'name',)
 
     def __unicode__(self):
-        return u"%s %s" % (self.name)
+        return u"%s" % (self.name)
