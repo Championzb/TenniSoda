@@ -14,7 +14,7 @@
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Open Sans', 'Trebuchet MS', arial, sans-serif;
+  font-family: 微软雅黑, arial, sans-serif;
   font-size: 13px;
 }
 .fontawesome-icon-list {
@@ -145,7 +145,7 @@ h6,
 .h6 {
   margin-top: 0;
   margin-bottom: .75em;
-  font-family: 'Oswald';
+  font-family: 微软雅黑;
 }
 .list-group .list-group-item .list-group-chevron {
   float: right;
@@ -1148,7 +1148,7 @@ fieldset[disabled] .btn-twitter.active {
   position: relative;
   padding-left: 24px;
   color: #444;
-  font-family: 'Open Sans', 'Trebuchet MS', sans-serif;
+  font-family: 微软雅黑, arial, sans-serif;
   font-size: 14px;
   line-height: 1.75em;
   letter-spacing: -1px;
@@ -2743,7 +2743,7 @@ body {
 .error-code {
   display: inline-block;
   vertical-align: top;
-  font-family: 'Oswald';
+  font-family: 微软雅黑;
   font-size: 100px;
   font-weight: 500;
   line-height: .7em;
