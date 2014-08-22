@@ -11,6 +11,10 @@ from django.contrib import auth, messages
 from datetime import datetime, date
 from notification.models import Notification
 from django.core.paginator import Paginator
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import get_template
+from django.template import Context
+from django.conf import settings
 
 @login_required
 def arrange_league(request):
@@ -297,7 +301,16 @@ def join_league_request(request):
 	league_request = JoinLeagueRequest.objects.get_or_create(player = user)[0]
 	league_request.request_time = datetime.now()
 	league_request.save()
-	messages.success(request,'您已成功报名联赛！')
+	messages.success(request,'您已成功报名联赛！请查收邮件！')
+	
+	email = get_template('email-join-league.html')
+	
+	subject, from_email, to = u'苏打联赛报名确认', settings.EMAIL_HOST_USER, request.user.email
+	html_content = email.render(Context({'username': user}))
+	
+	msg = EmailMultiAlternatives(subject, html_content, from_email, [to])
+	
+	msg.send()
 	
 	args = {}
 	notifications = Notification.objects.filter(user = request.user, viewed = False)
