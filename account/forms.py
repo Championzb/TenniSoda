@@ -20,7 +20,7 @@ class UserProfileForm(forms.ModelForm):
 	gender = forms.ChoiceField(widget=forms.Select(attrs = {'class': 'form-control'}),choices=GENDER,required=False)
 	city = forms.ModelChoiceField(queryset=City.objects.all(), widget=forms.Select(attrs = {'class': 'form-control', 'id': 'city'}), required=False)
 	district = forms.ModelChoiceField(queryset=District.objects.all(), widget=forms.Select(attrs = {'class': 'form-control', 'id': 'district'}), required=False)
-	phone = CNCellNumberField(widget=forms.TextInput(attrs = {'class': 'form-control'}), required=False)
+	phone = CNCellNumberField(widget=forms.TextInput(attrs = {'class': 'form-control'}), required=True)
 	birth_date = forms.DateField(widget=forms.DateInput(attrs = {'class': 'form-control','type':'date'}), required=False)
 	#birth_date = forms.DateField(widget=DateTimePicker(options = {"format": "YYYY-MM-DD", "picktime": True}, attrs = {'id': 'datetimepicker'}), required=False)
 	court = forms.ModelChoiceField(queryset=Court.objects.all().order_by('id').reverse(), widget=forms.Select(attrs = {'class': 'form-control'}), required=False)

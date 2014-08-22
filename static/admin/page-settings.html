@@ -192,6 +192,16 @@
                     {% endfor %}
                   </div> <!-- /.col -->
                 </div> <!-- /.form-group -->
+                
+                <div class="form-group">
+                  <label class="col-md-3">手机&nbsp;<span style="color: red">&#42;</label>
+                  <div class="col-md-7">
+                    {{ form.phone }}
+                    {% for err in form.phone.errors %}
+                      <span style="color: red">{{ err }}</span>
+                    {% endfor %}
+                  </div> <!-- /.col -->
+                </div> <!-- /.form-group -->
 
                 <div class="form-group">
                   <label class="col-md-3">主场</label>
@@ -213,15 +223,6 @@
                   </div> <!-- /.col -->
                 </div> <!-- /.form-group -->
 
-                <div class="form-group">
-                  <label class="col-md-3">手机</label>
-                  <div class="col-md-7">
-                    {{ form.phone }}
-                    {% for err in form.phone.errors %}
-                      <span style="color: red">{{ err }}</span>
-                    {% endfor %}
-                  </div> <!-- /.col -->
-                </div> <!-- /.form-group -->
 
                 <div class="form-group">
                   <label class="col-md-3">所属俱乐部</label>
