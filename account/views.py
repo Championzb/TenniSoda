@@ -108,7 +108,7 @@ def login(request):
 					if user.first_login:
 						return HttpResponseRedirect('/account/first_login/')
 					else:
-						return HttpResponseRedirect('/account/welcome_user/')
+						return HttpResponseRedirect('/game/league/')
 			else:
 				args = {}
 				request.session['email'] = email
