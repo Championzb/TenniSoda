@@ -308,7 +308,7 @@ def join_league_request(request):
 	subject, from_email, to = u'苏打联赛报名确认', settings.EMAIL_HOST_USER, request.user.email
 	html_content = email.render(Context({'username': user}))
 	
-	msg = EmailMultiAlternatives(subject, '您好', from_email, [to])
+	msg = EmailMultiAlternatives(subject, '网球苏打 - TenniSoda', from_email, [to])
 	msg.attach_alternative(html_content, "text/html")
 	msg.send()
 	
