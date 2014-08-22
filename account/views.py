@@ -216,6 +216,7 @@ def change_profile(request):
 			args['form'] = form
 			args['email'] = request.user.email
 			args['profile'] = request.user.profile
+			messages.success(request,u'修改资料成功！')
 			return render(request,'page-settings.html',args)
 	else:
 		user = request.user
