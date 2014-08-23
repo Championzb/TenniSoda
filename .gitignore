@@ -9,3 +9,7 @@ TenniSoda/.*/
 *.jpeg
 *.png
 assets/
+admin/
+bootstrap3_datetime/
+geoposition/
+.ropeproject/
