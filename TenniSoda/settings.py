@@ -82,6 +82,9 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.cache.UpdateCacheMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
 )
 
 ROOT_URLCONF = 'TenniSoda.urls'
@@ -197,3 +200,5 @@ AUTH_USER_MODEL = 'account.Account'
 AUTH_PROFILE_MODULE = 'account.UserProfile'
 
 SESSION_COOKIE_AGE = 1209600
+
+
