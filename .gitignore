@@ -8,6 +8,9 @@ TenniSoda/.*/
 *.jpg
 *.jpeg
 *.png
+*.JPG
+*.PNG
+*.JPEG
 assets/
 admin/
 bootstrap3_datetime/
