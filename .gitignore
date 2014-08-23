@@ -16,3 +16,4 @@ admin/
 bootstrap3_datetime/
 geoposition/
 .ropeproject/
+*.out
