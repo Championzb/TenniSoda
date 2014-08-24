@@ -102,7 +102,6 @@ def login(request):
 					except KeyError:
 						pass				
 				if request.POST['next']:
-					print 'HH'
 					return HttpResponseRedirect(request.POST['next'])
 				else:
 					if user.first_login:

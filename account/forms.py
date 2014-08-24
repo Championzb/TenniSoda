@@ -16,12 +16,17 @@ GENDER=(('1','男'),('0','女'))
 class UserProfileForm(forms.ModelForm):
 	last_name = forms.CharField(widget=forms.TextInput(attrs = {'class': 'form-control'}))
 	first_name = forms.CharField(widget=forms.TextInput(attrs = {'class': 'form-control'}))
-	level = forms.ChoiceField(widget=forms.Select(attrs = {'class': 'form-control'}), choices=LEVEL, required=False, )
+	level = forms.ChoiceField(widget=forms.Select(attrs = {'class': 'form-control'}), choices=LEVEL, required=True, )
 	gender = forms.ChoiceField(widget=forms.Select(attrs = {'class': 'form-control'}),choices=GENDER,required=False)
 	city = forms.ModelChoiceField(queryset=City.objects.all(), widget=forms.Select(attrs = {'class': 'form-control', 'id': 'city'}), required=False)
 	district = forms.ModelChoiceField(queryset=District.objects.all(), widget=forms.Select(attrs = {'class': 'form-control', 'id': 'district'}), required=False)
 	phone = CNCellNumberField(widget=forms.TextInput(attrs = {'class': 'form-control'}), required=True)
-	birth_date = forms.DateField(widget=forms.DateInput(attrs = {'class': 'form-control','type':'date'}), required=False)
+	birth_date = forms.DateField(input_formats=('%Y-%m-%d', '%m/%d/%Y', '%m/%d/%y', '%Y/%m/%d', '%Y %m %d', # '2006-10-25', '10/25/2006', '10/25/06'
+		'%b %d %Y', '%b %d, %Y',            # 'Oct 25 2006', 'Oct 25, 2006'
+		'%d %b %Y', '%d %b, %Y',            # '25 Oct 2006', '25 Oct, 2006'
+		'%B %d %Y', '%B %d, %Y',            # 'October 25 2006', 'October 25, 2006'
+		'%d %B %Y', '%d %B, %Y',            # '25 October 2006', '25 October, 2006'
+		), widget=forms.DateInput(attrs = {'class': 'form-control','type':'date'}), required=False)
 	#birth_date = forms.DateField(widget=DateTimePicker(options = {"format": "YYYY-MM-DD", "picktime": True}, attrs = {'id': 'datetimepicker'}), required=False)
 	court = forms.ModelChoiceField(queryset=Court.objects.all().order_by('id').reverse(), widget=forms.Select(attrs = {'class': 'form-control'}), required=False)
 	picture = forms.ImageField(widget=ImageWidget(attrs = {'class': 'form-control'}), required=False)

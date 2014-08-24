@@ -90,7 +90,7 @@
 			<hr>
 
 			<div class="row">
-				<div class="col-md-6 col-sm-6">
+				<div class="col-md-4 col-sm-4">
            			<i class="icon-li fa fa-sort-alpha-asc"></i>
            			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
            			{% if opponent_profile.level %}
@@ -99,26 +99,35 @@
            				未填等级
            			{% endif %}
 				</div><!-- /.col -->
-				<div class="col-md-6 col-sm-6">
+				<div class="col-md-8 col-sm-8">
+					<i class="icon-li fa fa-map-marker"></i>
+		   			
+		   			{% if opponent_profile.court %}
+		   				{{opponent_profile.court}}
+		   			{% else %}
+		   				未选主场
+		   			{% endif %}
+	   			</div><!-- /.col -->
+			</div><!-- /.row -->
+			<br>
+			<div class="row">
+				<div class="col-md-4 col-sm-4">
            			<i class="icon-li fa fa-globe"></i>
-           			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           			
            			{% if opponent_profile.city %}
            				{{opponent_profile.city}}
            			{% else %}
            				未选城市
            			{% endif %}
 				</div><!-- /.col -->
+				{% if opponent_profile.club %}
+				<div class="col-md-8 col-sm-8">
+					<i class="icon-li fa fa-trophy"></i>
+					{{opponent_profile.club}}
+				</div><!-- /.col -->
+				{% endif %}
 			</div><!-- /.row -->
-			<br/>
-			<p>
-	   			<i class="icon-li fa fa-map-marker"></i>
-	   			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-	   			{% if opponent_profile.court %}
-	   				{{opponent_profile.court}}
-	   			{% else %}
-	   				未选主场
-	   			{% endif %}
-			</p>
+			<br>
           <p>自我介绍：
           	{% if opponent_profile.self_introduction %}
            		{{opponent_profile.self_introduction}}

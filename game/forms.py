@@ -135,7 +135,12 @@ class GameGroupForm(forms.ModelForm):
 	city = forms.ModelChoiceField(queryset=City.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}), required=True)
 	# district = forms.ModelChoiceField(queryset=District.objects.all(), widget=forms.Select(attrs = {'class': 'form-control'}))
 	court = forms.ModelChoiceField(queryset=Court.objects.all().order_by('id').reverse(), widget=forms.Select(attrs = {'class': 'form-control'}), required=True)
-	date = forms.DateField( widget=forms.widgets.DateInput(attrs = {'class': 'form-control','type':'date'}), initial=datetime.now(), required=True)
+	date = forms.DateField(input_formats=('%Y-%m-%d', '%m/%d/%Y', '%m/%d/%y', '%Y/%m/%d', '%Y %m %d', # '2006-10-25', '10/25/2006', '10/25/06'
+		'%b %d %Y', '%b %d, %Y',            # 'Oct 25 2006', 'Oct 25, 2006'
+		'%d %b %Y', '%d %b, %Y',            # '25 Oct 2006', '25 Oct, 2006'
+		'%B %d %Y', '%B %d, %Y',            # 'October 25 2006', 'October 25, 2006'
+		'%d %B %Y', '%d %B, %Y',            # '25 October 2006', '25 October, 2006'
+		), widget=forms.widgets.DateInput(attrs = {'class': 'form-control','type':'date'}), initial=datetime.now(), required=True)
 	start_time = forms.TimeField(widget=forms.widgets.TimeInput(format = '%H:%M', attrs = {'class': 'form-control','type':'time',}), initial=datetime.now(), required=True)
 	last_hour = forms.IntegerField(min_value = 0, max_value = 12, widget=forms.NumberInput(attrs = {'class': 'form-control'}), initial=2, required=True)
 	level_low = forms.ChoiceField(widget=forms.Select(attrs = {'class': 'form-control'}),choices=LEVEL, initial=2, required=True)
