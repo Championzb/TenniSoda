@@ -214,7 +214,10 @@
                 </div> <!-- /.form-group -->
 
                 <div class="form-group">
-                  <label class="col-md-3">水平等级*</label>
+                  <label class="col-md-3">
+                  水平等级*&nbsp;&nbsp;&nbsp;
+                  <a href="{% static "assets/admin/page-rule.html" %}" target="_blank" class="valign-bottom"><i class="icon-li fa fa-question-circle"></i></a>
+                  </label>
                   <div class="col-md-7">
                     {{ form.level }}
                     {% for err in form.level.errors %}

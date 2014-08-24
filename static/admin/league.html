@@ -9,6 +9,8 @@
         {% if profile.last_name and profile.first_name and profile.phone and profile.level %}
             if (confirm("我已阅读联赛规则，承诺完成赛季所有比赛，并且将如实上传比分") == true){
             	window.location = "/game/join_league_request/";
+            } else {
+            
             }
         {% else %}
             alert("我们需要您的姓名，联系电话以及水平等级，这样才能方便联系您的对手并更好的为您安排联赛！");
@@ -47,7 +49,7 @@
 
     <div class="container">
       <div class="layout layout-stack-sm layout-main-left">
-        <div class="col-sm-8 col-md-9 layout-main">
+        <div class="col-sm-7 col-md-8 layout-main">
           {% if current_league %}
           <section class="demo-section">
 
@@ -161,23 +163,27 @@
           {% endif %}
         </div><!-- /.layout-main -->
 
-        <div class="col-sm-4 col-md-3 layout-sidebar">
-          <div class="portlet">
-          {% if has_request %}
-          	<a class="btn btn-primary btn-jumbo btn-block" onclick="cancelLeague()"> 取消报名</a>
-          {% else %}
-            {% if current_league %}
-              {% if current_league.is_finished %}
-                <a class="btn btn-primary btn-jumbo btn-block" onclick="checkProfile()">参加联赛</a>
-              {% else %}
-                <a class="btn btn-primary btn-jumbo btn-block disabled" onclick="checkProfile()">参加联赛</a>
-              {% endif %}
-            {% else %}
-              <a class="btn btn-primary btn-jumbo btn-block" onclick="checkProfile()">参加联赛</a>
-            {% endif %}
-          {% endif %}
-            <br>
-          </div> <!-- /.portlet -->
+        <div class="col-sm-5 col-md-4 layout-sidebar">
+        	<div class="row">
+        		<div class="col-sm-2 col-md-2">
+        		</div>
+		      	<div class="portlet col-sm-8 col-md-8">
+		      {% if has_request %}
+		      	<a class="btn btn-primary btn-jumbo btn-block" onclick="cancelLeague()"> 取消报名</a>
+		      {% else %}
+		        {% if current_league %}
+		          {% if current_league.is_finished %}
+		            <a class="btn btn-primary btn-jumbo btn-block" onclick="checkProfile()">参加联赛</a>
+		          {% else %}
+		            <a class="btn btn-primary btn-jumbo btn-block disabled" onclick="checkProfile()">参加联赛</a>
+		          {% endif %}
+		        {% else %}
+		          <a class="btn btn-primary btn-jumbo btn-block" onclick="checkProfile()">参加联赛</a>
+		        {% endif %}
+		      {% endif %}
+		        <br>
+		      </div> <!-- /.portlet -->          
+          </div><!-- /.row -->
 
           <h4>小贴士</h4>
 
