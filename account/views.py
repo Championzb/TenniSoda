@@ -436,11 +436,11 @@ def display_all_users(request):
 	all_users = []
 	
 	profile_set = Profile.objects.all()	
-	set_with_img = profile_set.exclude(picture__isnull=True).exclude(picture__exact='').order_by('user__last_login')
+	set_with_img = profile_set.exclude(picture__isnull=True).exclude(picture__exact='').order_by('user__last_login').reverse()
 	#set_with_phone = profile_set.exclude(user_id__in=set_with_img).exclude(phone__isnull=True).exclude(phone__exact='').order_by('user__last_login')
-	set_with_phone = profile_set.filter(Q(picture__isnull=True)|Q(picture__exact='')).exclude(phone__isnull=True).exclude(phone__exact='').order_by('user__last_login')
+	set_with_phone = profile_set.filter(Q(picture__isnull=True)|Q(picture__exact='')).exclude(phone__isnull=True).exclude(phone__exact='').order_by('user__last_login').reverse()
 	#set_all = profile_set.exclude(user_id__in=set_with_img).exclude(user_id__in=set_with_phone)
-	set_all = profile_set.filter((Q(picture__isnull=True)|Q(picture__exact='')),(Q(phone__isnull=True)|Q(phone__exact='')))
+	set_all = profile_set.filter((Q(picture__isnull=True)|Q(picture__exact='')),(Q(phone__isnull=True)|Q(phone__exact=''))).reverse()
 	all_users.extend(list(set_with_img))
 	all_users.extend(list(set_with_phone))
 	all_users.extend(list(set_all))
