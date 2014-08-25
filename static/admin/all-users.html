@@ -36,9 +36,9 @@
 		  			<div class="thumbnail">
 		  				<div class="text-center">
 						<div class="thumbnail-view">
-				 			<a href="/account/view_profile/{{user.id}}/" target="_blank" class="valign-middle">
-						    {% if user.profile.picture %}
-						  		<img src="{% get_static_prefix %}assets/{{user.profile.picture.url}}" style="width: 150px;height: 150px;" alt="Profile Image" />
+				 			<a href="/account/view_profile/{{user.user.id}}/" target="_blank" class="valign-middle">
+						    {% if user.picture %}
+						  		<img src="{% get_static_prefix %}assets/{{user.picture.url}}" style="width: 150px;height: 150px;" alt="Profile Image" />
 							{% else %}
 				  				<img src="{% static "assets/uploaded_files/default.jpg" %}" style="width: 150px;height: 150px;" alt="Profile Image" />
 							{% endif %}
@@ -48,28 +48,28 @@
 						<div class="caption">
 						    <h4 class="valign-middle">
 						    
-						    	<!--a href="/account/view_profile/{{user.id}}/" target="_blank">{{user.profile}}</a-->
-						    	{% ifequal user.profile.gender '0' %}
-									<a href="/account/view_profile/{{user.id}}/" target="_blank" style="color:#FF62B0">{{user.profile}}</a>
+						    	<!--a href="/account/view_profile/{{user.user.id}}/" target="_blank">{{user}}</a-->
+						    	{% ifequal user.gender '0' %}
+									<a href="/account/view_profile/{{user.user.id}}/" target="_blank" style="color:#FF62B0">{{user}}</a>
 								{% else %}
-									<a href="/account/view_profile/{{user.id}}/" target="_blank" style="color:#62A9FF">{{user.profile}}</a>
+									<a href="/account/view_profile/{{user.user.id}}/" target="_blank" style="color:#62A9FF">{{user}}</a>
 								{% endifequal %}
-								{% if user.profile.level %}
-						    		<i class="fa fa-signal" style="float:right;font-size:18px"> {{user.profile.level}}</i>
+								{% if user.level %}
+						    		<i class="fa fa-signal" style="float:right;font-size:18px"> {{user.level}}</i>
 						    	{% endif %}
 						    </h4>
                             <p>
                                 <i class="icon-li fa fa-globe"></i>
-                                {% if user.profile.city %}
-                                    {{user.profile.city}}
+                                {% if user.city %}
+                                    {{user.city}}
                                 {% else %}
                                     未选城市
                                 {% endif %}
                         	</p>
                             <p>
                                 <i class="icon-li fa fa-map-marker"></i>
-								{%if user.profile.court %}
-									{{user.profile.court}}
+								{%if user.court %}
+									{{user.court}}
 								{% else %}
 									未选主场
 								{% endif %}
@@ -81,13 +81,13 @@
 						    </div>
 
 						    <div class="pull-right">
-							  	{% ifequal user profile.user %}
+							  	{% ifequal user profile %}
 									<a href=""></a>
 								{% else %}
-									{% if user in following %}
-										<a href="/account/remove_follower/{{user.id}}/"><font color="grey"><i class="fa fa-check">&nbsp;已关注 |</font></i><font color="#0066CC"> 取消</font></a>
+									{% if user.user in following %}
+										<a href="/account/remove_follower/{{user.user.id}}/"><font color="grey"><i class="fa fa-check">&nbsp;已关注 |</font></i><font color="#0066CC"> 取消</font></a>
 									{% else %}
-										<a href="/account/add_follower/{{user.id}}/"><font color="#669933"><i class="fa fa-plus"><strong>&nbsp;&nbsp;关&nbsp;&nbsp;注&nbsp;&nbsp;</strong></i></font></a>
+										<a href="/account/add_follower/{{user.user.id}}/"><font color="#669933"><i class="fa fa-plus"><strong>&nbsp;&nbsp;关&nbsp;&nbsp;注&nbsp;&nbsp;</strong></i></font></a>
 									{% endif %}
 								{% endifequal %}
 						    </div>

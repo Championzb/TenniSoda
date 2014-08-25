@@ -409,11 +409,12 @@ def search(request):
 	search_result = []
 	search_result.extend(list(profile_set))
 	
-	account = Account.objects.get(email=keyword)
-	if account:
-		has_match = True
-		search_result = []
-		search_result.append(account.profile)
+	if keyword:
+		account = Account.objects.all().filter(email=keyword)
+		if account.count() > 0:
+			has_match = True
+			search_result = []
+			search_result.append(account[0].profile)
 		
 	args = {}
 	args.update(csrf(request))
@@ -432,7 +433,18 @@ def search(request):
 def display_all_users(request):
 	user = request.user
 	#all_users = Account.objects.all().exclude(id = user.id)
-	all_users = Account.objects.all()
+	all_users = []
+	
+	profile_set = Profile.objects.all()	
+	set_with_img = profile_set.exclude(picture__isnull=True).exclude(picture__exact='').order_by('user__last_login')
+	#set_with_phone = profile_set.exclude(user_id__in=set_with_img).exclude(phone__isnull=True).exclude(phone__exact='').order_by('user__last_login')
+	set_with_phone = profile_set.filter(Q(picture__isnull=True)|Q(picture__exact='')).exclude(phone__isnull=True).exclude(phone__exact='').order_by('user__last_login')
+	#set_all = profile_set.exclude(user_id__in=set_with_img).exclude(user_id__in=set_with_phone)
+	set_all = profile_set.filter((Q(picture__isnull=True)|Q(picture__exact='')),(Q(phone__isnull=True)|Q(phone__exact='')))
+	all_users.extend(list(set_with_img))
+	all_users.extend(list(set_with_phone))
+	all_users.extend(list(set_all))
+	
 	notifications = Notification.objects.filter(user=user, viewed=False).order_by('time').reverse()
 	page_number = request.GET.get('page','1')
 	following = Follow.objects.following(user)
